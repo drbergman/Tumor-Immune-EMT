@@ -100,7 +100,7 @@ This quality of mesenchymal cells is then quantified in our model by the paramet
 The other facet of mesenchymal cells of importance in this research is their slower proliferation rate, and this is tied to the observation that mesenchymal cells often express a more stem-like phenotype.
 Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions.
 While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate.
-In quantifying this property, we use the model parameter, MQ, for mesenchymal quiescence.
+In quantifying this property, we use the model parameter, MGA, for mesenchymal quiescence.
 This choice is less about associating this property with quiescence and more about creating a simple name that easily, if not roughly, captures the essence of what is being modeled.
 For example, while mesenchymal proliferation reduction might be a more accurate term, thinking in terms of a negative formulation adds one additional twist to accurately interpreting results which we felt was more detrimental than the possible confusion of invoking ``quiescence.''
 
@@ -323,13 +323,13 @@ Clearly, a certain subset of parameters have an outsized effect on the model whi
 The two most influential according to this analysis are related to Treg cells: their death rate and recruitment.
 This makes sense as Treg cells both suppress cytotoxic effects of other immune cells and also secrete significant quantities of TGF-$\beta$ which drives EMT.
 Thus, Treg cells are intimately tied to all three aspects of the model and so their presence or lack thereof significantly effects the system.
-However, we want to better isolate the effects of EMT on these dynamics, so parameters such as MIE and MQ are of interest.
+However, we want to better isolate the effects of EMT on these dynamics, so parameters such as MIE and MGA are of interest.
 In addition, inflammation parameters dictating the cycling scheme are interesting.
 What we can see from this plot is that the model also has some high sensitivity to these parameters.
 In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and so we will also look at that parameter.
 
 \subsection{Mesenchymal Cell Properties Dramatically Change Survival Outcomes}\label{MesPars}
-The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its increased quiescence, MIE and MQ, respectively.
+The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its increased quiescence, MIE and MGA, respectively.
 Also involved in the EMT process, is the cytokine TGF-$\beta$, which upregulates EMT.
 By the Morris OAT analysis presented in Section \ref{SensAnalysis}, these three parameters do have large impacts on survival outcomes and each warrant exploration.
 
@@ -342,7 +342,7 @@ These results are summarized by Figure \ref{fig:FirstSurvivalCurves}A.
 \center
 \frame{\includegraphics[width=\columnwidth]{Figure2/Figure2.pdf}}
 \caption{A. Increasing MIE decreases Time to Cancer. 
-B. Increasing MQ increases Time to Cancer.
+B. Increasing MGA increases Time to Cancer.
 C. Increasing Treg TGF-$\beta$ production results in decreased Time to Cancer.
 %% {\color{red} Cox regression or KM test statistics to be computed to demonstrate the significance of this claim.}\newline
 \newline
@@ -350,11 +350,11 @@ C. Increasing Treg TGF-$\beta$ production results in decreased Time to Cancer.
 \label{fig:FirstSurvivalCurves}
 \end{figure}
 
-Second, as mesenchymal quiescence (MQ) increases, Time to Cancer increases.
+Second, as mesenchymal growth arrest (MGA) increases, Time to Cancer increases.
 This result will prove to be more interesting as this pattern is dependent on the other parameters in the model.
 For now, what can be seen in Figure \ref{fig:FirstSurvivalCurves}B is that a slower proliferation for mesenchymal cells slows down cancer growth.
 This is not as intuitive as it may sound because this decreased proliferation affects both mutated and non-mutated cells.
-% It may be interesting to track how much MQ affects mutated vs. non-mutated cells throughout the time.
+% It may be interesting to track how much MGA affects mutated vs. non-mutated cells throughout the time.
 These results are summarized by Figure \ref{fig:FirstSurvivalCurves}B.
 
 Third, TGF-$\beta$ can be varied in two ways: the production by mesenchymal cells and the production by Treg cells.
@@ -368,7 +368,7 @@ Mesenchymal cells are more likely to evade the immune system, so pushing the sys
 Given the relevance of the inflammatory state of the tumor microenvironment (TME), we explore the effect of varying the inflammation state of the patient on survival.
 In particular, some cohorts are assigned permanently low inflammation, others permanently high, and still others non-constant inflammatory schemes.
 For those cohorts with a permanently high inflammatory state, the relationship between the mesenchymal parameters and the Time to Cancer is monotonic.
-However, when there are periods of a low inflammatory state, then intriguingly the connection between MQ and Time to Cancer becomes concave down with a local maximum around 0.3.
+However, when there are periods of a low inflammatory state, then intriguingly the connection between MGA and Time to Cancer becomes concave down with a local maximum around 0.3.
 What this indicates is that if the quiescence of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer and the time to death.
 Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way.
 See Figure \ref{fig:VaryINFL_and_MesPars}C and Figure \ref{fig:VaryINFL_and_MesPars}D for a summary.
@@ -378,7 +378,7 @@ See Figure \ref{fig:VaryINFL_and_MesPars}C and Figure \ref{fig:VaryINFL_and_MesP
 \frame{\includegraphics[width=\columnwidth]{Figure3/Figure3.pdf}}
 \caption{A.Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer decreases as MIE increases. In the bottom plot, there is no significant difference in survival.
 B. The average Time to Cancer for each cohort.
-C. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer reaches a maximum value somewhere near MQ = 0.3. In the bottom plot, there is no significant difference in survival.
+C. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer reaches a maximum value somewhere near MGA = 0.3. In the bottom plot, there is no significant difference in survival.
 D. The average Time to Cancer for each cohort.}
 \label{fig:VaryINFL_and_MesPars}
 \end{figure}
@@ -390,18 +390,18 @@ On the other hand, when the patient experiences at least some time in a low infl
 This indicates that reducing the inflammatory state of the patient is a necessity for increasing survival, and once that has been achieved, even to a small degree, then therapies which reduce mesenchymal immune evasion will gain efficacy.
 See Figure \ref{fig:VaryINFL_and_MesPars}A and Figure \ref{fig:VaryINFL_and_MesPars}B for a summary.
 
-\subsection{Heat Map of MIE vs MQ}
-To further draw out the contrast between these two mesenchymal properties, we compare Time to Cancer for many different pairs of values for MIE and MQ.
-The heat map in Figure \ref{fig:MIEvsMQ} concisely encodes the relationships we have been observing in the previous sections.
-Regardless of the value of MQ, increasing MIE leads to decreased Time to Cancer.
-On the other hand, for any value of MIE, then there is an optimal MQ value in the sense that it results in the longest Time to Cancer.
+\subsection{Heat Map of MIE vs MGA}
+To further draw out the contrast between these two mesenchymal properties, we compare Time to Cancer for many different pairs of values for MIE and MGA.
+The heat map in Figure \ref{fig:MIEvsMGA} concisely encodes the relationships we have been observing in the previous sections.
+Regardless of the value of MGA, increasing MIE leads to decreased Time to Cancer.
+On the other hand, for any value of MIE, then there is an optimal MGA value in the sense that it results in the longest Time to Cancer.
 It appears based on the plot that this value is around 0.28.
 
 \begin{figure}[H]
 \center
 \frame{\includegraphics[width=\columnwidth]{Figure4/MIEvsMQ.jpg}}
-\caption{Heat Map contrasting the effects of MIE and MQ on Time to Cancer. Increasing MIE always decreases Time to Cancer, but MQ is non-monotonically linked to Time to Cancer.}
-\label{fig:MIEvsMQ}
+\caption{Heat Map contrasting the effects of MIE and MGA on Time to Cancer. Increasing MIE always decreases Time to Cancer, but MGA is non-monotonically linked to Time to Cancer.}
+\label{fig:MIEvsMGA}
 \end{figure}
 
 \section{Discussion}\label{Discussion}
