@@ -319,8 +319,14 @@ To assess the sensitivity to the many model parameters, a Morris OAT algorithm w
 The parameters were all given Gaussian distributions centered at their initial value and a large standard deviation.
 Those that needed bounds were truncated.
 The results of the Morris OAT can be found in Figure \ref{fig:ModelIntro}D.
-Notice that the following parameters have the most global influence over the system.
-While it makes sense for such and such parameters to have large influences over patient outcomes, these fall outside of the scope of the current paper and instead it is preferable to focus on the following subset.
+Clearly, a certain subset of parameters have an outsized effect on the model while others do relatively little.
+The two most influential according to this analysis are related to Treg cells: their death rate and recruitment.
+This makes sense as Treg cells both suppress cytotoxic effects of other immune cells and also secrete significant quantities of TGF-$\beta$ which drives EMT.
+Thus, Treg cells are intimately tied to all three aspects of the model and so their presence or lack thereof significantly effects the system.
+However, we want to better isolate the effects of EMT on these dynamics, so parameters such as MIE and MQ are of interest.
+In addition, inflammation parameters dictating the cycling scheme are interesting.
+What we can see from this plot is that the model also has some high sensitivity to these parameters.
+In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and so we will also look at that parameter.
 
 \subsection{Mesenchymal Cell Properties Dramatically Change Survival Outcomes}\label{MesPars}
 The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its increased quiescence, MIE and MQ, respectively.
