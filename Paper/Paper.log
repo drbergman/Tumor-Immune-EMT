@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  10 JAN 2019 21:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 JAN 2019 08:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -263,10 +263,10 @@ Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 278.
 File: Figs/Figure2/Figure2.pdf Graphic file (type pdf)
 
 <use Figs/Figure2/Figure2.pdf>
-Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 315.
+Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 324.
 (pdftex.def)             Requested size: 345.0pt x 459.99867pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--321
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
 
  []
 
@@ -275,14 +275,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 321--321
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 350.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 359.
 (pdftex.def)             Requested size: 345.0pt x 218.54573pt.
  [12] [13 <./Figs/Figure3/Figure3.pdf>]
 <Figs/Figure4/MIEvsMQ.jpg, id=138, 1124.2pt x 843.15pt>
 File: Figs/Figure4/MIEvsMQ.jpg Graphic file (type jpg)
 
 <use Figs/Figure4/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 374.
+Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 383.
 (pdftex.def)             Requested size: 345.0pt x 258.74925pt.
  [14 <./Figs/Figure4/MIEvsMQ.jpg>] (./Paper.aux)
 
@@ -312,7 +312,7 @@ l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Paper.pdf (14 pages, 1949718 bytes).
+Output written on Paper.pdf (14 pages, 1948709 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams

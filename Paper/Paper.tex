@@ -285,6 +285,15 @@ D. Example of one simulated patient's dynamics. The warmup period for the model 
 
 \subsection{Exploring the Model}\label{ExplModel}
 Refer to Figure \ref{fig:ModelIntro}A for a cartoon of the model.
+Here, each cell is represented as a column with three components representing the three possible mutations a cell can have.
+If the component is red and has an `X' in the middle, then that indicates the cell has undergone a pathway mutation corresponding to the example cell on the right.
+If any component of a cell has a pathway mutation, that cell is then counted as a mutated cell and contributes towards the total number of cancer cells.
+Each cell also has a color along the EMT spectrum seen on the left of the cell block. 
+Biologically, cells can be anywhere along this continuum with research indicating there are several equilibria along the spectrum.
+In our model, this is actually just a binary and that is why the cells shown are at one extreme or the other of the spectrum.
+In the right half of Figure \ref{fig:ModelIntro}A one can see the cell cycle choices that each cell can make each cell cycle.
+These are the four thick, gray arrows.
+Each of the 
 For a typical {\it in silico} patient, see Figure \ref{fig:ModelIntro}D.
 Notice that at cell cycle number 541 the proportion of mutated cells reaches 50\% and so the patient has a Time to Cancer of 541.
 Also of interest, as the patient's cells are all rapidly mutating right around this time, most of them are also transitioning to a mesenchymal phenotype with all of them being in a mesenchymal phenotype for a short time during the time period that cancer onset occurs.
