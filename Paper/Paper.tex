@@ -291,12 +291,25 @@ If any component of a cell has a pathway mutation, that cell is then counted as 
 Each cell also has a color along the EMT spectrum seen on the left of the cell block. 
 Biologically, cells can be anywhere along this continuum with research indicating there are several equilibria along the spectrum.
 In our model, this is actually just a binary and that is why the cells shown are at one extreme or the other of the spectrum.
+
 In the right half of Figure \ref{fig:ModelIntro}A one can see the cell cycle choices that each cell can make each cell cycle.
 These are the four thick, gray arrows.
-Each of the 
-For a typical {\it in silico} patient, see Figure \ref{fig:ModelIntro}D.
+Each of the cells will choose which arrow to follow each cell cycle, and this decision is influenced by the properties of the cell as well as external factors like the immune system and the TME.
+The inset on the left gives an overview of how the immune system works.
+The dashed arrows indicate that the action is probabilistic rather than deterministic.
+In other words, the cytotoxic cells will randomly clear some subset of mutated cells and TGF-$\beta$ increases the probability of cell transitioning or staying in a mesenchymal state.
+
+For a typical {\it in silico} patient, see Figure \ref{fig:ModelIntro}B.
 Notice that at cell cycle number 541 the proportion of mutated cells reaches 50\% and so the patient has a Time to Cancer of 541.
+Once the Time to Cancer has been determined for a patient, most simulations shown later stop.
+We do this because once such a high proportion of cells have mutated, the mutant cells quickly take over and make up 100\% of all cells.
 Also of interest, as the patient's cells are all rapidly mutating right around this time, most of them are also transitioning to a mesenchymal phenotype with all of them being in a mesenchymal phenotype for a short time during the time period that cancer onset occurs.
+
+Considering the immune populations, notice that the NK population basically stays constant while the lymphocyte populations quickly dwarf the NK population once cells begin to mutate.
+These lymphocyte populations exhibit oscillatory behavior but this is an artifact of the inflammation scheme this patient is undergoing.
+Every 30 cell cycles the inflammation changes from High to Low or vice versa.
+In these roughly month-long periods, the lymphocyte populations increase or decrease rapidly in accordance with this inflammation.
+
 Finally, considering a cohort of $N=500$ patients, we can generate a survival curve for these patients tracking how many have survived cancer-free up to a give day.
 See Figure \ref{fig:ModelIntro}C for such a survival curve.
 In this curve, we see that all patients survive for some minimum amount of time before a time period a nearly constant cancer onset rate roughly between $T = 100$ and $T = 300$.

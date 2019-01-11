@@ -1,3 +1,6 @@
+RescaledTreg -> 2018-11-07_02
+SinglePatient -> 2019-01-11_01
+
 OneSurvivalCurve -> probably 2018-07-25_01 one of them
 
 VaryMIE_BigChange_old -> 2018-08-15_04
