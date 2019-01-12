@@ -62,7 +62,7 @@ Herein, we explore the interconnectedness of these three key systems: the tumor,
 In addition to the interactions already discussed, the immune system affects and is affected by EMT.
 The immune system affects EMT by releasing a flurry of cytokines upon arrival in the TME. Ref 
 In particular, regulatory T cells (Tregs) release copious quantities of the EMT-driving transforming growth factor beta (TGF-$\beta$). Ref 
-Conversely, the EMTed cells in the tumor downregulate certain surface markers making it more difficult for cytotoxic immune cells to form the immune synapse necessary to lyse the cancer cell.
+Conversely, the mesenchymal cells in the tumor downregulate certain surface markers making it more difficult for cytotoxic immune cells to form the immune synapse necessary to lyse the cancer cell.
 Taking these three aspects together, all influencing the others, we can consider the simple diagram in Figure \ref{fig:3PartFig} and see just how much potential there is for exploring all these relationships.
 Each of these three pieces will be briefly explored in turn for how they will influence one another.
 
@@ -72,12 +72,12 @@ The tumor influences the immune system by its presence and by the cellular proce
 On the one hand, the mutated DNA of tumor cells results in these cells being recognized as foreign by members of the innate immune system such as natural killer (NK) cells and dendritic cells.
 It is then these cells that initiate the cascade of cytokines that result in the full activation of the body's immune system to fight the non-self cells.
 On the other hand, the tumor cells actively work to shape the immune response that the body launches.
-This is accomplished through its own set of cytokines, such as transforming growth factor beta (TGF-$\beta$), that work to create a tumor-supportive environment, including shifting the immune balance to be immunosuppressive by enhancing the recruitment of T regulatory (Treg) cells. Since TGF-$\beta$ is also a driver of EMT, then through direct release of TGF-$\beta$ and recruitment of TGF-$\beta$-secreting Treg cells, cells of the tumor and the surrounding tissue are driven towards a more mesenchymal profile. 
+This is accomplished through its own set of cytokines, such as transforming growth factor beta (TGF-$\beta$), that work to create a tumor-supportive environment, including shifting the immune balance to be immunosuppressive by enhancing the recruitment of Tregs. Since TGF-$\beta$ is also a driver of EMT, then through direct release of TGF-$\beta$ and recruitment of TGF-$\beta$-secreting Treg cells, cells of the tumor and the surrounding tissue are driven towards a more mesenchymal profile. 
 
 
 \subsection{The Immune System}\label{TheImmuneSystem}
 The immune system has several competing interactions with the tumor.
-While the cytotoxic immune cells, NKs and [define!] CTLs, seek out and lyse tumor cells, the regulatory branch of the immune system, Tregs, slows down the effector functions of these other cells.
+While the cytotoxic immune cells, NKs and cytotoxic T cells (CTLs), seek out and lyse tumor cells, the regulatory branch of the immune system, Tregs, slows down the effector functions of these other cells.
 
 These Tregs also drive the EMT process by releasing TGF-$\beta$ upon arriving at the tumor site.
 
@@ -132,7 +132,7 @@ Add differential equations? % Adam suggested this, but I'm not sure what this me
 % I think this comment applied to the next section: add the equations describing immune system
 
 \subsection{The Immune System}\label{ImmuneSystem}
-The immune system is modeled as having three active immune cell types: Natural Killer cells (NKs), cytotoxic T cells (CTLs), and T regulatory cells (Tregs).
+The immune system is modeled as having three active immune cell types: NKs, CTLs, and Tregs.
 The NKs and CTLs act on the system by recognizing mutated cells and clearing them.
 Should they clear a cell, they themselves are then deactivated and removed from the immune population.
 Tregs act on the system by suppressing the effector functions of NKs and CTLs, making it less likely they can clear mutated cells.
@@ -217,8 +217,8 @@ First, the NK and CTL populations are reduced by the number of mutated cells the
 This represents the fact that individual immune cells have a limited amount of efficacy.
 
 Also, all proliferating cells have a probability of undergoing a pathway mutation.
-If they do, one is randomly chosen among the three and that one either mutates or remains mutated.
-If they do not mutate, then their probability of mutating increases. [??]
+If they do, one pathway is randomly chosen among the three and is mutated.
+If the cell does not undergo a mutation, then its probability of mutating during subsequent cell increases. [**]
 
 Then, the EMT values for each cell is updated.
 This depends on how much TGF-$\beta$ is currently in the system.
@@ -228,8 +228,8 @@ $$ \text{TGFB}_i = \text{TGFB}/N + X_i, \quad X_i \sim N(0,\sigma^2)  $$
 
 where $\sigma$ is a parameter in the model.
 This quantity is then compared to $2-\text{EMT}_i$ where $\text{EMT}_i$ is the EMT score of the $i^{th}$ cell on a scale of $[0,1]$ with $0$ representing most epithelial and $1$ representing most mesenchymal.
-If $\text{TGFB}_i>2-\text{EMT}_i$, the cell is EMTed and will have a higher EMT score.
-If $\text{TGFB}_i<2-\text{EMT}_i$, the cell is METed and will have a lower EMT score.
+If $\text{TGFB}_i>2-\text{EMT}_i$, the cell becomes more mesenchymal and will have a higher EMT score.
+If $\text{TGFB}_i<2-\text{EMT}_i$, the cell becomes more epithelial and will have a lower EMT score.
 The reason for the expression $2-\text{EMT}_i$ can be understood this way: 
 the bounds on the EMT score guarantee $2-\text{EMT}_i\in[1,2]$.
 Hence, there either needs to be a lot of TGF-$\beta$ in the system or a large amount of randomness for a cell to undergo EMT.
