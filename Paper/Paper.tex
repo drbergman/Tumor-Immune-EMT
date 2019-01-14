@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{amsmath}
+\usepackage{cite}
 
 %% The following should allow me to make subsubsubsections with the command \paragraph{}
 \usepackage{titlesec}
@@ -48,8 +49,8 @@ Together, these results indicate that the joint regulation of the TME by the imm
 
 \section{Introduction}
 Immunotherapy is slowly revolutionizing how we treat cancer.
-Year-by-year, more breakthroughs in the field produce effective new drugs and therapies that are having a significant impact on patient health and survival. (Restifo 2012)  [examples] 
-There are myriad untapped avenues by which scientists can further explore the role of the immune system in regulating and combatting cancer; in addition to direct cell-cell interactions between immune and cancer cells, the means by which immune cells interact with and modulate the tumor microenvironment (TME) is an important research area. Immune cells can be understood as one constituent of the TME: responding to the environment's inflammatory signals, fighting the mutated cells present, and then restoring homeostasis in that local context. (De Visser 2006)
+Year-by-year, more breakthroughs in the field produce effective new drugs and therapies that are having a significant impact on patient health and survival\cite{restifo2012adoptive}.  [examples] 
+There are myriad untapped avenues by which scientists can further explore the role of the immune system in regulating and combatting cancer; in addition to direct cell-cell interactions between immune and cancer cells, the means by which immune cells interact with and modulate the tumor microenvironment (TME) is an important research area. Immune cells can be understood as one constituent of the TME: responding to the environment's inflammatory signals, fighting the mutated cells present, and then restoring homeostasis in that local context\cite{de2006paradoxical}.
 Understanding each step in this immune cascade in the context of the TME will be paramount in fully exploring and exploiting all options for immunotherapy.
 
 Recent work on cancer-immune interactions has shown that the inflammatory conditions of the TME can play large and sometimes surprising roles in tumor growth.
@@ -60,14 +61,14 @@ In this paper, we hope to improve the model by including a more robust immune mo
 In addition, we explore an extra component of Guo's stem cells: where they lie on the epithelial-mesenchymal axis.
 
 Epithelial-to-mesenchymal transition (EMT) describes the (reversible) cell plasticity process by which epithelial cells transition into mesenchymal cells.
-EMT has an important yet complicated role in tumor initiation, progression, and metastasis. (Nieto 2016) % References more specific to this claim might be in this paper's references. 
-As mesenchymal cells often exhibit stem-like properties, their existence has been tied to the initiation and progression of cancer. (Nieto 2016) % References more specific to this claim might be in this paper's references.
-Also, due to their motility, some have viewed them as a natural precursor to metastasis. (Alderton 2012) 
+EMT has an important yet complicated role in tumor initiation, progression, and metastasis\cite{nieto2016emt}. % References more specific to this claim might be in this paper's references. 
+As mesenchymal cells often exhibit stem-like properties, their existence has been tied to the initiation and progression of cancer\cite{nieto2016emt}. % References more specific to this claim might be in this paper's references.
+Also, due to their motility, some have viewed them as a natural precursor to metastasis\cite{alderton2012metastasis}. 
 
 Herein, we explore the interconnectedness of these three key systems: the tumor, the immune system, and EMT.
 In addition to the interactions already discussed, the immune system affects and is affected by EMT.
-The immune system affects EMT by releasing a flurry of cytokines upon arrival in the TME. (Terry 2017) 
-In particular, regulatory T cells (Tregs) release copious quantities of the EMT-driving transforming growth factor beta (TGF-$\beta$). (Terry 2017) 
+The immune system affects EMT by releasing a flurry of cytokines upon arrival in the TME \cite{terry2017new}. 
+In particular, regulatory T cells (Tregs) release copious quantities of the EMT-driving transforming growth factor beta (TGF-$\beta$)\cite{terry2017new}. 
 Conversely, the mesenchymal cells in the tumor downregulate certain surface markers making it more difficult for cytotoxic immune cells to form the immune synapse necessary to lyse the cancer cell.
 Taking these three aspects together, all influencing the others, we can consider the simple diagram in Figure \ref{fig:3PartFig} and see just how much potential there is for exploring all these relationships.
 Each of these three pieces will be briefly explored in turn for how they will influence one another.
@@ -90,12 +91,12 @@ These Tregs also drive the EMT process by releasing TGF-$\beta$ upon arriving at
 \subsection{EMT}\label{EMT}
 There are many characteristics distinctive of mesenchymal cells and still much research being done in further quantifying these and determining others.
 Of interest here, the literature shows two qualities of mesenchymal cells that are of interest particularly in the context of cancer and the immune system.
-The first is that mesenchymal cells are less susceptible to immune clearance. (Terry 2017) 
+The first is that mesenchymal cells are less susceptible to immune clearance\cite{terry2017new}. 
 The second is that mesenchymal cells proliferate at a slower rate. Ref % Adam said he had a reference in mind for this.
 
 The research on mesenchymal cells' immune evasiveness is quite conclusive with the research even going so far as establishing functional causes for this phenomenon.
-Once cytotoxic immune cells, for example NKs and CTLs, have targeted a cell to lyse, they necessarily must make a physical connection with that cell, termed an immunological synapse. (Terry 2017) 
-However, there is preliminary evidence that due to down-regulated surface markers on mesenchymal cells among other structural changes, they are refractory to this immunological task thus rendering them less susceptible to immune clearance. (Terry 2017) % 
+Once cytotoxic immune cells, for example NKs and CTLs, have targeted a cell to lyse, they necessarily must make a physical connection with that cell, termed an immunological synapse\cite{terry2017new}. 
+However, there is preliminary evidence that due to down-regulated surface markers on mesenchymal cells among other structural changes, they are refractory to this immunological task thus rendering them less susceptible to immune clearance\cite{terry2017new}. % 
 In line with known motility of mesenchymal cells, scientists have referred to this condition as mesenchymal cells being ``slippery.''
 This quality of mesenchymal cells is then quantified in our model by the parameter, MIE, for mesenchymal immune evasion.
 
@@ -305,7 +306,7 @@ If the component is red and has an `X' in the middle, then that indicates the ce
 Any cell that has a pathway mutation is counted as a mutated cell and contributes towards the total number of cancer cells.
 The EMT score of each cell (denoting position along the EMT spectrum) is associated with a color given by the legend to the left of the cell block. 
 In the model the EMT spectrum is continuous.
-While biologically, there may be only a few discrete stable cell states available on the EMT spectrum, recent studies highlight a growing number of states accessible, with research indicating there are several equilibria along the spectrum. (Hong 2015)
+While biologically, there may be only a few discrete stable cell states available on the EMT spectrum, recent studies highlight a growing number of states accessible, with research indicating there are several equilibria along the spectrum\cite{hong2015ovol2}.
 In our model, this is actually just a binary and that is why the cells shown are at one extreme or the other of the spectrum.
 
 In the right half of Figure \ref{fig:ModelIntro}A one can see the cell cycle choices that each cell can make each cell cycle.
@@ -431,5 +432,8 @@ In light of this, it might be good to include a new section on how TGF-$\beta$ p
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusion}\label{Conclusion}
+
+\bibliography{mybib}{}
+\bibliographystyle{siam}
 
 \end{document}
