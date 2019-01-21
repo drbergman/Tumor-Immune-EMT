@@ -9,6 +9,12 @@
   of the immune system during cancer development}, Nature reviews cancer, 6
   (2006), p.~24.
 
+\bibitem{guo2017multiscale}
+{\sc Y.~Guo, Q.~Nie, A.~L. MacLean, Y.~Li, J.~Lei, and S.~Li}, {\em Multiscale
+  modeling of inflammation-induced tumorigenesis reveals competing oncogenic
+  and onco-protective roles for inflammation}, Cancer research,  (2017),
+  pp.~canres--1662.
+
 \bibitem{hong2015ovol2}
 {\sc T.~Hong, K.~Watanabe, C.~H. Ta, A.~Villarreal-Ponce, Q.~Nie, and X.~Dai},
   {\em An ovol2-zeb1 mutual inhibitory circuit governs bidirectional and
@@ -18,6 +24,10 @@
 \bibitem{nieto2016emt}
 {\sc M.~A. Nieto, R.~Y.-J. Huang, R.~A. Jackson, and J.~P. Thiery}, {\em Emt:
   2016}, Cell, 166 (2016), pp.~21--45.
+
+\bibitem{pardoll2012blockade}
+{\sc D.~M. Pardoll}, {\em The blockade of immune checkpoints in cancer
+  immunotherapy}, Nature Reviews Cancer, 12 (2012), p.~252.
 
 \bibitem{restifo2012adoptive}
 {\sc N.~P. Restifo, M.~E. Dudley, and S.~A. Rosenberg}, {\em Adoptive
