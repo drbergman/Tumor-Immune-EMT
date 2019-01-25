@@ -50,7 +50,7 @@ Together, these results indicate that the joint regulation of the TME by the imm
 \section{Introduction}
 Immunotherapy is slowly revolutionizing how we treat cancer.
 Year-by-year, new breakthroughs in the field produce new, effective drugs and therapies that have a significant impact on patient health and survival\cite{pardoll2012blockade}\cite{restifo2012adoptive}.
-% More examples? Reviews or non-reviews? Explain some of the examples?
+%A More examples? Reviews or non-reviews? Explain some of the examples?
 There are myriad untapped avenues by which scientists can further explore the role of the immune system in regulating and combatting cancer; in addition to direct cell-cell interactions between immune and cancer cells, the means by which immune cells interact with and modulate the tumor microenvironment (TME) is an important research area. Immune cells can be understood as one constituent of the TME: responding to the environment's inflammatory signals, fighting the mutated cells present, and then restoring homeostasis in that local context\cite{de2006paradoxical}.
 Understanding each step in this immune cascade in the context of the TME will be necessary in order to fully explore and exploit all options of immunotherapy.
 
@@ -83,7 +83,9 @@ They have thus become a subject of great interest in cancer research having been
 There are many other characteristics distinctive of mesenchymal cells and still much research being done in further quantifying these and determining others.
 Of interest to us, the literature reveals two qualities of mesenchymal cells that are particularly relevant in the context of cancer and the immune system.
 The first is that mesenchymal cells are less susceptible to immune clearance\cite{terry2017new}. 
-The second is that mesenchymal cells proliferate at a slower rate. Ref % Adam said he had a reference in mind for this.
+%
+The second is that mesenchymal cells proliferate at a slower rate. Ref
+ %A Adam said he had a reference in mind for this.
 
 The research on mesenchymal cells' immune evasiveness is quite conclusive with the research even going so far as establishing functional causes for this phenomenon.
 As a cell is being targeted by cytotoxic immune cells for clearance, a physical connection between the two cells must be created in order to precipitate the lysing event.
@@ -164,7 +166,9 @@ The EMT score will be exposited in Section \ref{EMT}. % make sure this is really
 \subsection{The Immune System}\label{ImmuneSystem}
 The immune system is modeled as having three active immune cell types: NKs, CTLs, and Tregs.
 The NKs and CTLs act on the system by recognizing mutated cells and clearing them.
-Upon successful clearance, they themselves are then deactivated and removed from the immune population. % Should this be justified here or mentioned in the intro?
+%A Should this be justified here or mentioned in the intro?
+Upon successful clearance, they themselves are then deactivated and removed from the immune population.
+%
 Tregs act on the system by suppressing the effector functions of NKs and CTLs, making it less likely they can clear mutated cells.
 In addition to this, Tregs release TGF-$\beta$ which further shapes the TME by pushing tissues cells more towards a mesenchymal phenotype.
 
@@ -191,14 +195,13 @@ During each cell cycle, every cell randomly is assigned a cell fate from the fol
 \item proliferation
 \item apoptosis
 \item immune clearance (by NKs or CTLs)
-\item rest/$G_0$ % use both here?
+\item rest/$G_0$ %A use both here?
 \end{itemize}
 
 For each cell, a weight is chosen for each option and these are normalized to probabilities which then are used to randomly determine what each cell does during the cell cycle.
 
 \paragraph{Proliferation}
 There are four factors that contribute to the probability that a cell will proliferate.
-% 
 The first is a base proliferation probability that all cells have, $p$.
 Second, if the cell has a mutation in the proliferation pathway, then the weight for proliferation is proportionally increased by $\text{prolif}_{\text{up}}$.
 Third, if the cell is mesenchymal, then the weight for proliferation is proportionally decreased by $m_{GA}$, which stands for mesenchymal growth arrest.
@@ -224,32 +227,35 @@ Fourth, there is a decreasing Hill factor based on the number of Treg cells pres
 Finally, there are two factors that proportionally decrease the weight of immune clearance depending on if the cell has an immune evasion mutation or if it is mesenchymal.
 In total, the weight of NK clearance is given by
 
-$$ p_{\text{NK}} =\delta_M \frac{\text{NK}}{N/N_{1}+\text{NK}} E_{\text{NK}} \frac{1}{1+\text{Treg}/\text{Treg}_{\text{EC50}}} \cdot $$
-$$ \qquad(1-\delta_{IEM}\text{IE}_{\text{up}})(1-\delta_{MES}m_{\text{IE}})$$
+$$ p_{\text{NK}} =\delta_M \frac{\text{NK}}{N/N_{1}+\text{NK}}  \frac{E_{\text{NK}}}{1+\text{Treg}/\text{Treg}_{\text{EC50}}} (1-\delta_{IEM}\text{IE}_{\text{up}})(1-\delta_{MES}m_{\text{IE}}) $$
+%$$\qquad\qquad \qquad(1-\delta_{IEM}\text{IE}_{\text{up}})(1-\delta_{MES}m_{\text{IE}})$$
 % Should I worry about the order in which these appear? Rearranging would make the formula look better, but the order I have introduced them makes the most sense.
 % Also, any thoughts on NK, CTL, Treg not being italicized? While other capital letters are?
 
 A similar formula holds for CTLs with only the number of CTLs and their efficacy being different from the above equation.
 
 
-\paragraph{Rest/$G_0$} %use both for this section heading?
+\paragraph{Rest/$G_0$} %A use both for this section heading?
 The weight associated with quiescence is taken as 1 except in the case of Mesenchymal cells.
 For Mesenchymal cells, the weight lost to proliferation is added to the weight of quiescence.
 Hence, the weight of quiescence is given by
 
-$$ p_{G0} = 1 + \delta_{\text{MES}}p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})m_{GA}\frac{N_0}{N_0+N} $$ %p_{G_0},p_{rest},p_{\text{rest}},p_{GA}???
+$$ p_{G0} = 1 + \delta_{\text{MES}}p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})m_{GA}\frac{N_0}{N_0+N} $$ 
+%A style choice: p_{G_0},p_{rest},p_{\text{rest}},p_{GA}???
 
-The reason for adding that term is due to the understanding that mesenchymal cells are not proliferating as fast because they are instead remaining in the $G_0$ phase. % is this the right way to word this?
+The reason for adding that term is due to the understanding that mesenchymal cells are not proliferating as fast because they are instead remaining in the $G_0$ phase. %A is this the right way to word this?
 
 \subsubsection{Completing the Cell Cycle}
 After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
 First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
-This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. % Similar to previous comment: should I cite reference for this here or put this up in the intro?
-
+%A Similar to previous comment: should I cite reference for this here or put this up in the intro?
+This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
+%
 Also, all proliferating cells have a probability of undergoing a pathway mutation.
 If they do, one is randomly chosen among the three and that one either mutates or remains mutated.
-If the cell does not undergo a mutation, then its probability of mutating during subsequent cell increases. % Updated this after Adam had question. Does this make sense as is?
-
+%A Updated this after Adam had question. Does this make sense as is?
+If the cell does not undergo a mutation, then its probability of mutating during subsequent cell increases. 
+%
 Then, the EMT values for each cell is updated.
 This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
 Each cell receives an amount of TGF-$\beta$ given by
@@ -262,6 +268,9 @@ If not, then the cell undergoes the reverse process, MET, and its EMT score will
 Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
 
 
+
+
+\emph{Adam, if you're just reading the PDF, then know that I'm really not sure if this next paragraph belongs in the paper.}
 
 %%%%%%%%%	I think this next section is too much detail that just confuses the reader. I don't think I need to explain my implementation, just the process. Thoughts?	%%%%%%%%%%%%%%%%%%%%
 This quantity is then compared to $2-\text{EMT}_i$ where $\text{EMT}_i$ is the EMT score of the $i^{th}$ cell on a scale of $[0,1]$ with $0$ representing most epithelial and $1$ representing most mesenchymal.
@@ -287,7 +296,7 @@ $$ \text{NK}' = \sigma_{\text{NK}} - d_{\text{NK}}\text{NK} $$
 
 which is discretized to
 
-
+\emph{Adam, if you are reading the PDF, you will see the same equations multiple times as I figure out which one I like best.}
 
 %%% I like the first of these two options. You set aside the amount you know you will gain (sigma/d) and then let the rest decay exponentially
 $$ \text{NK}_{k+1} = \left (\text{NK}_k-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} $$
@@ -385,14 +394,14 @@ Simulations run until either a tumorigenic event is recorded or until the maximu
 B. Example simulation of the dynamics of a one patient; warmup period is shown in red.
 The inflammation cycling scheme is graphically represented above the patient dynamics.
 C. Example survival curve for one cohort of patients with basal parameter values.
-% Should I list out all parameter values? A subset? Or refer to supplement for base parameter values?
+%A Should I list out all parameter values? A subset? Or refer to supplement for base parameter values?
 D. Global sensitivity analysis of model parameters using the Morris one-step-at-a-time method.}
 \label{fig:ModelIntro}
 \end{figure}
 
 \subsection{Exploring the Model}\label{ExplModel}
 In Figure \ref{fig:ModelIntro}A a schematic description of the model is shown.
-% It seems the rest of this paragraph belongs in the Methods section, yeah?
+%A It seems the rest of this paragraph belongs in the Methods section, yeah?
 Here, each cell is represented as a column with three components representing the three possible mutations a cell can have.
 If the component is red and has an `X' in the middle, then that indicates the cell has undergone a pathway mutation corresponding to the annotation to the right of the cell block.
 Any cell that has a pathway mutation is counted as a mutated cell and contributes towards the total number of cancer cells.
@@ -401,7 +410,7 @@ In the model the EMT score is continuous but the labeling of epithelial or mesen
 
 
 
-% This next commented out paragraph seems to belong somewhere, but where? I would think in the Intro.
+%A This next commented out paragraph seems to belong somewhere, but where? I would think in the Intro.
 
 %While biologically, there may be only a few discrete stable cell states available on the EMT spectrum, recent studies highlight a growing number of states accessible, with research indicating there are several equilibria along the spectrum\cite{hong2015ovol2}.
 %In our model, this is actually just a binary and that is why the cells shown are at one extreme or the other of the spectrum.
@@ -418,7 +427,7 @@ In other words, the cytotoxic cells will randomly clear some subset of mutated c
 For a typical {\it in silico} patient, see Figure \ref{fig:ModelIntro}B.
 The inflammation cycling scheme shown at the top of Figure \ref{fig:ModelIntro}B is repeated throughout.
 We will return to this shortly.
-It is at cell cycle number 541 the proportion of mutated cells reaches 50\% and so the patient has a Time to Cancer of 541, which translates to 405.75 days. % translate to days like this?
+It is at cell cycle number 541 the proportion of mutated cells reaches 50\% and so the patient has a Time to Cancer of 541, which translates to 405.75 days. %A translate to days like this?
 At the same time as mutated cells are taking over, most cells are transitioning to a mesenchymal phenotype.
 After the Time to Cancer, the mutated cells continue their rapid growth and soon make up 100\% of the cells.
 Meanwhile, all the cells become mesenchymal for a short duration before most transition back to an epithelial state.
@@ -435,10 +444,9 @@ See Figure \ref{fig:ModelIntro}C for such a survival curve.
 In this curve, we see that all patients survive for some minimum amount of time before a time period a nearly constant cancer onset rate roughly between $T = 100$ and $T = 300$.
 
 \subsection{Sensitivity Analysis}\label{SensAnalysis}
-% 
 To assess the sensitivity of the model to the 31 model parameters, a Morris OAT algorithm was implemented.
 The algorithm works by running the model many successive times with exactly one parameter changing between each run\cite{morris1991factorial}\cite{sohier2014improvement}.
-% is the above description sufficient? The first source is Morris's original paper and the second is the source of the particular implementation I found
+%A is the above description sufficient? The first source is Morris's original paper and the second is the source of the particular implementation I found
 The parameters were all given Gaussian distributions centered at their initial value and a large standard deviation.
 Those that needed bounds were truncated.
 The results of the Morris OAT can be found in Figure \ref{fig:ModelIntro}D.
@@ -495,7 +503,7 @@ However, when there are periods of a low inflammatory state, then intriguingly t
 This can be seen in the top two groups of Figure \ref{fig:VaryINFL_and_MesPars}D in which the MGA=0.3 cohorts both took longer to cancer than their neighbors.
 What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
 Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way.
-% Is this next sentence necessary?
+%A Is this next sentence necessary?
 See Figure \ref{fig:VaryINFL_and_MesPars}C and Figure \ref{fig:VaryINFL_and_MesPars}D for a summary.
 
 \begin{figure}[H]
@@ -513,7 +521,7 @@ Regardless of the cycling scheme, the relationship between Time to Cancer and MI
 In the case that the inflammatory state is permanently high, MIE has no significant effect on Time to Cancer.
 On the other hand, when the patient experiences at least some time in a low inflammatory state, an increase in MIE results in a decrease in Time to Cancer.
 This indicates that mitigating a chronic inflammatory state is a necessity for increasing survival, and once that has been achieved, even to a small degree, then therapies which reduce mesenchymal immune evasion will gain efficacy.
-% Is this next sentence necessary?
+%A Is this next sentence necessary?
 See Figure \ref{fig:VaryINFL_and_MesPars}A and Figure \ref{fig:VaryINFL_and_MesPars}B for a summary.
 
 \subsection{Heat Map of MIE vs MGA}
@@ -562,7 +570,7 @@ There is still much work to be done further isolating this effect in computer si
 This model explored much more than mesenchymal growth arrest, so a simpler model could make this point clearer.
 On the other hand, models which incorporate more distinctions between epithelial and mesenchymal cells could give better clarity on the relative importance of these and reveal a fuller picture about how a mesenchymal subpopulation affects cancer outcomes.
 
-% Adam, do you know of any?
+%A Adam, do you know of any?
 The authors are not aware of current treatments that specifically target mesenchymal growth arrest, influencing it in one direction or another.
 %
 Based on these results, this could prove to be a promising direction for research, in particular for cancers in which it is known that mesenchymal cells are present and active within the tumor.
