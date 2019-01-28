@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/drbergman/master
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
@@ -46,6 +47,8 @@ while$ -- 34
 width$ -- 9
 write$ -- 74
 =======
+=======
+>>>>>>> master
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Paper.aux
@@ -94,4 +97,7 @@ while$ -- 0
 width$ -- 0
 write$ -- 0
 (There were 3 error messages)
+<<<<<<< HEAD
 >>>>>>> edits up to Results S2
+=======
+>>>>>>> master
