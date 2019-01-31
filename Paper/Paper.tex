@@ -60,7 +60,8 @@ This particular cytokine is also a driver of the epithelial-to-mesenchymal trans
 In this way, the tumor shifts the balance of local environment along the EMT spectrum.
 
 The immune system has several competing interactions with the tumor.
-While the cytotoxic immune cells, NKs and cytotoxic T cells (CTLs), seek out and lyse tumor cells, the regulatory branch of the immune system, which will be accounted for by Tregs in our model, slows down the effector functions of these other cells.
+While the cytotoxic immune cells, NKs and cytotoxic T cells (CTLs), seek out and lyse tumor cells, the regulatory branch of the immune system, which will be accounted for by Tregs in our model, slows down the effector functions of these other cells. % Make sure there's some ref for immune clearing tumor
+% Also, add that as immune cells clear tumor cells, they become deactivated and give source
 
 In relation to EMT, the Tregs of the immune system drive the EMT process by releasing TGF-$\beta$ upon arriving at the tumor site\cite{terry2017new}.
 In this way, just as the tumor cells push the TME towards a mesenchymal phenotype, so too do the Tregs.
@@ -154,10 +155,7 @@ The EMT score will be exposited in Section \ref{EMT}. % make sure this is really
 \subsection{The Immune System}\label{ImmuneSystem}
 The immune system is modeled as having three active immune cell types: NKs, CTLs, and Tregs.
 The NKs and CTLs act on the system by recognizing mutated cells and clearing them.
-% A Should this be justified here or mentioned in the intro?
-% AM: justifed no; Intro yes
 Upon successful clearance, they themselves are then deactivated and removed from the immune population.
-%
 Tregs act on the system by suppressing the effector functions of NKs and CTLs, making it less likely they can clear mutated cells.
 In addition to this, Tregs release TGF-$\beta$ which further shapes the TME by pushing tissues cells more towards a mesenchymal phenotype.
 
@@ -184,7 +182,7 @@ During each cell cycle, every cell randomly is assigned a cell fate from the fol
 \item proliferation
 \item apoptosis
 \item immune clearance (by NKs or CTLs)
-\item rest in $G_0$ %A use both here? - % AM: change to 'rest in' everywhere
+\item rest in $G_0$
 \end{itemize}
 
 For each cell, a weight is chosen for each option and these are normalized to probabilities which then are used to randomly determine what each cell does during the cell cycle.
@@ -224,7 +222,7 @@ $$ p_{\text{NK}} =\delta_M \frac{\text{NK}}{N/N_{1}+\text{NK}}  \frac{E_{\text{N
 A similar formula holds for CTLs with only the number of CTLs and their efficacy being different from the above equation.
 
 
-\paragraph{Rest in $G_0$} %A use both for this section heading?
+\paragraph{Rest in $G_0$} 
 The weight associated with quiescence is taken as 1 except in the case of Mesenchymal cells.
 For Mesenchymal cells, the weight lost to proliferation is added to the weight of quiescence.
 Hence, the weight of quiescence is given by
@@ -232,20 +230,19 @@ Hence, the weight of quiescence is given by
 $$ p_{rest} = 1 + \delta_{\text{MES}}p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})m_{GA}\frac{N_0}{N_0+N} $$ 
 %YA style choice: p_{G_0},p_{rest},p_{\text{rest}},p_{GA}???
 
-The reason for adding that term is due to the understanding that overall mesenchymal cells proliferate less as individual cells remain longer in the $G_0$ phase. %YA is this the right way to word this?
+The reason for adding that term is due to the understanding that overall mesenchymal cells proliferate less as individual cells rest longer in the $G_0$ phase.
 
 \subsubsection{Completing the Cell Cycle}
 After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
 First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
-% A Similar to previous comment: should I cite reference for this here or put this up in the intro?
-% AM no need for extra here: just in intro
 This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
 %
 All proliferating cells have a nonzero probability of undergoing a pathway mutation.
-If they do, one is randomly chosen among the three and that one either mutates or remains mutated.
+If they do, one is randomly chosen among the three pathways and the pathway in that cell mutates.
 % A Updated this after Adam had question. Does this make sense as is?
 % AM I don't understnad 'remains mutated'
-If the cell does not undergo a mutation, then its probability of mutation during subsequent cell increases. 
+% If the pathway selected was one that already had a mutation, then nothing happens. 
+If the cell does not undergo a mutation, then its probability of mutation during subsequent cell cycles increases. 
 %
 Then, the EMT values for each cell is updated.
 This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
@@ -257,21 +254,20 @@ where $\sigma$ is a parameter in the model.
 If this quantity is large enough, relative to the EMT score of the cell, then the cell will undergo EMT and its EMT score will increase.
 If not, then the cell undergoes the reverse process, MET, and its EMT score will decrease.
 Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
+Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: quantity of TGF-$\beta$ in the system and the current EMT score of the cell.
 
 
-
-
-\emph{Adam, if you're just reading the PDF, then know that I'm really not sure if this next paragraph belongs in the paper.}
 
 %%%%%%%%%	I think this next section is too much detail that just confuses the reader. I don't think I need to explain my implementation, just the process. Thoughts?	%%%%%%%%%%%%%%%%%%%%
 % AM: yes, remove or shorten to one sentence at end of previous para.
-This quantity is then compared to $2-\text{EMT}_i$ where $\text{EMT}_i$ is the EMT score of the $i^{th}$ cell on a scale of $[0,1]$ with $0$ representing most epithelial and $1$ representing most mesenchymal.
-If $\text{TGFB}_i>2-\text{EMT}_i$, the cell becomes more mesenchymal and will have a higher EMT score.
-If $\text{TGFB}_i<2-\text{EMT}_i$, the cell becomes more epithelial and will have a lower EMT score.
-The reason for the expression $2-\text{EMT}_i$ can be understood this way: 
-the bounds on the EMT score guarantee $2-\text{EMT}_i\in[1,2]$.
-Hence, there either needs to be a lot of TGF-$\beta$ in the system or a large amount of randomness for a cell to undergo EMT.
-In addition, a cell having a higher EMT score will have a higher chance of continuing in the EMT process whereas a cell low on the EMT spectrum will have a higher chance of moving towards a more epithelial phenotype.
+
+%This quantity is then compared to $2-\text{EMT}_i$ where $\text{EMT}_i$ is the EMT score of the $i^{th}$ cell on a scale of $[0,1]$ with $0$ representing most epithelial and $1$ representing most mesenchymal.
+%If $\text{TGFB}_i>2-\text{EMT}_i$, the cell becomes more mesenchymal and will have a higher EMT score.
+%If $\text{TGFB}_i<2-\text{EMT}_i$, the cell becomes more epithelial and will have a lower EMT score.
+%The reason for the expression $2-\text{EMT}_i$ can be understood this way: 
+%the bounds on the EMT score guarantee $2-\text{EMT}_i\in[1,2]$.
+%Hence, there either needs to be a lot of TGF-$\beta$ in the system or a large amount of randomness for a cell to undergo EMT.
+%In addition, a cell having a higher EMT score will have a higher chance of continuing in the EMT process whereas a cell low on the EMT spectrum will have a higher chance of moving towards a more epithelial phenotype.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -288,20 +284,18 @@ $$ \text{NK}' = \sigma_{\text{NK}} - d_{\text{NK}}\text{NK} $$
 
 which is discretized to
 
-\emph{Adam, if you are reading the PDF, you will see the same equations multiple times as I figure out which one I like best.}
-
 %%% I like the first of these two options. You set aside the amount you know you will gain (sigma/d) and then let the rest decay exponentially
 % AM yes first one 
 $$ \text{NK}_{k+1} = \left (\text{NK}_k-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} $$
 
 %%% For this one, the initial decays exponentially and then you add some fraction of sigma/d depending on how big your time step is
-$$ \text{NK}_{k+1} = \text{NK}_k\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \left(1-\exp(-d_{\text{NK}}\Delta t)\right)$$
+%$$ \text{NK}_{k+1} = \text{NK}_k\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \left(1-\exp(-d_{\text{NK}}\Delta t)\right)$$
 %%% The first one is better though in my opinion.
 
 % For all 3 discretizations of immune cell dynamics, I could create a quantity R_* (for recruitment? maybe better letters exist) so the formula would be 
 % *_{k+1} = (*_k-R_*)\exp(-d_*\Delta t)+R_*,\quad R_*=\frac{\sigma_*}{d_*}
 %% Option 1b from above:
-$$\text{NK}_{k+1} = (\text{NK}_k-R_\text{NK})\exp(-d_\text{NK}\Delta t)+R_\text{NK},\quad R_\text{NK}=\frac{\sigma_\text{NK}}{d_\text{NK}}$$
+%$$\text{NK}_{k+1} = (\text{NK}_k-R_\text{NK})\exp(-d_\text{NK}\Delta t)+R_\text{NK},\quad R_\text{NK}=\frac{\sigma_\text{NK}}{d_\text{NK}}$$
 
 
 
