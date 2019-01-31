@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< refs/remotes/drbergman/master
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  25 JAN 2019 10:16
@@ -7,6 +8,9 @@ This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.6)  11 JAN 2019 16:02
 >>>>>>> master
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  30 JAN 2019 20:05
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -326,12 +330,16 @@ Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 284.
 File: Figs/Figure2/Figure2.pdf Graphic file (type pdf)
 
 <use Figs/Figure2/Figure2.pdf>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< refs/remotes/drbergman/master
 Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 475.
 =======
 Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 341.
 >>>>>>> master
+=======
+Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 474.
+>>>>>>> Stashed changes
 (pdftex.def)             Requested size: 345.0pt x 459.99867pt.
  [12] [13 <./Figs/Figure2/Figure2.pdf, page is rotated 90 degrees>] <Figs/Figur
 e3/Figure3.pdf, id=119, 1027.84pt x 651.08865pt>
@@ -339,6 +347,7 @@ File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <<<<<<< HEAD
 <use Figs/Figure3/Figure3.pdf>
+<<<<<<< Updated upstream
 Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 512.
 =======
 Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 341.
@@ -360,12 +369,16 @@ Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 376.
 >>>>>>> edits up to Results S2
 =======
 >>>>>>> master
+=======
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 511.
+>>>>>>> Stashed changes
 (pdftex.def)             Requested size: 345.0pt x 218.54573pt.
  [14] [15 <./Figs/Figure3/Figure3.pdf>]
 <Figs/Figure4/MIEvsMQ.jpg, id=146, 1124.2pt x 843.15pt>
 File: Figs/Figure4/MIEvsMQ.jpg Graphic file (type jpg)
 
 <use Figs/Figure4/MIEvsMQ.jpg>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< refs/remotes/drbergman/master
 Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 537.
@@ -375,6 +388,9 @@ Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 400.
 =======
 Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 400.
 >>>>>>> master
+=======
+Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 536.
+>>>>>>> Stashed changes
 (pdftex.def)             Requested size: 345.0pt x 258.74925pt.
  [16 <./Figs/Figure4/MIEvsMQ.jpg>] (./Paper.bbl
 [17]
@@ -407,6 +423,7 @@ r7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
 fb>
+<<<<<<< Updated upstream
 Output written on Paper.pdf (18 pages, 2374820 bytes).
 =======
 =======
@@ -436,6 +453,9 @@ Output written on Paper.pdf (15 pages, 1950834 bytes).
 =======
 Output written on Paper.pdf (15 pages, 1950925 bytes).
 >>>>>>> master
+=======
+Output written on Paper.pdf (18 pages, 2374800 bytes).
+>>>>>>> Stashed changes
 PDF statistics:
  200 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
