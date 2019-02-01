@@ -34,6 +34,7 @@ Together, these results indicate that the joint regulation of the TME by the imm
 %                    INTRODUCTION                    %
 %%%%%%%%%%%%%%%%%%%%%%%
 
+
 \section{Introduction}
 Immunotherapy is slowly revolutionizing how we treat cancer.
 Year-by-year, new breakthroughs in the field produce new, effective drugs and therapies that have a significant impact on patient health and survival\cite{pardoll2012blockade}\cite{restifo2012adoptive}.
@@ -68,6 +69,7 @@ In this way, just as the tumor cells push the TME towards a mesenchymal phenotyp
 
 Epithelial-to-mesenchymal transition (EMT) describes the (reversible) cell plasticity process by which epithelial cells transition into mesenchymal cells.
 While the epithelial cells often stay bound together in layers, mesenchymal cells have gained motility and even stem-like properties\cite{nieto2016emt}.
+Recent research by Hong has revealed the intriguing possibility that there are four stable equilibria along the EMT spectrum with each state having its own unique properties\cite{hong2015ovol2}.
 They have thus become a subject of great interest in cancer research having been connected to tumor initiation, progression, and metastasis\cite{nieto2016emt}.
 There are many other characteristics distinctive of mesenchymal cells and still much research being done in further quantifying these and determining others.
 Of interest to us, the literature reveals two qualities of mesenchymal cells that are particularly relevant in the context of cancer and the immune system.
@@ -129,11 +131,21 @@ We analyze the competing effects of EMT and of the immune system on tumorigenesi
 %                         METHODS                        %
 %%%%%%%%%%%%%%%%%%%%%%%
 
+% This paragraph needs to find a home in this section somewhere
+Here, each cell is represented as a column with three components representing the three possible mutations a cell can have.
+If the component is red and has an `X' in the middle, then that indicates the cell has undergone a pathway mutation corresponding to the annotation to the right of the cell block.
+Any cell that has a pathway mutation is counted as a mutated cell and contributes towards the total number of cancer cells.
+The EMT score of each cell (denoting position along the EMT spectrum) is associated with a color given by the legend to the left of the cell block. 
+In the model the EMT score is continuous but the labeling of epithelial or mesenchymal is a binary determined by being below or above a threshold.
 
 \section{Methods}
 To address the questions around the relationships among cancer, the immune system, and EMT, we extended the multiscale, agent-based model of Guo to include an immune module and an EMT axis for the tissue cells.
 The agents in the model are the tissue cells with tumorigenic potential.
 They can either be mutation-free, or have any combination of three possible pathway mutations.
+These three pathways are the three components within each cell in Figure \ref{fig:ModelIntro}A.
+If the pathway is mutated, the component is colored red and has an `X'.
+A single mutation is sufficient for the cell being counted as a mutant cell.
+
 We model the immune cells as discrete variables but as one collective, in other words they are not agents themselves.
 The cytokine TGF-$\beta$ is a continuous variables within the tumor microenvironment (TME).
 It is worth noting that there is no spatial aspect to this model.
@@ -192,10 +204,10 @@ There are four factors that contribute to the probability that a cell will proli
 The first is a base proliferation probability that all cells have, $p$.
 Second, if the cell has a mutation in the proliferation pathway, then the weight for proliferation is proportionally increased by $\text{prolif}_{\text{up}}$.
 Third, if the cell is mesenchymal, then the weight for proliferation is proportionally decreased by $m_{GA}$, which stands for mesenchymal growth arrest.
-Fourth, there is a negative feedback of the cells on their own proliferation which is quantified by a Hill factor.
+Fourth, there is a negative feedback of the cells on their own proliferation which is quantified by a Hill factor as a function of the tissue cell population, $N$.
 In total, the weight for proliferation is given by
 
-$$ p_{\text{prolif}} = p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})(1-\delta_{MES}m_{GA})\frac{N_0}{N_0+N} $$
+$$ p_{prolif} = p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})(1-\delta_{MES}m_{GA})\frac{N_0}{N_0+N} $$
 
 \paragraph{Apoptosis}
 There are two factors that contribute to a cell's weight for undergoing apoptosis.
@@ -203,7 +215,7 @@ There is a basal apoptosis rate that all cells experience, $d$ for death.
 Second, if the cell has a mutation in the apoptosis pathway, then the weight for undergoing apoptosis is proportionally decreased by $\text{apop}_{\text{down}}$.
 In total, the weight for apoptosis is given by 
 
-$$ p_{\text{apop}} = d(1-\delta_{\text{AM}}\text{apop}_{\text{down}}) $$
+$$ p_{apop} = d(1-\delta_{\text{AM}}\text{apop}_{\text{down}}) $$
 
 \paragraph{Immune Clearance}
 For both NK clearance and CTL clearance, the weights are built with the same factors but have different parameter values for NK and CTLs.
@@ -215,7 +227,6 @@ Finally, there are two factors that proportionally decrease the weight of immune
 In total, the weight of NK clearance is given by
 
 $$ p_{\text{NK}} =\delta_M \frac{\text{NK}}{N/N_{1}+\text{NK}}  \frac{E_{\text{NK}}}{1+\text{Treg}/\text{Treg}_{\text{EC50}}} (1-\delta_{IEM}\text{IE}_{\text{up}})(1-\delta_{MES}m_{\text{IE}}) $$
-%$$\qquad\qquad \qquad(1-\delta_{IEM}\text{IE}_{\text{up}})(1-\delta_{MES}m_{\text{IE}})$$
 % Should I worry about the order in which these appear? Rearranging would make the formula look better, but the order I have introduced them makes the most sense.
 % Also, any thoughts on NK, CTL, Treg not being italicized? While other capital letters are?
 
@@ -228,7 +239,6 @@ For Mesenchymal cells, the weight lost to proliferation is added to the weight o
 Hence, the weight of quiescence is given by
 
 $$ p_{rest} = 1 + \delta_{\text{MES}}p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})m_{GA}\frac{N_0}{N_0+N} $$ 
-%YA style choice: p_{G_0},p_{rest},p_{\text{rest}},p_{GA}???
 
 The reason for adding that term is due to the understanding that overall mesenchymal cells proliferate less as individual cells rest longer in the $G_0$ phase.
 
@@ -236,14 +246,9 @@ The reason for adding that term is due to the understanding that overall mesench
 After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
 First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
 This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
-%
 All proliferating cells have a nonzero probability of undergoing a pathway mutation.
 If they do, one is randomly chosen among the three pathways and the pathway in that cell mutates.
-% A Updated this after Adam had question. Does this make sense as is?
-% AM I don't understnad 'remains mutated'
-% If the pathway selected was one that already had a mutation, then nothing happens. 
 If the cell does not undergo a mutation, then its probability of mutation during subsequent cell cycles increases. 
-%
 Then, the EMT values for each cell is updated.
 This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
 Each cell receives an amount of TGF-$\beta$ given by
@@ -256,26 +261,9 @@ If not, then the cell undergoes the reverse process, MET, and its EMT score will
 Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
 Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: quantity of TGF-$\beta$ in the system and the current EMT score of the cell.
 
+Next, the amount of TGF-$\beta$ for the next cell cycle is determined by the number of mutated cells, $M$, and the number of Treg cells, each one producing a fixed amount of TGF-$\beta$. It is given by
 
-
-%%%%%%%%%	I think this next section is too much detail that just confuses the reader. I don't think I need to explain my implementation, just the process. Thoughts?	%%%%%%%%%%%%%%%%%%%%
-% AM: yes, remove or shorten to one sentence at end of previous para.
-
-%This quantity is then compared to $2-\text{EMT}_i$ where $\text{EMT}_i$ is the EMT score of the $i^{th}$ cell on a scale of $[0,1]$ with $0$ representing most epithelial and $1$ representing most mesenchymal.
-%If $\text{TGFB}_i>2-\text{EMT}_i$, the cell becomes more mesenchymal and will have a higher EMT score.
-%If $\text{TGFB}_i<2-\text{EMT}_i$, the cell becomes more epithelial and will have a lower EMT score.
-%The reason for the expression $2-\text{EMT}_i$ can be understood this way: 
-%the bounds on the EMT score guarantee $2-\text{EMT}_i\in[1,2]$.
-%Hence, there either needs to be a lot of TGF-$\beta$ in the system or a large amount of randomness for a cell to undergo EMT.
-%In addition, a cell having a higher EMT score will have a higher chance of continuing in the EMT process whereas a cell low on the EMT spectrum will have a higher chance of moving towards a more epithelial phenotype.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-Next, the amount of TGF-$\beta$ for the next cell cycle is determined by the number of mutated cells and the number of Treg cells, each one producing a fixed amount of TGF-$\beta$. It is given by
-
-$$ \text{TGFB}_k = \text{tgfb}_{\text{mut}}M_k + \text{tgfb}_{\text{Treg}}\text{Treg}_k$$ % clear that M is number of mutants, right?
+$$ \text{TGFB} = \text{tgfb}_{\text{mut}}M + \text{tgfb}_{\text{Treg}}\text{Treg}$$ % clear that M is number of mutants, right?
 
 Finally, the immune populations are updated.
 For the NKs, they obey the following differential equation:
@@ -283,22 +271,8 @@ For the NKs, they obey the following differential equation:
 $$ \text{NK}' = \sigma_{\text{NK}} - d_{\text{NK}}\text{NK} $$
 
 which is discretized to
-
-%%% I like the first of these two options. You set aside the amount you know you will gain (sigma/d) and then let the rest decay exponentially
-% AM yes first one 
+ 
 $$ \text{NK}_{k+1} = \left (\text{NK}_k-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} $$
-
-%%% For this one, the initial decays exponentially and then you add some fraction of sigma/d depending on how big your time step is
-%$$ \text{NK}_{k+1} = \text{NK}_k\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \left(1-\exp(-d_{\text{NK}}\Delta t)\right)$$
-%%% The first one is better though in my opinion.
-
-% For all 3 discretizations of immune cell dynamics, I could create a quantity R_* (for recruitment? maybe better letters exist) so the formula would be 
-% *_{k+1} = (*_k-R_*)\exp(-d_*\Delta t)+R_*,\quad R_*=\frac{\sigma_*}{d_*}
-%% Option 1b from above:
-%$$\text{NK}_{k+1} = (\text{NK}_k-R_\text{NK})\exp(-d_\text{NK}\Delta t)+R_\text{NK},\quad R_\text{NK}=\frac{\sigma_\text{NK}}{d_\text{NK}}$$
-
-
-
 
 
 %%%% Which of these two paragraphs is better? Currently the intro does not mention APCs and I don't think I need to go into that, especially when APC_k = \tilde{M}_k
@@ -320,52 +294,10 @@ Discretized, these are:
 & & \frac{\sigma_{\text{Treg}}\tilde{M}_k}{d_{\text{Treg}}} \frac{\text{TGFB}}{1+\text{TGFB}/\text{EC50}}
 \end{align*}
 
-%% Or using R_*
-\begin{align*}
-\text{CTL}_{k+1} & =\left (\text{CTL}_k-\tilde{M}_kR_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \tilde{M}_kR_{\text{CTL}}\\
-\text{Treg}_{k+1} & =\left (\text{Treg}_k-\tilde{M}_kR_{\text{Treg}}\right )\exp(-d_{\text{Treg}}\Delta t)+\tilde{M}_kR_{\text{Treg}}
-\end{align*}
-where
-\begin{align*}
-R_{\text{CTL}} &= \sigma_{\text{CTL}}/d_{\text{CTL}}\\
-R_{\text{Treg}} &=\frac{\sigma_{\text{Treg}}}{d_{\text{Treg}}} \frac{\text{TGFB}}{1+\text{TGFB}/\text{EC50}}
-\end{align*}
-%% End of option 1
-
-%% Beginning of option 2
-For CTLs and Tregs, however, they rely on antigen presenting cells (APCs) to be activated, and these APCs in turn rely on mutated cells being cleared so that they can bind antigens.
-In addition, Treg recruitment is upregulated by TGF-$\beta$, which will be incorporated via a Hill function.
-Thus, let $\text{APC}$ represent the number of mutated cells cleared by the immune system during a given cycle.
-We choose the following differential equations to govern the CTL and Treg populations:
-
-\begin{align*}
-\text{CTL}' & = \sigma_{\text{CTL}}\text{APC} - d_{\text{CTL}}\text{CTL} \\
-\text{Treg}' & = \sigma_{\text{Treg}}\text{APC} \frac{\text{TGFB}}{1+\text{TGFB}/\text{EC50}}- d_{\text{Treg}}\text{Treg}
-\end{align*}
-
-Discretized, these are:
-
-\begin{align*}
-\text{CTL}_{k+1} & = & \left (\text{CTL}_k-\sigma_{\text{CTL}}\text{APC}_k/d_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \sigma_{\text{CTL}}\text{APC}_k/d_{\text{CTL}}\\
-\text{Treg}_{k+1} & = & \left (\text{Treg}_k-\frac{\sigma_{\text{Treg}}\text{APC}_k}{d_{\text{Treg}}} \frac{\text{TGFB}_k}{1+\text{TGFB}_k/\text{EC50}}\right )\exp(-d_{\text{Treg}}\Delta t)+\\
-& & \frac{\sigma_{\text{Treg}}\text{APC}_k}{d_{\text{Treg}}} \frac{\text{TGFB}_k}{1+\text{TGFB}_k/\text{EC50}}
-\end{align*}
-%% End of option 2
-
-
-
-
-
 \subsubsection{Progression and tumorigenesis}
 At the end of each cell cycle, the proportion of tissue cells that are mutated is calculated, and if it is above a certain threshold, a tumorigenic event is recorded and the patient is determined to have cancer (using a similar strategy to Guo).
 The Time to Cancer is given as the time from the start of the simulation, not including warmup, until tumorigenesis.
 Simulations run until either a tumorigenic event is recorded or until the maximum number of cycles has been reached.
-%It is also possible with the right combination of parameters, to have patients run out of cells entirely.
-%The model does not distinguish between these patients and those that have a cancer diagnosis.
-%The reason is that these patients have succumb to some combination of inflammatory and mutagenic events.
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -388,27 +320,7 @@ D. Global sensitivity analysis of model parameters using the Morris one-step-at-
 
 \subsection{Exploring the Model}\label{ExplModel}
 In Figure \ref{fig:ModelIntro}A a schematic description of the model is shown.
-% A It seems the rest of this paragraph belongs in the Methods section, yeah?
-% AM : yes
-Here, each cell is represented as a column with three components representing the three possible mutations a cell can have.
-If the component is red and has an `X' in the middle, then that indicates the cell has undergone a pathway mutation corresponding to the annotation to the right of the cell block.
-Any cell that has a pathway mutation is counted as a mutated cell and contributes towards the total number of cancer cells.
-The EMT score of each cell (denoting position along the EMT spectrum) is associated with a color given by the legend to the left of the cell block. 
-In the model the EMT score is continuous but the labeling of epithelial or mesenchymal is a binary determined by being below or above a threshold.
-
-
-
-% A This next commented out paragraph seems to belong somewhere, but where? I would think in the Intro.
-% AM: yes in intro
-
-%While biologically, there may be only a few discrete stable cell states available on the EMT spectrum, recent studies highlight a growing number of states accessible, with research indicating there are several equilibria along the spectrum\cite{hong2015ovol2}.
-%In our model, this is actually just a binary and that is why the cells shown are at one extreme or the other of the spectrum.
-
-
-
-In the right half of Figure \ref{fig:ModelIntro}A one can see the cell cycle choices that each cell will make each cell cycle.
-These are the four thick, gray arrows.
-Each of the cells will choose which arrow to follow each cell cycle, and this decision is influenced by the properties of the cell as well as external factors like the immune system and the TME.
+In the right half of Figure \ref{fig:ModelIntro}A one can see the cell cycle choices that each cell will make each cell cycle and how the various components of the model will influence these probabilities.
 The inset on the left gives an overview of how the immune system works.
 The dashed arrows indicate that the action is probabilistic rather than deterministic.
 In other words, the cytotoxic cells will randomly clear some subset of mutated cells and TGF-$\beta$ increases the probability of cell transitioning or staying in a mesenchymal state.
@@ -420,8 +332,6 @@ It is at cell cycle number 541 the proportion of mutated cells reaches 50\% and 
 At the same time as mutated cells are taking over, most cells are transitioning to a mesenchymal phenotype.
 After the Time to Cancer, the mutated cells continue their rapid growth and soon make up 100\% of the cells.
 Meanwhile, all the cells become mesenchymal for a short duration before most transition back to an epithelial state.
-% Once the Time to Cancer has been determined for a patient, most simulations shown later stop. [??? mean to say: we stop the simulation?]
-%We do this because once such a high proportion of cells have mutated, the mutant cells quickly take over and make up 100\% of all cells.
 
 Considering the immune populations, notice that the NK population basically stays constant while the lymphocyte populations quickly dwarf the NK population once cells begin to mutate.
 These lymphocyte populations appear to exhibit oscillatory behavior, however this is not due to intrinsic dynamics but rather due to the inflammation scheme that this patient is undergoing: 
@@ -435,8 +345,6 @@ In this curve, we see that all patients survive for some minimum amount of time 
 \subsection{Sensitivity Analysis}\label{SensAnalysis}
 To assess the sensitivity of the model to the 31 model parameters, a Morris OAT algorithm was implemented.
 The algorithm works by running the model many successive times with exactly one parameter changing between each run\cite{morris1991factorial}\cite{sohier2014improvement}.
-% A is the above description sufficient? The first source is Morris's original paper and the second is the source of the particular implementation I found
-% AM: yes fine 
 The parameters were all given Gaussian distributions centered at their initial value and a large standard deviation.
 Those that needed bounds were truncated.
 The results of the Morris OAT can be found in Figure \ref{fig:ModelIntro}D.
@@ -475,7 +383,6 @@ Second, as mesenchymal growth arrest (MGA) increases, Time to Cancer increases.
 This result will prove to be more interesting as this pattern is dependent on the other parameters in the model.
 For now, what can be seen in Figure \ref{fig:FirstSurvivalCurves}B is that a slower proliferation for mesenchymal cells slows down cancer growth.
 This is not as intuitive as it may sound because this decreased proliferation affects both mutated and non-mutated cells.
-% It may be interesting to track how much MGA affects mutated vs. non-mutated cells throughout the time.
 These results are summarized by Figure \ref{fig:FirstSurvivalCurves}B.
 
 Third, TGF-$\beta$ can be varied in two ways: the production by mesenchymal cells and the production by Treg cells.
@@ -483,7 +390,6 @@ In Figure \ref{fig:FirstSurvivalCurves}C, the results of varying Treg TGF-$\beta
 This is expected as the two main ways in which TGF-$\beta$ influences the system is in recruitment of Treg cells and in pushing tissue cells to a mesenchymal phenotype.
 Treg cells are modeled as tumor-protective and thus increasing their number will naturally decrease Time to Cancer.
 Mesenchymal cells are more likely to evade the immune system, so pushing the system towards an overall more mesenchymal phenotype will better protect the cancer and decrease the Time to Cancer.
-% But what happens when MIE is really high to begin with so becoming mesenchymal mostly just makes you proliferate slower? Perhaps that can go in a supplementary figure?
 
 \subsection{Key EMT regime maximizes cancer-free survival time under chronic inflammation}\label{KeyEMT}
 Given the relevance of the inflammatory state of the tumor microenvironment (TME), we explore the effect of varying the inflammation state of the patient on survival.
@@ -493,9 +399,6 @@ However, when there are periods of a low inflammatory state, then intriguingly t
 This can be seen in the top two groups of Figure \ref{fig:VaryINFL_and_MesPars}D in which the MGA=0.3 cohorts both took longer to cancer than their neighbors.
 What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
 Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way.
-% A Is this next sentence necessary?
-% AM: can remove it 
-See Figure \ref{fig:VaryINFL_and_MesPars}C and Figure \ref{fig:VaryINFL_and_MesPars}D for a summary.
 
 \begin{figure}[H]
 \center
@@ -512,9 +415,6 @@ Regardless of the cycling scheme, the relationship between Time to Cancer and MI
 In the case that the inflammatory state is permanently high, MIE has no significant effect on Time to Cancer.
 On the other hand, when the patient experiences at least some time in a low inflammatory state, an increase in MIE results in a decrease in Time to Cancer.
 This indicates that mitigating a chronic inflammatory state is a necessity for increasing survival, and once that has been achieved, even to a small degree, then therapies which reduce mesenchymal immune evasion will gain efficacy.
-% A Is this next sentence necessary?
-% AM: remove
-See Figure \ref{fig:VaryINFL_and_MesPars}A and Figure \ref{fig:VaryINFL_and_MesPars}B for a summary.
 
 \subsection{Heat Map of MIE vs MGA}
 To further draw out the contrast between these two mesenchymal properties, we compare Time to Cancer for many different pairs of values for MIE and MGA.

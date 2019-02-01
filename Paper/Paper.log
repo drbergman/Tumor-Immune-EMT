@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  31 JAN 2019 12:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  31 JAN 2019 20:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -229,72 +229,82 @@ LaTeX Warning: No \author given.
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 182.
+[2]
+
+LaTeX Warning: Citation `hong2015ovol2' on page 3 undefined on input line 72.
+
+[3] [4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 194.
 
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
-
-[5] [6] [7] [8] <Figs/Figure1/Figure1.pdf, id=39, 1027.84pt x 770.88pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 194.
+ [5]
+[6] [7] <Figs/Figure1/Figure1.pdf, id=36, 1027.84pt x 770.88pt>
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 
 <use Figs/Figure1/Figure1.pdf>
-Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 379.
+Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 311.
 (pdftex.def)             Requested size: 345.0pt x 258.75514pt.
- [9 <./Figs/Figure1/Figure1.pdf>] [10]
+ [8] [9 <./Figs/Figure1/Figure1.pdf>] [10]
 <Figs/Figure2/Figure2.pdf, id=84, 770.88pt x 1027.84pt>
 File: Figs/Figure2/Figure2.pdf Graphic file (type pdf)
 
 <use Figs/Figure2/Figure2.pdf>
-Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 464.
+Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 372.
 (pdftex.def)             Requested size: 345.0pt x 459.99867pt.
  [11] [12 <./Figs/Figure2/Figure2.pdf, page is rotated 90 degrees>] <Figs/Figur
 e3/Figure3.pdf, id=115, 1027.84pt x 651.08865pt>
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 502.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 405.
 (pdftex.def)             Requested size: 345.0pt x 218.54573pt.
- [13] [14 <./Figs/Figure3/Figure3.pdf>]
-<Figs/Figure4/MIEvsMQ.jpg, id=143, 1124.2pt x 843.15pt>
+ [13]
+<Figs/Figure4/MIEvsMQ.jpg, id=120, 1124.2pt x 843.15pt>
 File: Figs/Figure4/MIEvsMQ.jpg Graphic file (type jpg)
 
 <use Figs/Figure4/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 528.
+Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 428.
 (pdftex.def)             Requested size: 345.0pt x 258.74925pt.
- [15 <./Figs/Figure4/MIEvsMQ.jpg>] (./Paper.bbl
-[16]
+ [14 <./Figs/Figure3/Figure3.pdf>] [15 <./Figs/Figure4/MIEvsMQ.jpg>] (./Paper.b
+bl [16]
 Underfull \hbox (badness 6910) in paragraph at lines 37--40
 []\OT1/cmr/m/sc/10 S. Terry, P. Sav-agner, S. Ortiz-Cuaran, L. Mahjoubi,
  []
 
-) [17] (./Paper.aux) ) 
+) [17] (./Paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2415 strings out of 492995
- 33099 string characters out of 6132704
- 101170 words of memory out of 5000000
- 5923 multiletter control sequences out of 15000+600000
+ 2416 strings out of 492995
+ 33114 string characters out of 6132704
+ 98163 words of memory out of 5000000
+ 5924 multiletter control sequences out of 15000+600000
  9670 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,13n,25p,763b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
-fb>
-Output written on Paper.pdf (17 pages, 2371347 bytes).
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Paper.pdf (17 pages, 2370337 bytes).
 PDF statistics:
  197 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams
