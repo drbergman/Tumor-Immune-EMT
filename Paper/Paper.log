@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 FEB 2019 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  9 FEB 2019 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -272,24 +272,24 @@ Package pdftex.def Info: Figs/Figure1/Figure1.pdf  used on input line 324.
 <Figs/Figure2/Figure2.pdf, id=87, 770.88pt x 1027.84pt>
 File: Figs/Figure2/Figure2.pdf Graphic file (type pdf)
 <use Figs/Figure2/Figure2.pdf>
-Package pdftex.def Info: Figs/Figure2/Figure2.pdf  used on input line 385.
+Package pdftex.def Info: Figs/Figure2/Figure2.pdf  used on input line 382.
 (pdftex.def)             Requested size: 360.0pt x 479.99521pt.
  [11] [12 <./Figs/Figure2/Figure2.pdf, page is rotated 90 degrees>]
 <Figs/Figure3/Figure3.pdf, id=118, 1027.84pt x 651.08865pt>
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf  used on input line 418.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf  used on input line 415.
 (pdftex.def)             Requested size: 360.0pt x 228.0434pt.
  [13] [14 <./Figs/Figure3/Figure3.pdf>]
 <Figs/Figure4/MIEvsMQ.jpg, id=146, 1124.2pt x 843.15pt>
 File: Figs/Figure4/MIEvsMQ.jpg Graphic file (type jpg)
 <use Figs/Figure4/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg  used on input line 440.
+Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg  used on input line 437.
 (pdftex.def)             Requested size: 360.0pt x 269.99362pt.
 <Figs/FigTCGA.pdf, id=147, 682.33821pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
 <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf  used on input line 451.
+Package pdftex.def Info: Figs/FigTCGA.pdf  used on input line 448.
 (pdftex.def)             Requested size: 360.0pt x 265.06291pt.
 
 [15 <./Figs/Figure4/MIEvsMQ.jpg>] [16 <./Figs/FigTCGA.pdf>] (./Paper.bbl
@@ -324,7 +324,7 @@ usr/local/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></us
 r/local/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
 local/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on Paper.pdf (18 pages, 3356373 bytes).
+Output written on Paper.pdf (18 pages, 3357209 bytes).
 PDF statistics:
  245 PDF objects out of 1000 (max. 8388607)
  156 compressed objects within 2 object streams
