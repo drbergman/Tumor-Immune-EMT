@@ -364,13 +364,14 @@ In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and
 
 
 
-\subsection{Mesenchymal Cell Properties Dramatically Change Survival Outcomes}\label{MesPars}
-The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its increased quiescence, MIE and MGA, respectively.
+\subsection{Mesenchymal phenotypic properties dramatically change survival outcomes}\label{MesPars}
+The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its increased quiescence, MIE and MGA, respectively. \tcr{[briefly redefine what these terms do]}
 Also involved in the EMT process, is the cytokine TGF-$\beta$, which upregulates EMT.
 By the Morris OAT analysis presented in Section \ref{SensAnalysis}, these three parameters do have large impacts on survival outcomes and each warrant exploration.
 
-First, as mesenchymal immune evasion (MIE) increases, Time to Cancer decreases.
-This result holds universally among all parameter sets and indicates the simple relationship that mesenchymal immune evasion has with Time to Cancer.
+
+We found that as the level of mesenchymal immune evasion (MIE) increases, Time to Cancer decreases ( Figure \ref{fig:FirstSurvivalCurves}A).
+This result holds for all parameter sets studied, and indicates the simple relationship that mesenchymal immune evasion has with Time to Cancer.
 As this subpopulation of the tumor becomes more resistant to immune clearance, the tumor as a whole grows more resilient and thus will grow faster.
 These results are summarized by Figure \ref{fig:FirstSurvivalCurves}A.
 
@@ -386,31 +387,29 @@ C. Increasing Treg TGF-$\beta$ production results in decreased Time to Cancer.
 \label{fig:FirstSurvivalCurves}
 \end{figure}
 
-Second, as mesenchymal growth arrest (MGA) increases, Time to Cancer increases.
-This result will prove to be more interesting as this pattern is dependent on the other parameters in the model.
-For now, what can be seen in Figure \ref{fig:FirstSurvivalCurves}B is that a slower proliferation for mesenchymal cells slows down cancer growth.
-This is not as intuitive as it may sound because this decreased proliferation affects both mutated and non-mutated cells.
-These results are summarized by Figure \ref{fig:FirstSurvivalCurves}B.
+Second, as the rate of mesenchymal growth arrest (MGA) increases, Time to Cancer increases, i.e. lower proliferation rates for mesenchymal cells slow down cancer growth (Figure \ref{fig:FirstSurvivalCurves}B).
+This is not immediately intuitive, since the decreased proliferation rate affects both mutated and non-mutated tissue cells.
 
 Third, TGF-$\beta$ can be varied in two ways: the production by mesenchymal cells and the production by Treg cells.
-In Figure \ref{fig:FirstSurvivalCurves}C, the results of varying Treg TGF-$\beta$ production is shown, indicating that an increased Treg TGF-$\beta$ production leads to a shorter Time to Cancer.
-This is expected as the two main ways in which TGF-$\beta$ influences the system is in recruitment of Treg cells and in pushing tissue cells to a mesenchymal phenotype.
+In Figure \ref{fig:FirstSurvivalCurves}C, the results of varying Treg TGF-$\beta$ production are shown, indicating that an increased Treg TGF-$\beta$ production leads to a shorter Time to Cancer.
+The two main ways in which TGF-$\beta$ influences the system is in recruitment of Treg cells and in pushing tissue cells to a mesenchymal phenotype.
 Treg cells are modeled as tumor-protective and thus increasing their number will naturally decrease Time to Cancer.
 Mesenchymal cells are more likely to evade the immune system, so pushing the system towards an overall more mesenchymal phenotype will better protect the cancer and decrease the Time to Cancer.
 
-\subsection{Key EMT regime maximizes cancer-free survival time under chronic inflammation}\label{KeyEMT}
+
+\subsection{A key EMT regime maximizes cancer-free survival time under chronic inflammation}\label{KeyEMT}
 Given the relevance of the inflammatory state of the tumor microenvironment (TME), we explore the effect of varying the inflammation state of the patient on survival.
-In particular, some cohorts are assigned permanently low inflammation, others permanently high, and still others non-constant inflammatory schemes.
+In simulations, we assign some cohorts permanently low inflammation levels, some permanently high levels, and some variable inflammatory schemes.
 For those cohorts with a permanently high inflammatory state, the relationship between the mesenchymal parameters and the Time to Cancer is monotonic.
 However, when there are periods of a low inflammatory state, then intriguingly the connection between MGA and Time to Cancer becomes concave down with a local maximum around 0.3.
-This can be seen in the top two groups of Figure \ref{fig:VaryINFL_and_MesPars}D in which the MGA=0.3 cohorts both took longer to cancer than their neighbors.
+This can be seen in the top two groups of Figure \ref{fig:VaryINFL_and_MesPars}D: the MGA=0.3 cohorts both took longer to cancer than their neighbors.
 What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
-Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way.
+Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way. \tcr{what does this mean? how?}
 
 \begin{figure}[H]
 \center
 \frame{\includegraphics[width=\columnwidth]{Figure3/Figure3.pdf}}
-\caption{A.Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer decreases as MIE increases. In the bottom plot, there is no significant difference in survival.
+\caption{A. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer decreases as MIE increases. In the bottom plot, there is no significant difference in survival.
 B. The average Time to Cancer for each cohort.
 C. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer reaches a maximum value somewhere near MGA = 0.3. In the bottom plot, there is no significant difference in survival.
 D. The average Time to Cancer for each cohort.}
@@ -418,14 +417,14 @@ D. The average Time to Cancer for each cohort.}
 \end{figure}
 
 Contrast this with what happens when MIE is varied for different inflammation cycling schemes.
-Regardless of the cycling scheme, the relationship between Time to Cancer and MIE is always -monotonic.
+Regardless of the cycling scheme, the relationship between Time to Cancer and MIE is monotonic.
 In the case that the inflammatory state is permanently high, MIE has no significant effect on Time to Cancer.
 On the other hand, when the patient experiences at least some time in a low inflammatory state, an increase in MIE results in a decrease in Time to Cancer.
 This indicates that mitigating a chronic inflammatory state is a necessity for increasing survival, and once that has been achieved, even to a small degree, then therapies which reduce mesenchymal immune evasion will gain efficacy.
 
 
 % \subsection{Heat Map of MIE vs MGA}
-\subsection{Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}
+\subsection{Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}\label{tcga}
 
 To further analyze the effects on tumorigenesis of the mesenchymal properties of immune evasion (MIE) and growth arrest (MGA), we study the joint density plot detailing the effects of each of these parameters on the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of MGA considered, increasing the MIE decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with MIE. 
 
@@ -436,14 +435,14 @@ To further analyze the effects on tumorigenesis of the mesenchymal properties of
 \label{fig:MIEvsMGA}
 \end{figure}
 
-To compare these model predictions with experimental studies, we performed analysis of data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers (REFS). We selected pancreatic cancer to investigate, and used gene ontologies as a measure of the XXXX of effects of inflammatory or EMT processes on survival. In Fig. \ref{fig:tcga} we plot Kaplan-Meier curves for 
+To compare these model predictions with experimental studies, we performed analysis of data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers (REFS). We selected pancreatic cancer to investigate, and used gene ontologies as a measure of the of effects of inflammatory or EMT processes on survival. In Fig. \ref{fig:tcga} we plot survival curves for two cases: either clustering only on EMT, or on both EMT and inflammation signatures. We see that in both cases, survival is significantly affected by the gene ontology signature, but importantly, the presence of both EMT and inflammation signatures has a greater impact on survival than the effects of EMT alone.  
 
 
 
 \begin{figure}[H]
 \center
 \frame{\includegraphics[width=\columnwidth]{FigTCGA.pdf}}
-\caption{......r.}
+\caption{A. K-means clustering of pancreatic cancers using gene ontology terms indicative of an EMT signature ($k=2$). B. Survival plots corresponding to the clustering on EMT. C. K-means clustering of pancreatic cancers using gene ontology terms indicative of EMT and Inflammation signatures ($k=2$). D. Survival plots corresponding to the clustering on EMT and inflammation.}
 \label{fig:tcga}
 \end{figure}
 
