@@ -36,7 +36,7 @@ Determining the factors and mechanisms underpinning these complex interactions r
 %Here, we seek to understand how interplay between the tumor, the immune system, and EMT can determine the outcome of cancer.
 %% The Main Result (2-3 sentences)
 We developed a multiscale agent-based model to describe the interplay between three components: the tumor (or pre-tumor cells), the immune system, and EMT.
-The model revealed a non-monotonic relationship between the cell cycle times associated with the mesencymal phenotype and the probability of tumorigenesis, identifying a critical growth rate that maximizes cancer-free survival. In comparison, increasing the immune-evasiveness of the mesenchymal phenotypes always led to poorer prognosis. Moreover, encouraging
+The model revealed a non-monotonic relationship between the cell cycle times associated with the mesenchymal phenotype and the probability of tumorigenesis, identifying a critical growth rate that maximizes cancer-free survival. In comparison, increasing the immune-evasiveness of the mesenchymal phenotypes always led to poorer prognosis. Moreover, encouraging
 %\tcr
 the TME
 towards a pro-EMT state also benefits the tumor.
@@ -333,14 +333,16 @@ D. Global sensitivity analysis of model parameters using the Morris one-step-at-
 
 
 \subsection{A multiscale agent-based model of EMT-immune-tissue cell interactions and tumorigenesis}\label{ExplModel}
-We begin by studying the model under baseline conditions to assess how its various components interact and effect the overal probability of tumorigenesis (Time to Cancer). In Figure \ref{fig:ModelIntro}A a schematic description of the model is shown. Within a single cell cycle, different choices are available to a cell and these are influenced by pathway mutations or EMT. For example, if a cell undergoes EMT, the probability that is will proliferate is reduced. Also shown are the different means by which the immune system acts on the tissue cells (\ref{fig:ModelIntro}A Inset). \tcr{TGF-$\beta$ is [describe briefly action of each immune cell type]}
-In other words, the cytotoxic cells will randomly clear some subset of mutated cells and TGF-$\beta$ increases the probability of cell transitioning or staying in a mesenchymal state.
+We begin by studying the model under baseline conditions to assess how its various components interact and effect the overal probability of tumorigenesis (Time to Cancer). In Figure \ref{fig:ModelIntro}A a schematic description of the model is shown. Within a single cell cycle, different choices are available to a cell and these are influenced by pathway mutations or EMT. For example, if a cell undergoes EMT, the probability that is will proliferate is reduced. Also shown are the different means by which the immune system acts on the tissue cells (\ref{fig:ModelIntro}A Inset). The NKs and CTLs attempt to clear out mutated tissue cells and deactivate upon successfully carrying out this cytotoxic function. The Tregs inhibit this cytotoxic activity. In addition, Tregs release TGF-$\beta$ which helps recruit more Tregs and also drives EMT.
+%A \tcr{TGF-$\beta$ is [describe briefly action of each immune cell type]}  --Adam: Is this good?
 
-For a typical {\it in silico} patient (see Figure \ref{fig:ModelIntro}B) \tcr{[What happens??]}
-The inflammation cycling scheme shown at the top of Figure \ref{fig:ModelIntro}B is repeated throughout.
+For a typical {\it in silico} patient (see Figure \ref{fig:ModelIntro}B), after the warmup period, some cells mutate but are cleared before establishing a tumor. However, eventually one mutated cell is able to establish a growing tumor before being cleared. This happens around cell cycle 1000. At this point, the adaptive immune system (CTLs and Tregs) are being heavily recruited and TGF-$\beta$ is peaking. The number of mesenchymal cells grows with the increased TGF-$\beta$, but decreases rapidly after the tissue cells are entirely mutants. Interestingly, this return to a more epithelial phenotype occurs even as TGF-$\beta$ reaches its maximum value for the simulation.
+%\tcr{[What happens??]}
+The inflammation cycling scheme for this patient is shown at the top of Figure \ref{fig:ModelIntro}B and is repeated throughout, including during the warmup.
 We will return to this shortly.
 
-\tcr{[What is?]} It is at cell cycle number 541 the proportion of mutated cells reaches 50\% and so the patient has a Time to Cancer of 541, or 405.75 days. 
+%\tcr{[What is?]} 
+At cell cycle number 841 the proportion of mutated cells reaches 50\% and so the model marks the patient as having a Time to Cancer of 841, or 630.75 days. 
 At the same time as mutated cells are taking over, many cells transition to a mesenchymal phenotype.
 After the Time to Cancer, the mutated cells continue their rapid growth and soon make up 100\% of the cells.
 Meanwhile, all the cells become mesenchymal for a short duration before most transition back to an epithelial state.
