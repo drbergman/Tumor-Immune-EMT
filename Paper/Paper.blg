@@ -1,46 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
+This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Paper.aux
 The style file: siam.bst
 Database file #1: mybib.bib
-You've used 8 entries,
+You've used 9 entries,
             2030 wiz_defined-function locations,
-            555 strings with 5231 characters,
-and the built_in function-call counts, 3363 in all, are:
-= -- 334
-> -- 162
+            562 strings with 5547 characters,
+and the built_in function-call counts, 3890 in all, are:
+= -- 386
+> -- 195
 < -- 0
-+ -- 65
-- -- 56
-* -- 268
-:= -- 513
-add.period$ -- 8
-call.type$ -- 8
-change.case$ -- 52
++ -- 79
+- -- 68
+* -- 306
+:= -- 589
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 61
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 150
-empty$ -- 212
-format.name$ -- 56
-if$ -- 720
+cite$ -- 9
+duplicate$ -- 177
+empty$ -- 237
+format.name$ -- 68
+if$ -- 836
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 8
-newline$ -- 27
-num.names$ -- 16
-pop$ -- 40
+int.to.str$ -- 9
+missing$ -- 9
+newline$ -- 30
+num.names$ -- 18
+pop$ -- 48
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 52
 quote$ -- 0
-skip$ -- 145
+skip$ -- 175
 stack$ -- 0
-substring$ -- 235
-swap$ -- 78
+substring$ -- 257
+swap$ -- 96
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
+type$ -- 36
 warning$ -- 0
-while$ -- 34
-width$ -- 9
-write$ -- 74
+while$ -- 37
+width$ -- 10
+write$ -- 83
