@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2019 21:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 FEB 2019 07:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -579,56 +579,63 @@ Overfull \hbox (6.86607pt too wide) in paragraph at lines 234--241
 ce and CTL clear-ance, the weights
  []
 
-[6] [7] <Figs/Figure1/Figure1.pdf, id=37, 1027.84pt x 770.88pt>
+[6] [7] [8] <Figs/Figure1/Figure1.pdf, id=42, 1027.84pt x 770.88pt>
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 
 <use Figs/Figure1/Figure1.pdf>
-Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 324.
+Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 342.
 (pdftex.def)             Requested size: 360.0pt x 270.00024pt.
- [8] [9 <./Figs/Figure1/Figure1.pdf>] [10]
-Overfull \hbox (0.17995pt too wide) in paragraph at lines 369--369
+ [9]
+<Figs/Figure2/Figure2.jpg, id=46, 2890.8pt x 1704.3675pt>
+File: Figs/Figure2/Figure2.jpg Graphic file (type jpg)
+
+<use Figs/Figure2/Figure2.jpg>
+Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 354.
+(pdftex.def)             Requested size: 360.0pt x 212.23921pt.
+ [10 <./Figs/Figure1/Figure1.pdf>] [11 <./Figs/Figure2/Figure2.jpg>]
+Overfull \hbox (0.17995pt too wide) in paragraph at lines 392--392
 []\T1/cmr/bx/n/12 Mesenchymal phe-no-typic prop-er-ties dra-mat-i-cally change
  []
 
-<Figs/Figure2/Figure2.pdf, id=87, 770.88pt x 1027.84pt>
-File: Figs/Figure2/Figure2.pdf Graphic file (type pdf)
-
-<use Figs/Figure2/Figure2.pdf>
-Package pdftex.def Info: Figs/Figure2/Figure2.pdf used on input line 382.
-(pdftex.def)             Requested size: 360.0pt x 479.99521pt.
- [11] [12 <./Figs/Figure2/Figure2.pdf, page is rotated 90 degrees>] <Figs/Figur
-e3/Figure3.pdf, id=118, 1027.84pt x 651.08865pt>
+[12] <Figs/Figure3/Figure3.pdf, id=96, 770.88pt x 1027.84pt>
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 413.
-(pdftex.def)             Requested size: 360.0pt x 228.0434pt.
- [13] [14 <./Figs/Figure3/Figure3.pdf>]
-<Figs/Figure4/MIEvsMQ.jpg, id=146, 1124.2pt x 843.15pt>
-File: Figs/Figure4/MIEvsMQ.jpg Graphic file (type jpg)
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 410.
+(pdftex.def)             Requested size: 360.0pt x 479.99521pt.
+ [13] [14 <./Figs/Figure3/Figure3.pdf, page is rotated 90 degrees>] <Figs/Figur
+e4/Figure4.pdf, id=128, 1027.84pt x 651.08865pt>
+File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 
-<use Figs/Figure4/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure4/MIEvsMQ.jpg used on input line 435.
+<use Figs/Figure4/Figure4.pdf>
+Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 443.
+(pdftex.def)             Requested size: 360.0pt x 228.0434pt.
+ [15] [16 <./Figs/Figure4/Figure4.pdf>]
+<Figs/Figure5/MIEvsMQ.jpg, id=155, 1124.2pt x 843.15pt>
+File: Figs/Figure5/MIEvsMQ.jpg Graphic file (type jpg)
+
+<use Figs/Figure5/MIEvsMQ.jpg>
+Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg used on input line 465.
 (pdftex.def)             Requested size: 360.0pt x 269.99362pt.
 
-<Figs/FigTCGA.pdf, id=147, 682.33821pt x 502.39195pt>
+<Figs/FigTCGA.pdf, id=156, 682.33821pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
  <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 446.
+Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 476.
 (pdftex.def)             Requested size: 360.0pt x 265.06291pt.
 
-[15 <./Figs/Figure4/MIEvsMQ.jpg>] [16 <./Figs/FigTCGA.pdf>] (./Paper.bbl
-[17]
-Underfull \hbox (badness 2762) in paragraph at lines 43--46
+[17 <./Figs/Figure5/MIEvsMQ.jpg>] [18 <./Figs/FigTCGA.pdf>] (./Paper.bbl
+[19]
+Underfull \hbox (badness 1867) in paragraph at lines 48--51
 []\T1/cmr/m/sc/10.95 S. Terry, P. Sav-agner, S. Ortiz-Cuaran, L. Mahjoubi,
  []
 
-) [18] (./Paper.aux) ) 
+) [20] (./Paper.aux) ) 
 Here is how much of TeX's memory you used:
- 3014 strings out of 492995
- 38207 string characters out of 6132704
- 104751 words of memory out of 5000000
- 6492 multiletter control sequences out of 15000+600000
+ 3023 strings out of 492995
+ 38380 string characters out of 6132704
+ 102766 words of memory out of 5000000
+ 6498 multiletter control sequences out of 15000+600000
  15351 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,13n,25p,876b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -649,10 +656,10 @@ usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
 local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on Paper.pdf (18 pages, 3362340 bytes).
+Output written on Paper.pdf (20 pages, 3488144 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
+ 255 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

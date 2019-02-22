@@ -266,9 +266,12 @@ Then, the EMT values for each cell is updated.
 This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
 Each cell receives an amount of TGF-$\beta$ given by
 
-$$ \text{TGFB}_i = \text{TGFB}/N + X_i, \quad X_i \sim N(0,\sigma^2)$$
+%$$ \text{TGFB}_i = H(\text{TGFB}/N) + X_i, \quad X_i \sim N(0,\sigma^2)$$
 
-where $\sigma$ is a parameter in the model.
+$$ \text{TGFB}_i = \frac{\text{TGFB}_{max}}{N}\frac{\text{TGFB}/\gamma_{EC50}}{1+\text{TGFB}/\gamma_{EC50}}+ X_i
+, \quad X_i \sim N(0,\sigma^2)$$
+The summand on the left divides up the total TGF-$\beta$ among all $N$ cells evenly and a Hill function on this quantity determines how much TGF-$\beta$ each cell thus receives.
+Then, some randomness is introduced by the independent and identically distributed variables $X_i$where $\sigma$ is a parameter in the model.
 If this quantity is large enough, relative to the EMT score of the cell, then the cell will undergo EMT and its EMT score will increase.
 If not, then the cell undergoes the reverse process, MET, and its EMT score will decrease.
 Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
@@ -312,7 +315,22 @@ At the end of each cell cycle, the proportion of tissue cells that are mutated i
 The Time to Cancer is given as the time from the start of the simulation, not including warmup, until tumorigenesis.
 Simulations run until either a tumorigenic event is recorded or until the maximum number of cycles has been reached.
 
+\subsection{Parameter Sensitivity Analysis}
+To identify a subset of the parameters to focus on, we used the Morris method, a one-step-at-a-time global sensitivity analysis.
+The algorithm runs the model numerous successive times, changing exactly one parameter each run\cite{morris1991factorial, sohier2014improvement}.
+Each model run involved 1000 patients and the value returned was the area under the survival curve.
+We ran the algorithm by sampling at 30 points in parameter space and then changing each parameter one time at each point.
+In the implementation by Sohier, they recommend using at least 10 points\cite{sohier2014improvement}.
 
+To determine which points in parameter space to sample at, we had to create distributions on all parameter values.
+To do this, we derived many parameters from existing literature and the rest we made reasoned predictions.
+For example, many previous studies have established the parameters of immune population dynamics such as recruitment and death rates\cite{de2014modeling}.
+Because our model only works with on the order of $10^2$ tissue cells whereas an actual tumor would have on the order of $10^9$ cells\cite{de2014modeling}, we scaled the parameters so the immune populations would also be proportionately reduced.
+That is, for instance, how we ended up with NK cells having a steady state population of 10 cells in the model.
+
+Once we had these parameter values, we created Gaussian distributions centered at these values with large variances and truncated at 0.
+Some of the parameters were also truncated to the right because they represented a proportion, such as MIE and MGA, or because we simply wanted to keep the values within a reasonable range, such as the inflammation low and high duration parameters.
+The variances were chosen as twice the mean to get a large spread of values.
 %%%%%%%%%%%%%%%%%%%%%%%
 %                          RESULTS                         %
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -331,6 +349,12 @@ D. Global sensitivity analysis of model parameters using the Morris one-step-at-
 \label{fig:ModelIntro}
 \end{figure}
 
+\begin{figure}[H]
+\center
+\frame{\includegraphics[width=\columnwidth]{Figure2/Figure2.jpg}}
+\caption{Global sensitivity analysis of model parameters using the Morris one-step-at-a-time method.}
+\label{fig:MOAT}
+\end{figure}
 
 \subsection{A multiscale agent-based model of EMT-immune-tissue cell interactions and tumorigenesis}\label{ExplModel}
 We begin by studying the model under baseline conditions to assess how its various components interact and effect the overal probability of tumorigenesis (Time to Cancer). In Figure \ref{fig:ModelIntro}A a schematic description of the model is shown. Within a single cell cycle, different choices are available to a cell and these are influenced by pathway mutations or EMT. For example, if a cell undergoes EMT, the probability that is will proliferate is reduced. Also shown are the different means by which the immune system acts on the tissue cells (\ref{fig:ModelIntro}A Inset). The NKs and CTLs attempt to clear out mutated tissue cells and deactivate upon successfully carrying out this cytotoxic function. The Tregs inhibit this cytotoxic activity. In addition, Tregs release TGF-$\beta$ which helps recruit more Tregs and also drives EMT.
@@ -356,9 +380,8 @@ We next consider a cohort of $N=500$ patients, and simulate the survival curve f
 
 
 \subsection{Identification of key model parameters via Morris global sensitivity analysis}\label{SensAnalysis}
-To assess the sensitivity responses produced by the model with respect to the 31 model parameters, a Morris one-step-at-a-time (OAT) algorithm was implemented. \tcr{add paragraph to methods on this.}
-The algorithm works by running the model many successive times, changing exactly one parameter each run \cite{morris1991factorial, sohier2014improvement}. Parameters are sampled from Gaussian distributions centered on their initial \tcr{(which is determined how?)} value and a large \tcr{(specify)} standard deviation. Where necessary, these distributions were truncated accordingly.
-The results of Morris OAT sensitivity analysis are shown in Figure \ref{fig:ModelIntro}D. A subset of parameters demonstrate much higher levels of sensitivity than others.
+To assess the sensitivity responses produced by the model with respect to the 30 model parameters, a Morris one-step-at-a-time (OAT) algorithm was implemented.
+The results of Morris OAT sensitivity analysis are shown in Figure \ref{fig:MOAT}. A subset of parameters demonstrate much higher levels of sensitivity than others.
 The two most influential according to this analysis are the death rate and the recruitment rate of Treg cells, this is most likely due to the dual roles Treg cells play in both suppressing the cytotoxic effects of other immune cells and secreting TGF-$\beta$, which drives EMT. This ties Treg cells to all three components of the model. Since below we seek to separate the effects of different model components, we do not choose the parameters influencing Treg cells for further analysis below. 
 We want to better isolate the effects of EMT on these dynamics, so parameters such as MIE and MGA are of interest.
 In addition, inflammation parameters dictating the cycling scheme are important to study, as shown by Guo et al \cite{}: we find that there are also high sensitivities in this model to these parameters.
@@ -367,7 +390,12 @@ In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and
 
 
 \subsection{Mesenchymal phenotypic properties dramatically change survival outcomes}\label{MesPars}
-The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its increased quiescence, MIE and MGA, respectively. \tcr{[briefly redefine what these terms do]}
+The two quantities that change when a cell transitions to a mesenchymal state are its immune evasion and its proliferation rate, MIE and MGA, respectively.
+Both parameters are proportions between 0 and 1 with higher values indicating more extreme expression of mesenchymal properties.
+MIE is the proportional reduction of the probability a mutated mesenchymal cell will undergo immune clearance in a given cycle.
+MGA, which stands for mesenchymal growth arrest, is the proportional reduction in any mesenchymal cell of its chance to proliferate in a given cell cycle. 
+The reduction in proliferation probability corresponds with an equal increase in probability for resting during that cell cycle.  
+%\tcr{[briefly redefine what these terms do]}
 Also involved in the EMT process, is the cytokine TGF-$\beta$, which upregulates EMT.
 By the Morris OAT analysis presented in Section \ref{SensAnalysis}, these three parameters do have large impacts on survival outcomes and each warrant exploration.
 
@@ -379,7 +407,7 @@ These results are summarized by Figure \ref{fig:FirstSurvivalCurves}A.
 
 \begin{figure}[H]
 \center
-\frame{\includegraphics[width=\columnwidth]{Figure2/Figure2.pdf}}
+\frame{\includegraphics[width=\columnwidth]{Figure3/Figure3.pdf}}
 \caption{
 A. Increasing MIE decreases Time to Cancer. 
 B. Increasing MGA increases Time to Cancer.
@@ -406,11 +434,13 @@ For those cohorts with a permanently high inflammatory state, the relationship b
 However, when there are periods of a low inflammatory state, then intriguingly the connection between MGA and Time to Cancer becomes concave down with a local maximum around 0.3.
 This can be seen in the top two groups of Figure \ref{fig:VaryINFL_and_MesPars}D: the MGA=0.3 cohorts both took longer to cancer than their neighbors.
 What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
-Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way. \tcr{what does this mean? how?}
+Even if the patient is presenting a chronically high inflammatory state, anti-inflammatories could be administered which would create the periods of low inflammation our model predicts as necessary for seeing these changes.
+Reducing the inflammatory state of the TME three weeks out of every nine would be sufficient to make the control of mesenchymal proliferation an effective anti-cancer strategy.
+%Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way. \tcr{what does this mean? how?}
 
 \begin{figure}[H]
 \center
-\frame{\includegraphics[width=\columnwidth]{Figure3/Figure3.pdf}}
+\frame{\includegraphics[width=\columnwidth]{Figure4/Figure4.pdf}}
 \caption{A. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer decreases as MIE increases. In the bottom plot, there is no significant difference in survival.
 B. The average Time to Cancer for each cohort.
 C. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer reaches a maximum value somewhere near MGA = 0.3. In the bottom plot, there is no significant difference in survival.
@@ -432,7 +462,7 @@ To further analyze the effects on tumorigenesis of the mesenchymal properties of
 
 \begin{figure}[H]
 \center
-\frame{\includegraphics[width=\columnwidth]{Figure4/MIEvsMQ.jpg}}
+\frame{\includegraphics[width=\columnwidth]{Figure5/MIEvsMQ.jpg}}
 \caption{Heat Map contrasting the effects of MIE and MGA on Time to Cancer. Increasing MIE always decreases Time to Cancer, but MGA is non-monotonically linked to Time to Cancer.}
 \label{fig:MIEvsMGA}
 \end{figure}

@@ -1,4 +1,9 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{de2014modeling}
+{\sc L.~G. de~Pillis and A.~E. Radunskaya}, {\em Modeling tumor--immune
+  dynamics}, in Mathematical Models of Tumor-Immune System Dynamics, Springer,
+  2014, pp.~59--108.
 
 \bibitem{de2006paradoxical}
 {\sc K.~E. De~Visser, A.~Eichten, and L.~M. Coussens}, {\em Paradoxical roles
