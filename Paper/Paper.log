@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  25 FEB 2019 10:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  25 FEB 2019 10:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -565,16 +565,16 @@ e
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2] [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 209.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 212.
 
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 209.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 212.
 
 [5]
-Overfull \hbox (6.86607pt too wide) in paragraph at lines 236--243
+Overfull \hbox (6.86607pt too wide) in paragraph at lines 239--246
  \T1/cmr/bx/n/10.95 Im-mune Clear-ance[] \T1/cmr/m/n/10.95 For both NK clear-an
 ce and CTL clear-ance, the weights
  []
@@ -583,17 +583,17 @@ ce and CTL clear-ance, the weights
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 
 <use Figs/Figure1/Figure1.pdf>
-Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 344.
+Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 347.
 (pdftex.def)             Requested size: 360.0pt x 270.00024pt.
  [9]
 <Figs/Figure2/Figure2.jpg, id=46, 2890.8pt x 1704.3675pt>
 File: Figs/Figure2/Figure2.jpg Graphic file (type jpg)
 
 <use Figs/Figure2/Figure2.jpg>
-Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 356.
+Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 359.
 (pdftex.def)             Requested size: 360.0pt x 212.23921pt.
  [10 <./Figs/Figure1/Figure1.pdf>] [11 <./Figs/Figure2/Figure2.jpg>]
-Overfull \hbox (0.17995pt too wide) in paragraph at lines 394--394
+Overfull \hbox (0.17995pt too wide) in paragraph at lines 397--397
 []\T1/cmr/bx/n/12 Mesenchymal phe-no-typic prop-er-ties dra-mat-i-cally change
  []
 
@@ -601,27 +601,27 @@ Overfull \hbox (0.17995pt too wide) in paragraph at lines 394--394
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 412.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 415.
 (pdftex.def)             Requested size: 360.0pt x 479.99521pt.
  [13] [14 <./Figs/Figure3/Figure3.pdf, page is rotated 90 degrees>] <Figs/Figur
 e4/Figure4.pdf, id=128, 1027.84pt x 651.08865pt>
 File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 
 <use Figs/Figure4/Figure4.pdf>
-Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 445.
+Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 448.
 (pdftex.def)             Requested size: 360.0pt x 228.0434pt.
  [15] [16 <./Figs/Figure4/Figure4.pdf>]
 <Figs/Figure5/MIEvsMQ.jpg, id=155, 1124.2pt x 843.15pt>
 File: Figs/Figure5/MIEvsMQ.jpg Graphic file (type jpg)
 
 <use Figs/Figure5/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg used on input line 467.
+Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg used on input line 470.
 (pdftex.def)             Requested size: 360.0pt x 269.99362pt.
 
 <Figs/FigTCGA.pdf, id=156, 682.33821pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
  <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 478.
+Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 481.
 (pdftex.def)             Requested size: 360.0pt x 265.06291pt.
 
 [17 <./Figs/Figure5/MIEvsMQ.jpg>] [18 <./Figs/FigTCGA.pdf>] (./Paper.bbl
@@ -656,7 +656,7 @@ usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
 local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on Paper.pdf (20 pages, 3488711 bytes).
+Output written on Paper.pdf (20 pages, 3488639 bytes).
 PDF statistics:
  255 PDF objects out of 1000 (max. 8388607)
  163 compressed objects within 2 object streams
