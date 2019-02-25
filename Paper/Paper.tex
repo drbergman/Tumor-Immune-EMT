@@ -57,15 +57,6 @@ In addition to direct cell-cell interactions between immune and cancer cells, th
 Immune cells can be understood as one constituent of the TME: responding to the environment's inflammatory signals, fighting the mutated cells present, and then restoring homeostasis in that local context\cite{de2006paradoxical}.
 Understanding each step in this immune cascade in the context of the TME will be necessary in order to fully explore and exploit all options of immunotherapy.
 
-Recent work on cancer-immune interactions has shown that the inflammatory conditions of the TME can play large and sometimes surprising roles in tumor growth.
-Guo describes a model in which the inflammatory state of the TME affects the cell cycles of the stem cells by increasing proliferation, decreasing apoptosis, and enhancing DNA damage that leads to mutations\cite{guo2017multiscale}.
-Guo uses the model to show that while inflammation does have an oncogenic effect, it can also have an onco-protective role as periods of mild inflammation are better at preventing cancer than periods of no inflammation in patients that have intermittent bouts of severe inflammation.
-However, the aspect of the model that included the immune system was minimal: regardless of the inflammatory environment, any cells with sufficient pathway mutations (2 in their model) had a fixed probability of being cleared by the metabolism-immune balance response. 
-In this paper, we hope to improve the model by including a more robust immune module and exploring how this axis will improve our understanding of inflammatory effects on the tumor.
-In addition, we explore an extra component of Guo's stem cells: where they lie on the epithelial-mesenchymal axis.
-So, in total, we will explore the joint interactions of the tumor, the immune system, and the epithelial-mesenchymal spectrum.
-We will also study the effects of the TME on these interactions.
-
 \tcr{Still need to address Qing's comments on this paragraph:}
 
 The tumor interacts with the immune system by initiating the sequence of events that results in the activation of the adaptive immune response.
@@ -100,13 +91,22 @@ There are also other structural changes that take place in mesenchymal cells tha
 Regardless, the evidence currently demonstrates a ``slipperiness'' of mesenchymal cells in regards to immune lysing.
 We will refer to this as mesenchymal immune evasion, or MIE.
 
-\tcr{Haven't addressed any of Qing's comments below this remark.}
-
-The other facet of mesenchymal cells of importance in this research is their slower proliferation rate, and this is tied to the observation that mesenchymal cells often express a more stem-like phenotype.
-Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions. Ref
-While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate. Ref
+The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells often express a more stem-like phenotype.
+Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions. \tcr{Ref}
+While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate. \tcr{Ref}
 Cancer cells are well-known for achieving unregulated proliferation, so exploring a subset of cancer cells with decreased proliferation could provide intriguing new results.
 In our model, we refer to this property as mesenchymal growth arrest, or MGA.
+
+\tcr{Haven't addressed any of Qing's comments below this remark.}
+
+Recent work on cancer-immune interactions has shown that the inflammatory conditions of the TME can play large and sometimes surprising roles in tumor growth.
+Guo describes a model in which the inflammatory state of the TME affects the cell cycles of the stem cells by increasing proliferation, decreasing apoptosis, and enhancing DNA damage that leads to mutations\cite{guo2017multiscale}.
+Guo uses the model to show that while inflammation does have an oncogenic effect, it can also have an onco-protective role as periods of mild inflammation are better at preventing cancer than periods of no inflammation in patients that have intermittent bouts of severe inflammation.
+However, the aspect of the model that included the immune system was minimal: regardless of the inflammatory environment, any cells with sufficient pathway mutations (2 in their model) had a fixed probability of being cleared by the metabolism-immune balance response. 
+In this paper, we hope to improve the model by including a more robust immune module and exploring how this axis will improve our understanding of inflammatory effects on the tumor.
+In addition, we explore an extra component of Guo's stem cells: where they lie on the epithelial-mesenchymal axis.
+So, in total, we will explore the joint interactions of the tumor, the immune system, and the epithelial-mesenchymal spectrum.
+We will also study the effects of the TME on these interactions.
 
 In the following sections of the paper we first introduce the model modularly, which is appropriate given its multiscale and hybrid nature.
 We then perform sensitivity analysis and identify parameters that are crucial for the progression to tumorigenesis.
