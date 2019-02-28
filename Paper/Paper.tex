@@ -65,6 +65,7 @@ Also, tumor cells engage in certain cellular processes that shape the TME and th
 In particular, tumor cells release transforming growth factor beta (TGF-$\beta$) that creates a tumor-supportive environment by shifting the immune balance to being immunosuppressive via enhancing activation of Treg cells.
 
 This particular cytokine is also a driver of the epithelial-to-mesenchymal transition (EMT) and through generating TGF-$\beta$ the tumor creates a more mesenchymal phenotype within the TME.
+\tcr{I think this is where I would add which types of cancer most likely to be affected by EMT. But which? And what sources?}
 In this way, the tumor shifts the balance of local environment along the EMT spectrum.
 
 The immune system has several competing interactions with the tumor.
@@ -148,18 +149,10 @@ We analyze the competing effects of EMT and of the immune system on tumorigenesi
 %                         METHODS                        %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\tcr{Haven't addressed any of Qing's comments below this remark.}
-
-
 % This paragraph needs to find a home in this section somewhere
-Here, each cell is represented as a column with three components representing the three possible mutations a cell can have.
-If the component is red and has an `X' in the middle, then that indicates the cell has undergone a pathway mutation corresponding to the annotation to the right of the cell block.
-Any cell that has a pathway mutation is counted as a mutated cell and contributes towards the total number of cancer cells.
-The EMT score of each cell (denoting position along the EMT spectrum) is associated with a color given by the legend to the left of the cell block. 
-In the model the EMT score is continuous but the labeling of epithelial or mesenchymal is a binary determined by being below or above a threshold.
 
 \section{Methods}
-To address the questions around the relationships among cancer, the immune system, and EMT, we extended the multiscale, agent-based model of Guo to include an immune module and an EMT axis for the tissue cells.
+To address the questions around the relationships among cancer, the immune system, and EMT, we extended the multiscale, agent-based model \tcr{REF} to include an immune module and an EMT axis for the tissue cells.
 The agents in the model are the tissue cells with tumorigenic potential.
 They can either be mutation-free, or have any combination of three possible pathway mutations.
 These three pathways are the three components within each cell in Figure \ref{fig:ModelIntro}A.
@@ -171,6 +164,9 @@ The cytokine TGF-$\beta$ is a continuous variables within the tumor microenviron
 It is worth noting that there is no spatial aspect to this model.
 In doing this, we are assuming that cells are well-mixed as are all the relevant cytokines and other molecules acting on the system.
 Finally, tissue cells can be labeled either epithelial or mesenchymal, and this labeling can change over time and depends both on the TME and the internal workings of each individual cell.
+While the score is continuous, a threshold determines if a given cell is labeled as epithelial or mesenchymal.
+In Figure \ref{fig:ModelIntro}A, the EMT labeling is given by the color of the cell.
+Even though each cell does have an EMT score on a spectrum of values, only the labeling influences its interactions in the model.
 
 \subsection{Tissue Cells}\label{TissueCells}
 The tissue cells at all times have associated with them two important quantities: which combination of mutations they carry and an EMT score.
@@ -318,7 +314,7 @@ Discretized, these are:
 \end{align*}
 
 \subsubsection{Progression and tumorigenesis}
-At the end of each cell cycle, the proportion of tissue cells that are mutated is calculated, and if it is above a certain threshold, a tumorigenic event is recorded and the patient is determined to have cancer (using a similar strategy to Guo).
+At the end of each cell cycle, the proportion of tissue cells that are mutated is calculated, and if it is above a certain threshold, a tumorigenic event is recorded and the patient is determined to have cancer.
 The Time to Cancer is given as the time from the start of the simulation, not including warmup, until tumorigenesis.
 Simulations run until either a tumorigenic event is recorded or until the maximum number of cycles has been reached.
 
@@ -347,7 +343,7 @@ The variances were chosen as twice the mean to get a large spread of values.
 \begin{figure}[H]
 \center
 \frame{\includegraphics[width=\columnwidth]{Figure1/Figure1.pdf}}
-\caption{A. Schematic depiction of the model with blue/red denoting non-mutated/mutated cells in the agent-based model. In each cycle, the fate of a cell is regulated by the EMT state of the cell and by any pathway mutations harbored. Inset shows major processes of immune system regulation on the tissue cells.
+\caption{A. Schematic depiction of the model with blue/red denoting non-mutated/mutated cells in the agent-based model. In each cycle, the fate of a cell is regulated by the EMT state of the cell and by any pathway mutations harbored. Inset shows major processes of immune system regulation on the tissue cells. The parameters used in this model can be found in the Supplementary material. Unless otherwise stated, parameter values are assumed to be those found in the Supplement. \tcr{Thoughts on the wording here? Once I have the table, I will use the name of that table.}
 B. Example simulation of the dynamics of a one patient; warmup period is shown in red.
 The inflammation cycling scheme is graphically represented above the patient dynamics.
 C. Example survival curve for one cohort of patients with basal parameter values.
@@ -385,13 +381,22 @@ In each of these periods periods, the lymphocyte populations increase or decreas
 
 We next consider a cohort of $N=500$ patients, and simulate the survival curve for these patients (Figure \ref{fig:ModelIntro}C). We see that all patients survive for approximately 100 cell cycles (75 days), before a time period where the cancer onset rate is roughly constant, between the approximate range of ($T = 100, T = 300$).
 
-
 \subsection{Identification of key model parameters via Morris global sensitivity analysis}\label{SensAnalysis}
-To assess the sensitivity responses produced by the model with respect to the 30 model parameters, a Morris one-step-at-a-time (OAT) algorithm was implemented.
+To assess the sensitivity responses \tcr{Is this the right phrasing? It sounds funny to me, but I see Adam chose this wording.} produced by the model with respect to the 31 model parameters, a Morris one-step-at-a-time (OAT) algorithm was implemented.
 The results of Morris OAT sensitivity analysis are shown in Figure \ref{fig:MOAT}. A subset of parameters demonstrate much higher levels of sensitivity than others.
-The two most influential according to this analysis are the death rate and the recruitment rate of Treg cells, this is most likely due to the dual roles Treg cells play in both suppressing the cytotoxic effects of other immune cells and secreting TGF-$\beta$, which drives EMT. This ties Treg cells to all three components of the model. Since below we seek to separate the effects of different model components, we do not choose the parameters influencing Treg cells for further analysis below. 
+The two most influential according to this analysis are the death rate and the recruitment rate of Treg cells, this is most likely due to the dual roles Treg cells play in both suppressing the cytotoxic effects of other immune cells and secreting TGF-$\beta$, which drives EMT.
+This ties Treg cells to all three components of the model.
+Since below we seek to separate the effects of different model components, we do not choose the parameters influencing Treg cells for further analysis below.
+
+Any of the parameters in the table which include the word ``low'' are parameters that govern the model in a low inflammatory state.
+With the exception of ``prolif up'', all parameters that end in ``up'' or have `U' at the end of their abbreviation, are the factors by which these parameters change when the system switches from low to high inflammation.
+The IHD and ILD parameters determine the duration of high and low inflammation, respectively.
+A cell with mutated pathways will be affected by the ``apop down'', ``prolif up'', and ``immune evasion'' parameters, depending on which pathways are mutated.
+The mesenchymal cells are influenced by the MGA and MIE parameters.
+Finally, $\sigma$, $k_\text{EMT}$, TGFB$_{max}$, and $\gamma_\text{EC50}$ all control how cells transition between the epithelial and mesenchymal states.
+
 We want to better isolate the effects of EMT on these dynamics, so parameters such as MIE and MGA are of interest.
-In addition, inflammation parameters dictating the cycling scheme are important to study, as shown by Guo et al \cite{}: we find that there are also high sensitivities in this model to these parameters.
+In addition, inflammation parameters dictating the cycling scheme are important to study\tcr{REF}: we find that there are also high sensitivities in this model to these parameters.
 In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and we will also study it further.
 
 
@@ -416,9 +421,11 @@ These results are summarized by Figure \ref{fig:FirstSurvivalCurves}A.
 \center
 \frame{\includegraphics[width=\columnwidth]{Figure3/Figure3.pdf}}
 \caption{
-A. Increasing MIE decreases Time to Cancer. 
-B. Increasing MGA increases Time to Cancer.
-C. Increasing Treg TGF-$\beta$ production results in decreased Time to Cancer.
+A-C. Trajectory of one patient per cohort followed from warmup through 2000 cell cycles.
+\tcr{OK to do A-C like this?}
+D. Increasing MIE decreases Time to Cancer. 
+E. Increasing MGA increases Time to Cancer.
+F. Increasing Treg TGF-$\beta$ production results in decreased Time to Cancer.
 %% {\color{red} Cox regression or KM test statistics to be computed to demonstrate the significance of this claim.}
 }
 \label{fig:FirstSurvivalCurves}
