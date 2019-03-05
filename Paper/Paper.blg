@@ -1,74 +1,51 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Paper.aux
-I couldn't open database file mybib.bib
----line 65 of file Paper.aux
- : \bibdata{mybib
- :               ,amrefs}
-I'm skipping whatever remains of this command
 The style file: plos2015.bst
-I found no database files---while reading file Paper.aux
-Warning--I didn't find a database entry for "pardoll2012blockade"
-Warning--I didn't find a database entry for "restifo2012adoptive"
-Warning--I didn't find a database entry for "de2006paradoxical"
-Warning--I didn't find a database entry for "schreiber11_cancer"
-Warning--I didn't find a database entry for "nieto2016emt"
-Warning--I didn't find a database entry for "nie18_stem"
-Warning--I didn't find a database entry for "sha19_intermediate"
-Warning--I didn't find a database entry for "hong2015ovol2"
-Warning--I didn't find a database entry for "jolly15_coupling"
-Warning--I didn't find a database entry for "moris16_transition"
-Warning--I didn't find a database entry for "maclean18_exploring"
-Warning--I didn't find a database entry for "ta16_controlling"
-Warning--I didn't find a database entry for "rackauckas18_meanindependent"
-Warning--I didn't find a database entry for "terry2017new"
-Warning--I didn't find a database entry for "guo2017multiscale"
-Warning--I didn't find a database entry for "morris1991factorial"
-Warning--I didn't find a database entry for "sohier2014improvement"
-Warning--I didn't find a database entry for "de2014modeling"
+Database file #1: mybib.bib
+Database file #2: amrefs.bib
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 0 entries,
+You've used 18 entries,
             3058 wiz_defined-function locations,
-            643 strings with 4619 characters,
-and the built_in function-call counts, 27 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 16
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            758 strings with 8550 characters,
+and the built_in function-call counts, 30760 in all, are:
+= -- 3910
+> -- 260
+< -- 2
++ -- 133
+- -- 65
+* -- 2546
+:= -- 3382
+add.period$ -- 79
+call.type$ -- 18
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 18
+duplicate$ -- 2587
+empty$ -- 2894
+format.name$ -- 80
+if$ -- 7157
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 18
+missing$ -- 170
+newline$ -- 100
+num.names$ -- 18
+pop$ -- 262
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1
+skip$ -- 294
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 5889
+swap$ -- 456
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 2 error messages)
+while$ -- 182
+width$ -- 20
+write$ -- 215

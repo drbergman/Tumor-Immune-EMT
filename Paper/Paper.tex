@@ -38,23 +38,33 @@ and Adam L. MacLean\,$^{3,*}$
 
 
 \section*{Abstract}
+Preceding tumorigenesis and throughout the lifetime of a tumor, the immune system is engaged in complex sets of interactions in and around the tumor. These are regulated by the tumor microenvironment (TME) in myriad ways. Moreover,  epithelial cell plasticity impacts disease incidence and progression via processes of epithelial-to-mesenchymal transition (EMT).
+In turn, both the tumor and the immune system exert substantial influence over the TME in competition to influence the fate of the host. Determining the factors and mechanisms underpinning these complex interactions remains an important task for cancer immunotherapy. We developed a multiscale agent-based model to describe the interplay between three components: the tumor (or pre-tumor cells), the immune system, and EMT.
+The model revealed a \tcr{non-monotonic relationship} between the cell cycle times associated with the mesenchymal phenotype and the probability of tumorigenesis, identifying a critical growth rate that maximizes cancer-free survival. In comparison, increasing the immune-evasiveness of the mesenchymal phenotypes always led to poorer prognosis. Moreover, encouraging the TME
+towards a pro-EMT state also benefits the tumor. Together, these results indicate that the joint regulation of the TME by the immune system and the tumor itself provides possible targets for future cancer therapies, in particular cancers such as pancreatic cancer in which EMT is speculated to play a role.
+
+
+
 %% Basic Introduction (1-2 sentences)
-Preceding tumorigenesis and throughout the lifetime of a tumor, the immune system is engaged in complex sets of interactions in and around the tumor.
+%Preceding tumorigenesis and throughout the lifetime of a tumor, the immune system is engaged in complex sets of interactions in and around the tumor.
 %% More Detailed Background (2-3 sentences)
-These are regulated by the tumor microenvironment (TME) in myriad ways. Moreover,  epithelial cell plasticity impacts disease incidence and progression via processes of epithelial-to-mesenchymal transition (EMT).
-In turn, both the tumor and the immune system exert substantial influence over the TME in competition to influence the fate of the host.
+%These are regulated by the tumor microenvironment (TME) in myriad ways. Moreover,  epithelial cell plasticity impacts disease incidence and progression via processes of epithelial-to-mesenchymal transition (EMT).
+%In turn, both the tumor and the immune system exert substantial influence over the TME in competition to influence the fate of the host.
 %% General Problem (1 sentence)
-Determining the factors and mechanisms underpinning these complex interactions remains an important task for cancer immunotherapy.
+%Determining the factors and mechanisms underpinning these complex interactions remains an important task for cancer immunotherapy.
 %% Summarizing Main Result (1 sentence)
 %Here, we seek to understand how interplay between the tumor, the immune system, and EMT can determine the outcome of cancer.
 %% The Main Result (2-3 sentences)
-We developed a multiscale agent-based model to describe the interplay between three components: the tumor (or pre-tumor cells), the immune system, and EMT.
-The model revealed a \tcr{non-monotonic relationship} between the cell cycle times associated with the mesenchymal phenotype and the probability of tumorigenesis, identifying a critical growth rate that maximizes cancer-free survival. In comparison, increasing the immune-evasiveness of the mesenchymal phenotypes always led to poorer prognosis. Moreover, encouraging
+%We developed a multiscale agent-based model to describe the interplay between three components: the tumor (or pre-tumor cells), the immune system, and EMT.
+%The model revealed a \tcr{non-monotonic relationship} between the cell cycle times associated with the mesenchymal phenotype and the probability of tumorigenesis, identifying a critical growth rate that maximizes cancer-free survival. In comparison, increasing the immune-evasiveness of the mesenchymal phenotypes always led to poorer prognosis. Moreover, encouraging
 %\tcr
-the TME
-towards a pro-EMT state also benefits the tumor.
+%the TME
+%towards a pro-EMT state also benefits the tumor.
 %% Putting into a More General Context (1-2 sentences)
-Together, these results indicate that the joint regulation of the TME by the immune system and the tumor itself provides possible targets for future cancer therapies, in particular cancers such as pancreatic cancer in which EMT is speculated to play a role.
+%Together, these results indicate that the joint regulation of the TME by the immune system and the tumor itself provides possible targets for future cancer therapies, in particular cancers such as pancreatic cancer in which EMT is speculated to play a role.
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %                    INTRODUCTION                    %
@@ -65,21 +75,11 @@ Together, these results indicate that the joint regulation of the TME by the imm
 The immune system affects tumorigenesis and cancer progression in myriad intricate ways. New breakthroughs in the field of immunotherapy are beginning to produce new therapies that have had a significant impact on patient health and survival \cite{pardoll2012blockade,restifo2012adoptive}. Beyond direct tumor-immune cell interactions, the immune system also modulates the tumor microenvironment (TME), and indeed, immune cells can be considered as a part of the TME: responding to local inflammatory signals, targeting mutated cells, and potentially eradicating tumor cells and restoring homeostasis in a local context \cite{de2006paradoxical}.
 \par 
 Tumor cells also interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens that innate immune cells recognize and carry to lymph nodes to activate T cells (and other components) \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing the immunosuppression via Treg cell activation \cite{schreiber11_cancer}.
-\par
-Epithelial-to-mesenchymal transition (EMT) describes reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
-While epithelial cells are in-part defined by their adhesion to neighbors, mesenchymal cells show much greater ranges of motility, and perhaps stem-like properties \cite{nieto2016emt}, although controversy regarding `stemness' and EMT remains \cite{nie18_stem, sha19_intermediate}.  
-Recent work has shown that -- rather than being a binary process -- at least two stable intermediate states exist on the EMT axis \cite{hong2015ovol2, jolly15_coupling}. Ongoing investigations into the plasticity and stability of EMT overlap with studies of discrete vs. continuous processes elsewhere, such as in cell differentiation \cite{moris16_transition}. Moreover, intermediate states have emerged as a central mechanisms by which cell fates (and the noise inherent within in them) can be controlled \cite{maclean18_exploring, ta16_controlling, rackauckas18_meanindependent}  
 
 
 
-
-While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of both tumor initiation and progression \cite{nieto2016emt}. In addition, TGF-$\beta$ is a master regulator of EMT, thus linking it closely with the signaling networks involved in immune responses [REF].
-
-
-This particular cytokine is also a driver of the epithelial-to-mesenchymal transition (EMT) and through generating TGF-$\beta$ the tumor creates a more mesenchymal phenotype within the TME.
-\tcr{I think this is where I would add which types of cancer most likely to be affected by EMT. But which? And what sources?}
-In this way, the tumor shifts the balance of local environment along the EMT spectrum.
-
+******Key aspects immune system
+%
 The immune system has several competing interactions with the tumor.
 While the cytotoxic immune cells, NKs and cytotoxic T cells (CTLs), seek out and lyse tumor cells, the regulatory branch of the immune system, which will be accounted for by Tregs in our model, slows down the effector functions of these other cells. % Make sure there's some ref for immune clearing tumor
 % Also, add that as immune cells clear tumor cells, they become deactivated and give source
@@ -90,33 +90,47 @@ In this way, just as the tumor cells push the TME towards a mesenchymal phenotyp
 
 
 
+
+\par
+Epithelial-to-mesenchymal transition (EMT) describes reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
+While epithelial cells are in-part defined by their adhesion to neighbors, mesenchymal cells show much greater ranges of motility, and perhaps stem-like properties \cite{nieto2016emt}, although controversy regarding `stemness' and EMT remains \cite{nie18_stem, sha19_intermediate}.  
+Recent work has shown that -- rather than being a binary process -- at least two stable intermediate states exist on the EMT axis \cite{hong2015ovol2, jolly15_coupling}. Ongoing investigations into the plasticity and stability of EMT overlap with discussions elsewhere, e.g. of discrete vs. continuous processes during cell differentiation \cite{moris16_transition}. Intermediate states have emerged as a central mechanisms by which cell fates (and the noise inherent within in them) can be controlled \cite{maclean18_exploring, ta16_controlling, rackauckas18_meanindependent}. 
+\par 
+While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of both tumor initiation and progression \cite{nieto2016emt}. In addition, TGF-$\beta$ is a master regulator of EMT [REF], thus tying it to the signaling networks involved in tumor-mediated immune responses. 
+\tcr{I think this is where I would add which types of cancer most likely to be affected by EMT. But which? And what sources?}
+In this way, the tumor shifts the balance of local environment along the EMT spectrum.
+
+
+
 While there might be many other characteristics distinctive of mesenchymal cells that need further exploration, two qualities of mesenchymal cells are particularly relevant in the context of cancer and the immune system:
 1) mesenchymal cells are less susceptible to immune clearance\cite{terry2017new} and
 %
 2) mesenchymal cells proliferate at a slower rate. \tcr{Ref}
 
 
-
-
-% model cancer-immune 
+% MODELS of cancer-immune 
 %\cite{West19_JCOClinicalCancerInformatics}
 
 
 
-
+*******summary of MIE and MGA (move later?)
 
 The immune evasiveness of mesenchymal cells is well-established with even a functional cause for this phenomenon.
 As a cell is being targeted by cytotoxic immune cells for clearance, a physical connection between the two cells must be created in order to precipitate the lysing event.
 This immunological synapse, however, is dependent upon the surface proteins of the target cell, and in the case of mesenchymal cells there is preliminary evidence that these surface markers are down-regulated in such a way that the immune synapse is more difficult to form\cite{terry2017new}.
 There are also other structural changes that take place in mesenchymal cells that could contribute to this refractory nature towards immune clearance.
 Regardless, the evidence currently demonstrates a ``slipperiness'' of mesenchymal cells in regards to immune lysing.
-We will refer to this as mesenchymal immune evasion, or MIE.
+We will refer to this as mesenchymal immune evasion (MIE).
 
 The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells often express a more stem-like phenotype.
 Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions. \tcr{Ref}
 While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate. \tcr{Ref}
 Cancer cells are well-known for achieving unregulated proliferation, so exploring a subset of cancer cells with decreased proliferation could provide intriguing new results.
 In our model, we refer to this property as mesenchymal growth arrest, or MGA.
+
+
+
+****thisis ?
 
 Recent work on cancer-immune interactions has shown that the inflammatory conditions of the TME can play large and sometimes surprising roles in tumor growth.
 For example, a mathematical model was developed to couple the inflammatory state of the TME with the cell cycles of the stem cells by increasing proliferation, decreasing apoptosis, and enhancing DNA damage that leads to mutations\cite{guo2017multiscale}.
@@ -131,6 +145,11 @@ Such additions will allow us to explore the interactions of the tumor, the immun
 Next, we introduce the model modularly, which is appropriate given its multiscale and hybrid nature.
 We then perform sensitivity analysis and identify parameters that are crucial for the progression to tumorigenesis.
 We analyze the competing effects of EMT and of the immune system on tumorigenesis and find that EMT intricately regulates tumorigenesis: under certain regimes a careful balance of EMT- and immune-driven process can significantly prolong cancer-free survival.
+
+
+
+
+
 
 
 %%%%%%%%%%%%%  INTRO PARAGRAPH GRAVEYARD %%%%%%%%%%%%%%%%
