@@ -75,28 +75,21 @@ towards a pro-EMT state also benefits the tumor. Together, these results indicat
 The immune system affects tumorigenesis and cancer progression in myriad intricate ways. New breakthroughs in the field of immunotherapy are beginning to produce new therapies that have had a significant impact on patient health and survival \cite{pardoll2012blockade,restifo2012adoptive}. Beyond direct tumor-immune cell interactions, the immune system also modulates the tumor microenvironment (TME), and indeed, immune cells can be considered as a part of the TME: responding to local inflammatory signals, targeting mutated cells, and potentially eradicating tumor cells and restoring homeostasis in a local context \cite{de2006paradoxical}.
 \par 
 Tumor cells also interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens that innate immune cells recognize and carry to lymph nodes to activate T cells (and other components) \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing the immunosuppression via Treg cell activation \cite{schreiber11_cancer}.
-
-
-
-******Key aspects immune system
-%
-The immune system has several competing interactions with the tumor.
-While the cytotoxic immune cells, NKs and cytotoxic T cells (CTLs), seek out and lyse tumor cells, the regulatory branch of the immune system, which will be accounted for by Tregs in our model, slows down the effector functions of these other cells. % Make sure there's some ref for immune clearing tumor
+\par
+The effects of the immune system on a tumor can be (very coarsely) summarized into two modules. Cytotoxic immune cells (such as natural killer (NK) cells and cytotoxic T cells (CTLs)) seek out and lyse tumor cells, whereas the regulatory branch of the immune system (which will below be accounted for by T regulatory cells (Tregs)), slows down the \tcr{effector functions} of these other cells. [REF]
+%Make sure there's some ref for immune clearing tumor
 % Also, add that as immune cells clear tumor cells, they become deactivated and give source
-
-In relation to EMT, the Tregs of the immune system drive the EMT process by releasing TGF-$\beta$ upon arriving at the tumor site\cite{terry2017new}.
-In this way, just as the tumor cells push the TME towards a mesenchymal phenotype, so too do the Tregs.
-
-
-
-
-
+In addition, the immune system plays important regulatory roles in pre-cancerous tissue, where inflammation can increase the probability of tumorigenesis (and/or decrease the time to cancer), particularly in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}. However, recent work raises questions regarding the relationship between inflammation and cancer \cite{guo2017multiscale}. 
 \par
 Epithelial-to-mesenchymal transition (EMT) describes reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
 While epithelial cells are in-part defined by their adhesion to neighbors, mesenchymal cells show much greater ranges of motility, and perhaps stem-like properties \cite{nieto2016emt}, although controversy regarding `stemness' and EMT remains \cite{nie18_stem, sha19_intermediate}.  
 Recent work has shown that -- rather than being a binary process -- at least two stable intermediate states exist on the EMT axis \cite{hong2015ovol2, jolly15_coupling}. Ongoing investigations into the plasticity and stability of EMT overlap with discussions elsewhere, e.g. of discrete vs. continuous processes during cell differentiation \cite{moris16_transition}. Intermediate states have emerged as a central mechanisms by which cell fates (and the noise inherent within in them) can be controlled \cite{maclean18_exploring, ta16_controlling, rackauckas18_meanindependent}. 
 \par 
-While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of both tumor initiation and progression \cite{nieto2016emt}. In addition, TGF-$\beta$ is a master regulator of EMT [REF], thus tying it to the signaling networks involved in tumor-mediated immune responses. 
+While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of both tumor initiation and progression \cite{nieto2016emt}. In addition, TGF-$\beta$ is a master regulator of EMT [REF], thus tying it to the signaling networks involved in tumor-mediated immune responses, since Tregs release TGF-$\beta$ upon arriving at the tumor site\cite{terry2017new}. Thus, even by considering only a single signaling factor, we find these three components: the tumor, the immune system, and the EMT process to be inextricably linked. It thus strikes us as a priority to derive models to understand how interactions between each of these three components affect cancer incidence and progression.
+\par 
+Below we develop a multiscale model with this goal: to study interactions between the tumor, immune cells and EMT. Many 
+
+
 \tcr{I think this is where I would add which types of cancer most likely to be affected by EMT. But which? And what sources?}
 In this way, the tumor shifts the balance of local environment along the EMT spectrum.
 
