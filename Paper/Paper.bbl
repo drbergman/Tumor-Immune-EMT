@@ -22,6 +22,20 @@ Schreiber RD, Old LJ, Smyth MJ.
 \newblock Science. 2011;331(6024):1565--1570.
 \newblock doi:{10.1126/science.1203486}.
 
+\bibitem{hu10_inflammationinduced}
+Hu B, Elinav E, Huber S, Booth CJ, Strowig T, Jin C, et~al.
+\newblock Inflammation-induced tumorigenesis in the colon is regulated by
+  caspase-1 and {NLRC}4.
+\newblock Proceedings of the National Academy of Sciences.
+  2010;107(50):21635--21640.
+\newblock doi:{10.1073/pnas.1016814108}.
+
+\bibitem{balkwill01_inflammation}
+Balkwill F, Mantovani A.
+\newblock Inflammation and cancer: back to {Virchow}?
+\newblock The Lancet. 2001;357(9255):539--545.
+\newblock doi:{10.1016/S0140-6736(00)04046-0}.
+
 \bibitem{guo2017multiscale}
 Guo Y, Nie Q, MacLean AL, Li Y, Lei J, Li S.
 \newblock Multiscale modeling of inflammation-induced tumorigenesis reveals
@@ -89,12 +103,64 @@ Terry S, Savagner P, Ortiz-Cuaran S, Mahjoubi L, Saintigny P, Thiery JP, et~al.
 \newblock New insights into the role of EMT in tumor immune escape.
 \newblock Molecular oncology. 2017;11(7):824--846.
 
+\bibitem{sherrattjonathana.92_oncogenes}
+{Sherratt Jonathan A }, {Nowak Martin A }.
+\newblock Oncogenes, anti-oncogenes and the immune response to cancer : a
+  mathematical model.
+\newblock Proceedings of the Royal Society of London Series B: Biological
+  Sciences. 1992;248(1323):261--271.
+\newblock doi:{10.1098/rspb.1992.0071}.
+
+\bibitem{pillis05_validated}
+Pillis LGd, Radunskaya AE, Wiseman CL.
+\newblock A {Validated} {Mathematical} {Model} of {Cell}-{Mediated} {Immune}
+  {Response} to {Tumor} {Growth}.
+\newblock Cancer Research. 2005;65(17):7950--7958.
+\newblock doi:{10.1158/0008-5472.CAN-05-0564}.
+
+\bibitem{an15_agentbased}
+An G, Kulkarni S.
+\newblock An agent-based modeling framework linking inflammation and cancer
+  using evolutionary principles: {Description} of a generative hierarchy for
+  the hallmarks of cancer and developing a bridge between mechanism and
+  epidemiological data.
+\newblock Mathematical Biosciences. 2015;260:16--24.
+\newblock doi:{10.1016/j.mbs.2014.07.009}.
+
+\bibitem{serre16_mathematical}
+Serre R, Benzekry S, Padovani L, Meille C, André N, Ciccolini J, et~al.
+\newblock Mathematical {Modeling} of {Cancer} {Immunotherapy} and {Its}
+  {Synergy} with {Radiotherapy}.
+\newblock Cancer Research. 2016;76(17):4931--4940.
+\newblock doi:{10.1158/0008-5472.CAN-15-3567}.
+
+\bibitem{louzoun14_mathematical}
+Louzoun Y, Xue C, Lesinski GB, Friedman A.
+\newblock A mathematical model for pancreatic cancer growth and treatments.
+\newblock Journal of Theoretical Biology. 2014;351:74--82.
+\newblock doi:{10.1016/j.jtbi.2014.02.028}.
+
+\bibitem{benzekry17_mathematical}
+Benzekry S, Lamont C, Barbolosi D, Hlatky L, Hahnfeldt P.
+\newblock Mathematical {Modeling} of {Tumor}–{Tumor} {Distant} {Interactions}
+  {Supports} a {Systemic} {Control} of {Tumor} {Growth}.
+\newblock Cancer Research. 2017;77(18):5183--5193.
+\newblock doi:{10.1158/0008-5472.CAN-17-0564}.
+
 \bibitem{west19_immune}
 West J, Robertson-Tessi M, Luddy K, Park DS, Williamson DFK, Harmon C, et~al.
 \newblock The {Immune} {Checkpoint} {Kick} {Start}: {Optimization} of
   {Neoadjuvant} {Combination} {Therapy} {Using} {Game} {Theory}.
 \newblock JCO Clinical Cancer Informatics. 2019;(3):1--12.
 \newblock doi:{10.1200/CCI.18.00078}.
+
+\bibitem{owen11_mathematical-1}
+Owen MR, Stamper IJ, Muthana M, Richardson GW, Dobson J, Lewis CE, et~al.
+\newblock Mathematical {Modeling} {Predicts} {Synergistic} {Antitumor}
+  {Effects} of {Combining} a {Macrophage}-{Based}, {Hypoxia}-{Targeted} {Gene}
+  {Therapy} with {Chemotherapy}.
+\newblock Cancer Research. 2011;71(8):2826--2837.
+\newblock doi:{10.1158/0008-5472.CAN-10-2834}.
 
 \bibitem{morris1991factorial}
 Morris MD.

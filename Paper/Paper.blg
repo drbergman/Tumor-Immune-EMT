@@ -4,59 +4,50 @@ The top-level auxiliary file: Paper.aux
 The style file: plos2015.bst
 Database file #1: mybib.bib
 Database file #2: amrefs.bib
-Warning--I didn't find a database entry for "hu10_inflammationinduced"
-Warning--I didn't find a database entry for "balkwill01_inflammation"
-Warning--I didn't find a database entry for "sherrattjonathana.92_oncogenes"
-Warning--I didn't find a database entry for "pillis05_validated"
-Warning--I didn't find a database entry for "an15_agentbased"
-Warning--I didn't find a database entry for "serre16_mathematical"
-Warning--I didn't find a database entry for "louzoun14_mathematical"
-Warning--I didn't find a database entry for "benzekry17_mathematical"
-Warning--I didn't find a database entry for "owen11_mathematical-1"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--there's a number but no volume in west19_immune
-You've used 19 entries,
+You've used 28 entries,
             3058 wiz_defined-function locations,
-            774 strings with 9171 characters,
-and the built_in function-call counts, 34241 in all, are:
-= -- 4351
-> -- 288
+            843 strings with 12079 characters,
+and the built_in function-call counts, 54358 in all, are:
+= -- 6958
+> -- 444
 < -- 2
-+ -- 153
-- -- 72
-* -- 2865
-:= -- 3754
-add.period$ -- 84
-call.type$ -- 19
++ -- 245
+- -- 111
+* -- 4600
+:= -- 5922
+add.period$ -- 129
+call.type$ -- 28
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 2834
-empty$ -- 3228
-format.name$ -- 88
-if$ -- 7962
+cite$ -- 29
+duplicate$ -- 4491
+empty$ -- 5119
+format.name$ -- 136
+if$ -- 12643
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 182
-newline$ -- 106
-num.names$ -- 19
-pop$ -- 277
+int.to.str$ -- 28
+missing$ -- 275
+newline$ -- 160
+num.names$ -- 28
+pop$ -- 405
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 316
+skip$ -- 469
 stack$ -- 0
-substring$ -- 6665
-swap$ -- 486
+substring$ -- 10739
+swap$ -- 718
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 196
-width$ -- 21
-write$ -- 228
-(There were 10 warnings)
+while$ -- 298
+width$ -- 30
+write$ -- 345
+(There was 1 warning)

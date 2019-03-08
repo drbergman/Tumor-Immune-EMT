@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 MAR 2019 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 MAR 2019 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1120,19 +1120,9 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 83.
-
-
-LaTeX Warning: Citation `hu10_inflammationinduced' on page 2 undefined on input
- line 83.
-
-
-LaTeX Warning: Citation `balkwill01_inflammation' on page 2 undefined on input 
-line 83.
-
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
 (Font)              scaled to size 10.95pt on input line 97.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1141,38 +1131,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 97.
-[2]
-
-LaTeX Warning: Citation `sherrattjonathana.92_oncogenes' on page 3 undefined on
- input line 104.
-
-
-LaTeX Warning: Citation `pillis05_validated' on page 3 undefined on input line 
-104.
-
-
-LaTeX Warning: Citation `an15_agentbased' on page 3 undefined on input line 104
-.
-
-
-LaTeX Warning: Citation `serre16_mathematical' on page 3 undefined on input lin
-e 104.
-
-
-LaTeX Warning: Citation `louzoun14_mathematical' on page 3 undefined on input l
-ine 104.
-
-
-LaTeX Warning: Citation `benzekry17_mathematical' on page 3 undefined on input 
-line 104.
-
-
-LaTeX Warning: Citation `owen11_mathematical-1' on page 3 undefined on input li
-ne 104.
-
-[3]
+[2] [3]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 163.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 192.
  [4]
 LaTeX Font Info:    Try loading font information for TS1+XCharter-TLF on input 
 line 202.
@@ -1198,7 +1161,7 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 216.
 
 [5] [6] [7]
-<Figs/Figure1/Figure1.pdf, id=37, 1027.84pt x 770.88pt>
+<Figs/Figure1/Figure1.pdf, id=36, 1027.84pt x 770.88pt>
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 <use Figs/Figure1/Figure1.pdf>
 Package pdftex.def Info: Figs/Figure1/Figure1.pdf  used on input line 347.
@@ -1223,77 +1186,73 @@ s rotated 90 degrees>]
 <Figs/Figure4/Figure4.pdf, id=118, 1027.84pt x 656.12265pt>
 File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 <use Figs/Figure4/Figure4.pdf>
-Package pdftex.def Info: Figs/Figure4/Figure4.pdf  used on input line 458.
+Package pdftex.def Info: Figs/Figure4/Figure4.pdf  used on input line 459.
 (pdftex.def)             Requested size: 399.21791pt x 254.84558pt.
 <Figs/Figure5/MIEvsMQ.jpg, id=119, 1124.2pt x 843.15pt>
 File: Figs/Figure5/MIEvsMQ.jpg Graphic file (type jpg)
 <use Figs/Figure5/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg  used on input line 469.
+Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg  used on input line 470.
 (pdftex.def)             Requested size: 266.14978pt x 199.60693pt.
  [13]
 [14 <./Figs/Figure4/Figure4.pdf> <./Figs/Figure5/MIEvsMQ.jpg>]
 <Figs/FigTCGA.pdf, id=147, 682.33821pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
 <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf  used on input line 487.
+Package pdftex.def Info: Figs/FigTCGA.pdf  used on input line 488.
 (pdftex.def)             Requested size: 443.57848pt x 326.60455pt.
  [15 <./Figs/FigTCGA.pdf>] (./Paper.bbl [16]
-Underfull \hbox (badness 5302) in paragraph at lines 67--71
+Underfull \hbox (badness 5302) in paragraph at lines 81--85
 []\T1/XCharter-TLF/m/n/10.95 (+20) MacLean AL, Hong T, Nie Q.  Ex-plor-ing in-t
 er-me-di-ate cell states through
  []
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 67--71
+Underfull \hbox (badness 2591) in paragraph at lines 81--85
 \T1/XCharter-TLF/m/n/10.95 (+20) the lens of sin-gle cells.  Cur-rent Opin-ion 
 in Sys-tems Bi-ol-ogy. 2018;9:32--41.
  []
 
-
-Underfull \hbox (badness 1448) in paragraph at lines 93--98
+[17]
+Underfull \hbox (badness 1448) in paragraph at lines 151--156
 \T1/XCharter-TLF/m/n/10.95 (+20) The Im-mune Check-point Kick Start: Op-ti-miza
 -tion of Neoad-ju-vant Com-bi-na-tion
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 93--98
+Underfull \hbox (badness 1521) in paragraph at lines 151--156
 \T1/XCharter-TLF/m/n/10.95 (+20) Ther-apy Us-ing Game The-ory.  JCO Clin-i-cal 
 Can-cer In-for-mat-ics. 2019;(3):1--12.
  []
 
 ) 
 AED: lastpage setting LastPage
-[17] (./Paper.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[18] (./Paper.aux) ) 
 Here is how much of TeX's memory you used:
- 10659 strings out of 492649
- 165347 string characters out of 6129622
+ 10655 strings out of 492649
+ 165243 string characters out of 6129622
  278600 words of memory out of 5000000
  14072 multiletter control sequences out of 15000+600000
- 116731 words of font info for 193 fonts, out of 8000000 for 9000
+ 116025 words of font info for 190 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,13n,77p,1635b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharter/xch_q7u3cc.enc}{
-/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharter/xch_tuu2ww.enc}{/us
-r/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Paper.pdf (17 pages, 3419076 bytes).
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharte
+r/xch_tuu2ww.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharter/x
+ch_q7u3cc.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Ital
+ic.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter
+-Roman.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on Paper.pdf (18 pages, 3421594 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 232 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  29727 words of extra memory for PDF output out of 29859 (max. 10000000)
 
