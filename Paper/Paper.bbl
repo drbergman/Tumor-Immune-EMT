@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{de2006paradoxical}
+De~Visser KE, Eichten A, Coussens LM.
+\newblock Paradoxical roles of the immune system during cancer development.
+\newblock Nature reviews cancer. 2006;6(1):24.
+
 \bibitem{pardoll2012blockade}
 Pardoll DM.
 \newblock The blockade of immune checkpoints in cancer immunotherapy.
@@ -10,17 +15,18 @@ Restifo NP, Dudley ME, Rosenberg SA.
 \newblock Adoptive immunotherapy for cancer: harnessing the T cell response.
 \newblock Nature Reviews Immunology. 2012;12(4):269.
 
-\bibitem{de2006paradoxical}
-De~Visser KE, Eichten A, Coussens LM.
-\newblock Paradoxical roles of the immune system during cancer development.
-\newblock Nature reviews cancer. 2006;6(1):24.
-
 \bibitem{schreiber11_cancer}
 Schreiber RD, Old LJ, Smyth MJ.
 \newblock Cancer {Immunoediting}: {Integrating} {Immunity}’s {Roles} in
   {Cancer} {Suppression} and {Promotion}.
 \newblock Science. 2011;331(6024):1565--1570.
 \newblock doi:{10.1126/science.1203486}.
+
+\bibitem{guo2017multiscale}
+Guo Y, Nie Q, MacLean AL, Li Y, Lei J, Li S.
+\newblock Multiscale modeling of inflammation-induced tumorigenesis reveals
+  competing oncogenic and onco-protective roles for inflammation.
+\newblock Cancer research. 2017; p. canres--1662.
 
 \bibitem{nieto2016emt}
 Nieto MA, Huang RYJ, Jackson RA, Thiery JP.
@@ -83,11 +89,12 @@ Terry S, Savagner P, Ortiz-Cuaran S, Mahjoubi L, Saintigny P, Thiery JP, et~al.
 \newblock New insights into the role of EMT in tumor immune escape.
 \newblock Molecular oncology. 2017;11(7):824--846.
 
-\bibitem{guo2017multiscale}
-Guo Y, Nie Q, MacLean AL, Li Y, Lei J, Li S.
-\newblock Multiscale modeling of inflammation-induced tumorigenesis reveals
-  competing oncogenic and onco-protective roles for inflammation.
-\newblock Cancer research. 2017; p. canres--1662.
+\bibitem{west19_immune}
+West J, Robertson-Tessi M, Luddy K, Park DS, Williamson DFK, Harmon C, et~al.
+\newblock The {Immune} {Checkpoint} {Kick} {Start}: {Optimization} of
+  {Neoadjuvant} {Combination} {Therapy} {Using} {Game} {Theory}.
+\newblock JCO Clinical Cancer Informatics. 2019;(3):1--12.
+\newblock doi:{10.1200/CCI.18.00078}.
 
 \bibitem{morris1991factorial}
 Morris MD.
