@@ -331,6 +331,16 @@ Some of the parameters were also truncated to the right because they represented
 The variances were chosen as twice the mean to get a large spread of values.
 
 
+\subsection{Analysis of patient survival data from TCGA database}
+We obtain primary tumor bulk mRNA sequencing and censored survival data for all individuals monitored in the relevant project from the Cancer Genome Atlas (TCGA) from the Genomic Data Commons portal in R, using the package TCGABiolinks.  Given $n >= 1$ gene set keywords (e.g. "inflammatory" and "emt"), the symbolic names of all msigdb gene sets are searched for matches to these keywords, and matched gene sets are grouped by keyword. For each element in the product S of all keyword groups, the following analysis is performed.
+\begin{enumerate}
+     \item The first principle component of the geneset-wide expression is obtained for each element of the n-tuple of gene sets.
+     \item Two clusters of n-dimensional patient vectors are obtained by k-means clustering.
+     \item The patients are separated by their cluster identity and Kaplan-Meier curves are fit to their corresponding survival data.
+     \item Under the null hypothesis that there is no difference between the survival of the two groups, a log-rank test is performed.
+     \item The log-rank test p-value for each element in S is placed in an ordered list, the lowest of which defines the element of S whose composite gene sets are most predictive of patient survival in the given TCGA project or tumor type.
+\end{enumerate}
+Below we analyze data gathered for pancreatic cancer, denoted by ``PAAD'' in TCGA.     
 
 
 
@@ -438,21 +448,15 @@ Mesenchymal cells are more likely to evade the immune system, so pushing the sys
 
 \subsection{A key EMT regime maximizes cancer-free survival time under chronic inflammation}\label{KeyEMT}
 
-Given the relevance of the inflammatory state of the tumor microenvironment (TME), we explore the effect of varying the inflammation state of the patient on survival.
-In simulations, we assign some cohorts permanently low inflammation levels, some permanently high levels, and some variable inflammatory schemes.
-For those cohorts with a permanently high inflammatory state, the relationship between the mesenchymal parameters and the Time to Cancer is monotonic.
-However, when there are periods of a low inflammatory state, then intriguingly the connection between MGA and Time to Cancer becomes concave down with a local maximum around 0.3.
-This can be seen in the top two groups of Figure \ref{fig:VaryINFL_and_MesPars}D: the MGA=0.3 cohorts both took longer to cancer than their neighbors.
-What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
-Even if the patient is presenting a chronically high inflammatory state, anti-inflammatories could be administered which would create the periods of low inflammation our model predicts as necessary for seeing these changes.
-Reducing the inflammatory state of the TME three weeks out of every nine would be sufficient to make the control of mesenchymal proliferation an effective anti-cancer strategy.
-%Furthermore, even if the patient is presenting a permanent high inflammatory state, medications could be prescribed which would lower the inflammatory state temporarily and thus create a similar cycling inflammatory regime which could be taken advantage of in the same way. \tcr{what does this mean? how?}
-
-Contrast this with what happens when MIE is varied for different inflammation cycling schemes.
-Regardless of the cycling scheme, the relationship between Time to Cancer and MIE is monotonic.
-In the case that the inflammatory state is permanently high, MIE has no significant effect on Time to Cancer.
-On the other hand, when the patient experiences at least some time in a low inflammatory state, an increase in MIE results in a decrease in Time to Cancer.
-This indicates that mitigating a chronic inflammatory state is a necessity for increasing survival, and once that has been achieved, even to a small degree, then therapies which reduce mesenchymal immune evasion will gain efficacy.
+We explored the effects of varying the inflammation state of the patient on cancer-free survival, to investigate competing interactions within the TME and their effect on EMT. Patient cohorts were simulated under different inflammation regimes: permanently low inflammation; permanently high inflammation; or variable inflammatory. For patients drawn from cohorts in a permanently high inflammatory state, the relationship between mesenchymal parameters and the Time to Cancer is monotonic, i.e. increasing either the rate of mesenchymal immune evasion (MIE) (Fig. \ref{fig:VaryINFL_and_MesPars}A-B) or of mesenchymal growth arrest (MGA)  (Fig. \ref{fig:VaryINFL_and_MesPars}C-D) decreases the Time to Cancer.
+However, under regimes with either temporary or permanent periods of low inflammation, different relationships emerge: a local maximum for the Time to Cancer is found with respect to the relative mesenchymal growth rate (MGA $= 0.3$). This is seen both for intermittent or low inflammation (Fig. \ref{fig:VaryINFL_and_MesPars}D). 
+\par
+These striking differences in the mean Time to Cancer -- extended by up to one year by fine-grained optimization of mesenchymal growth arrest -- have clear therapeutic implications. 
+%What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
+%For patients presenting with chronically high inflammatory state, anti-inflammatories could be administered which would create the periods of low inflammation our model predicts as necessary for seeing these changes.
+Our model predicts that reducing the inflammatory state of the TME in three weeks out of every nine would be provide means to prolong cancer-free survival in combination with mesenchymal cell therapies to make the control of mesenchymal proliferation an effective anti-cancer strategy.
+\par
+In contrast, when MIE is varied for different inflammation cycling schemes, regardless of the cycling scheme, increasing the MIE leads to decreases in the Time to Cancer (worse survival probabilities), although in the case where the inflammatory state is permanently high, MIE has little effect on the Time to Cancer. Thus under any inflammation regime with periods of low inflammation, any reductions in the rate of mesenchymal immune evasion will lead to improved patient outcomes.
 
 \begin{figure}
 \center
@@ -476,11 +480,11 @@ D. The average Time to Cancer for each cohort.}
 % \subsection{Heat Map of MIE vs MGA}
 \subsection{Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}\label{tcga}
 
-To further analyze the effects on tumorigenesis of the mesenchymal properties of immune evasion (MIE) and growth arrest (MGA), we study the joint density plot detailing the effects of each of these parameters on the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of MGA considered, increasing the MIE decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with MIE. 
-
-
-To compare these model predictions with experimental studies, we performed analysis of data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers (REFS). We selected pancreatic cancer to investigate, and used gene ontologies as a measure of the of effects of inflammatory or EMT processes on survival. In Fig. \ref{fig:tcga} we plot survival curves for two cases: either clustering only on EMT, or on both EMT and inflammation signatures. We see that in both cases, survival is significantly affected by the gene ontology signature, but importantly, the presence of both EMT and inflammation signatures has a greater impact on survival than the effects of EMT alone.  
-
+To further assess the effects on tumorigenesis of the mesenchymal properties of immune evasion (MIE) and growth arrest (MGA), we study the joint density plot for each of these parameters against the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of MGA considered, increasing the MIE decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with increasing MIE. Together these results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of cancer-free survival, an optimal value of MGA will prolong survival. 
+\par 
+To compare these model predictions with experimental studies, we analyzed data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers \cite{hu10_inflammationinduced, balkwill01_inflammation}. Using gene ontologies as a measure of the of effects of inflammatory or EMT processes on cancer-free survival, we investigate pancreatic cancer. We note that the comparison between simulation and data here is indirect since the model studies processes occurring before incidence, while the data address subsequent events, but analogous processes are at play during both the pre-cancerous clonal dynamics addressed by the model, and the progression of disease that follows cancer incidence. 
+\par
+For a cohort of pancreatic cancer patients, we cluster the patients via k-means ($n=2$) either on gene ontologies relating only to EMT (Fig. \ref{fig:tcga}A) or on gene ontologies relating to EMT and inflammation (Fig. \ref{fig:tcga}C). We also plot the corresponding survival curves for each of the clusters obtained (Fig. \ref{fig:tcga}B, D). We see that in both cases, survival is significantly affected by the gene ontology signature, but, importantly, the presence of both EMT and inflammatory signatures has a greater impact on survival than the effects of EMT alone. This suggests that 
 
 
 \begin{figure}
