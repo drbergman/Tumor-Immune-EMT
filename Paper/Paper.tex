@@ -15,8 +15,11 @@
 \newcommand{\tcr} { \textcolor{red} }
 
 
-% A multiscale model of EMT-mediated cancer reveals 
-\title{Multiscale Modeling of the Paradoxical Roles of the Immune System in EMT-Mediated Cancer}
+% Multiscale Modeling of the Paradoxical Roles of the Immune System in EMT-Mediated Cancer
+\title{
+The competing effects of the immune system and EMT on epithelial cancers
+}
+
 \author{Daniel R. Bergman$^{1}$,
 Matthew Karikomi\,$^{1}$,
 Qing Nie\,$^{1,2,*}$
@@ -39,10 +42,16 @@ and Adam L. MacLean\,$^{3,*}$
 
 
 \section*{Abstract}
-Preceding tumorigenesis and throughout the lifetime of a tumor, the immune system is engaged in complex sets of interactions in and around the tumor. These are regulated by the tumor microenvironment (TME) in myriad ways. Moreover,  epithelial cell plasticity impacts disease incidence and progression via processes of epithelial-to-mesenchymal transition (EMT).
-In turn, both the tumor and the immune system exert substantial influence over the TME in competition to influence the fate of the host. Determining the factors and mechanisms underpinning these complex interactions remains an important task for cancer immunotherapy. We developed a multiscale agent-based model to describe the interplay between three components: the tumor (or pre-tumor cells), the immune system, and EMT.
-The model revealed a \tcr{non-monotonic relationship} between the cell cycle times associated with the mesenchymal phenotype and the probability of tumorigenesis, identifying a critical growth rate that maximizes cancer-free survival. In comparison, increasing the immune-evasiveness of the mesenchymal phenotypes always led to poorer prognosis. Moreover, encouraging the TME
-towards a pro-EMT state also benefits the tumor. Together, these results indicate that the joint regulation of the TME by the immune system and the tumor itself provides possible targets for future cancer therapies, in particular cancers such as pancreatic cancer in which EMT is speculated to play a role.
+Preceding and during cancer progression, the immune system is engaged in complex sets of interactions with epithelia that affect tumor incidence and prognosis. Inflammation also has significant effects on gastrointestinal and pancreatic tumors.
+% These are regulated by the tumor microenvironment (TME) in myriad ways.
+Moreover, epithelial cell plasticity can significantly alter disease trajectories (for better or worse) via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions.
+%In turn, both the tumor and the immune system exert substantial influence over the TME in competition to influence the fate of the host.
+Yet little is known about the mechanisms and consequences of these regulatory processes.
+Here we introduce a multiscale agent-based model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial tissues.
+Through {\em in silico} analysis of large patient cohorts, we found controllable regimes that increase cancer-free survival. Delaying tumorigenesis depended crucially on properties of the mesenchymal phenotype: its growth rate and its immune-evasiveness.
+We performed analysis of pancreatic cancer data from The Cancer Genome Atlas to compare clinical measurements with model predictions. We found, in broad agreement with the model, that association with EMT worsened the survival probabilities of inflammation-associated cancer.
+These results offer novel means to delay disease onset by controlling properties of EMT and demonstrate the importance of studying cancer-immune interactions in the light of EMT.
+%The model presented provides a base for future studies into the intricate regulation of tumorigenesis.
 
 
 
@@ -73,7 +82,7 @@ towards a pro-EMT state also benefits the tumor. Together, these results indicat
 
 
 \section{Introduction}
-Cancer and the immune system interact in myriad intricate ways. Beyond direct tumor-immune cell interactions, the immune system modulates the tumor microenvironment (TME), indeed, immune cells can be considered as a part of the TME: responding to local inflammatory signals, targeting mutated cells, and eradicating tumor cells to potentially restore homeostasis in a local context \cite{de2006paradoxical}. Recent breakthroughs in the field of immunotherapy are beginning to produce therapies that have had a significant impact on patient health and survival \cite{pardoll2012blockade,restifo2012adoptive}.
+Cancer and the immune system interact in myriad ways. Beyond direct tumor-immune cell interactions, the immune system modulates the tumor microenvironment (TME), indeed, immune cells can be considered as a part of the TME: responding to local inflammatory signals, targeting mutated cells, and eradicating tumor cells to potentially restore homeostasis in a local context \cite{de2006paradoxical}. Recent breakthroughs in the field of immunotherapy are beginning to produce therapies that have had a significant impact on patient health and survival \cite{pardoll2012blockade,restifo2012adoptive}.
 \par 
 Tumor cells interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens recognized by innate immune cells that are transported  to lymph nodes where T cells (and other components) can be activated \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing immunosuppression via Treg cell activation \cite{schreiber11_cancer}.
 \par
@@ -484,7 +493,7 @@ To further assess the effects on tumorigenesis of the mesenchymal properties of 
 \par 
 To compare these model predictions with experimental studies, we analyzed data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers \cite{hu10_inflammationinduced, balkwill01_inflammation}. Using gene ontologies as a measure of the of effects of inflammatory or EMT processes on cancer-free survival, we investigate pancreatic cancer. We note that the comparison between simulation and data here is indirect since the model studies processes occurring before incidence, while the data address subsequent events, but analogous processes are at play during both the pre-cancerous clonal dynamics addressed by the model, and the progression of disease that follows cancer incidence. 
 \par
-For a cohort of pancreatic cancer patients, we cluster the patients via k-means ($n=2$) either on gene ontologies relating only to EMT (Fig. \ref{fig:tcga}A) or on gene ontologies relating to EMT and inflammation (Fig. \ref{fig:tcga}C). We also plot the corresponding survival curves for each of the clusters obtained (Fig. \ref{fig:tcga}B, D). We see that in both cases, survival is significantly affected by the gene ontology signature, but, importantly, the presence of both EMT and inflammatory signatures has a greater impact on survival than the effects of EMT alone. This suggests that 
+For a cohort of pancreatic cancer patients, we cluster the patients via k-means ($n=2$) either on gene ontologies relating only to EMT (Fig. \ref{fig:tcga}A) or on gene ontologies relating to EMT and inflammation (Fig. \ref{fig:tcga}C). We also plot the corresponding survival curves for each of the clusters obtained (Fig. \ref{fig:tcga}B, D). We see that in both cases, survival is affected by the gene ontology signature, but the presence of both EMT and inflammatory signatures has a greater impact on survival than the effects of EMT alone. This suggests that when studying interactions between cancer and the immune system, is it important to consider EMT; the effects of which may impact the dynamics and should not be overlooked. 
 
 
 \begin{figure}
