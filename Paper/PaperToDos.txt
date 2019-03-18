@@ -1,0 +1,17 @@
+Today's Paper to dos:
+
+1. Address Qing's comment on "Identification of key model parameters..." section: expand on results and restate each parameter's influence
+2. Put the one paragraph into the Methods section (currently sits just above the methods section)
+4. Make sure no author names are present
+5. Make sure I no longer say I'm improving the model, but rather study EMT
+8. Elaborate on parameter sensitivity
+
+
+
+
+7. Rephrase "non-monotonic relationship" in abstract
+9. Attempt to connect 3.3-3.5 (make title more coherent?)
+10. More detail of parameter values in figures
+11. Give equation numbers 
+12. Read sources Qing sent and add citations
+13. Identify which cancers we're talking about

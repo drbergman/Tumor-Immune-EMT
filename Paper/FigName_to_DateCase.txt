@@ -22,3 +22,4 @@ VaryMPRandINFL/VaryMQandINFL -> 2018-08-17_03 (though I originally used case 2, 
 
 NonMono_VaryMPRandINFL -> 2018-08-22_01 MIE = 0.8
 
+MIEvsMGA_HeatMap -> 2018-11-09_02

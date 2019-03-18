@@ -1,0 +1,180 @@
+
+\documentclass[11pt, a4paper, preprint]{article}
+\usepackage{outline}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{cite}
+\graphicspath{ {Figs/} }
+\usepackage{longtable}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\newcommand{\tcr} { \textcolor{red} }
+
+
+\title{Supplementary Material}
+\author{}
+
+\renewcommand\Authands{ and }
+
+
+\begin{document}
+\maketitle
+
+
+
+ \begin{longtable}{||c | c | c | c | c | c | c | c | c | c ||} 
+ \hline
+ Name & Base Value & Single Patient & Survival Curve & Vary MIE & Vary MGA & Vary Treg TGFB & Vary MIE and INFL & Vary MGA and INFL & Heat Map\\ [0.5ex] 
+ \hline\hline
+ RP Cancer Line &  0.5 &  \\ 
+ \hline
+ MIE  & 0.6 & 0.9 & 0.4-0.9 & 0.7 & 0.5 & 0.9 \\
+ \hline
+ MGA & 0.2 & & 0.1-0.4 & 0 & 0.2 & 0 \\
+ \hline
+ INFL High Duration  & 30 & & & & 60 & & & & 60 \\
+ \hline
+INFL Low Duration  & 30  \\
+ \hline
+Mes Threshold & 0.7 \\
+ \hline
+ p  & 0.28 \\ 
+ \hline
+ d  & 0.14 \\
+ \hline
+ $N_{00}$  & 8\\
+ \hline
+ $N_0$  & 80 \\
+ \hline
+  NK Efficacy Low  & 0.2 & 10 & & 10 & 10 & 10 & 10 & 10 & 10 \\
+  \hline
+  Treg EC50 Low & 5 & & & & & 2.5 \\
+  \hline
+  CTL Efficacy Low  & 4 & 200 & & 200 & 200 & 200 & 200 & 200 & 200\\
+  \hline
+  NK Efficacy Up & 2 & & & & 1.2 & & & &  1.2 \\
+  \hline
+  CTL Efficacy Up & 3 & & & & 3 & & & &  3\\
+  \hline
+  Treg Efficacy Up  & 200 & & & & 10& & & &  10\\
+  \hline
+  NK Source Low  & 1.3 \\ 
+  \hline
+  CTL Recruitment Low  & 100 \\ 
+  \hline
+  Treg Recruitment Low  & 200 \\
+  \hline
+  NK Recruitment Up & 1 & & & & & 3\\
+  \hline
+  CTL Recruitment Up & 1 & & & & & 3\\
+  \hline
+   Treg Recruitment Up & 1 & & & & & 5\\
+  \hline
+  $p_{mutation}$ Start & 1e-2 \\
+  \hline
+  $p_{mutation}$ & 1e-4 \\
+  \hline
+  Apoptosis Down & 0.3 \\
+  \hline
+  Immune Evasion & 0.48 \\
+  \hline
+  Proliferation Up & 0.36  \\
+  \hline
+  $k_{EMT}$  & .01 \\
+  \hline
+  c & 6 \\
+  \hline
+  TGFB Received EC50 & 200 \\
+  \hline
+  TGFB Max & 500 & 700 & & & & & &  & 700\\
+  \hline 
+  Mutant TGFB & 5e-2 & & & & & 0.5\\
+  \hline
+  Treg TGFB & 5e-1 \\
+  \hline
+\end{longtable}
+
+
+
+\newpage
+
+\begin{center}
+ \begin{longtable}{||c | p{10cm} | c||} 
+ \hline
+ Name & Description & Value  \\ [0.5ex] 
+ \hline\hline
+ RP Cancer Line & When proportion of mutant cells reaches this number, then cancer is declared & 0.5  \\ 
+ \hline
+ MIE & (mesenchymal immune evasion) proportional decrease of probability immune cells clear mutated mesenchymal cells & 0.6  \\
+ \hline
+ MGA & (mesenchymal growth arrest) proportional decrease of probability mesenchymal cells proliferate; this decreased probability is accompanied and an equal and opposite increase in probability of rest & 0.2  \\
+ \hline
+ INFL High Duration & Number of consecutive cell cycles a patient will experience high inflammation before returning to a low inflammatory state & 30  \\
+ \hline
+INFL Low Duration & Number of consecutive cell cycles a patient will experience low inflammation before returning to a high inflammatory state & 30  \\
+ \hline
+Mes Threshold & the threshold EMT score above which a cell is labeled mesenchymal and below which it is labeled epithelial & 0.7 \\
+ \hline
+ p & weight of a cell proliferating during a cell cycle & 0.28 \\ 
+ \hline
+ d & weight of a cell dying during a cell cycle & 0.14 \\
+ \hline
+ $N_{00}$ & EC50 term for Hill functions describing likelihood of cytotoxic immune cells locating mutated cells & 8\\
+ \hline
+ $N_0$ & EC50 term for Hill function describing negative feedback of total cell population on cell proliferation rates & 80 \\
+ \hline
+  NK Efficacy Low & weight of NK cell clearing mutated cells during low inflammation & 0.2 \\
+  \hline
+  Treg EC50 Low & EC50 term for Hill functions describing Treg-mediated inhibition of efficacy of cytotoxic immune cells during low inflammation & 5 \\
+  \hline
+  CTL Efficacy Low & weight of CTL cell clearing mutated cells during low inflammation & 4 \\
+  \hline
+  NK Efficacy Up & proportional increase of NK Efficacy Low during high inflammation & 2 \\
+  \hline
+  CTL Efficacy Up & proportional increase of CTL Efficacy Low during high inflammation & 3 \\
+  \hline
+  Treg Efficacy Up & during high inflammation, Treg EC50 is Treg EC50 Low / Treg Efficacy Up & 200 \\
+  \hline
+  NK Source Low & rate at which NK cells enter TME during low inflammation & 1.3 \\ 
+  \hline
+  CTL Recruitment Low & rate at which CTL cells are recruited after mutated cells are lysed during low inflammation & 100 \\ 
+  \hline
+  Treg Recruitment Low & rate at which Treg cells are recruited after mutated cells are lysed during low inflammation & 200 \\
+  \hline
+  NK Recruitment Up & proportional increase of NK source rate during high inflammation & 1 \\
+  \hline
+  CTL Recruitment Up & proportional increase of CTL recruitment rate during high inflammation & 1 \\
+  \hline
+   Treg Recruitment Up & proportional increase of Treg recruitment rate during high inflammation & 1 \\
+  \hline
+  $p_{mutation}$ Start & maximum probability of mutating after the warmup period ends & 1e-2 \\
+  \hline
+  $p_{mutation}$ & increase in probability of a cell mutating after it proliferates but does not mutate & 1e-4 \\
+  \hline
+  Apoptosis Down & proportional decrease in apoptosis weight for cells with apoptosis pathway mutated & 0.3 \\
+  \hline
+  Immune Evasion & proportional decrease in immune clearance weight for cells with immune pathway mutated & 0.48 \\
+  \hline
+  Proliferation Up & proportional increase in proliferation weight for cells with proliferation pathway mutation & 0.36 \\
+  \hline
+  $k_{EMT}$ & rate parameter controlling speed of EMT and MET & .01 \\
+  \hline
+  c & standard deviation of noise on TGF-$\beta$ received by each cell & 6 \\
+  \hline
+  TGFB Received EC50 & EC50 term for Hill function determining how much TGF-$\beta$ in TME enters a cell & 200 \\
+  \hline
+  TGFB Max & maximum amount of TGF-$\beta$ that can enter a cell from the TME during a cell cycle & 500 \\
+  \hline 
+  Mutant TGFB & amount of TGF-$\beta$ produced by each mutated cell each cycle & 5e-2 \\
+  \hline
+  Treg TGFB & amount of TGF-$\beta$ produced by each Treg cell each cycle & 5e-1 \\
+  \hline
+\end{longtable}
+\end{center}
+
+
+
+\end{document}

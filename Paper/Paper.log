@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 MAR 2019 20:43
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 MAR 2019 15:36
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1233,6 +1237,7 @@ Here is how much of TeX's memory you used:
  14074 multiletter control sequences out of 15000+600000
  116517 words of font info for 193 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
+<<<<<<< Updated upstream
  41i,13n,77p,1635b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharte
 r/xch_tuu2ww.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharter/x
@@ -1249,6 +1254,27 @@ b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
 Output written on Paper.pdf (19 pages, 3424088 bytes).
+=======
+ 39i,13n,25p,1049b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-su
+per/cm-super-t1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx109
+5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1200.
+pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on Paper.pdf (20 pages, 3445615 bytes).
+>>>>>>> Stashed changes
 PDF statistics:
  236 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
