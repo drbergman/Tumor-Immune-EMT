@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  18 MAR 2019 09:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 MAR 2019 13:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1042,7 +1042,7 @@ TLF.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 40.
 
-No file Paper.aux.
+(./Paper.aux)
 \openout1 = `Paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -1059,7 +1059,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 40.
 LaTeX Font Info:    Try loading font information for LY1+ptm on input line 40.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/ly1/ly1ptm.fd
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
 LaTeX Font Info:    ... okay on input line 40.
@@ -1228,88 +1228,9 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 44.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
 (Font)              scaled to size 10.95pt on input line 51.
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 85.
-
-LaTeX Warning: Citation `de2006paradoxical' on page 1 undefined on input line 8
-5.
-
-
-LaTeX Warning: Citation `pardoll2012blockade' on page 1 undefined on input line
- 85.
-
-
-LaTeX Warning: Citation `restifo2012adoptive' on page 1 undefined on input line
- 85.
-
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `schreiber11_cancer' on page 2 undefined on input line 
-87.
-
-
-LaTeX Warning: Citation `schreiber11_cancer' on page 2 undefined on input line 
-87.
-
-
-LaTeX Warning: Citation `hu10_inflammationinduced' on page 2 undefined on input
- line 92.
-
-
-LaTeX Warning: Citation `balkwill01_inflammation' on page 2 undefined on input 
-line 92.
-
-
-LaTeX Warning: Citation `guo2017multiscale' on page 2 undefined on input line 9
-2.
-
-
-LaTeX Warning: Citation `nieto2016emt' on page 2 undefined on input line 95.
-
-
-LaTeX Warning: Citation `nie18_stem' on page 2 undefined on input line 95.
-
-
-LaTeX Warning: Citation `sha19_intermediate' on page 2 undefined on input line 
-95.
-
-
-LaTeX Warning: Citation `hong2015ovol2' on page 2 undefined on input line 96.
-
-
-LaTeX Warning: Citation `jolly15_coupling' on page 2 undefined on input line 96
-.
-
-
-LaTeX Warning: Citation `moris16_transition' on page 2 undefined on input line 
-96.
-
-
-LaTeX Warning: Citation `maclean18_exploring' on page 2 undefined on input line
- 96.
-
-
-LaTeX Warning: Citation `ta16_controlling' on page 2 undefined on input line 96
-.
-
-
-LaTeX Warning: Citation `rackauckas18_meanindependent' on page 2 undefined on i
-nput line 96.
-
-
-LaTeX Warning: Citation `nieto2016emt' on page 2 undefined on input line 98.
-
-
-LaTeX Warning: Citation `terry2017new' on page 2 undefined on input line 98.
-
-
-LaTeX Warning: Citation `terry2017new' on page 2 undefined on input line 100.
-
-
-LaTeX Warning: Citation `terry2017new' on page 2 undefined on input line 102.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1318,75 +1239,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 106.
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 106.
-
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 106.
-
-[2]
-
-LaTeX Warning: Citation `sherrattjonathana.92_oncogenes' on page 3 undefined on
- input line 113.
-
-
-LaTeX Warning: Citation `pillis05_validated' on page 3 undefined on input line 
-113.
-
-
-LaTeX Warning: Citation `an15_agentbased' on page 3 undefined on input line 113
-.
-
-
-LaTeX Warning: Citation `serre16_mathematical' on page 3 undefined on input lin
-e 113.
-
-
-LaTeX Warning: Citation `louzoun14_mathematical' on page 3 undefined on input l
-ine 113.
-
-
-LaTeX Warning: Citation `benzekry17_mathematical' on page 3 undefined on input 
-line 113.
-
-
-LaTeX Warning: Citation `west19_immune' on page 3 undefined on input line 113.
-
-
-LaTeX Warning: Citation `owen11_mathematical-1' on page 3 undefined on input li
-ne 113.
-
-
-LaTeX Warning: Citation `guo2017multiscale' on page 3 undefined on input line 1
-15.
-
-
-LaTeX Warning: Citation `guo2017multiscale' on page 3 undefined on input line 1
-59.
-
-
-LaTeX Warning: Reference `fig:ModelIntro' on page 3 undefined on input line 161
-.
-
-
-LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 164.
-
-[3]
-
-LaTeX Warning: Reference `fig:ModelIntro' on page 4 undefined on input line 169
-.
-
+[2] [3]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 172.
-
-LaTeX Warning: Reference `EMT' on page 4 undefined on input line 179.
-
-
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 207.
-
-[4]
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 201.
+ [4]
 LaTeX Font Info:    Try loading font information for TS1+XCharter-TLF on input 
 line 211.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
 File: TS1XCharter-TLF.fd 2013/10/27 (autoinst) Font definitions for TS1/XCharte
 r-TLF.
 )
@@ -1401,192 +1263,53 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 225.
 
-
-LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 248.
-
-[5]
-
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 289.
-
-[6]
-
-LaTeX Warning: Citation `morris1991factorial' on page 7 undefined on input line
- 327.
-
-
-LaTeX Warning: Citation `sohier2014improvement' on page 7 undefined on input li
-ne 327.
-
-
-LaTeX Warning: Citation `sohier2014improvement' on page 7 undefined on input li
-ne 330.
-
-
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 332.
-
-[7]
-
-LaTeX Warning: Citation `de2014modeling' on page 8 undefined on input line 334.
-
-
-
-LaTeX Warning: Citation `de2014modeling' on page 8 undefined on input line 335.
-
-
-<Figs/Figure1/Figure1.pdf, id=37, 1027.84pt x 770.88pt>
+[5] [6] [7] <Figs/Figure1/Figure1.pdf, id=36, 1027.84pt x 770.88pt>
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 
 <use Figs/Figure1/Figure1.pdf>
-Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 366.
+Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 386.
 (pdftex.def)             Requested size: 354.86412pt x 266.15385pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 372.
+(Font)              scaled to size 10.0pt on input line 392.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 372.
-
-
-LaTeX Warning: Reference `fig:ModelIntro' on page 8 undefined on input line 377
-.
-
-
-LaTeX Warning: Reference `fig:ModelIntro' on page 8 undefined on input line 377
-.
-
-
-LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 378.
-
-[8]
-
-LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 378.
-
-[9 <./Figs/Figure1/Figure1.pdf>]
-
-LaTeX Warning: Reference `fig:ModelIntro' on page 10 undefined on input line 37
-9.
-
-
-LaTeX Warning: Reference `fig:ModelIntro' on page 10 undefined on input line 38
-7.
-
-
-LaTeX Warning: Reference `fig:MOAT' on page 10 undefined on input line 394.
-
-
-LaTeX Warning: Reference `LastPage' on page 10 undefined on input line 398.
-
-[10] <Figs/Figure2/Figure2.jpg, id=86, 2890.8pt x 1704.3675pt>
+(Font)              scaled to size 10.0pt on input line 392.
+ [8] [9 <./Figs/Figure1/Figure1.pdf>] [10]
+<Figs/Figure2/Figure2.jpg, id=86, 2890.8pt x 1704.3675pt>
 File: Figs/Figure2/Figure2.jpg Graphic file (type jpg)
 
 <use Figs/Figure2/Figure2.jpg>
-Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 414.
+Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 434.
 (pdftex.def)             Requested size: 377.0444pt x 222.27773pt.
 
 <Figs/Figure3/Figure3.pdf, id=87, 770.88pt x 1027.84pt>
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 426.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 446.
 (pdftex.def)             Requested size: 377.0444pt x 502.72069pt.
-
-
-LaTeX Warning: Reference `SensAnalysis' on page 11 undefined on input line 442.
-
-
-
-LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 443.
-
-[11 <./Figs/Figure2/Figure2.jpg>]
-
-LaTeX Warning: Reference `LastPage' on page 12 undefined on input line 443.
-
-[12 <./Figs/Figure3/Figure3.pdf, page is rotated 90 degrees>]
-
-LaTeX Warning: Reference `fig:FirstSurvivalCurves' on page 13 undefined on inpu
-t line 444.
-
-
-LaTeX Warning: Reference `fig:FirstSurvivalCurves' on page 13 undefined on inpu
-t line 445.
-
-
-LaTeX Warning: Reference `fig:FirstSurvivalCurves' on page 13 undefined on inpu
-t line 447.
-
-
-LaTeX Warning: Reference `fig:FirstSurvivalCurves' on page 13 undefined on inpu
-t line 451.
-
-
-LaTeX Warning: Reference `fig:VaryINFL_and_MesPars' on page 13 undefined on inp
-ut line 460.
-
-
-LaTeX Warning: Reference `fig:VaryINFL_and_MesPars' on page 13 undefined on inp
-ut line 460.
-
-
-LaTeX Warning: Reference `fig:VaryINFL_and_MesPars' on page 13 undefined on inp
-ut line 461.
-
-
-LaTeX Warning: Reference `LastPage' on page 13 undefined on input line 467.
-
-[13] <Figs/Figure4/Figure4.pdf, id=122, 1027.84pt x 656.12265pt>
+ [11 <./Figs/Figure2/Figure2.jpg>] [12 <./Figs/Figure3/Figure3.pdf, page is rot
+ated 90 degrees>] [13]
+<Figs/Figure4/Figure4.pdf, id=122, 1027.84pt x 656.12265pt>
 File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 
 <use Figs/Figure4/Figure4.pdf>
-Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 472.
+Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 492.
 (pdftex.def)             Requested size: 399.21791pt x 254.84558pt.
 
 <Figs/Figure5/MIEvsMQ.jpg, id=123, 1124.2pt x 843.15pt>
 File: Figs/Figure5/MIEvsMQ.jpg Graphic file (type jpg)
 
 <use Figs/Figure5/MIEvsMQ.jpg>
-Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg used on input line 483.
+Package pdftex.def Info: Figs/Figure5/MIEvsMQ.jpg used on input line 503.
 (pdftex.def)             Requested size: 266.14978pt x 199.60693pt.
-
-
-LaTeX Warning: Reference `fig:MIEvsMGA' on page 14 undefined on input line 492.
-
-
-
-LaTeX Warning: Reference `LastPage' on page 14 undefined on input line 493.
-
-[14 <./Figs/Figure4/Figure4.pdf>]
-
-LaTeX Warning: Citation `hu10_inflammationinduced' on page 15 undefined on inpu
-t line 494.
-
-
-LaTeX Warning: Citation `balkwill01_inflammation' on page 15 undefined on input
- line 494.
-
-
-LaTeX Warning: Reference `fig:tcga' on page 15 undefined on input line 496.
-
-
-LaTeX Warning: Reference `fig:tcga' on page 15 undefined on input line 496.
-
-
-LaTeX Warning: Reference `fig:tcga' on page 15 undefined on input line 496.
-
+ [14 <./Figs/Figure4/Figure4.pdf>]
 <Figs/FigTCGA.pdf, id=147, 682.33821pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
  <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 501.
+Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 521.
 (pdftex.def)             Requested size: 443.57848pt x 326.60455pt.
 
-
-LaTeX Warning: Reference `LastPage' on page 15 undefined on input line 517.
-
-[15 <./Figs/Figure5/MIEvsMQ.jpg>]
-
-LaTeX Warning: Reference `LastPage' on page 16 undefined on input line 517.
-
-[16 <./Figs/FigTCGA.pdf>] (./Paper.bbl
-
-LaTeX Warning: Reference `LastPage' on page 17 undefined on input line 32.
-
+[15 <./Figs/Figure5/MIEvsMQ.jpg>] [16 <./Figs/FigTCGA.pdf>] (./Paper.bbl
 [17]
 Underfull \hbox (badness 5302) in paragraph at lines 81--85
 []\T1/XCharter-TLF/m/n/10.95 (+20) MacLean AL, Hong T, Nie Q.  Ex-plor-ing in-t
@@ -1598,9 +1321,6 @@ Underfull \hbox (badness 2635) in paragraph at lines 81--85
 \T1/XCharter-TLF/m/n/10.95 (+20) the lens of sin-gle cells.  Cur-rent Opin-ion 
 in Sys-tems Bi-ol-ogy. 2018;9:32--41.
  []
-
-
-LaTeX Warning: Reference `LastPage' on page 18 undefined on input line 129.
 
 [18]
 Underfull \hbox (badness 1448) in paragraph at lines 151--156
@@ -1614,49 +1334,35 @@ Underfull \hbox (badness 1558) in paragraph at lines 151--156
 Can-cer In-for-mat-ics. 2019;(3):1--12.
  []
 
-)
-
-Package lastpage Warning: Rerun to get the references right on input line 550.
-
-
+) 
 AED: lastpage setting LastPage
-
-LaTeX Warning: Reference `LastPage' on page 19 undefined on input line 550.
-
-[19] (./Paper.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[19] (./Paper.aux) ) 
 Here is how much of TeX's memory you used:
- 10457 strings out of 492995
- 161077 string characters out of 6132704
- 271716 words of memory out of 5000000
- 13542 multiletter control sequences out of 15000+600000
- 122628 words of font info for 198 fonts, out of 8000000 for 9000
+ 10452 strings out of 492995
+ 160916 string characters out of 6132704
+ 271784 words of memory out of 5000000
+ 13540 multiletter control sequences out of 15000+600000
+ 115846 words of font info for 193 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,13n,77p,1643b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/xcharter/xch_jfcsri.enc}{
-/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/xcharter/xch_tuu2ww.enc}{/us
-r/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive
-/2017/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Paper.pdf (19 pages, 3353167 bytes).
+ 39i,20n,77p,1628b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/xcharte
+r/xch_tuu2ww.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/xcharter/x
+ch_jfcsri.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/xcharter/XCharter-Ital
+ic.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/xcharter/XCharter
+-Roman.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on Paper.pdf (19 pages, 3351999 bytes).
 PDF statistics:
  236 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 30239 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 29727 words of extra memory for PDF output out of 29859 (max. 10000000)
 

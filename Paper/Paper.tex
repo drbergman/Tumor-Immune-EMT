@@ -227,7 +227,9 @@ Third, if the cell is mesenchymal, then the weight for proliferation is proporti
 Fourth, there is a negative feedback of the cells on their own proliferation which is quantified by a Hill factor as a function of the tissue cell population, $N$.
 In total, the weight for proliferation is given by
 
-$$ p_{prolif} = p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})(1-\delta_{MES}m_{GA})\frac{N_0}{N_0+N} $$
+\begin{equation}\tag{2.1}
+\rho_P = p(1+\delta_{P}\Delta_P)(1-\zeta \Delta_{MGA})\frac{K_0}{K_0+N_C}
+\end{equation}
 
 \paragraph{Apoptosis}
 There are two factors that contribute to a cell's weight for undergoing apoptosis.
@@ -235,7 +237,9 @@ There is a basal apoptosis rate that all cells experience, $d$ for death.
 Second, if the cell has a mutation in the apoptosis pathway, then the weight for undergoing apoptosis is proportionally decreased by $\text{apop}_{\text{down}}$.
 In total, the weight for apoptosis is given by 
 
-$$ p_{apop} = d(1-\delta_{\text{AM}}\text{apop}_{\text{down}}) $$
+\begin{equation}\tag{2.2}
+\rho_A = d_C(1-\delta_{A}\Delta_A)
+\end{equation}
 
 \paragraph{Immune Clearance}
 For both NK clearance and CTL clearance, the weights are built with the same factors but have different parameter values for NK and CTLs.
@@ -246,7 +250,9 @@ Fourth, there is a decreasing Hill factor based on the number of Treg cells pres
 Finally, there are two factors that proportionally decrease the weight of immune clearance depending on if the cell has an immune evasion mutation or if it is mesenchymal.
 In total, the weight of NK clearance is given by
 
-$$ p_{\text{NK}} =\delta_M \frac{\text{NK}}{N/N_{1}+\text{NK}}  \frac{E_{\text{NK}}}{1+\text{Treg}/\text{Treg}_{\text{EC50}}} (1-\delta_{IEM}\text{IE}_{\text{up}})(1-\delta_{MES}m_{\text{IE}}) $$
+\begin{equation}\tag{2.3}
+\rho_{NK} =\delta_{MUT} \frac{N_{NK}}{N_C/K_{1}+N_{NK}}  \frac{E_{NK}}{1+N_{Treg}/K_2} (1-\delta_{IE}\Delta_{IE})(1-\zeta \Delta_{MIE})
+\end{equation}
 % Should I worry about the order in which these appear? Rearranging would make the formula look better, but the order I have introduced them makes the most sense.
 % Also, any thoughts on NK, CTL, Treg not being italicized? While other capital letters are?
 
@@ -258,7 +264,9 @@ The weight associated with quiescence is taken as 1 except in the case of Mesenc
 For Mesenchymal cells, the weight lost to proliferation is added to the weight of quiescence.
 Hence, the weight of quiescence is given by
 
-$$ p_{rest} = 1 + \delta_{\text{MES}}p(1+\delta_{\text{PM}}\text{prolif}_{\text{up}})m_{GA}\frac{N_0}{N_0+N} $$ 
+\begin{equation}\tag{2.4}
+\rho_R = 1 + \zeta p(1+\delta_P\Delta_P)\Delta_{MGA}\frac{K_0}{K_0+N_C}
+\end{equation}
 
 The reason for adding that term is due to the understanding that overall mesenchymal cells proliferate less as individual cells rest longer in the $G_0$ phase.
 
@@ -274,9 +282,11 @@ This depends on the cells current EMT score and how much TGF-$\beta$ is currentl
 Each cell receives an amount of TGF-$\beta$ given by
 
 %$$ \text{TGFB}_i = H(\text{TGFB}/N) + X_i, \quad X_i \sim N(0,\sigma^2)$$
+\begin{equation}\tag{2.5}
+\tau_i = \frac{\tau_{max}}{N_C}\frac{1}{1+K_3/\tau}+ X_i
+, \quad X_i \sim N(0,\sigma^2)
+\end{equation}
 
-$$ \text{TGFB}_i = \frac{\text{TGFB}_{max}}{N}\frac{\text{TGFB}/\gamma_{EC50}}{1+\text{TGFB}/\gamma_{EC50}}+ X_i
-, \quad X_i \sim N(0,\sigma^2)$$
 The summand on the left divides up the total TGF-$\beta$ among all $N$ cells evenly and a Hill function on this quantity determines how much TGF-$\beta$ each cell thus receives.
 Then, some randomness is introduced by the independent and identically distributed variables $X_i$where $\sigma$ is a parameter in the model.
 If this quantity is large enough, relative to the EMT score of the cell, then the cell will undergo EMT and its EMT score will increase.
@@ -286,36 +296,46 @@ Thus, there are two main factors that determine if a cell will end a cell cycle 
 
 Next, the amount of TGF-$\beta$ for the next cell cycle is determined by the number of mutated cells, $M$, and the number of Treg cells, each one producing a fixed amount of TGF-$\beta$. It is given by
 
-$$ \text{TGFB} = \text{tgfb}_{\text{mut}}M + \text{tgfb}_{\text{Treg}}\text{Treg}$$ % clear that M is number of mutants, right?
+\begin{equation}\tag{2.6}
+\tau = \tau_{MUT}N_{MUT} + \tau_{Treg}N_{Treg}
+\end{equation}
+
 
 Finally, the immune populations are updated.
 For the NKs, they obey the following differential equation:
  
-$$ \text{NK}' = \sigma_{\text{NK}} - d_{\text{NK}}\text{NK} $$
+\begin{equation}\tag{2.7}
+N_{NK}' = \sigma_{NK} - d_{NK}N_{NK}
+\end{equation}
 
 which is discretized to
  
-$$ \text{NK}_{k+1} = \left (\text{NK}_k-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} $$
-
+ \begin{equation}\tag{2.8}
+N_{\text{NK}}(k+1) = \left (N_{\text{NK}}(k)-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}}
+\end{equation}
 
 %%%% Which of these two paragraphs is better? Currently the intro does not mention APCs and I don't think I need to go into that, especially when APC_k = \tilde{M}_k
 For CTLs and Tregs, they rely on mutant cells being cleared before they can be activated.
-Let $\tilde{M}_k$ represent the number of mutant cells cleared by the immune system during cell cycle $k$.
+Let $N_{\text{MUT}}^*(k)$ represent the number of mutant cells cleared by the immune system during cell cycle $k$.
 In addition, Treg recruitment is upregulated by TGF-$\beta$, which will be incorporated via a Hill function.
 We choose the following differential equations to govern the CTL and Treg populations:
 
-\begin{align*}
-\text{CTL}' & = \sigma_{\text{CTL}}\tilde{M} - d_{\text{CTL}}\text{CTL} \\
-\text{Treg}' & = \sigma_{\text{Treg}}\tilde{M} \frac{\text{TGFB}}{1+\text{TGFB}/\text{EC50}}- d_{\text{Treg}}\text{Treg}
-\end{align*}
+\begin{equation}\tag{2.9}
+\begin{split}
+N_\text{CTL}' & = \sigma_{\text{CTL}}N_{\text{MUT}}^* - d_{\text{CTL}}\text{CTL} \\
+\text{Treg}' & = \sigma_{\text{Treg}}N_{\text{MUT}}^* \frac{\tau}{1+\tau/K_4}- d_{\text{Treg}}N_\text{Treg}
+\end{split}
+\end{equation}
 
 Discretized, these are:
 
-\begin{align*}
-\text{CTL}_{k+1} & = & \left (\text{CTL}_k-\sigma_{\text{CTL}}\tilde{M}_k/d_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \sigma_{\text{CTL}}\tilde{M}_k/d_{\text{CTL}}\\
-\text{Treg}_{k+1} & = & \left (\text{Treg}_k-\frac{\sigma_{\text{Treg}}\tilde{M}_k}{d_{\text{Treg}}} \frac{\text{TGFB}}{1+\text{TGFB}/\text{EC50}}\right )\exp(-d_{\text{Treg}}\Delta t)+\\
-& & \frac{\sigma_{\text{Treg}}\tilde{M}_k}{d_{\text{Treg}}} \frac{\text{TGFB}}{1+\text{TGFB}/\text{EC50}}
-\end{align*}
+\begin{equation}\tag{2.10}
+\begin{split}
+N_\text{CTL}(k+1) & =  \left (N_\text{CTL}(k)-\sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\\
+N_\text{Treg}(k+1) & =  \left (N_\text{Treg}(k)-\frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau}{1+\tau/K_4}\right )\exp(-d_{\text{Treg}}\Delta t)\\
+&+ \frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau}{1+\tau/K_4}
+\end{split}
+\end{equation}
 
 \subsubsection{Mutation and tumorigenesis}
 At the end of each cell cycle, the proportion of tissue cells that are mutated is calculated, and if it is above a certain threshold, a tumorigenic event is recorded and the patient is determined to have cancer.
