@@ -22,6 +22,12 @@ Schreiber RD, Old LJ, Smyth MJ.
 \newblock Science. 2011;331(6024):1565--1570.
 \newblock doi:{10.1126/science.1203486}.
 
+\bibitem{ruffell2010lymphocytes}
+Ruffell B, DeNardo DG, Affara NI, Coussens LM.
+\newblock Lymphocytes in cancer development: polarization towards pro-tumor
+  immunity.
+\newblock Cytokine \& growth factor reviews. 2010;21(1):3--10.
+
 \bibitem{hu10_inflammationinduced}
 Hu B, Elinav E, Huber S, Booth CJ, Strowig T, Jin C, et~al.
 \newblock Inflammation-induced tumorigenesis in the colon is regulated by
@@ -107,6 +113,12 @@ Lim J, Thiery JP.
 Terry S, Savagner P, Ortiz-Cuaran S, Mahjoubi L, Saintigny P, Thiery JP, et~al.
 \newblock New insights into the role of EMT in tumor immune escape.
 \newblock Molecular oncology. 2017;11(7):824--846.
+
+\bibitem{woods2014effects}
+Woods K, Pasam A, Jayachandran A, Andrews MC, Cebon J.
+\newblock Effects of epithelial to mesenchymal transition on T cell targeting
+  of melanoma cells.
+\newblock Frontiers in oncology. 2014;4:367.
 
 \bibitem{sherrattjonathana.92_oncogenes}
 {Sherratt Jonathan A }, {Nowak Martin A }.

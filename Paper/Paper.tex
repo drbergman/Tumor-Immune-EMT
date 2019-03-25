@@ -74,6 +74,17 @@ These results offer novel means to delay disease onset by controlling properties
 %Together, these results indicate that the joint regulation of the TME by the immune system and the tumor itself provides possible targets for future cancer therapies, in particular cancers such as pancreatic cancer in which EMT is speculated to play a role.
 
 
+%%%% Possible additional refs:
+% Diefenbach 2001
+% They show that when tumor cells express a particular marker, then the immune system gains considerable potency and clears the tumor. Furthermore, immunization via tumor cells expressing these ligands creates a host immunity to subsequent tumors even if these tumors lack the ligand.
+
+% Carretero 2015
+% As eosinophils can better carry out their recruitment function of CD8+ T cells, tumor rejection by the immune system is more readily accomplished.
+
+% Ju 2016
+% A cancer vaccine was demonstrated to be effective in reducing colorectal cancer incidence in mice. In addition, efficacy of CTLs was shown to be increased.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -86,7 +97,9 @@ Cancer and the immune system interact in myriad ways. Beyond direct tumor-immune
 \par 
 Tumor cells interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens recognized by innate immune cells that are transported to lymph nodes where T cells (and other components) can be activated \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing immunosuppression via Treg cell activation \cite{schreiber11_cancer}.
 \par
-The effects of the immune system on a tumor can be broadly summarized into two modules. The cytotoxic branch of the immune system (such as natural killer (NK) cells and cytotoxic T cells (CTLs)) seek out and lyse tumor cells. The regulatory branch of the immune system (T regulatory cells (Tregs) and other factors), inhibits the effective functioning of the cytotoxic branch. [REF]
+The effects of the immune system on a tumor can be broadly summarized into two modules. The cytotoxic branch of the immune system (such as natural killer (NK) cells and cytotoxic T cells (CTLs) seek out and lyse tumor cells.
+Upon carrying out their effector functions, these cytotoxic cells lose efficacy or deactivate entirely\tcr{[REF]}.
+The regulatory branch of the immune system (T regulatory cells (Tregs) and other factors), inhibits the effective functioning of the cytotoxic branch\cite{ruffell2010lymphocytes}.
 %Make sure there's some ref for immune clearing tumor
 % Also, add that as immune cells clear tumor cells, they become deactivated and give source
 In addition, the immune system plays important regulatory roles in pre-cancerous tissue, where inflammation can increase the probability of tumorigenesis (and/or decrease the time to cancer), particularly in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}. Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo2017multiscale}. 
@@ -100,13 +113,11 @@ While EMT has for some time been assumed to impact metastasis, more recently EMT
 Two features of the mesenchymal phenotype are of particular relevance in the context of cancer and the immune system: i) mesenchymal cells are less susceptible to immune clearance \cite{terry2017new}; and ii) mesenchymal cells proliferate on average at a slower rate than epithelial cells.
 The immune evasiveness of mesenchymal cells is well-established: as a cell is targeted by cytotoxic immune cells for clearance, a physical connection between the two cells must be established before the lysing event.
 This immunological synapse is dependent upon the surface proteins, such as the T-cell receptors of the major histocompatibility complex, of the target cell, and in the case of mesenchymal cells there is preliminary evidence that these surface markers are down-regulated in such a way that the immune synapse is more difficult to form \cite{terry2017new}.
-%There are also other structural changes that take place in mesenchymal cells that could contribute to this refractory nature towards immune clearance.
-%Regardless, the evidence currently demonstrates a ``slipperiness'' of mesenchymal cells in regards to immune lysing.
 Below we refer to this phenotype as mesenchymal immune evasion (MIE).
 \par
 The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells often express a more stem-like phenotype.
 Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions. \tcr{Ref}
-While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate. \tcr{Ref}
+While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate\cite{woods2014effects}.
 Cancer cells are well-known for achieving unregulated proliferation, so exploring a subset of cancer cells with decreased proliferation could provide intriguing new results.
 In our model, we refer to this property as mesenchymal growth arrest, or MGA.
 \par
@@ -153,8 +164,6 @@ Here we develop a model with the goal of studying interactions between the tumor
 %                         METHODS                        %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-% This paragraph needs to find a home in this section somewhere
-
 \section{Methods}
 We develop an agent-based model to describe the relationships between cancer, the immune system, and EMT, building on cell-cycle and tissue-cell components of \cite{guo2017multiscale}. 
 The agents in the model are the tissue cells with tumorigenic potential.
@@ -175,11 +184,7 @@ The model has three pathways that have the potential to mutate over the course o
 There is a proliferation pathway that when mutated increases the probability of the cell proliferating.
 There is an apoptosis pathway that when mutated decreases the probability of the cell undergoing apoptosis.
 There is an immune evasion pathway that when mutated decreases the probability that an immune cell can effectively clear the mutated cell.
-% It might be nice to have a table to summarize this information?
-The EMT score will be exposited in Section \ref{EMT}. % make sure this is really the best decision
-
-
-%Add differential equations? % Should this be done here or where I have it later?
+The EMT score will be exposited in Section \ref{EMT}. 
 
 \subsection{The Immune System}\label{ImmuneSystem}
 The immune system is modeled as having three active immune cell types: NKs, CTLs, and Tregs.
@@ -253,8 +258,6 @@ In total, the weight of NK clearance is given by
 \begin{equation}\tag{2.3}
 \rho_{\text{NK}} =\delta_{\text{MUT}} \frac{N_{\text{NK}}}{N_C/K_{1}+N_{\text{NK}}}  \frac{E_{\text{NK}}}{1+N_{\text{Treg}}/K_2} (1-\delta_{\text{IE}}\Delta_{\text{IE}})(1-\zeta \Delta_{\text{MIE}})
 \end{equation}
-% Should I worry about the order in which these appear? Rearranging would make the formula look better, but the order I have introduced them makes the most sense.
-% Also, any thoughts on NK, CTL, Treg not being italicized? While other capital letters are?
 
 A similar formula holds for CTLs with only the number of CTLs and their efficacy being different from the above equation.
 
@@ -314,7 +317,6 @@ which is discretized to
 N_{\text{NK}}(k+1) = \left (N_{\text{NK}}(k)-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}}
 \end{equation}
 
-%%%% Which of these two paragraphs is better? Currently the intro does not mention APCs and I don't think I need to go into that, especially when APC_k = \tilde{M}_k
 For CTLs and Tregs, they rely on mutant cells being cleared before they can be activated.
 Let $N_{\text{MUT}}^*(k)$ represent the number of mutant cells cleared by the immune system during cell cycle $k$.
 In addition, Treg recruitment is upregulated by TGF-$\beta$, which will be incorporated via a Hill function with EC50 term $K_4$.
@@ -392,7 +394,6 @@ Below we analyze data gathered for pancreatic cancer, denoted by ``PAAD'' in TCG
 B. Example simulation of the dynamics of a one patient; warmup period ends at the vertical dashed line.
 The inflammation cycling scheme is graphically represented above the patient dynamics.
 C. Example survival curve for one cohort of patients with basal parameter values.
-%A Should I list out all parameter values? A subset? Or refer to supplement for base parameter values?
 D. Global sensitivity analysis of model parameters using the Morris one-step-at-a-time method.}
 \label{fig:ModelIntro}
 \end{figure}
@@ -405,7 +406,6 @@ After 841 cell cycles, the proportion of mutated cells reaches 50\%: this is mod
 After cancer incidence, the number of mutated cells continues to grow rapidly and soon makes up 100\% of the cell population. A peak in mesenchymal phenotypes is observed following cancer incidence, before most transition back to an epithelial state.
 \par 
 Considering the immune system dynamics, we see that the NK population is approximately constant, while the adaptive populations (CTL and Treg cells) grow quickly and dwarf NK cells in number following the accumulation of oncogenic mutations.
-%Note: NK cells also lymphocytes! 
 The adaptive immune populations also appear to exhibit oscillatory behavior, however note that this is not due to intrinsic dynamics but rather due to the inflammation scheme that the patient is undergoing: alternating between 30 cell cycles of high inflammation and 60 cell cycles of low inflammation. Within each of these periods, adaptive immune populations increase or decrease rapidly in accordance with the inflammation state.
 \par 
 The {\em in silico} patient described here is given for the purpose of illustrating features of the model. Given the multiple sources of noise in the model, in order to quantify patient dynamics and cancer-free survival rates, below we will simulate large cohorts of patients. In Fig. \ref{fig:ModelIntro}C we simulate the survival curve for a cohort of $500$ patients: we see that all the patients survive for approximately 100 cell cycles (75 days). Subsequently, in the approximate range of $T= [100,300]$, the cancer onset rate is roughly constant, and after $600$ cell cycles, no patients remain cancer free.
@@ -418,7 +418,6 @@ The two most influential according to this analysis are the death rate and the r
 This ties Treg cells to all three components of the model.
 Since we seek to separate the effects of different model components, we do not choose the parameters influencing Treg cells for detailed analysis below.
 \par
-%% We need to discuss parameter names. Maybe replace 'low' with 'base' and 'up' with 'gain' ?
 Many parameters in the model change depending on the inflammation state.
 For the sake of a naming convention, any parameter which includes ``low'' in the name represents the parameter value when inflammation is low.
 For when the inflammation is high, these ``low'' parameters get scaled by parameters which include ``up'' in the name.
@@ -428,7 +427,7 @@ The mesenchymal cells are influenced by the MGA and MIE parameters.
 Finally, $\sigma$, $k_\text{EMT}$, $\tau_\text{max}$, and $K_3$ all control how cells transition between the epithelial and mesenchymal states.
 
 Since one goal of our analysis is to assess the specific effects of EMT on immune-cancer dynamics, the parameters MIE and MGA are of particular interest.
-In addition, inflammation parameters dictating the cycling scheme are important to study\tcr{REF}: we find that there are also high sensitivities in this model to these parameters.
+In addition, inflammation parameters dictating the cycling scheme are of interest because they are both highly influential on Time to Cancer and capable of being targeted by therapeutic treatments.
 In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and we will also study it further.
 
 
@@ -484,8 +483,6 @@ We explored the effects of varying the inflammation state of the patient on canc
 However, under regimes with either temporary or permanent periods of low inflammation, different relationships emerge: a local maximum for the Time to Cancer is found with respect to the relative mesenchymal growth rate (MGA $= 0.3$). This is seen both for intermittent or low inflammation (Fig. \ref{fig:VaryINFL_and_MesPars}D). 
 \par
 These striking differences in the mean Time to Cancer -- extended by up to one year by fine-grained optimization of mesenchymal growth arrest -- have clear therapeutic implications. 
-%What this indicates is that if the growth arrest of mesenchymal cells can be controlled, then they could be manipulated in such a way as to increase the Time to Cancer.
-%For patients presenting with chronically high inflammatory state, anti-inflammatories could be administered which would create the periods of low inflammation our model predicts as necessary for seeing these changes.
 Our model predicts that reducing the inflammatory state of the TME in three weeks out of every nine would be provide means to prolong cancer-free survival in combination with mesenchymal cell therapies to make the control of mesenchymal proliferation an effective anti-cancer strategy.
 \par
 In contrast, when MIE is varied for different inflammation cycling schemes, regardless of the cycling scheme, increasing the MIE leads to decreases in the Time to Cancer (worse survival probabilities), although in the case where the inflammatory state is permanently high, MIE has little effect on the Time to Cancer. Thus under any inflammation regime with periods of low inflammation, any reductions in the rate of mesenchymal immune evasion will lead to improved patient outcomes.
@@ -508,8 +505,6 @@ D. The average Time to Cancer for each cohort.}
 \label{fig:MIEvsMGA}
 \end{figure}
 
-
-% \subsection{Heat Map of MIE vs MGA}
 \subsection{Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}\label{tcga}
 
 To further assess the effects on tumorigenesis of the mesenchymal properties of immune evasion (MIE) and growth arrest (MGA), we study the joint density plot for each of these parameters against the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of MGA considered, increasing the MIE decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with increasing MIE. Together these results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of cancer-free survival, an optimal value of MGA will prolong survival. 
@@ -555,13 +550,18 @@ Here, we saw {\it in silico} evidence of an optimal value for a property of mese
 There is still much work to be done further isolating this effect in computer simulations and further verifying this effect and exploring further ways EMT can influence tumor progression.
 This model explored much more than mesenchymal growth arrest, so a simpler model could make this point clearer.
 On the other hand, models which incorporate more distinctions between epithelial and mesenchymal cells could give better clarity on the relative importance of these and reveal a fuller picture about how a mesenchymal subpopulation affects cancer outcomes.
-
 %A Adam, do you know of any?
 The authors are not aware of current treatments that specifically target mesenchymal growth arrest, influencing it in one direction or another.
 %
 Based on these results, this could prove to be a promising direction for research, in particular for cancers in which it is known that mesenchymal cells are present and active within the tumor.
 The greatest challenge in translating the information here to the clinic, apart from creating the drugs, would be discovering the ideal growth rate for mesenchymal cells within each patient and how other patient-specific data will influence this result.
-
+\par
+Also, since the inflammatory state of the TME played such a large role in our simulations, making this a more robust facet of the model by allowing the tumor and immune system to influence the inflammatory state could give the model higher fidelity.
+One intriguing aspect could be the anti-inflammatory function of Tregs as they seek to restore homeostasis.
+\par
+A final future direction would be continuing to explore the heterogeneity of the tumor and how this helps the tumor evade the immune system and grow into a malignancy. 
+As we understand more and more about the diversity within the TME, additional models will be instrumental in determining the scope of these implications and the possible ways to address them.
+\par
 Progress in cancer treatment has always proven attainable even despite great challenges, for which the complexity of the disease is often responsible. As we move forwards, it is these very complexities that we will be able to better exploit to eradicate or control the disease.
 
 
