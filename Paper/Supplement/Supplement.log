@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  20 MAR 2019 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  26 MAR 2019 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -504,18 +504,18 @@ LaTeX Warning: Unused global option(s):
 (./Supplement.aux)
 \openout1 = `Supplement.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -579,57 +579,58 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Overfull \hbox (99.85912pt too wide) in alignment at lines 27--68
+Overfull \hbox (99.85912pt too wide) in alignment at lines 47--88
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 68
+Underfull \vbox (badness 10000) detected at line 88
  []
 
 
-Overfull \hbox (99.85912pt too wide) in alignment at lines 68--97
+Overfull \hbox (99.85912pt too wide) in alignment at lines 88--117
  [] [] [] 
  []
 
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
-Overfull \hbox (495.94095pt too wide) in alignment at lines 104--145
+[2] [3]
+Overfull \hbox (495.94095pt too wide) in alignment at lines 124--165
  [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 145
+Underfull \vbox (badness 10000) detected at line 165
  []
 
 
-Overfull \hbox (495.94095pt too wide) in alignment at lines 145--174
+Overfull \hbox (495.94095pt too wide) in alignment at lines 165--194
  [] [] [] [] [] [] [] [] [] [] 
  []
 
-[3] (./Supplement.aux) ) 
+[4] (./Supplement.aux) ) 
 Here is how much of TeX's memory you used:
- 3007 strings out of 492995
- 37735 string characters out of 6132704
- 126426 words of memory out of 5000000
- 6510 multiletter control sequences out of 15000+600000
- 9354 words of font info for 29 fonts, out of 8000000 for 9000
+ 3013 strings out of 492995
+ 37805 string characters out of 6132704
+ 127953 words of memory out of 5000000
+ 6514 multiletter control sequences out of 15000+600000
+ 10491 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,6n,25p,240b,273s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-
 super/cm-super-t1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super
-/sfrm1095.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/s
-frm1200.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfr
-m1728.pfb>
-Output written on Supplement.pdf (3 pages, 82787 bytes).
+nts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/s
+frm1095.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfr
+m1200.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1
+728.pfb>
+Output written on Supplement.pdf (4 pages, 98401 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 46 PDF objects out of 1000 (max. 8388607)
+ 32 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
