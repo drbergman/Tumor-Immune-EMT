@@ -222,12 +222,7 @@ During each cell cycle, every cell randomly is assigned a cell fate from the fol
 For each cell, a weight is chosen for each option and these are normalized to probabilities which then are used to randomly determine what each cell does during the cell cycle.
 
 \paragraph{Proliferation}
-<<<<<<< HEAD
-=======
 
-%\tcr{In next few subsections the parameters are not defined. Need to define in text and/or make a big table to summarize all. On notation: some changes may be needed, e.g. $\delta_{MES}$ not very clear.}
->>>>>>> 2625b3da9a34bc168c209cda09e0a4cd005e9327
-  
 There are four factors that contribute to the probability that a cell will proliferate.
 The first is a base proliferation rate that all cells have, $p$.
 Second, if the cell has a mutation in the proliferation pathway ($\delta_P=1$), then the weight for proliferation is proportionally increased by $\Delta_P$.
@@ -371,11 +366,7 @@ This output, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
 \subsection{Analysis of patient survival data from TCGA database}
 We obtain primary tumor bulk mRNA sequencing and censored survival data for all individuals monitored in the relevant project from the Cancer Genome Atlas (TCGA) from the Genomic Data Commons portal in R, using the package TCGABiolinks.  Given $n >= 1$ gene set keywords (e.g. "inflammatory" and "emt"), the symbolic names of all msigdb gene sets are searched for matches to these keywords, and matched gene sets are grouped by keyword. For each element in the product S of all keyword groups, the following analysis is performed.
 \begin{enumerate}
-<<<<<<< HEAD
      \item The first principle component of the geneset-wide expression is obtained for each element of the n-tuple of gene sets.
-=======
-     \item The first principle component of the expression across the gene set is obtained for each element of the n-tuple of gene sets.
->>>>>>> 2625b3da9a34bc168c209cda09e0a4cd005e9327
      \item Two clusters of n-dimensional patient vectors are obtained by k-means clustering.
      \item The patients are separated by their cluster identity and Kaplan-Meier curves are fit to their corresponding survival data.
      \item Under the null hypothesis that there is no difference between the survival of the two groups, a log-rank test is performed.
