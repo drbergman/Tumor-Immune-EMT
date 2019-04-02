@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  2 APR 2019 09:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  2 APR 2019 11:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1293,12 +1293,12 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
 (Font)              scaled to size 5.0pt on input line 450.
  [11 <./Figs/Figure2/Figure2.jpg>] [12 <./Figs/Figure3/Figure3.pdf, page is rot
 ated 90 degrees>]
-<Figs/Figure4/Figure4.pdf, id=131, 1027.84pt x 651.33217pt>
+<Figs/Figure4/Figure4.pdf, id=131, 1027.84pt x 652.0666pt>
 File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 
 <use Figs/Figure4/Figure4.pdf>
 Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 487.
-(pdftex.def)             Requested size: 399.21791pt x 252.98491pt.
+(pdftex.def)             Requested size: 399.21791pt x 253.27017pt.
 
 <Figs/Figure5/MIEvsMGA_bigcbar.jpg, id=132, 1124.2pt x 843.15pt>
 File: Figs/Figure5/MIEvsMGA_bigcbar.jpg Graphic file (type jpg)
@@ -1364,7 +1364,7 @@ b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
 sr/local/texlive/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Paper.pdf (20 pages, 3194736 bytes).
+Output written on Paper.pdf (20 pages, 3204904 bytes).
 PDF statistics:
  261 PDF objects out of 1000 (max. 8388607)
  169 compressed objects within 2 object streams
