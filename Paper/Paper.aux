@@ -1,10 +1,7 @@
 \relax 
 \citation{de2006paradoxical}
 \citation{pardoll2012blockade,restifo2012adoptive}
-\select@language{english}
-\@writefile{toc}{\select@language{english}}
-\@writefile{lof}{\select@language{english}}
-\@writefile{lot}{\select@language{english}}
+\babel@aux{english}{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \citation{schreiber11_cancer}
 \citation{schreiber11_cancer}
@@ -48,7 +45,7 @@
 \citation{de2014modeling}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Parameter Sensitivity Analysis}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Analysis of patient survival data from TCGA database}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces A. Schematic depiction of the model with blue/red denoting non-mutated/mutated cells in the agent-based model. In each cycle, the fate of a cell is regulated by the EMT state of the cell and by any pathway mutations harbored. Inset shows major processes of immune system regulation on the tissue cells. The parameters used in this model can be found in the Supplementary material. Unless otherwise stated, parameter values are assumed to be those found in the Supplement.  \leavevmode {\color  {red}Thoughts on the wording here? Once I have the table, I will use the name of that table.} B. Example simulation of the dynamics of a one patient; warmup period ends at the vertical dashed line. The inflammation cycling scheme is graphically represented above the patient dynamics. C. Example survival curve for one cohort of patients with basal parameter values. D. Global sensitivity analysis of model parameters using the Morris one-step-at-a-time method.\relax }}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces A. Schematic depiction of agent-based model components; blue/red denote tissue cells with/without mutations. Black arrows depict regulation of the cell fate in each cell cycle. Inset depicts major interactions between the immune system and tissue cells. B. A representation simulation of one patient. The model parameter values used can be found in XXXXX. The inflammation cycling scheme is represented above the patient dynamics. The vertical dashed line denotes the end of the warmup period. Mut: mutated cells; Mes: mesenchymal cells. C. Survival curve for one cohort of patients with the parameter values given in Table XXXXX. \relax }}{9}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:ModelIntro}{{1}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{9}}
@@ -56,17 +53,17 @@
 \newlabel{ExplModel}{{3.1}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Identification of key regulatory parameters via Morris global sensitivity analysis}{10}}
 \newlabel{SensAnalysis}{{3.2}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Global sensitivity analysis of model parameters using the Morris one-step-at-a-time method.\relax }}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu ^*$ denotes the XXXXXX\relax }}{11}}
 \newlabel{fig:MOAT}{{2}{11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Mesenchymal phenotypic properties dramatically change cancer-free survival times}{11}}
 \newlabel{MesPars}{{3.3}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  A-C. Trajectory of one patient per cohort followed from warmup through 2000 cell cycles while varying $\Delta _\text  {MIE}$ (A), $\Delta _\text  {MGA}$ (B) or $\tau _\text  {Treg}$ (C). D. Increasing MIE decreases Time to Cancer. E. Increasing MGA increases Time to Cancer. F. Increasing Treg TGF-$\beta $ production results in decreased Time to Cancer. \relax }}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Effects of mesencymal cell properites on the time to cancer. Trajectories of one patient per cohort from warmup period ([-1000,0]) to 2000 cell cycles, for $\Delta _\text  {MIE}$ (A); $\Delta _\text  {MGA}$ (B); and $\tau _\text  {Treg}$, Treg TGF-$\beta $ (C). D. Survival curves corresponding to changes in MIE (A) for a patient cohort of size XXXXX; shaded region represents XXXXXX. E. Survival curves for patient cohort corresponding to changes in MGA (B). F. Survival curves for patient cohort corresponding to changes in Treg TGF-$\beta $ (C). \relax }}{12}}
 \newlabel{fig:FirstSurvivalCurves}{{3}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}A key EMT regime maximizes cancer-free survival time under chronic inflammation}{13}}
 \newlabel{KeyEMT}{{3.4}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer decreases as MIE increases. In the bottom plot, there is no significant difference in survival. B. The average Time to Cancer for each cohort. C. Survival curves for various inflammation cycling schemes. In the top two plots, the Time to Cancer reaches a maximum value somewhere near MGA = 0.3. In the bottom plot, there is no significant difference in survival. D. The average Time to Cancer for each cohort.\relax }}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of XXXX patients) and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.\relax }}{14}}
 \newlabel{fig:VaryINFL_and_MesPars}{{4}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Heat Map contrasting the effects of MIE and MGA on Time to Cancer. Increasing MIE always decreases Time to Cancer, but MGA is non-monotonically linked to Time to Cancer.\relax }}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Summary of the contrasting effects of MIE and MGA on the Time to Cancer. \relax }}{14}}
 \newlabel{fig:MIEvsMGA}{{5}{14}}
 \citation{hu10_inflammationinduced,balkwill01_inflammation}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}{15}}
