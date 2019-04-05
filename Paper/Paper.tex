@@ -336,6 +336,59 @@ N_\text{Treg}(k+1) & =  \left (N_\text{Treg}(k)-\frac{\sigma_{\text{Treg}}N_{\te
 \end{split}
 \end{equation}
 
+\begin{table}[H]
+\begin{center}
+ \begin{tabular}{|| c | c||} 
+ \hline
+ {\bf Name} & {\bf Description}  \\ [0.5ex] 
+ \hline
+ $p$ & proliferation rate of tissue cells \\ 
+ \hline
+ $d_C$  & death rate of tissue cells \\
+ \hline
+$\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
+ \hline
+ $\Delta_\text{MGA}$ & mesenchymal growth arrest    \\
+ \hline
+  $\Delta_A$ & mutant cells decreased apoptosis  \\
+  \hline
+  $\Delta_\text{IE}$ & mutant cells increased immune evasion  \\
+  \hline
+  $\Delta_P$ & mutant cells increased proliferation  \\
+  \hline
+ $K_0$ & EC50 term for negative feedback of tissue cells on own proliferation\\
+ \hline
+ $K_1$ & EC50 term for probability of NK cell finding mutant cell\\
+ \hline
+  $K_2$ & EC50 term for Treg inhibition of cytotoxic functions  \\
+  \hline
+  $K_3$ & EC50 term for how much TGF-$\beta$ each cell has \\
+  \hline
+ $E_\text{NK}$ & rate of NKs clearing mutants  \\
+  \hline
+  $E_\text{CTL}$ & rate of CTLs clearing mutants \\
+  \hline
+  $\sigma_\text{NK}$ & NK source rate \\ 
+  \hline
+  $\sigma_\text{CTL}$ & CTL source rate per cleared mutant cell \\ 
+  \hline
+  $\sigma_\text{Treg}$ & Treg source rate per cleared mutant cell \\ 
+  \hline
+  $k_\text{EMT}$ & EMT/MET rate  \\
+  \hline
+  $\sigma$ & standard deviation of noise in TGF-$\beta$ each cell receives  \\
+  \hline
+ $\tau_\text{max}$ & max amount of TGF-$\beta$ any cell can receive \\
+  \hline 
+ $\tau_\text{MUT}$ & rate of TGF-$\beta$ production by mutant cells\\
+  \hline
+ $\tau_\text{Treg}$ & rate of TGF-$\beta$ production by Treg\\
+  \hline
+\end{tabular}
+  \caption{The model parameter names and descriptions. Note that many of these values are affected by the inflammation state of the system.}
+\end{center}
+\end{table}
+
 \subsubsection{Mutation and tumorigenesis}
 At the end of each cell cycle, the proportion of tissue cells that are mutated is calculated, and if it is above a certain threshold, a tumorigenic event is recorded and the patient is determined to have cancer.
 The Time to Cancer is given as the time from the start of the simulation, not including warmup, until tumorigenesis.
@@ -343,7 +396,8 @@ Simulations run until either a tumorigenic event is recorded or until the maximu
 
 \subsection{Parameter Sensitivity Analysis}
 To study parameter sensitivity, we implemented the Morris method, a one-step-at-a-time global sensitivity analysis algorithm.
-The algorithm runs the model numerous successive times, \tcr{changing exactly one parameter each run} \cite{morris1991factorial, sohier2014improvement}.
+%The algorithm runs the model numerous successive times, \tcr{changing exactly one parameter each run} \cite{morris1991factorial, sohier2014improvement}.
+The algorithm runs the model numerous times by picking several base points and then varying one parameter at a time from each base point and tracking the difference\cite{morris1991factorial, sohier2014improvement}.
 Each model run involved 1000 patients and the value returned was the area under the survival curve.
 We ran the algorithm by sampling at 30 points in parameter space and then changing each parameter one time at each point.
 In the implementation by Sohier, they recommend using at least 10 points\cite{sohier2014improvement}.
@@ -358,7 +412,8 @@ Once we had these parameter values, we created Gaussian distributions centered a
 Some of the parameters were also truncated to the right because they represented a proportion, such as MIE and MGA, or because we simply wanted to keep the values within a reasonable range, such as the inflammation low and high duration parameters.
 The variances were chosen as twice the mean to get a large spread of values.
 \par
-The algorithm \tcr{outputs the average of the absolute change of area under the curve for each parameter normalized by the corresponding change in the cdf function for that parameter. [I don't get this: what is y-axis?]}
+%The algorithm \tcr{outputs the average of the absolute change of area under the curve for each parameter normalized by the corresponding change in the cdf function for that parameter. [I don't get this: what is y-axis?]}
+The algorithm the average of the absolute change of the output, which in our model is the area under the survival curve.
 This output, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
 
 
