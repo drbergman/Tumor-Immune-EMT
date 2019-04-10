@@ -443,9 +443,9 @@ Below we analyze data gathered for pancreatic cancer, denoted by ``PAAD'' in TCG
 {\includegraphics[width=0.8\textwidth]{Figure1/Figure1.pdf}}
 \caption{A. Schematic depiction of agent-based model components; blue/red denote tissue cells with/without mutations. Black arrows depict regulation of the cell fate in each cell cycle. Inset depicts major interactions between the immune system and tissue cells.
  %The parameters used in this model can be found in the Supplementary material. Unless otherwise stated, parameter values are assumed to be those found in the Supplement. \tcr{Thoughts on the wording here? Once I have the table, I will use the name of that table.}
-B. A representation simulation of one patient. The model parameter values used can be found in XXXXX. 
+B. A representative simulation of one patient. The model parameter values used can be found in Supplementary Table 2. 
 The inflammation cycling scheme is represented above the patient dynamics. The vertical dashed line denotes the end of the warmup period. Mut: mutated cells; Mes: mesenchymal cells. 
-C. Survival curve for one cohort of patients with the parameter values given in Table XXXXX. }
+C. Survival curve for one cohort of patients with the parameter values given in Supplementary Table 2. }
 \label{fig:ModelIntro}
 \end{figure}
 
@@ -485,7 +485,7 @@ In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and
 \begin{figure}
 \center
 {\includegraphics[width=0.85\textwidth]{Figure2/Figure2.jpg}}
-\caption{Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu^*$ denotes the XXXXXX}
+\caption{Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu^*$ denotes the average absolute change in Time to Cancer when the parameter is varied.}
 \label{fig:MOAT}
 \end{figure}
 
@@ -498,7 +498,7 @@ In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and
 \center
 {\includegraphics[width=0.85\textwidth]{Figure3/Figure3.pdf}}
 \caption{Effects of mesencymal cell properites on the time to cancer. Trajectories of one patient per cohort from warmup period ([-1000,0]) to 2000 cell cycles, for $\Delta_\text{MIE}$ (A); $\Delta_\text{MGA}$ (B); and $\tau_\text{Treg}$, Treg TGF-$\beta$ (C). 
-D. Survival curves corresponding to changes in MIE (A) for a patient cohort of size XXXXX; shaded region represents XXXXXX. 
+D. Survival curves corresponding to changes in MIE (A) for a patient cohort of size 1000; shaded region represents the 95\% confidence interval for the evaluated function. 
 E. Survival curves for patient cohort corresponding to changes in MGA (B).
 F. Survival curves for patient cohort corresponding to changes in Treg TGF-$\beta$ (C). 
 %% \color{red} Cox regression or KM test statistics to be computed to demonstrate the significance of this claim.
@@ -540,7 +540,7 @@ In contrast, when MIE is varied for different inflammation cycling schemes, rega
 \begin{figure}
 \center
 {\includegraphics[width=0.9\textwidth]{Figure4/Figure4.pdf}}
-\caption{Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of XXXX patients)  and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves  and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.}
+\caption{Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of 200 patients)  and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves  and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.}
 \label{fig:VaryINFL_and_MesPars}
 \end{figure}
 
