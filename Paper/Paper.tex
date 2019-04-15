@@ -527,7 +527,17 @@ Mesenchymal cells are more likely to evade the immune system, so pushing the sys
 
 
 
+\begin{figure}
+\center
+{\includegraphics[width=0.99\textwidth]{Figure4/Figure4.pdf}}
+\caption{Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of 200 patients)  and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves  and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.}
+\label{fig:VaryINFL_and_MesPars}
+\end{figure}
+
+
+
 \subsection{A key EMT regime maximizes cancer-free survival time under chronic inflammation}\label{KeyEMT}
+
 
 We explored the effects of varying the inflammation state of the patient on cancer-free survival, to investigate competing interactions within the TME and their effect on EMT. Patient cohorts were simulated under different inflammation regimes: permanently low inflammation; permanently high inflammation; or variable inflammation. For patients drawn from cohorts in a permanently high inflammatory state, the relationship between mesenchymal parameters and the Time to Cancer is monotonic, i.e. increasing either the rate of mesenchymal immune evasion (MIE) (Fig. \ref{fig:VaryINFL_and_MesPars}A-B) or of mesenchymal growth arrest (MGA)  (Fig. \ref{fig:VaryINFL_and_MesPars}C-D) decreases the Time to Cancer.
 However, under regimes with either temporary or permanent periods of low inflammation, different relationships emerge: a local maximum for the Time to Cancer is found with respect to the relative mesenchymal growth rate (MGA $= 0.3$). This is seen both for intermittent or low inflammation (Fig. \ref{fig:VaryINFL_and_MesPars}D). 
@@ -537,17 +547,11 @@ Our model predicts that reducing the inflammatory state of the TME in three week
 \par
 In contrast, when MIE is varied for different inflammation cycling schemes, regardless of the cycling scheme, increasing the MIE leads to decreases in the Time to Cancer (worse survival probabilities), although in the case where the inflammatory state is permanently high, MIE has little effect on the Time to Cancer. Thus under any inflammation regime with periods of low inflammation, any reductions in the rate of mesenchymal immune evasion will lead to improved patient outcomes.
 
-\begin{figure}
-\center
-{\includegraphics[width=0.9\textwidth]{Figure4/Figure4.pdf}}
-\caption{Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of 200 patients)  and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves  and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.}
-\label{fig:VaryINFL_and_MesPars}
-\end{figure}
-
 
 \begin{figure}
 \center
-{\includegraphics[width=0.6\textwidth]{Figure5/MIEvsMGA_bigcbar.jpg}}
+{\includegraphics[width=0.5
+  \textwidth]{Figure5/MIEvsMGA_bigcbar.jpg}}
 \caption{Summary of the contrasting effects of MIE and MGA on the Time to Cancer.
   % Increasing MIE always decreases Time to Cancer, but MGA is non-monotonically linked to Time to Cancer.
 }
@@ -565,7 +569,7 @@ For a cohort of pancreatic cancer patients, we cluster the patients via k-means 
 
 \begin{figure}
 \center
-{\includegraphics[width=\columnwidth]{FigTCGA.pdf}}
+{\includegraphics[width=0.95\columnwidth]{FigTCGA.pdf}}
 \caption{A. K-means clustering of pancreatic cancers using gene ontology terms indicative of an EMT signature ($k=2$). B. Survival plots corresponding to the clustering on EMT. C. K-means clustering of pancreatic cancers using gene ontology terms indicative of EMT and Inflammation signatures ($k=2$). D. Survival plots corresponding to the clustering on EMT and inflammation.}
 \label{fig:tcga}
 \end{figure}
@@ -577,45 +581,38 @@ For a cohort of pancreatic cancer patients, we cluster the patients via k-means 
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Discussion}\label{Discussion}
-In building this model, we set out to better understand how the immune system and the EMT spectrum would affect Time to Cancer results from previous work.
-What we found is that altering many of the processes have predictable results: increasing mesenchymal immune evasion, decreasing mesenchymal growth arrest, and increasing Treg TGF-$\beta$ production all lead to shorter Times to Cancer.
-However, when the inflammation of the TME is accounted for, some of these changes to the system have less predictable outcomes.
-The most intriguing is that periods of low inflammation lead to mesenchymal growth arrest having an optimal value for maximizing Time to Cancer.
+Despite the intense interest in cancer and the immune system, and, separately, in the effects of EMT on cancer, there has not previously, to the best of our knowledge, been any model developed that combines all three of these components: cancer, the immune system, and EMT. We saw this as an even more pressing need given the shared factors that influence all of these, such as TGF-$\beta$. We used an individual cell-based model framework to describe the multiscale processes that can lead to cancer: DNA damage occurs during the cell cycle and this can lead to mutations in pathways that affect the fitness of the cell, which in turn affects the cell population dynamics, which are also influenced by the intrinsic state of the cell (EMT), and extrinsic immune factors (inflammation, cytotoxic cells, etc).
+\par
+We found that this model recapitulated cancer-free survival dynamics, and via a global (one-at-a-time) parameter sensitivity analysis, we identified parameters exerting key control over model behavior. Focussing on these led us to identify that: increasing mesenchymal immune evasion, decreasing mesenchymal growth arrest, or increasing Treg TGF-$\beta$ production all lead to shorter Times to Cancer. However varying the level of inflammation leads to paradoxical effects: under regimes with periods of low inflammation, an optimal level of mesenchymal growth arrest can improve outcomes and maximize the Time to Cancer.
+\par
+To test these predictions, we performed unsupervised analysis of pancreatic cancer data from The Cancer Genome Atlas, and looked at survival across two groups: we found that the presence of an EMT signature increased differences in survival between groups in combination with inflammation. We chose to summarize {\em in silico} patient simulations with a single parameter: the Time to Cancer, which we found captured the essential characteristics of the model. There are, of course, many tissue trajectories that all result in cancer, and analysis of the transient cell dynamics in tissues bound to become cancerous might tease out
 
 
 
+
+
+%%%% AM: Yes please add a para on this. 
 %In addition, I could discuss the implications from the TGF-$\beta$ section.
 %Any discussion on this topic, however, would need to acknowledge that regulation of TGF-$\beta$ might also have other, serious side effects, especially if the treatment is not local.
 %However, that might also be true for the inflammatory results.
 %In light of this, it might be good to include a new section on how TGF-$\beta$ production's influence on Time to Cancer is influenced by the inflammatory cycling scheme.
 
 
-%% AM: no need to separate this I think - combine conclusions into the discussion section. 
-%\section{Conclusion}\label{Conclusion}
-The interactions of the immune system and cancer remain a promising avenue of research.
-Including more diverse aspects of the TME and the tumor itself make the challenge that much harder but also that much more promising.
-As we begin to understand how processes such as EMT factor in to these complex interactions, we can begin to respond clinically to better improve patient outcomes.
-Here, we saw {\it in silico} evidence of an optimal value for a property of mesenchymal cells that would maximize Time to Cancer.
-There is still much work to be done further isolating this effect in computer simulations and further verifying this effect and exploring further ways EMT can influence tumor progression.
-This model explored much more than mesenchymal growth arrest, so a simpler model could make this point clearer.
-On the other hand, models which incorporate more distinctions between epithelial and mesenchymal cells could give better clarity on the relative importance of these and reveal a fuller picture about how a mesenchymal subpopulation affects cancer outcomes.
-%A Adam, do you know of any?
-The authors are not aware of current treatments that specifically target mesenchymal growth arrest, influencing it in one direction or another.
-%
-Based on these results, this could prove to be a promising direction for research, in particular for cancers in which it is known that mesenchymal cells are present and active within the tumor.
-The greatest challenge in translating the information here to the clinic, apart from creating the drugs, would be discovering the ideal growth rate for mesenchymal cells within each patient and how other patient-specific data will influence this result.
-\par
+
+%%% AM: please expand on this. how do we give it a larger role? What does "more robust" mean? how to further explore the anti-inflamm function of the Tregs? 
 Also, since the inflammatory state of the TME played such a large role in our simulations, making this a more robust facet of the model by allowing the tumor and immune system to influence the inflammatory state could give the model higher fidelity.
 One intriguing aspect could be the anti-inflammatory function of Tregs as they seek to restore homeostasis.
-\par
-A final future direction would be continuing to explore the heterogeneity of the tumor and how this helps the tumor evade the immune system and grow into a malignancy. 
-As we understand more and more about the diversity within the TME, additional models will be instrumental in determining the scope of these implications and the possible ways to address them.
-\par
-Progress in cancer treatment has always proven attainable even despite great challenges, for which the complexity of the disease is often responsible. As we move forwards, it is these very complexities that we will be able to better exploit to eradicate or control the disease.
+
+
+
+
+Another important point for future work is to further explore (and exploit) the heterogeneity of the tumor to understand how this helps the tumor evade the immune system. It is our view that the role of decanalization \cite{gibson09_decanalization} in during cancer incidence and progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour}. Progress in cancer therapies has proven to be attainable even despite great challenges, for which the complexity of the disease is often in large part responsible. As we move towards a new generation of immunotherapies, it is these very complexities that we must better understand in order to eradicate or control the disease. 
+
 
 
 \section*{Acknowledgements}
 The work is partially supported by National Institutes of Health grants R01GM123731 and U01AR073159; National Science Foundation grants DMS1562176 and DMS1763272; The Simons Foundation grant [594598 to Q.N.]; and a grant by Jayne Koskinas Ted Giovanis Foundation for Health and Policy joint with Breast Cancer Research Foundation.
+
 
 \bibliography{mybib,amrefs}
 \bibliographystyle{plos2015}
