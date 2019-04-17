@@ -196,4 +196,17 @@ de~Pillis LG, Radunskaya AE.
 \newblock In: Mathematical Models of Tumor-Immune System Dynamics. Springer;
   2014. p. 59--108.
 
+\bibitem{gibson09_decanalization}
+Gibson G.
+\newblock Decanalization and the origin of complex disease.
+\newblock Nature Reviews Genetics. 2009;10(2):134--140.
+\newblock doi:{10.1038/nrg2502}.
+
+\bibitem{cyll17_tumour}
+Cyll K, Ersvær E, Vlatkovic L, Pradhan M, Kildal W, Kjær MA, et~al.
+\newblock Tumour heterogeneity poses a significant challenge to cancer
+  biomarker research.
+\newblock British Journal of Cancer. 2017;117(3):367--375.
+\newblock doi:{10.1038/bjc.2017.171}.
+
 \end{thebibliography}

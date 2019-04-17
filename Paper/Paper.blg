@@ -9,45 +9,45 @@ Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--there's a number but no volume in west19_immune
-You've used 31 entries,
+You've used 33 entries,
             3058 wiz_defined-function locations,
-            862 strings with 12724 characters,
-and the built_in function-call counts, 59714 in all, are:
-= -- 7642
-> -- 488
+            878 strings with 13382 characters,
+and the built_in function-call counts, 65158 in all, are:
+= -- 8315
+> -- 520
 < -- 2
-+ -- 267
-- -- 122
-* -- 5049
-:= -- 6503
-add.period$ -- 141
-call.type$ -- 31
++ -- 285
+- -- 130
+* -- 5552
+:= -- 7101
+add.period$ -- 151
+call.type$ -- 33
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 4951
-empty$ -- 5625
-format.name$ -- 150
-if$ -- 13888
+cite$ -- 34
+duplicate$ -- 5274
+empty$ -- 6163
+format.name$ -- 159
+if$ -- 15137
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 304
-newline$ -- 175
-num.names$ -- 31
-pop$ -- 452
+int.to.str$ -- 33
+missing$ -- 324
+newline$ -- 187
+num.names$ -- 33
+pop$ -- 475
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 510
+skip$ -- 545
 stack$ -- 0
-substring$ -- 11784
-swap$ -- 790
+substring$ -- 13067
+swap$ -- 842
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 329
-width$ -- 33
-write$ -- 378
+while$ -- 351
+width$ -- 35
+write$ -- 404
 (There was 1 warning)
