@@ -168,7 +168,7 @@ Benzekry S, Lamont C, Barbolosi D, Hlatky L, Hahnfeldt P.
 West J, Robertson-Tessi M, Luddy K, Park DS, Williamson DFK, Harmon C, et~al.
 \newblock The {Immune} {Checkpoint} {Kick} {Start}: {Optimization} of
   {Neoadjuvant} {Combination} {Therapy} {Using} {Game} {Theory}.
-\newblock JCO Clinical Cancer Informatics. 2019;(3):1--12.
+\newblock JCO Clinical Cancer Informatics. 2019;3:1--12.
 \newblock doi:{10.1200/CCI.18.00078}.
 
 \bibitem{owen11_mathematical-1}
@@ -208,5 +208,18 @@ Cyll K, Ersvær E, Vlatkovic L, Pradhan M, Kildal W, Kjær MA, et~al.
   biomarker research.
 \newblock British Journal of Cancer. 2017;117(3):367--375.
 \newblock doi:{10.1038/bjc.2017.171}.
+
+\bibitem{punt17_tumour}
+Punt CJA, Koopman M, Vermeulen L.
+\newblock From tumour heterogeneity to advances in precision treatment of
+  colorectal cancer.
+\newblock Nature Reviews Clinical Oncology. 2017;14(4):235--246.
+\newblock doi:{10.1038/nrclinonc.2016.171}.
+
+\bibitem{dagogo-jack18_tumour}
+Dagogo-Jack I, Shaw AT.
+\newblock Tumour heterogeneity and resistance to cancer therapies.
+\newblock Nature Reviews Clinical Oncology. 2018;15(2):81--94.
+\newblock doi:{10.1038/nrclinonc.2017.166}.
 
 \end{thebibliography}

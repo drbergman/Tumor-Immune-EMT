@@ -42,15 +42,12 @@ and Adam L. MacLean\,$^{3,*}$
 
 
 \section*{Abstract}
-Preceding and during cancer progression, the immune system is engaged in complex sets of interactions with epithelia that affect tumor incidence and prognosis. Inflammation also has significant effects on gastrointestinal and pancreatic tumors.
-Moreover, epithelial cell plasticity can significantly alter disease trajectories (for better or worse) via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions.
-Yet little is known about the mechanisms and consequences of these regulatory processes.
-Here we introduce a multiscale agent-based model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial tissues.
-Through {\em in silico} analysis of large patient cohorts, we found controllable regimes that increase cancer-free survival. Delaying tumorigenesis depended crucially on properties of the mesenchymal phenotype: its growth rate and its immune-evasiveness.
+Preceding and during cancer progression, the immune system is engaged in complex sets of interactions with epithelia that affect tumor incidence and prognosis. Inflammation has particularly significant effects on gastrointestinal and pancreatic tumors.
+Moreover, epithelial cell plasticity can significantly alter disease trajectories (for better or worse) via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions, yet little is known about the mechanisms and consequences of these regulatory processes.
+Here we introduce a multiscale evolutionary model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial tissues.
+Through {\em in silico} analyses of large patient cohorts, we found controllable regimes that maximise cancer-free survival. Delaying tumorigenesis depended crucially on properties of the mesenchymal phenotype: its growth rate and its immune-evasiveness.
 We performed analysis of pancreatic cancer data from The Cancer Genome Atlas to compare clinical measurements with model predictions. We found, in broad agreement with the model, that association with EMT worsened the survival probabilities of inflammation-associated cancer.
-These results offer novel means to delay disease onset by controlling properties of EMT and demonstrate the importance of studying cancer-immune interactions in the light of EMT.
-%The model presented provides a base for future studies into the intricate regulation of tumorigenesis.
-
+These results offer novel means to delay disease onset by regulating properties of EMT, and demonstrate the importance of studying cancer-immune interactions in the light of EMT.
 
 
 %% Basic Introduction (1-2 sentences)
@@ -592,26 +589,14 @@ To test these predictions, we performed unsupervised analysis of pancreatic canc
 %However, that might also be true for the inflammatory results.
 %In light of this, it might be good to include a new section on how TGF-$\beta$ production's influence on Time to Cancer is influenced by the inflammatory cycling scheme.
 
-These results represent promising steps in understanding the competing roles of the immune system and EMT during (pre-) development of epithelial cancers, yet much remains to be done. Further development of the inflammation module of this model is important given the large and sometimes paradoxical roles that the inflammatory state exerts on the epithelia and cancer-free survival (Figs. \ref{fig:MOAT} and \ref{fig:fig:VaryINFL_and_MesPars}B-D).
-The cycling nature of the scheme we chose is meant to synthesize the disparate inputs that affect the local tissue and output a simple and interpretable result.
-However, many of the agents explicitly considered in the model actively contribute to the inflammatory state of the TME, providing a basis for connecting these two pieces of our model so that, for example, as mutant cells start growing, inflammation begins to rise.
-In this way, a more robust inflammatory state could be modeled that would allow for more informative analysis.
-\par
-Coupling nicely with this improvement, the natural anti-inflammatory role of Tregs would give another layer to the competing roles of the immune system.
-One consequence of our current model is that it appears that fewer Tregs means longer Time to Cancer, implying that simply eliminating Tregs is best.
-Adding in this main effector function of Tregs into the model might help change this oversimplified analysis and add depth to the understanding of Tregs we glean from the model.
+These results represent promising steps in understanding the competing roles of the immune system and EMT during (pre-) development of epithelial cancers, yet much remains to be done. Further development of the inflammation module of this model is important given the large and sometimes paradoxical roles that the inflammatory state exerts on the epithelia and cancer-free survival (Figs. \ref{fig:MOAT} and \ref{fig:fig:VaryINFL_and_MesPars}B-D). Currently, inflammation is modeled as independently cycling between high and low schemes, however many of the agents considered in the model actively contribute to the inflammatory state, thus it would be interesting to consider connecting these components (for example by letting the level of inflammation be conditional on the number of mutant cells in the tissue). Another layer of complexity is revealed by the natural anti-inflammatory role of Tregs. One consequence of the current model is that decreasing the number of Tregs increases the cancer-free survival. Clearly, there exists a trade-off to be accounted for, and adding to the model the main effector function of Tregs could remedy this and add depth to our understanding of the various roles that Tregs play in and around the tumor.
+
 %Also, since the inflammatory state of the TME played such a large role in our simulations, making this a more robust facet of the model by allowing the tumor and immune system to influence the inflammatory state could give the model higher fidelity.
 %One intriguing aspect could be the anti-inflammatory function of Tregs as they seek to restore homeostasis.
 \par
-In addition, the role that TGF-$\beta$ plays throughout the TME sets it up as a prime target of research.
-We saw in Fig. \ref{fig:FirstSurvivalCurves}E that below some threshold, reduction of TGF-$\beta$ increases Time to Cancer.
-Thus, our model suggests that reducing quantities of TGF-$\beta$ in the TME will benefit patient survival.
-However, it must be noted that TGF-$\beta$ is a powerful cytokine implicated in many cellular processes and attempts to shift the concentrations of TGF-$\beta$ in the TME or throughout the body could have undesirable side effects.
-With an aggressive disease like cancer, though, more aggressive therapies are warranted.
+The role that TGF-$\beta$ plays throughout the tumor and its microenvironment also requires further research. We found that, below a threshold, reduction of TGF-$\beta$ increases the Time to Cancer  (Fig. \ref{fig:FirstSurvivalCurves}E), thus reducing expression levels of TGF-$\beta$ in the tumor microenvironment benefits survival. However, TGF-$\beta$ is a master regulator implicated in numerous cellular signaling processes, and changing the concentrations of TGF-$\beta$ even in a local tumor microenvironment could have large off-target effects. Thus it might be more fruitful to target signaling factors downstream of TGF-$\beta$ that still have the ability to modulate epithelial cell dynamics: this is an area of active and future investigation, we are currently developing a larger TGF-$\beta$ signaling pathway module with appropriate crosstalks to  epithelial/mesenchymal/immune cell functions to be incorporated into the model. 
 \par
-%%% AM: please expand on this. how do we give it a larger role? What does "more robust" mean? how to further explore the anti-inflamm function of the Tregs? 
-\par
-Finally, Another important point for future work is to further explore (and exploit) the heterogeneity of the tumor to understand how this helps the tumor evade the immune system. It is our view that the role of decanalization \cite{gibson09_decanalization} in during cancer incidence and progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour}. Progress in cancer therapies has proven to be attainable even despite great challenges, for which the complexity of the disease is often in large part responsible. As we move towards a new generation of immunotherapies, it is these very complexities that we must better understand in order to eradicate or control the disease. 
+A further goal for future work is to explore (and exploit) the heterogeneity of tumor evolution in greater depth: this heterogeneity aids the evasion of the tumor from immune effects. Studying the consequences of decanalization \cite{gibson09_decanalization} during cancer progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour, punt17_tumour, dagogo-jack18_tumour}. Yet despite these challenges, for which the complexity of the disease may be often in large part responsible, great progress has been and continues to be made. As we approach a new generation of immunotherapies, it is these very complexities that we must better understand in order to control or eradicate the disease. 
 
 
 
