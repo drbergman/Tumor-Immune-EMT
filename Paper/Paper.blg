@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
+This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Paper.aux
 The style file: plos2015.bst
@@ -9,45 +9,45 @@ Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--there's a number but no volume in west19_immune
-You've used 33 entries,
+You've used 34 entries,
             3058 wiz_defined-function locations,
-            878 strings with 13382 characters,
-and the built_in function-call counts, 65158 in all, are:
-= -- 8315
-> -- 520
+            886 strings with 13579 characters,
+and the built_in function-call counts, 66947 in all, are:
+= -- 8550
+> -- 532
 < -- 2
-+ -- 285
-- -- 130
-* -- 5552
-:= -- 7101
-add.period$ -- 151
-call.type$ -- 33
++ -- 291
+- -- 133
+* -- 5701
+:= -- 7292
+add.period$ -- 155
+call.type$ -- 34
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 5274
-empty$ -- 6163
-format.name$ -- 159
-if$ -- 15137
+cite$ -- 35
+duplicate$ -- 5439
+empty$ -- 6331
+format.name$ -- 163
+if$ -- 15555
 int.to.chr$ -- 0
-int.to.str$ -- 33
-missing$ -- 324
-newline$ -- 187
-num.names$ -- 33
-pop$ -- 475
+int.to.str$ -- 34
+missing$ -- 333
+newline$ -- 192
+num.names$ -- 34
+pop$ -- 489
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 545
+skip$ -- 558
 stack$ -- 0
-substring$ -- 13067
-swap$ -- 842
+substring$ -- 13410
+swap$ -- 866
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 351
-width$ -- 35
-write$ -- 404
+while$ -- 361
+width$ -- 36
+write$ -- 415
 (There was 1 warning)

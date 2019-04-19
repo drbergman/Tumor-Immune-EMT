@@ -95,9 +95,10 @@ Cancer and the immune system interact in myriad ways. Beyond direct tumor-immune
 \par 
 Tumor cells interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens recognized by innate immune cells that are transported to lymph nodes where T cells (and other components) can be activated \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing immunosuppression via Treg cell activation \cite{schreiber11_cancer}.
 \par
-The effects of the immune system on a tumor can be broadly summarized into two modules. The cytotoxic branch of the immune system (such as natural killer (NK) cells and cytotoxic T cells (CTLs) seek out and lyse tumor cells.
+The effects of the immune system on a tumor can be broadly summarized into two modules.
+The cytotoxic branch of the immune system, such as natural killer cells (NKs) and cytotoxic T cells (CTLs), seek out and lyse tumor cells.
 Upon carrying out their effector functions, these cytotoxic cells lose efficacy or deactivate entirely\tcr{[REF]}.
-The regulatory branch of the immune system (T regulatory cells (Tregs) and other factors), inhibits the effective functioning of the cytotoxic branch\cite{ruffell2010lymphocytes}.
+The regulatory branch of the immune system, such as T regulatory cells (Tregs) and other factors, inhibits the effective functioning of the cytotoxic branch\cite{ruffell2010lymphocytes}.
 %Make sure there's some ref for immune clearing tumor
 % Also, add that as immune cells clear tumor cells, they become deactivated and give source
 In addition, the immune system plays important regulatory roles in pre-cancerous tissue, where inflammation can increase the probability of tumorigenesis (and/or decrease the time to cancer), particularly in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}. Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo2017multiscale}. 
@@ -165,12 +166,12 @@ Here we develop a model with the goal of studying interactions between the tumor
 \section{Methods}
 We develop an agent-based model to describe the relationships between cancer, the immune system, and EMT, building on cell-cycle and tissue-cell components of \cite{guo2017multiscale}. 
 The agents in the model are the tissue cells with tumorigenic potential.
-These can either be mutation-free, or, resulting from DNA damage during the cell cycle, can have any combination of three possible pathway mutations (shown in Fig. \ref{fig:ModelIntro}A).
+These can either be mutation-free or, resulting from DNA damage during the cell cycle, can have any combination of three possible pathway mutations (shown in Fig. \ref{fig:ModelIntro}A).
 If the pathway is mutated, the component is colored red and is marked with `X'.
 A single mutation is sufficient for the cell to be considered as a mutant cell.
 \par
 We model immune cells as continuous variables, appropriate since at the level of immune cells it is not necessary to keep track of single cell effects.
-The cytokine TGF-$\beta$ is continuous within the tumor microenvironment (TME), i.e. the system is well-mixed.
+The cytokine TGF-$\beta$ is continuous within the TME, i.e. the system is well-mixed.
 Tissue cells can take on either epithelial or mesenchymal phenotypes in a plastic manner: these phenotypes depend on both the TME and cell-intrinsic factors.
 While the score is continuous, a threshold determines if a given cell is labeled as epithelial or mesenchymal.
 In Figure \ref{fig:ModelIntro}A, the EMT labeling is given by the color of the cell.
@@ -206,7 +207,7 @@ However, different parameter values will lead to different steady states for the
 In light of this, a warmup period of ~1000 cell cycles is used in which time no mutations are allowed to happen.
 Thus, the only immune cell present is NKs.
 After the warmup cycles are complete, a mutagenic event is simulated in which all the tissue cells experience a random increase in their probability to mutate.
-From then on, a cell which proliferates either mutates or increases its probability of mutating later on.
+From then on, a cell which proliferates also either mutates or increases its probability of mutating later on.
 
 \subsubsection{Tissue cell fate}
 During each cell cycle, every cell randomly is assigned a cell fate from the following options:
@@ -220,7 +221,7 @@ During each cell cycle, every cell randomly is assigned a cell fate from the fol
 For each cell, a weight is chosen for each option and these are normalized to probabilities which then are used to randomly determine what each cell does during the cell cycle.
 
 \paragraph{Proliferation}
-There are four factors that contribute to the probability that a cell will proliferate.
+There are four factors that contribute to the weight of a cell to proliferate.
 The first is a base proliferation rate that all cells have, $p$.
 Second, if the cell has a mutation in the proliferation pathway ($\delta_P=1$), then the weight for proliferation is proportionally increased by $\Delta_P$.
 Third, if the cell is mesenchymal ($\zeta=1$), then the weight for proliferation is proportionally decreased by $\Delta_{\text{MGA}}$, which stands for mesenchymal growth arrest.
@@ -272,7 +273,7 @@ The reason for adding that term is due to the understanding that overall mesench
 After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
 First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
 This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
-Second, all proliferating cells have a nonzero probability of undergoing a pathway mutation.
+Second, all proliferating cells have a cell-specific probability of undergoing a pathway mutation.
 If they do, one is randomly chosen among the three pathways and the pathway in that cell mutates.
 If the cell does not undergo a mutation, then its probability of mutation during subsequent cell cycles increases. 
 Finally, the EMT values for each cell is updated.
@@ -286,11 +287,11 @@ Each cell receives an amount of TGF-$\beta$ given by
 \end{equation}
 
 The summand on the left deterministically divides up the total TGF-$\beta$ among all $N$ cells evenly and a Hill function on this quantity determines how much TGF-$\beta$ each cell thus receives.
-Then, some randomness is introduced by the independent and identically distributed variables $X_i$where $\sigma$ is a parameter in the model.
+Then, some randomness is introduced by the independent and identically distributed variables $X_i$ where $\sigma$ is a parameter in the model.
 If this quantity is large enough, relative to the EMT score of the cell, then the cell will undergo EMT and its EMT score will increase.
 If not, then the cell undergoes the reverse process, MET, and its EMT score will decrease.
 Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
-Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: quantity of TGF-$\beta$ in the system and the current EMT score of the cell.
+Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: concentration of TGF-$\beta$ in the system and the current EMT score of the cell.
 
 Next, the amount of TGF-$\beta$ for the next cell cycle is determined by the number of mutated cells, $N_{\text{MUT}}$, and the number of Treg cells, $N_{\text{Treg}}$, each one producing a fixed amount of TGF-$\beta$. It is given by
 
@@ -319,7 +320,7 @@ We choose the following differential equations to govern the CTL and Treg popula
 
 \begin{equation}\tag{2.9}
 \begin{split}
-N_\text{CTL}' & = \sigma_{\text{CTL}}N_{\text{MUT}}^* - d_{\text{CTL}}\text{CTL} \\
+N_\text{CTL}' & = \sigma_{\text{CTL}}N_{\text{MUT}}^* - d_{\text{CTL}}N_\text{CTL} \\
 \text{Treg}' & = \sigma_{\text{Treg}}N_{\text{MUT}}^* \frac{\tau}{1+\tau/K_4}- d_{\text{Treg}}N_\text{Treg}
 \end{split}
 \end{equation}
@@ -329,8 +330,8 @@ Discretized, these are:
 \begin{equation}\tag{2.10}
 \begin{split}
 N_\text{CTL}(k+1) & =  \left (N_\text{CTL}(k)-\sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\\
-N_\text{Treg}(k+1) & =  \left (N_\text{Treg}(k)-\frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau}{1+\tau/K_4}\right )\exp(-d_{\text{Treg}}\Delta t)\\
-&+ \frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau}{1+\tau/K_4}
+N_\text{Treg}(k+1) & =  \left (N_\text{Treg}(k)-\frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau(k)}{1+\tau(k)/K_4}\right )\exp(-d_{\text{Treg}}\Delta t)\\
+&+ \frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau(k)}{1+\tau(k)/K_4}
 \end{split}
 \end{equation}
 
@@ -411,8 +412,8 @@ Some of the parameters were also truncated to the right because they represented
 The variances were chosen as twice the mean to get a large spread of values.
 \par
 %The algorithm \tcr{outputs the average of the absolute change of area under the curve for each parameter normalized by the corresponding change in the cdf function for that parameter. [I don't get this: what is y-axis?]}
-The algorithm the average of the absolute change of the output, which in our model is the area under the survival curve.
-This output, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
+The algorithm computes the average of the absolute change of the output, which in our model is the area under the survival curve.
+This output out the algorithm, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
 
 
 \subsection{Analysis of patient survival data from TCGA database}
@@ -448,9 +449,9 @@ C. Survival curve for one cohort of patients with the parameter values given in 
 \end{figure}
 
 We begin by investigating general features of the model to establish baseline conditions and to assess the impact of various model components on the key measured outcomes: the probability of cancer, and the Time to Cancer. 
-Within the cell cycle, cell fate is determined via a set of rules that are influenced by EMT and immune interactions (Fig. \ref{fig:ModelIntro}A). For example, if a cell undergoes EMT, the probability that it will proliferate is reduced; if a cell gains a mutation in the apoptosis pathway, the probability that it undergoes apoptosis is greatly reduced. The different means by which the immune system acts on tissue cells are also shown (\ref{fig:ModelIntro}A Inset). NK cells and CTLs attempt to clear mutated tissue cells, and deactivate upon successfully carrying out their cytotoxic function. T regulatory cells (Tregs) inhibit cytotoxic activity. Tregs also release TGF-$\beta$ which promotes the recruitment of Tregs, as well as increasing the rate of EMT.
+Within the cell cycle, cell fate is determined via a set of rules that are influenced by EMT and immune interactions (Fig. \ref{fig:ModelIntro}A). For example, if a cell undergoes EMT, the probability that it will proliferate is reduced; if a cell gains a mutation in the apoptosis pathway, the probability that it undergoes apoptosis is greatly reduced. The different means by which the immune system acts on tissue cells are also shown (\ref{fig:ModelIntro}A Inset). NK cells and CTLs attempt to clear mutated tissue cells, and deactivate upon successfully carrying out their cytotoxic function. Tregs inhibit cytotoxic activity. Tregs also release TGF-$\beta$ which promotes the recruitment of Tregs, as well as increasing the rate of EMT.
 \par
-The inflammation cycling scheme for a typical {\it in silico} patient consists of alternating high and low regimes (Fig. \ref{fig:ModelIntro}B); the inflammation schemes modeled will be discussed in detail in the next section. For this patient, after the warmup period, cell mutations are observed at a rate low enough that they are cleared by cytotoxic cells before being able to establish a tumor. However, after approximately 1000 cell cycles (750 days), one mutated cell exhibits clonal growth, and a tumor is established. At this point, large numbers of cells from the adaptive immune system (CTLs and Tregs) are being heavily recruited, and a peak in TGF-$\beta$ expression is observed. The number of mesenchymal cells increases initially with increasing TGF-$\beta$, but decreases after the clone takes over the tissue. This shifts back towards an epithelial tissue phenotype occurs even though the expression of TGF-$\beta$ remains high.
+The inflammation cycling scheme for a typical {\it in silico} patient consists of alternating high and low regimes (Fig. \ref{fig:ModelIntro}B); the inflammation schemes modeled will be discussed in detail in the next section. For this patient, after the warmup period, cell mutations are observed at a rate low enough that they are cleared by cytotoxic cells before being able to establish a tumor. However, after approximately 1000 cell cycles (750 days), one mutated cell exhibits clonal growth, and a tumor is established. At this point, large numbers of cells from the adaptive immune system (CTLs and Tregs) are being heavily recruited, and a peak in TGF-$\beta$ expression is observed. The number of mesenchymal cells increases initially with increasing TGF-$\beta$, but decreases after the clone takes over the tissue. This shift back towards an epithelial tissue phenotype occurs even though the expression of TGF-$\beta$ remains high.
 After 841 cell cycles, the proportion of mutated cells reaches 50\%: this is modeled as the threshold defining tumorigenesis. Thus this patient has a Time to Cancer of 841 cell cycles, or 631 days. 
 After cancer incidence, the number of mutated cells continues to grow rapidly and soon makes up 100\% of the cell population. A peak in mesenchymal phenotypes is observed following cancer incidence, before most transition back to an epithelial state.
 \par 
@@ -462,7 +463,7 @@ The {\em in silico} patient described here is given for the purpose of illustrat
 
 \subsection{Identification of key regulatory parameters via Morris global sensitivity analysis}\label{SensAnalysis}
 To assess the sensitivity of the model parameters and thus identify those that are most important in determining cancer-free survival times, we applied Morris one-step-at-a-time (OAT) sensitivity analysis (see Methods) to the model.
-The results of Morris OAT on the 31 model parameters are shown in \ref{fig:MOAT}: a subset of parameters demonstrate much higher levels of sensitivity than others.
+The results of Morris OAT on the 31 model parameters are shown in Figure \ref{fig:MOAT}: a subset of parameters demonstrate much higher levels of sensitivity than others.
 The two most influential according to this analysis are the death rate and the recruitment rate of Treg cells, this is most likely due to the dual roles Treg cells play in both suppressing the cytotoxic effects of other immune cells and secreting TGF-$\beta$, which drives EMT.
 This ties Treg cells to all three components of the model.
 Since we seek to separate the effects of different model components, we do not choose the parameters influencing Treg cells for detailed analysis below.
@@ -495,7 +496,7 @@ In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and
 \begin{figure}
 \center
 {\includegraphics[width=0.85\textwidth]{Figure3/Figure3.pdf}}
-\caption{Effects of mesencymal cell properites on the time to cancer. Trajectories of one patient per cohort from warmup period ([-1000,0]) to 2000 cell cycles, for $\Delta_\text{MIE}$ (A); $\Delta_\text{MGA}$ (B); and $\tau_\text{Treg}$, Treg TGF-$\beta$ (C). 
+\caption{Effects of mesencymal cell properites on the time to cancer. Trajectories of one patient per cohort from warmup period ([-1000,0]) to 2000 cell cycles, for $\Delta_\text{MIE}$ (A); $\Delta_\text{MGA}$ (B); and $\tau_\text{Treg}$ (C). 
 D. Survival curves corresponding to changes in MIE (A) for a patient cohort of size 1000; shaded region represents the 95\% confidence interval for the evaluated function. 
 E. Survival curves for patient cohort corresponding to changes in MGA (B).
 F. Survival curves for patient cohort corresponding to changes in Treg TGF-$\beta$ (C). 
@@ -507,14 +508,14 @@ F. Survival curves for patient cohort corresponding to changes in Treg TGF-$\bet
 
 When a cell transitions from an epithelial to a mesenchymal state, two phenotypic cell characteristics change: mesenchymal immune evasion (MIE) and mesenchymal growth arrest (MGA).
 Both parameters are defined as proportions, and lie in $[0,1]$, where higher values indicate more mesenchymal-like properties.
-MIE is the proportional reduction in the probability that a mutated mesenchymal cell will be subject to immune clearance in a given cycle.
-MGA is the proportional reduction in the probability that a mesenchymal cell will proliferate in a given cell cycle, thus is equivalent (strictly in terms of its impact on the cell cycle) to an increased proportion of time spent resting in the $G_0$ phase.
+The parameter $\Delta_\text{MIE}$ is the proportional reduction in the probability that a mutated mesenchymal cell will be subject to immune clearance in a given cycle.
+The parameter $\Delta_\text{MGA}$ is the proportional reduction in the probability that a mesenchymal cell will proliferate in a given cell cycle, thus is equivalent (strictly in terms of its impact on the cell cycle) to an increased proportion of time spent resting in the $G_0$ phase.
 The cytokine TGF-$\beta$ is also involved in the EMT process (by increasing the probability of EMT). All three of these parameters were found to have large effects on the model by the Morris OAT analysis presented in Section \ref{SensAnalysis}.
 \par 
-As the level of mesenchymal immune evasion (MIE) is increased, the Time to Cancer decreases (Fig. \ref{fig:FirstSurvivalCurves}A) under all sets of parameters studied: as this subpopulation of potentially mutated cells becomes more resistant to immune clearance, the tumor as a whole grows more resilient and thus will grow faster.
+As MIE is increased, the Time to Cancer decreases (Fig. \ref{fig:FirstSurvivalCurves}A) under all sets of parameters studied: as this subpopulation of potentially mutated cells becomes more resistant to immune clearance, the tumor as a whole grows more resilient and thus will grow faster.
 These results are summarized by Figure \ref{fig:FirstSurvivalCurves}A.
 
-Second, as the rate of mesenchymal growth arrest (MGA) increases, Time to Cancer increases, i.e. lower proliferation rates for mesenchymal cells slow down cancer growth (Figure \ref{fig:FirstSurvivalCurves}B).
+Second, as MGA increases, Time to Cancer increases, i.e. lower proliferation rates for mesenchymal cells slow down cancer growth (Figure \ref{fig:FirstSurvivalCurves}B).
 This is not immediately intuitive, since the decreased proliferation rate affects both mutated and non-mutated tissue cells.
 
 Third, TGF-$\beta$ can be varied in two ways: the production by mesenchymal cells and the production by Treg cells.
@@ -537,8 +538,8 @@ Mesenchymal cells are more likely to evade the immune system, so pushing the sys
 \subsection{A key EMT regime maximizes cancer-free survival time under chronic inflammation}\label{KeyEMT}
 
 
-We explored the effects of varying the inflammation state of the patient on cancer-free survival, to investigate competing interactions within the TME and their effect on EMT. Patient cohorts were simulated under different inflammation regimes: permanently low inflammation; permanently high inflammation; or variable inflammation. For patients drawn from cohorts in a permanently high inflammatory state, the relationship between mesenchymal parameters and the Time to Cancer is monotonic, i.e. increasing either the rate of mesenchymal immune evasion (MIE) (Fig. \ref{fig:VaryINFL_and_MesPars}A-B) or of mesenchymal growth arrest (MGA)  (Fig. \ref{fig:VaryINFL_and_MesPars}C-D) decreases the Time to Cancer.
-However, under regimes with either temporary or permanent periods of low inflammation, different relationships emerge: a local maximum for the Time to Cancer is found with respect to the relative mesenchymal growth rate (MGA $= 0.3$). This is seen both for intermittent or low inflammation (Fig. \ref{fig:VaryINFL_and_MesPars}D). 
+We explored the effects of varying the inflammation state of the patient on cancer-free survival, to investigate competing interactions within the TME and their effect on EMT. Patient cohorts were simulated under different inflammation regimes: permanently low inflammation; permanently high inflammation; or variable inflammation. For patients drawn from cohorts in a permanently high inflammatory state, the relationship between mesenchymal parameters and the Time to Cancer is monotonic, i.e. increasing either MIE (Fig. \ref{fig:VaryINFL_and_MesPars}A-B) or MGA (Fig. \ref{fig:VaryINFL_and_MesPars}C-D) decreases the Time to Cancer.
+However, under regimes with either temporary or permanent periods of low inflammation, different relationships emerge: a local maximum for the Time to Cancer is found with respect to MGA ($\Delta_\text{MGA}= 0.3$). This is seen both for intermittent or low inflammation (Fig. \ref{fig:VaryINFL_and_MesPars}D). 
 \par
 These striking differences in the mean Time to Cancer -- extended by up to one year by fine-grained optimization of mesenchymal growth arrest -- have clear therapeutic implications. 
 Our model predicts that reducing the inflammatory state of the TME in three weeks out of every nine would be provide means to prolong cancer-free survival in combination with mesenchymal cell therapies to make the control of mesenchymal proliferation an effective anti-cancer strategy.
@@ -558,7 +559,7 @@ In contrast, when MIE is varied for different inflammation cycling schemes, rega
 
 \subsection{Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}\label{tcga}
 
-To further assess the effects on tumorigenesis of the mesenchymal properties of immune evasion (MIE) and growth arrest (MGA), we study the joint density plot for each of these parameters against the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of MGA considered, increasing the MIE decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with increasing MIE. Together these results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of cancer-free survival, an optimal value of MGA will prolong survival. 
+To further assess the effects on tumorigenesis of the mesenchymal properties of immune evasion and growth arrest, we study the joint density plot for each of these parameters against the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of $\Delta_\text{MGA}$ considered, increasing $\Delta_\text{MIE}$ decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with increasing MIE. Together these results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of cancer-free survival, an optimal value of MGA will prolong survival. 
 \par 
 To compare these model predictions with experimental studies, we analyzed data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers \cite{hu10_inflammationinduced, balkwill01_inflammation}. Using gene ontologies as a measure of the of effects of inflammatory or EMT processes on cancer-free survival, we investigate pancreatic cancer. We note that the comparison between simulation and data here is indirect since the model studies processes occurring before incidence, while the data address subsequent events, but analogous processes are at play during both the pre-cancerous clonal dynamics addressed by the model, and the progression of disease that follows cancer incidence. 
 \par
@@ -595,7 +596,7 @@ To test these predictions, we performed unsupervised analysis of pancreatic canc
 %In light of this, it might be good to include a new section on how TGF-$\beta$ production's influence on Time to Cancer is influenced by the inflammatory cycling scheme.
 These promising results lead us to believe that continuing to study and improve the model will lead to further understanding of the competing roles of the immune system and EMT on epithelial cancers.
 Developing the inflammation module of our model stands out as an attractive next step.
-This is because we have seen that the inflammatory state of the TME had some of the most significant effects on Time to Cancer (see Figures \ref{fig:MOAT} and \ref{fig:fig:VaryINFL_and_MesPars}BD).
+This is because we have seen that the inflammatory state of the TME had some of the most significant effects on Time to Cancer (see Figures \ref{fig:MOAT} and \ref{fig:VaryINFL_and_MesPars}B, D).
 The cycling nature of the scheme we chose is meant to synthesize the disparate inputs that affect the local tissue and output a simple and interpretable result.
 However, many of the agents explicitly considered in the model actively contribute to the inflammatory state of the TME, providing a basis for connecting these two pieces of our model so that, for example, as mutant cells start growing, inflammation begins to rise.
 In this way, a more robust inflammatory state could be modeled that would allow for more informative analysis.
@@ -609,12 +610,12 @@ Adding in this main effector function of Tregs into the model might help change 
 In addition, the role that TGF-$\beta$ plays throughout the TME sets it up as a prime target of research.
 We saw in Figure \ref{fig:FirstSurvivalCurves}E that below some threshold, reduction of TGF-$\beta$ increases Time to Cancer.
 Thus, our model suggests that reducing quantities of TGF-$\beta$ in the TME will benefit patient survival.
-However, it must be noted that TGF-$\beta$ is a powerful cytokine implicated in many cellular processes and attempts to shift the concentrations of TGF-$\beta$ in the TME or throughout the body could have undesirable side effects.
+However, it must be noted that TGF-$\beta$ is a powerful cytokine implicated in many cellular processes and attempts to shift the concentrations of TGF-$\beta$ in the TME or throughout the body could have undesirable side effects \cite{blobe2000role}.
 With an aggressive disease like cancer, though, more aggressive therapies are warranted.
 \par
 %%% AM: please expand on this. how do we give it a larger role? What does "more robust" mean? how to further explore the anti-inflamm function of the Tregs? 
 \par
-Finally, Another important point for future work is to further explore (and exploit) the heterogeneity of the tumor to understand how this helps the tumor evade the immune system. It is our view that the role of decanalization \cite{gibson09_decanalization} in during cancer incidence and progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour}. Progress in cancer therapies has proven to be attainable even despite great challenges, for which the complexity of the disease is often in large part responsible. As we move towards a new generation of immunotherapies, it is these very complexities that we must better understand in order to eradicate or control the disease. 
+Finally, Another important point for future work is to further explore (and exploit) the heterogeneity of the tumor to understand how this helps the tumor evade the immune system. It is our view that the role of decanalization \cite{gibson09_decanalization} during cancer incidence and progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour}. Progress in cancer therapies has proven to be attainable even despite great challenges, for which the complexity of the disease is often in large part responsible. As we move towards a new generation of immunotherapies, it is these very complexities that we must better understand in order to eradicate or control the disease. 
 
 
 
