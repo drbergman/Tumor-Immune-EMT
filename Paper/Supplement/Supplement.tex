@@ -43,8 +43,9 @@ and Adam L. MacLean\,$^{3,*}$
 \begin{document}
 \maketitle
 
+\begin{table}[H]
 \begin{center}
- \begin{longtable}{|| c | c||} 
+ \begin{tabular}{|| c | c||} 
  \hline
  Name & Description  \\ [0.5ex] 
  \hline
@@ -90,12 +91,14 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
   \hline
  $\tau_\text{Treg}$ & rate of TGF-$\beta$ production by Treg\\
   \hline
-\end{longtable}
+\end{tabular}
+  \caption{The model parameter names and descriptions. Note that many of these values are affected by the inflammation state of the system.}
 \end{center}
+\end{table}
 
-
+\begin{table}[H]
 \begin{center}
- \begin{longtable}{|| c | p{7cm} | c | c ||} 
+ \begin{tabular}{|| c | p{7cm} | c | c ||} 
  \hline
  Name & Description & INFL Low Value & INFL High Value  \\ [0.5ex] 
  \hline\hline
@@ -153,8 +156,10 @@ $\Delta_\text{MIE}$ &  MIE & 0.6 & \\
   \hline
   & increase in probability to mutate for non-mutating proliferating cells & 0.0001 & \\
   \hline
-\end{longtable}
+\end{tabular}
+  \caption{The model parameter names, descriptions, and values during both low and high inflammation. Parameters with only one value do not change with the inflammatory state.}
 \end{center}
+\end{table}
 
 %\newpage
 %
