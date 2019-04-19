@@ -428,15 +428,13 @@ Below we analyze data gathered for pancreatic cancer, denoted by ``PAAD'' in TCG
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %                          RESULTS                         %
-%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Results}
+%%%%%%%%%%%%%%%%%%%%%%%\section{Results}
 
 \subsection{A multiscale agent-based model of EMT-immune-tissue cell interactions to study tumorigenesis}\label{ExplModel}
 
 \begin{figure}
 \center
-{\includegraphics[width=0.8\textwidth]{Figure1/Figure1.pdf}}
+{\includegraphics[width=0.98\textwidth]{Figure1/Figure1.pdf}}
 \caption{A. Schematic depiction of agent-based model components; blue/red denote tissue cells with/without mutations. Black arrows depict regulation of the cell fate in each cell cycle. Inset depicts major interactions between the immune system and tissue cells.
  %The parameters used in this model can be found in the Supplementary material. Unless otherwise stated, parameter values are assumed to be those found in the Supplement. \tcr{Thoughts on the wording here? Once I have the table, I will use the name of that table.}
 B. A representative simulation of one patient. The model parameter values used can be found in Supplementary Table 2. 
@@ -510,13 +508,13 @@ The parameter $\Delta_\text{MGA}$ is the proportional reduction in the probabili
 The cytokine TGF-$\beta$ is also involved in the EMT process (by increasing the probability of EMT). All three of these parameters were found to have large effects on the model by the Morris OAT analysis presented in Section \ref{SensAnalysis}.
 \par 
 As MIE is increased, the Time to Cancer decreases (Fig. \ref{fig:FirstSurvivalCurves}A) under all sets of parameters studied: as this subpopulation of potentially mutated cells becomes more resistant to immune clearance, the tumor as a whole grows more resilient and thus will grow faster.
-These results are summarized by Figure \ref{fig:FirstSurvivalCurves}A.
+These results are summarized by Fig. \ref{fig:FirstSurvivalCurves}A.
 
-Second, as MGA increases, Time to Cancer increases, i.e. lower proliferation rates for mesenchymal cells slow down cancer growth (Figure \ref{fig:FirstSurvivalCurves}B).
+Second, as MGA increases, Time to Cancer increases, i.e. lower proliferation rates for mesenchymal cells slow down cancer growth (Fig \ref{fig:FirstSurvivalCurves}B).
 This is not immediately intuitive, since the decreased proliferation rate affects both mutated and non-mutated tissue cells.
 
 Third, TGF-$\beta$ can be varied in two ways: the production by mesenchymal cells and the production by Treg cells.
-In Figure \ref{fig:FirstSurvivalCurves}C, the results of varying Treg TGF-$\beta$ production are shown, indicating that an increased Treg TGF-$\beta$ production leads to a shorter Time to Cancer.
+In Fig \ref{fig:FirstSurvivalCurves}C, the results of varying Treg TGF-$\beta$ production are shown, indicating that an increased Treg TGF-$\beta$ production leads to a shorter Time to Cancer.
 The two main ways in which TGF-$\beta$ influences the system is in recruitment of Treg cells and in pushing tissue cells to a mesenchymal phenotype.
 Treg cells are modeled as tumor-protective and thus increasing their number will naturally decrease Time to Cancer.
 Mesenchymal cells are more likely to evade the immune system, so pushing the system towards an overall more mesenchymal phenotype will better protect the cancer and decrease the Time to Cancer.
@@ -577,42 +575,27 @@ For a cohort of pancreatic cancer patients, we cluster the patients via k-means 
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Discussion}\label{Discussion}
-Despite the intense interest in cancer and the immune system, and, separately, in the effects of EMT on cancer, there has not previously, to the best of our knowledge, been any model developed that combines all three of these components: cancer, the immune system, and EMT. We saw this as an even more pressing need given the shared factors that influence all of these, such as TGF-$\beta$. We used an individual cell-based model framework to describe the multiscale processes that can lead to cancer: DNA damage occurs during the cell cycle and this can lead to mutations in pathways that affect the fitness of the cell, which in turn affects the cell population dynamics, which are also influenced by the intrinsic state of the cell (EMT), and extrinsic immune factors (inflammation, cytotoxic cells, etc).
+Despite the intense interest in cancer and the immune system, and in the effects of EMT on cancer, there has not previously, to the best of our knowledge, been a model developed that combines these components: cancer, the immune system, and EMT. We saw this as an even more pressing need given the shared factors that influence all of these, such as TGF-$\beta$. We used an individual cell-based model framework to describe the multiscale processes that can lead to cancer: DNA damage occurs during the cell cycle and this can lead to mutations in pathways that affect the fitness of the cell, which in turn affects the cell population dynamics, which are also influenced by the intrinsic state of the cell (EMT), and extrinsic immune factors (inflammation, cytotoxic cells, etc).
 \par
-We found that this model recapitulated cancer-free survival dynamics, and via a global (one-at-a-time) parameter sensitivity analysis, we identified parameters exerting key control over model behavior. Focussing on these led us to identify that: increasing mesenchymal immune evasion, decreasing mesenchymal growth arrest, or increasing Treg TGF-$\beta$ production all lead to shorter Times to Cancer. However varying the level of inflammation leads to paradoxical effects: under regimes with periods of low inflammation, an optimal level of mesenchymal growth arrest can improve outcomes and maximize the Time to Cancer.
+We found that this model recapitulated cancer-free survival dynamics, and via global parameter sensitivity analysis, we identified parameters exerting key control over model behavior. Focusing on these led us to identify that: increasing mesenchymal immune evasion, decreasing mesenchymal growth arrest, or increasing Treg TGF-$\beta$ production all lead to shorter Times to Cancer. However varying the level of inflammation leads to paradoxical effects: under regimes with periods of low inflammation, an optimal level of mesenchymal growth arrest can improve outcomes and maximize the Time to Cancer.
 \par
-To test these predictions, we performed unsupervised analysis of pancreatic cancer data from The Cancer Genome Atlas, and looked at survival across two groups: we found that the presence of an EMT signature increased differences in survival between groups in combination with inflammation. We chose to summarize {\em in silico} patient simulations with a single parameter: the Time to Cancer, which we found captured the essential characteristics of the model. There are, of course, many tissue trajectories that all result in cancer, and analysis of the transient cell dynamics in tissues bound to become cancerous might tease out \tcr{which are indicators of cancer.}
+To test these predictions, we performed unsupervised analysis of pancreatic cancer data from The Cancer Genome Atlas, and looked at survival across two groups: we found that the presence of an EMT signature increased differences in survival between groups in combination with inflammation. We chose to summarize {\em in silico} patient simulations with a single parameter: the Time to Cancer, which we found captured the essential characteristics of the model. There are, of course, many tissue trajectories that all result in cancer, and it is our opinion that analysis of the transient cell dynamics in pre-cancerous tissues is a pressing need to shed insight into cellular biomarkers of cancer.
 \par
-
-
 
 %%%% AM: Yes please add a para on this. 
 %In addition, I could discuss the implications from the TGF-$\beta$ section.
 %Any discussion on this topic, however, would need to acknowledge that regulation of TGF-$\beta$ might also have other, serious side effects, especially if the treatment is not local.
 %However, that might also be true for the inflammatory results.
 %In light of this, it might be good to include a new section on how TGF-$\beta$ production's influence on Time to Cancer is influenced by the inflammatory cycling scheme.
-These promising results lead us to believe that continuing to study and improve the model will lead to further understanding of the competing roles of the immune system and EMT on epithelial cancers.
-Developing the inflammation module of our model stands out as an attractive next step.
-This is because we have seen that the inflammatory state of the TME had some of the most significant effects on Time to Cancer (see Figures \ref{fig:MOAT} and \ref{fig:VaryINFL_and_MesPars}B, D).
-The cycling nature of the scheme we chose is meant to synthesize the disparate inputs that affect the local tissue and output a simple and interpretable result.
-However, many of the agents explicitly considered in the model actively contribute to the inflammatory state of the TME, providing a basis for connecting these two pieces of our model so that, for example, as mutant cells start growing, inflammation begins to rise.
-In this way, a more robust inflammatory state could be modeled that would allow for more informative analysis.
-\par
-Coupling nicely with this improvement, the natural anti-inflammatory role of Tregs would give another layer to the competing roles of the immune system.
-One consequence of our current model is that it appears that fewer Tregs means longer Time to Cancer, implying that simply eliminating Tregs is best.
-Adding in this main effector function of Tregs into the model might help change this oversimplified analysis and add depth to the understanding of Tregs we glean from the model.
+
+These results represent promising steps in understanding the competing roles of the immune system and EMT during (pre-) development of epithelial cancers, yet much remains to be done. Further development of the inflammation module of this model is important given the large and sometimes paradoxical roles that the inflammatory state exerts on the epithelia and cancer-free survival (Figs. \ref{fig:MOAT} and \ref{fig:VaryINFL_and_MesPars}B, D). Currently, inflammation is modeled as independently cycling between high and low schemes, however many of the agents considered in the model actively contribute to the inflammatory state, thus it would be interesting to consider connecting these components (for example by letting the level of inflammation be conditional on the number of mutant cells in the tissue). Another layer of complexity is revealed by the natural anti-inflammatory role of Tregs. One consequence of the current model is that decreasing the number of Tregs increases the cancer-free survival. Clearly, there exists a trade-off to be accounted for, and adding to the model the main effector function of Tregs could remedy this and add depth to our understanding of the various roles that Tregs play in and around the tumor.
+
 %Also, since the inflammatory state of the TME played such a large role in our simulations, making this a more robust facet of the model by allowing the tumor and immune system to influence the inflammatory state could give the model higher fidelity.
 %One intriguing aspect could be the anti-inflammatory function of Tregs as they seek to restore homeostasis.
 \par
-In addition, the role that TGF-$\beta$ plays throughout the TME sets it up as a prime target of research.
-We saw in Figure \ref{fig:FirstSurvivalCurves}E that below some threshold, reduction of TGF-$\beta$ increases Time to Cancer.
-Thus, our model suggests that reducing quantities of TGF-$\beta$ in the TME will benefit patient survival.
-However, it must be noted that TGF-$\beta$ is a powerful cytokine implicated in many cellular processes and attempts to shift the concentrations of TGF-$\beta$ in the TME or throughout the body could have undesirable side effects \cite{blobe2000role}.
-With an aggressive disease like cancer, though, more aggressive therapies are warranted.
+The role that TGF-$\beta$ plays throughout the tumor and its microenvironment also requires further research. We found that, below a threshold, reduction of TGF-$\beta$ increases the Time to Cancer  (Fig. \ref{fig:FirstSurvivalCurves}E), thus reducing expression levels of TGF-$\beta$ in the tumor microenvironment benefits survival. However, TGF-$\beta$ is a master regulator implicated in numerous cellular signaling processes, and changing the concentrations of TGF-$\beta$ even in a local tumor microenvironment could have large off-target effects. Thus it might be more fruitful to target signaling factors downstream of TGF-$\beta$ that still have the ability to modulate epithelial cell dynamics: this is an area of active and future investigation, we are currently developing a larger TGF-$\beta$ signaling pathway module with appropriate crosstalks to  epithelial/mesenchymal/immune cell functions to be incorporated into the model.
 \par
-%%% AM: please expand on this. how do we give it a larger role? What does "more robust" mean? how to further explore the anti-inflamm function of the Tregs? 
-\par
-Finally, Another important point for future work is to further explore (and exploit) the heterogeneity of the tumor to understand how this helps the tumor evade the immune system. It is our view that the role of decanalization \cite{gibson09_decanalization} during cancer incidence and progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour}. Progress in cancer therapies has proven to be attainable even despite great challenges, for which the complexity of the disease is often in large part responsible. As we move towards a new generation of immunotherapies, it is these very complexities that we must better understand in order to eradicate or control the disease. 
+A further goal for future work is to explore (and exploit) the heterogeneity of tumor evolution in greater depth: this heterogeneity aids the evasion of the tumor from immune effects. Studying the consequences of decanalization \cite{gibson09_decanalization} during cancer progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour, punt17_tumour, dagogo-jack18_tumour}. Yet despite these challenges, for which the complexity of the disease may be often in large part responsible, great progress has been and continues to be made. As we approach a new generation of immunotherapies, it is these very complexities that we must better understand in order to control or eradicate the disease.
 
 
 
