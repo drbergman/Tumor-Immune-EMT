@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 APR 2019 11:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 APR 2019 13:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1227,7 +1227,7 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 44.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 49.
+(Font)              scaled to size 10.95pt on input line 48.
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -1238,66 +1238,66 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 116.
+(Font)              scaled to size 9.0pt on input line 115.
 [2] [3]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 180.
+(Font)              scaled to size 12.0pt on input line 179.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 205.
+(Font)              scaled to size 10.95pt on input line 204.
  [4]
 LaTeX Font Info:    Try loading font information for TS1+XCharter-TLF on input 
-line 215.
+line 214.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
 File: TS1XCharter-TLF.fd 2013/10/27 (autoinst) Font definitions for TS1/XCharte
 r-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 215.
+(Font)              scaled to size 10.95pt on input line 214.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `XCharter-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 227.
+(Font)              scaled to size 8.0pt on input line 226.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 227.
+(Font)              scaled to size 6.0pt on input line 226.
 
 [5] [6]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 387.
+(Font)              scaled to size 10.0pt on input line 386.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 387.
+(Font)              scaled to size 10.0pt on input line 386.
  [7] [8] <Figs/Figure1/Figure1.pdf, id=40, 1027.84pt x 770.88pt>
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 
 <use Figs/Figure1/Figure1.pdf>
-Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 442.
+Package pdftex.def Info: Figs/Figure1/Figure1.pdf used on input line 441.
 (pdftex.def)             Requested size: 354.86412pt x 266.15385pt.
  [9] [10 <./Figs/Figure1/Figure1.pdf>] [11]
 <Figs/Figure2/Figure2.jpg, id=89, 2890.8pt x 1704.3675pt>
 File: Figs/Figure2/Figure2.jpg Graphic file (type jpg)
 
 <use Figs/Figure2/Figure2.jpg>
-Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 486.
+Package pdftex.def Info: Figs/Figure2/Figure2.jpg used on input line 485.
 (pdftex.def)             Requested size: 377.0444pt x 222.27773pt.
 
 <Figs/Figure3/Figure3.pdf, id=90, 770.88pt x 1027.84pt>
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 498.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf used on input line 497.
 (pdftex.def)             Requested size: 377.0444pt x 502.72069pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 504.
+(Font)              scaled to size 7.0pt on input line 503.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 5.0pt on input line 504.
+(Font)              scaled to size 5.0pt on input line 503.
  [12]
 <Figs/Figure4/Figure4.pdf, id=94, 1027.84pt x 649.37436pt>
 File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 
 <use Figs/Figure4/Figure4.pdf>
-Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 531.
+Package pdftex.def Info: Figs/Figure4/Figure4.pdf used on input line 530.
 (pdftex.def)             Requested size: 439.14513pt x 277.45187pt.
  [13 <./Figs/Figure2/Figure2.jpg>] [14 <./Figs/Figure3/Figure3.pdf, page is rot
 ated 90 degrees>] [15 <./Figs/Figure4/Figure4.pdf>] <Figs/Figure5/MIEvsMGA_bigc
@@ -1306,14 +1306,14 @@ File: Figs/Figure5/MIEvsMGA_bigcbar.jpg Graphic file (type jpg)
 
 <use Figs/Figure5/MIEvsMGA_bigcbar.jpg>
 Package pdftex.def Info: Figs/Figure5/MIEvsMGA_bigcbar.jpg used on input line 5
-53.
+52.
 (pdftex.def)             Requested size: 221.78923pt x 166.33696pt.
  [16 <./Figs/Figure5/MIEvsMGA_bigcbar.jpg>] <Figs/FigTCGA.pdf, id=173, 682.3382
 1pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
 
 <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 571.
+Package pdftex.def Info: Figs/FigTCGA.pdf used on input line 570.
 (pdftex.def)             Requested size: 421.3982pt x 310.27625pt.
  [17 <./Figs/FigTCGA.pdf>] [18] (./Paper.bbl [19]
 Underfull \hbox (badness 5302) in paragraph at lines 87--91
@@ -1343,11 +1343,11 @@ Can-cer In-for-mat-ics. 2019;(3):1--12.
 AED: lastpage setting LastPage
 [21] (./Paper.aux) ) 
 Here is how much of TeX's memory you used:
- 10472 strings out of 492995
- 161428 string characters out of 6132704
+ 10469 strings out of 492995
+ 161347 string characters out of 6132704
  274107 words of memory out of 5000000
  13552 multiletter control sequences out of 15000+600000
- 128727 words of font info for 201 fonts, out of 8000000 for 9000
+ 128360 words of font info for 199 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,20n,77p,1628b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/xcharte
@@ -1365,7 +1365,7 @@ b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
 sr/local/texlive/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Paper.pdf (21 pages, 3214965 bytes).
+Output written on Paper.pdf (21 pages, 3214979 bytes).
 PDF statistics:
  264 PDF objects out of 1000 (max. 8388607)
  171 compressed objects within 2 object streams
