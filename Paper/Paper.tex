@@ -109,16 +109,17 @@ The immune evasiveness of mesenchymal cells is well-established: as a cell is ta
 This immunological synapse is dependent upon the surface proteins, such as the T-cell receptors of the major histocompatibility complex, of the target cell, and in the case of mesenchymal cells there is preliminary evidence that these surface markers are down-regulated in such a way that the immune synapse is more difficult to form \cite{terry2017new}.
 Below we refer to this phenotype as mesenchymal immune evasion (MIE).
 \par
-The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells often express a more stem-like phenotype.
-Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions \tcr{[REF]}.
-While many qualities are associated with being stem-like, we choose to focus on a reduced proliferation rate\cite{woods2014effects}.
-Cancer cells are well-known for achieving unregulated proliferation, so exploring a subset of cancer cells with decreased proliferation could provide intriguing new results.
-In our model, we refer to this property as mesenchymal growth arrest, or MGA.
+The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells have been speculate to exhibit a more ``stemness'' phenotype.
+%Indeed, even in healthy tissue, this is readily observed and seen as a useful mechanism for homeostasis as epithelial cells can transition to mesenchymal, stem-like cells under appropriate conditions \tcr{[REF]}.
+While many cell behaviors are associated with stemness, here we target the specific reduction in proliferation rate \cite{woods2014effects} (which, under certain conditions can be called quiescence, though we avoid this term as it can be controversial, and is not a necessary assumption to the model developed below).
+Cancer cells are of course characterized by some degree of unregulated proliferation, thus it is appealing to explore the effects of differential proliferation rates within the cancer cell population.
+In our model, we refer to the reduced proliferative capacity associated with a mesenchymal cell phenotype as mesenchymal growth arrest (MGA).
 \par
 Mathematical oncology, that is, mathematical models of cancer incidence, progression, and treatment, has become a well-developed field; many models have offered insight into the cellular interactions underlying cancer and its interplay with the immune system, including older \cite{sherrattjonathana.92_oncogenes, pillis05_validated} and more recent works \cite{an15_agentbased, serre16_mathematical, louzoun14_mathematical, benzekry17_mathematical, west19_immune, owen11_mathematical-1}. These studies have increased our understanding of how tumors grow in the presence of various immune components, and how treatment regimes can be designed to maximise the efficacy of cytotoxicity while minimizing risks to the patient. However, to our knowledge no models have addressed how the effects of EMT alter interactions between the immune system and cancer, and the subsequent implications for treatment. 
 \par
-Here we develop a model with the goal of studying interactions between the tumor, the immune system and EMT. We seek to describe a set of crucial molecular and cellular interactions in (epithelial) tissue cells, including effects due to DNA damage and mutation, to investigate the probability that cancer will occur and, if so, when. A recent model of cancer-immune interactions \cite{guo2017multiscale} described the effects of the TME on the risk of cancer, and we build on the core cell cycle component of this model, adding significant new interactions to the immune component of the model (which was previously modeled by a single interaction), as well as the EMT component to the model. We seek to understand whether this more complex immune module will change our understanding of inflammatory effects on the tumor, and how the epithelial-mesenchymal axis influences these. In the next section we develop the model modularly to explain the intuition behind each component, and then go on to analyze its behavior. Global sensitivity analysis identifies parameters that are crucial for tumorigenesis. We then study these in more depth, focusing on the competing effects of EMT and of the immune system on tumorigenesis: we find that EMT intricately regulates tumorigenesis and that under certain regimes a careful balance of EMT- and immune-driven processes can significantly prolong cancer-free survival. To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects predicted by the model for patients with pancreatic cancer. 
-
+Here we develop a model with the goal of studying interactions between the tumor, the immune system and EMT. We seek to describe a set of crucial molecular and cellular interactions in epithelial tissue cells, including effects due to DNA damage and mutation, to investigate the probability that cancer will occur and, if so, when. A recent model of cancer-immune interactions \cite{guo2017multiscale} described the effects of the TME on the risk of cancer, and we build on the core cell cycle component of this model, adding significant new interactions to the immune component of the model (which was previously modeled by a single interaction), as well as adding the effects of EMT. We seek to understand whether this more complex immune module will change our understanding of inflammatory effects on the tumor, and how the epithelial-mesenchymal axis influences these.
+\par 
+In the next section we develop the model and give explanation of the intuition behind each component. We then go on to analyze its behavior. Global sensitivity analysis identifies parameters that are crucial for tumorigenesis. We then study these in more depth, focusing on the competing effects of EMT and of the immune system on tumorigenesis: we find that EMT intricately regulates tumorigenesis and that under certain regimes a careful balance of EMT- and immune-driven processes can significantly prolong cancer-free survival. To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects predicted by the model for patients with pancreatic cancer. 
 
 
 
@@ -154,6 +155,7 @@ Here we develop a model with the goal of studying interactions between the tumor
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%
 %                         METHODS                        %
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -169,7 +171,7 @@ We model immune cells as continuous variables, appropriate since at the level of
 The cytokine TGF-$\beta$ is continuous within the TME, i.e. the system is well-mixed.
 Tissue cells can take on either epithelial or mesenchymal phenotypes in a plastic manner: these phenotypes depend on both the TME and cell-intrinsic factors.
 While the score is continuous, a threshold determines if a given cell is labeled as epithelial or mesenchymal.
-In Figure \ref{fig:ModelIntro}A, the EMT labeling is given by the color of the cell.
+In Fig. \ref{fig:ModelIntro}A, the EMT labeling is given by the color of the cell.
 Even though each cell does have an EMT score on a spectrum of values, only the labeling influences its interactions in the model.
 
 \subsection{Tissue Cells}\label{TissueCells}
