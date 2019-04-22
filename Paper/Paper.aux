@@ -8,7 +8,7 @@
 \citation{finn12_immunooncology-1}
 \citation{ruffell2010lymphocytes}
 \citation{hu10_inflammationinduced,balkwill01_inflammation}
-\citation{guo2017multiscale}
+\citation{guo17_multiscale}
 \citation{nieto2016emt}
 \citation{nie18_stem,sha19_intermediate}
 \citation{hong2015ovol2,jolly15_coupling}
@@ -20,10 +20,10 @@
 \citation{terry2017new}
 \citation{terry2017new}
 \citation{woods2014effects}
-\citation{sherrattjonathana.92_oncogenes,pillis05_validated}
-\citation{an15_agentbased,serre16_mathematical,louzoun14_mathematical,benzekry17_mathematical,west19_immune,owen11_mathematical-1}
-\citation{guo2017multiscale}
-\citation{guo2017multiscale}
+\citation{anderson98_continuous,sherrattjonathana.92_oncogenes,pillis05_validated}
+\citation{kim18_cell,gallaher14_bridging,gallaher18_spatial,an15_agentbased,serre16_mathematical,louzoun14_mathematical,briones-orta13_arkadia,lavi13_role,greene15_modeling,greene16_mathematical,cho17_modeling-1,benzekry17_mathematical,owen11_mathematical,west18_multidrug}
+\citation{guo17_multiscale}
+\citation{guo17_multiscale}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Tissue Cells}{4}}
 \newlabel{TissueCells}{{2.1}{4}}
@@ -47,32 +47,39 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Mutation and tumorigenesis}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Parameter Sensitivity Analysis}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Analysis of patient survival data from TCGA database}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}A multiscale agent-based model of EMT-immune-tissue cell interactions to study tumorigenesis}{9}}
-\newlabel{ExplModel}{{2.7}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces A. Schematic depiction of agent-based model components; blue/red denote tissue cells with/without mutations. Black arrows depict regulation of the cell fate in each cell cycle. Inset depicts major interactions between the immune system and tissue cells. B. A representative simulation of one patient. The model parameter values used can be found in Supplementary Table 2. The inflammation cycling scheme is represented above the patient dynamics. The vertical dashed line denotes the end of the warmup period. Mut: mutated cells; Mes: mesenchymal cells. C. Survival curve for one cohort of patients with the parameter values given in Supplementary Table 2. \relax }}{10}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:ModelIntro}{{1}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Identification of key regulatory parameters via Morris global sensitivity analysis}{11}}
-\newlabel{SensAnalysis}{{2.8}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu ^*$ denotes the average absolute change in Time to Cancer when the parameter is varied.\relax }}{12}}
-\newlabel{fig:MOAT}{{2}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Effects of mesencymal cell properites on the time to cancer. Trajectories of one patient per cohort from warmup period ([-1000,0]) to 2000 cell cycles, for $\Delta _\text  {MIE}$ (A); $\Delta _\text  {MGA}$ (B); and $\tau _\text  {Treg}$ (C). D. Survival curves corresponding to changes in MIE (A) for a patient cohort of size 1000; shaded region represents the 95\% confidence interval for the evaluated function. E. Survival curves for patient cohort corresponding to changes in MGA (B). F. Survival curves for patient cohort corresponding to changes in Treg TGF-$\beta $ (C). \relax }}{13}}
-\newlabel{fig:FirstSurvivalCurves}{{3}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Mesenchymal phenotypic properties dramatically change cancer-free survival times}{14}}
-\newlabel{MesPars}{{2.9}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.10}A key EMT regime maximizes cancer-free survival time under chronic inflammation}{14}}
-\newlabel{KeyEMT}{{2.10}{14}}
+\citation{kirk13_model}
+\citation{gallaher17_hybrid,warne19_simulation}
+\citation{lambert18_bayesian}
+\citation{guo17_multiscale}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}A multiscale agent-based model of EMT-immune-tissue cell interactions to study tumorigenesis}{11}}
+\newlabel{ExplModel}{{3.1}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Identifying regulatory parameters via Morris global sensitivity analysis}{12}}
+\newlabel{SensAnalysis}{{3.2}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Mesenchymal phenotypic properties dramatically change cancer-free survival times}{12}}
+\newlabel{MesPars}{{3.3}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu ^*$ denotes the average absolute change in Time to Cancer when the parameter is varied.\relax }}{13}}
+\newlabel{fig:MOAT}{{2}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Effects of mesencymal cell properites on the time to cancer. Trajectories of one patient per cohort from warmup period ([-1000,0]) to 2000 cell cycles, for $\Delta _\text  {MIE}$ (A); $\Delta _\text  {MGA}$ (B); and $\tau _\text  {Treg}$ (C). D. Survival curves corresponding to changes in MIE (A) for a patient cohort of size 1000; shaded region represents the 95\% confidence interval for the evaluated function. E. Survival curves for patient cohort corresponding to changes in MGA (B). F. Survival curves for patient cohort corresponding to changes in Treg TGF-$\beta $ (C). \relax }}{14}}
+\newlabel{fig:FirstSurvivalCurves}{{3}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of 200 patients) and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.\relax }}{15}}
 \newlabel{fig:VaryINFL_and_MesPars}{{4}{15}}
-\citation{hu10_inflammationinduced,balkwill01_inflammation}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Summary of the contrasting effects of MIE and MGA on the Time to Cancer. \relax }}{16}}
 \newlabel{fig:MIEvsMGA}{{5}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.11}Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}{16}}
-\newlabel{tcga}{{2.11}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A. K-means clustering of pancreatic cancers using gene ontology terms indicative of an EMT signature ($k=2$). B. Survival plots corresponding to the clustering on EMT. C. K-means clustering of pancreatic cancers using gene ontology terms indicative of EMT and Inflammation signatures ($k=2$). D. Survival plots corresponding to the clustering on EMT and inflammation.\relax }}{17}}
-\newlabel{fig:tcga}{{6}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Discussion}{17}}
-\newlabel{Discussion}{{3}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}A key EMT regime maximizes cancer-free survival time under chronic inflammation}{16}}
+\newlabel{KeyEMT}{{3.4}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}{16}}
+\newlabel{tcga}{{3.5}{16}}
+\citation{hu10_inflammationinduced,balkwill01_inflammation}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{17}}
+\newlabel{Discussion}{{4}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A. K-means clustering of pancreatic cancers using gene ontology terms indicative of an EMT signature ($k=2$). B. Survival plots corresponding to the clustering on EMT. C. K-means clustering of pancreatic cancers using gene ontology terms indicative of EMT and Inflammation signatures ($k=2$). D. Survival plots corresponding to the clustering on EMT and inflammation.\relax }}{18}}
+\newlabel{fig:tcga}{{6}{18}}
+\citation{david16_tgfv}
+\citation{oshimori15_tgfv}
 \citation{gibson09_decanalization}
 \citation{cyll17_tumour,punt17_tumour,dagogo-jack18_tumour}
 \bibdata{mybib,amrefs}
@@ -84,7 +91,7 @@
 \bibcite{ruffell2010lymphocytes}{6}
 \bibcite{hu10_inflammationinduced}{7}
 \bibcite{balkwill01_inflammation}{8}
-\bibcite{guo2017multiscale}{9}
+\bibcite{guo17_multiscale}{9}
 \bibcite{nieto2016emt}{10}
 \bibcite{nie18_stem}{11}
 \bibcite{sha19_intermediate}{12}
@@ -97,22 +104,37 @@
 \bibcite{lim2012epithelial}{19}
 \bibcite{terry2017new}{20}
 \bibcite{woods2014effects}{21}
-\bibcite{sherrattjonathana.92_oncogenes}{22}
-\bibcite{pillis05_validated}{23}
-\bibcite{an15_agentbased}{24}
-\bibcite{serre16_mathematical}{25}
-\bibcite{louzoun14_mathematical}{26}
-\bibcite{benzekry17_mathematical}{27}
-\bibcite{west19_immune}{28}
-\bibcite{owen11_mathematical-1}{29}
-\bibcite{morris1991factorial}{30}
-\bibcite{sohier2014improvement}{31}
-\bibcite{de2014modeling}{32}
-\bibcite{gibson09_decanalization}{33}
-\bibcite{cyll17_tumour}{34}
-\bibcite{punt17_tumour}{35}
-\bibcite{dagogo-jack18_tumour}{36}
+\bibcite{anderson98_continuous}{22}
+\bibcite{sherrattjonathana.92_oncogenes}{23}
+\bibcite{pillis05_validated}{24}
+\bibcite{kim18_cell}{25}
+\bibcite{gallaher14_bridging}{26}
+\bibcite{gallaher18_spatial}{27}
+\bibcite{an15_agentbased}{28}
+\bibcite{serre16_mathematical}{29}
+\bibcite{louzoun14_mathematical}{30}
+\bibcite{briones-orta13_arkadia}{31}
+\bibcite{lavi13_role}{32}
+\bibcite{greene15_modeling}{33}
+\bibcite{greene16_mathematical}{34}
+\bibcite{cho17_modeling-1}{35}
+\bibcite{benzekry17_mathematical}{36}
+\bibcite{owen11_mathematical}{37}
+\bibcite{west18_multidrug}{38}
+\bibcite{morris1991factorial}{39}
+\bibcite{sohier2014improvement}{40}
+\bibcite{de2014modeling}{41}
+\bibcite{kirk13_model}{42}
+\bibcite{gallaher17_hybrid}{43}
+\bibcite{warne19_simulation}{44}
+\bibcite{lambert18_bayesian}{45}
+\bibcite{david16_tgfv}{46}
+\bibcite{oshimori15_tgfv}{47}
+\bibcite{gibson09_decanalization}{48}
+\bibcite{cyll17_tumour}{49}
+\bibcite{punt17_tumour}{50}
+\bibcite{dagogo-jack18_tumour}{51}
 \bibstyle{plos2015}
-\newlabel{LastPage}{{}{21}}
-\xdef\lastpage@lastpage{21}
+\newlabel{LastPage}{{}{23}}
+\xdef\lastpage@lastpage{23}
 \gdef\lastpage@lastpageHy{}
