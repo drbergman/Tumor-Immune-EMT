@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 APR 2019 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 APR 2019 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -145,6 +145,24 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count109
+\output=\toks22
+\linenoprevgraf=\count110
+\linenumbersep=\dimen114
+\linenumberwidth=\dimen115
+\c@linenumber=\count111
+\c@pagewiselinenumber=\count112
+\c@LN@truepage=\count113
+\c@internallinenumber=\count114
+\c@internallinenumbers=\count115
+\quotelinenumbersep=\dimen116
+\bframerule=\dimen117
+\bframesep=\dimen118
+\bframebox=\box30
+LaTeX Info: Redefining \\ on input line 3056.
+)
 (./structure.tex
 (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2018/02/14 3.18 The Babel package
@@ -157,11 +175,11 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count109
-\U@D=\dimen114
+\babel@savecnt=\count116
+\U@D=\dimen119
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count110
+\bbl@dirlevel=\count117
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
@@ -169,12 +187,12 @@ File: babel.def 2018/02/14 3.18 Babel common definitions
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2018/01/14 v2.7a Micro-typographical refinements (RS)
-\MT@toks=\toks22
-\MT@count=\count111
+\MT@toks=\toks23
+\MT@count=\count118
 LaTeX Info: Redefining \textls on input line 793.
-\MT@outer@kern=\dimen115
+\MT@outer@kern=\dimen120
 LaTeX Info: Redefining \textmicrotypecontext on input line 1339.
-\MT@listname@count=\count112
+\MT@listname@count=\count119
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2018/01/14 v2.7a Definitions specific to pdftex (RS)
@@ -190,15 +208,15 @@ File: microtype.cfg 2018/01/14 v2.7a microtype main configuration file (RS)
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks23
-\thm@bodyfont=\toks24
-\thm@headfont=\toks25
-\thm@notefont=\toks26
-\thm@headpunct=\toks27
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
 \thm@preskip=\skip47
 \thm@postskip=\skip48
 \thm@headsep=\skip49
-\dth@everypar=\toks28
+\dth@everypar=\toks29
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -227,36 +245,36 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen116
-\captionmargin@=\dimen117
-\captionwidth=\dimen118
-\caption@tempdima=\dimen119
-\caption@indent=\dimen120
-\caption@parindent=\dimen121
-\caption@hangindent=\dimen122
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@tempdima=\dimen124
+\caption@indent=\dimen125
+\caption@parindent=\dimen126
+\caption@hangindent=\dimen127
 )
-\c@ContinuedFloat=\count113
+\c@ContinuedFloat=\count120
 Package caption Info: float package is loaded.
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen123
-\lightrulewidth=\dimen124
-\cmidrulewidth=\dimen125
-\belowrulesep=\dimen126
-\belowbottomsep=\dimen127
-\aboverulesep=\dimen128
-\abovetopsep=\dimen129
-\cmidrulesep=\dimen130
-\cmidrulekern=\dimen131
-\defaultaddspace=\dimen132
-\@cmidla=\count114
-\@cmidlb=\count115
-\@aboverulesep=\dimen133
-\@belowrulesep=\dimen134
-\@thisruleclass=\count116
-\@lastruleclass=\count117
-\@thisrulewidth=\dimen135
+\heavyrulewidth=\dimen128
+\lightrulewidth=\dimen129
+\cmidrulewidth=\dimen130
+\belowrulesep=\dimen131
+\belowbottomsep=\dimen132
+\aboverulesep=\dimen133
+\abovetopsep=\dimen134
+\cmidrulesep=\dimen135
+\cmidrulekern=\dimen136
+\defaultaddspace=\dimen137
+\@cmidla=\count121
+\@cmidlb=\count122
+\@aboverulesep=\dimen138
+\@belowrulesep=\dimen139
+\@thisruleclass=\count123
+\@lastruleclass=\count124
+\@thisrulewidth=\dimen140
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
@@ -264,10 +282,10 @@ Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip50
-\enit@outerparindent=\dimen136
-\enit@toks=\toks29
-\enit@inbox=\box30
-\enitdp@description=\count118
+\enit@outerparindent=\dimen141
+\enit@toks=\toks30
+\enit@inbox=\box31
+\enitdp@description=\count125
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
@@ -286,18 +304,18 @@ Package ifvtex Info: VTeX not detected.
 (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count119
-\Gm@cntv=\count120
-\c@Gm@tempcnt=\count121
-\Gm@bindingoffset=\dimen137
-\Gm@wd@mp=\dimen138
-\Gm@odd@mp=\dimen139
-\Gm@even@mp=\dimen140
-\Gm@layoutwidth=\dimen141
-\Gm@layoutheight=\dimen142
-\Gm@layouthoffset=\dimen143
-\Gm@layoutvoffset=\dimen144
-\Gm@dimlist=\toks30
+\Gm@cnth=\count126
+\Gm@cntv=\count127
+\c@Gm@tempcnt=\count128
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
+\Gm@dimlist=\toks31
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
@@ -308,8 +326,8 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/04/06 v1.3b Input encoding file
-\inpenc@prehook=\toks31
-\inpenc@posthook=\toks32
+\inpenc@prehook=\toks32
+\inpenc@posthook=\toks33
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/xcharter/XCharter.sty
 Package: XCharter 2017/12/19 v1.112
@@ -814,7 +832,7 @@ LaTeX Info: Redefining \ttfamily on input line 94.
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count122
+\etb@tempcnta=\count129
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2014/03/23 v1.0d Font selection axes
@@ -828,10 +846,10 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/local/texlive/2018/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks33
-\XKV@tempa@toks=\toks34
+\XKV@toks=\toks34
+\XKV@tempa@toks=\toks35
 )
-\XKV@depth=\count123
+\XKV@depth=\count130
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
@@ -855,28 +873,28 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lettrine/lettrine.sty
 File: lettrine.sty 2015/08/31 v1.9 (Daniel Flipo)
-\c@DefaultLines=\count124
-\c@DefaultDepth=\count125
-\DefaultFindent=\dimen145
-\DefaultNindent=\dimen146
-\DefaultSlope=\dimen147
-\DiscardVskip=\dimen148
-\L@lbox=\box31
-\L@tbox=\box32
-\c@L@lines=\count126
-\c@L@depth=\count127
-\L@Pindent=\dimen149
-\L@Findent=\dimen150
-\L@Nindent=\dimen151
-\L@lraise=\dimen152
-\L@first=\dimen153
-\L@next=\dimen154
-\L@slope=\dimen155
-\L@height=\dimen156
-\L@novskip=\dimen157
-\LettrineWidth=\dimen158
-\LettrineHeight=\dimen159
-\LettrineDepth=\dimen160
+\c@DefaultLines=\count131
+\c@DefaultDepth=\count132
+\DefaultFindent=\dimen150
+\DefaultNindent=\dimen151
+\DefaultSlope=\dimen152
+\DiscardVskip=\dimen153
+\L@lbox=\box32
+\L@tbox=\box33
+\c@L@lines=\count133
+\c@L@depth=\count134
+\L@Pindent=\dimen154
+\L@Findent=\dimen155
+\L@Nindent=\dimen156
+\L@lraise=\dimen157
+\L@first=\dimen158
+\L@next=\dimen159
+\L@slope=\dimen160
+\L@height=\dimen161
+\L@novskip=\dimen162
+\LettrineWidth=\dimen163
+\LettrineHeight=\dimen164
+\LettrineDepth=\dimen165
 
 Loading lettrine.cfg
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lettrine/lettrine.cfg))
@@ -890,8 +908,8 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 (/usr/local/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/local/texlive/2018/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write3
-\integerpart=\count128
-\decimalpart=\count129
+\integerpart=\count135
+\decimalpart=\count136
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 ))
@@ -906,65 +924,65 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 Package: authblk 2001/02/27 1.3 (PWD)
 \affilsep=\skip63
 \@affilsep=\skip64
-\c@Maxaffil=\count130
-\c@authors=\count131
-\c@affil=\count132
+\c@Maxaffil=\count137
+\c@authors=\count138
+\c@affil=\count139
 )
 LaTeX Font Info:    Try loading font information for T1+XCharter-TLF on input l
-ine 40.
+ine 41.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/xcharter/T1XCharter-TLF.fd
 File: T1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for T1/XCharter-
 TLF.
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 40.
+(Font)              scaled to size 10.0pt on input line 41.
 
 (./Paper.aux)
 \openout1 = `Paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 40.
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 41.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 41.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 40.
-LaTeX Font Info:    Try loading font information for LY1+ptm on input line 40.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 41.
+LaTeX Font Info:    Try loading font information for LY1+ptm on input line 41.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 40.
+(Font)              scaled to size 10.95pt on input line 41.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count133
-\scratchdimen=\dimen161
-\scratchbox=\box33
-\nofMPsegments=\count134
-\nofMParguments=\count135
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count136
-\MPscratchDim=\dimen162
-\MPnumerator=\count137
-\makeMPintoPDFobject=\count138
-\everyMPtoPDFconversion=\toks36
+\scratchcounter=\count140
+\scratchdimen=\dimen166
+\scratchbox=\box34
+\nofMPsegments=\count141
+\nofMParguments=\count142
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count143
+\MPscratchDim=\dimen167
+\MPnumerator=\count144
+\makeMPintoPDFobject=\count145
+\everyMPtoPDFconversion=\toks37
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1017,7 +1035,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 40.
+LaTeX Info: Redefining \microtypecontext on input line 41.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1036,7 +1054,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 40.
+(lastpage)             ! on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1072,9 +1090,9 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count139
-\c@mv@boldtabular=\count140
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 41.
+\c@mv@tabular=\count146
+\c@mv@boldtabular=\count147
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 42.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
@@ -1083,7 +1101,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (17.0pt too wide) in paragraph at lines 41--41
+Overfull \hbox (17.0pt too wide) in paragraph at lines 42--42
 [][]
  []
 
@@ -1091,7 +1109,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 41--41
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1099,7 +1117,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 41.
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1107,18 +1125,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Overfull \hbox (17.0pt too wide) in paragraph at lines 41--41
+Overfull \hbox (17.0pt too wide) in paragraph at lines 42--42
 [][]
  []
 
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 41.
+(Font)              scaled to size 12.0pt on input line 42.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 44.
+(Font)              scaled to size 14.4pt on input line 45.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 44.
+(Font)              scaled to size 14.4pt on input line 45.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 45.
+(Font)              scaled to size 10.95pt on input line 46.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 85.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -1129,22 +1153,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 104.
+(Font)              scaled to size 9.0pt on input line 106.
 [2] [3]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 170.
+(Font)              scaled to size 12.0pt on input line 172.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 195.
+(Font)              scaled to size 10.95pt on input line 197.
  [4]
 LaTeX Font Info:    Try loading font information for TS1+XCharter-TLF on input 
-line 205.
+line 207.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
 File: TS1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for TS1/XCharte
 r-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 205.
+(Font)              scaled to size 10.95pt on input line 207.
 Package microtype Info: Character `textlbrackdbl ' is missing
 (microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1155,59 +1179,57 @@ Package microtype Info: Character `texttildelow ' is missing
 (microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 217.
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 217.
+(Font)              scaled to size 8.0pt on input line 219.
 
 [5] [6]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 377.
+(Font)              scaled to size 10.0pt on input line 379.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 377.
+(Font)              scaled to size 10.0pt on input line 379.
  [7] [8]
-<Figs/Figure1/Figure1.pdf, id=40, 1027.84pt x 770.88pt>
+<Figs/Figure1/Figure1.pdf, id=41, 1027.84pt x 770.88pt>
 File: Figs/Figure1/Figure1.pdf Graphic file (type pdf)
 <use Figs/Figure1/Figure1.pdf>
-Package pdftex.def Info: Figs/Figure1/Figure1.pdf  used on input line 431.
+Package pdftex.def Info: Figs/Figure1/Figure1.pdf  used on input line 433.
 (pdftex.def)             Requested size: 399.21791pt x 299.41867pt.
  [9] [10 <./Figs/Figure1/Figure1.pdf>] [11]
-<Figs/Figure2/Figure2.jpg, id=89, 2890.8pt x 1704.3675pt>
+<Figs/Figure2/Figure2.jpg, id=90, 2890.8pt x 1704.3675pt>
 File: Figs/Figure2/Figure2.jpg Graphic file (type jpg)
 <use Figs/Figure2/Figure2.jpg>
-Package pdftex.def Info: Figs/Figure2/Figure2.jpg  used on input line 477.
+Package pdftex.def Info: Figs/Figure2/Figure2.jpg  used on input line 479.
 (pdftex.def)             Requested size: 377.0444pt x 222.27773pt.
-<Figs/Figure3/Figure3.pdf, id=90, 770.88pt x 1027.84pt>
+<Figs/Figure3/Figure3.pdf, id=91, 770.88pt x 1027.84pt>
 File: Figs/Figure3/Figure3.pdf Graphic file (type pdf)
 <use Figs/Figure3/Figure3.pdf>
-Package pdftex.def Info: Figs/Figure3/Figure3.pdf  used on input line 489.
+Package pdftex.def Info: Figs/Figure3/Figure3.pdf  used on input line 491.
 (pdftex.def)             Requested size: 377.0444pt x 502.72069pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 495.
+(Font)              scaled to size 7.0pt on input line 497.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 5.0pt on input line 495.
+(Font)              scaled to size 5.0pt on input line 497.
  [12]
-<Figs/Figure4/Figure4.pdf, id=94, 1027.84pt x 649.37436pt>
+<Figs/Figure4/Figure4.pdf, id=95, 1027.84pt x 649.37436pt>
 File: Figs/Figure4/Figure4.pdf Graphic file (type pdf)
 <use Figs/Figure4/Figure4.pdf>
-Package pdftex.def Info: Figs/Figure4/Figure4.pdf  used on input line 522.
+Package pdftex.def Info: Figs/Figure4/Figure4.pdf  used on input line 524.
 (pdftex.def)             Requested size: 421.3982pt x 266.2353pt.
  [13 <./Figs/Figure2/Figure2.jpg>] [14 <./Figs/Figure3/Figure3.pdf, page is rot
 ated 90 degrees>] [15 <./Figs/Figure4/Figure4.pdf>]
-<Figs/Figure5/MIEvsMGA_bigcbar.jpg, id=168, 1124.2pt x 843.15pt>
+<Figs/Figure5/MIEvsMGA_bigcbar.jpg, id=169, 1124.2pt x 843.15pt>
 File: Figs/Figure5/MIEvsMGA_bigcbar.jpg Graphic file (type jpg)
 <use Figs/Figure5/MIEvsMGA_bigcbar.jpg>
 Package pdftex.def Info: Figs/Figure5/MIEvsMGA_bigcbar.jpg  used on input line 
-543.
+545.
 (pdftex.def)             Requested size: 221.78923pt x 166.33696pt.
  [16 <./Figs/Figure5/MIEvsMGA_bigcbar.jpg>]
-<Figs/FigTCGA.pdf, id=173, 682.33821pt x 502.39195pt>
+<Figs/FigTCGA.pdf, id=174, 682.33821pt x 502.39195pt>
 File: Figs/FigTCGA.pdf Graphic file (type pdf)
 <use Figs/FigTCGA.pdf>
-Package pdftex.def Info: Figs/FigTCGA.pdf  used on input line 561.
+Package pdftex.def Info: Figs/FigTCGA.pdf  used on input line 563.
 (pdftex.def)             Requested size: 399.21791pt x 293.94026pt.
 
 [17] [18 <./Figs/FigTCGA.pdf>]
-Overfull \hbox (22.51552pt too wide) in paragraph at lines 591--592
+Overfull \hbox (22.51552pt too wide) in paragraph at lines 593--594
 \T1/XCharter-TLF/m/n/10.95 (-20) The work is par-tially sup-ported by Na-tional
  In-sti-tutes of Health grants R01GM123731, U01AR073159,
  []
@@ -1234,32 +1256,34 @@ in Sys-tems Bi-ol-ogy. 2018;9:32--41.
 AED: lastpage setting LastPage
 [23] (./Paper.aux) ) 
 Here is how much of TeX's memory you used:
- 10695 strings out of 492649
- 166156 string characters out of 6129622
- 280418 words of memory out of 5000000
- 14103 multiletter control sequences out of 15000+600000
- 129029 words of font info for 199 fonts, out of 8000000 for 9000
+ 10900 strings out of 492649
+ 169256 string characters out of 6129622
+ 283692 words of memory out of 5000000
+ 14302 multiletter control sequences out of 15000+600000
+ 129788 words of font info for 200 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,20n,77p,1496b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,20n,77p,1496b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharte
 r/xch_tuu2ww.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/xcharter/x
-ch_q7u3cc.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Ital
-ic.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter
--Roman.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
-.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Paper.pdf (23 pages, 3232008 bytes).
+ch_q7u3cc.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-s
+uper-t1.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xcharter/XCharter-R
+oman.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cme
+x10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on Paper.pdf (23 pages, 3245261 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 30751 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 31263 words of extra memory for PDF output out of 35830 (max. 10000000)
 
