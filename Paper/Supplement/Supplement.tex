@@ -11,7 +11,7 @@
 
 \usepackage{amsmath, amssymb, graphicx, outline, float, cite, color}
 
-\input{../structure.tex} % Specifies the document structure and loads requires packages
+%\input{../structure.tex} % Specifies the document structure and loads requires packages
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -19,17 +19,19 @@
 \newcommand{\tcr} { \textcolor{red} }
 
 
-\title{Supplementary Material}
+\title{Supplementary Materials for \\
+Modeling the competing effects of the immune system and EMT on epithelial cancers
+}
 \author{Daniel R. Bergman$^{1}$,
 Matthew Karikomi\,$^{1}$,
 Qing Nie\,$^{1,2,*}$
-and Adam L. MacLean\,$^{3,*}$
+and \\Adam L. MacLean\,$^{3,*}$
 }
 \affil{
   $^1$Department of Mathematics, University of California, Irvine,  Irvine, CA 92697, USA \\
   $^2$Department of Cell and Developmental Biology, University of California, Irvine, Irvine, CA 92697, USA \\
   $^3$Department of Biological Sciences, University of Southern California, Los Angeles, CA 90089, USA \\
-  $^*$Correspondence:  qnie@uci.edu (QN); macleana@usc.edu (ALM).
+  $^*$Correspondence:  qnie@uci.edu (Q.N.); macleana@usc.edu (A.L.M.)
 }
 \renewcommand\Authands{ and }
 
@@ -47,6 +49,10 @@ and Adam L. MacLean\,$^{3,*}$
 
 \begin{document}
 \maketitle
+\tableofcontents
+
+
+\section{Definition of parameters specifying the model}
 
 \begin{table}[H]
 \begin{center}
@@ -100,6 +106,9 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
   \caption{The model parameter names and descriptions. Note that many of these values are affected by the inflammation state of the system.}
 \end{center}
 \end{table}
+
+
+\section{Parameter values used for simulation}
 
 \begin{table}[H]
 \begin{center}

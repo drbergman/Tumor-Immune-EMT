@@ -1,6 +1,7 @@
 
 \documentclass[11pt]{article}
 \usepackage{amsmath, amssymb, graphicx, outline, float, cite, color}
+\usepackage{lineno}
 
 \input{structure.tex} % Specifies the document structure and loads requires packages
 
@@ -17,7 +18,7 @@
 
 % Multiscale Modeling of the Paradoxical Roles of the Immune System in EMT-Mediated Cancer
 \title{
-The competing effects of the immune system and EMT on epithelial cancers
+Modeling the competing effects of the immune system and EMT on epithelial cancers
 }
 
 \author{Daniel R. Bergman$^{1}$,
@@ -42,13 +43,9 @@ and Adam L. MacLean\,$^{3,*}$
 
 
 \section*{Abstract}
-Preceding and during cancer progression, the immune system is engaged in complex sets of interactions with epithelia that affect tumor incidence and prognosis. Inflammation also has significant effects on gastrointestinal and pancreatic tumors.
-Moreover, epithelial cell plasticity can significantly alter disease trajectories (for better or worse) via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions, yet little is known about the mechanisms and consequences of these regulatory processes.
-Here we introduce a multiscale evolutionary model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial tissues.
-Through {\em in silico} analysis of large patient cohorts, we found controllable regimes that maximize cancer-free survival. Delaying tumorigenesis depended crucially on properties of the mesenchymal phenotype: its growth rate and its immune-evasiveness.
-We performed analysis of pancreatic cancer data from The Cancer Genome Atlas to compare clinical measurements with model predictions. We found, in broad agreement with the model, that association with EMT worsened the survival probabilities of inflammation-associated cancer.
-These results offer novel means to delay disease onset by regulating properties of EMT, and demonstrate the importance of studying cancer-immune interactions in the light of EMT.
-%The model presented provides a base for future studies into the intricate regulation of tumorigenesis.
+Preceding and during cancer progression, the immune system is engaged in complex sets of interactions with epithelia that affect tumor incidence and prognosis. Inflammation also has significant effects on gastrointestinal and pancreatic tumors. Moreover, epithelial cell plasticity can significantly alter disease trajectories (for better or worse) via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions, yet little is known about the mechanisms and consequences of these regulatory processes. Here we introduce a multiscale evolutionary model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial tissues. Through {\em in silico} analysis of large patient cohorts, we found controllable regimes that maximize cancer-free survival. Delaying tumorigenesis depended crucially on properties of the mesenchymal phenotype: its growth rate and its immune-evasiveness. We performed analysis of pancreatic cancer data from The Cancer Genome Atlas to compare clinical measurements with model predictions. We found, in broad agreement with the model, that association with EMT worsened the survival probabilities of inflammation-associated cancer. These results offer novel means to delay disease onset by regulating properties of EMT, and demonstrate the importance of studying cancer-immune interactions in light of EMT.
+
+\linenumbers
 
 %% Basic Introduction (1-2 sentences)
 %Preceding tumorigenesis and throughout the lifetime of a tumor, the immune system is engaged in complex sets of interactions in and around the tumor.
@@ -94,7 +91,7 @@ The effects of the immune system on a tumor can be broadly summarized into two m
 Upon carrying out their effector functions, these cytotoxic cells lose efficacy or deactivate entirely \cite{finn12_immunooncology-1}. The regulatory branch of the immune system (Tregs and other factors), inhibits the effective functioning of the cytotoxic branch \cite{ruffell2010lymphocytes}.
 %Make sure there's some ref for immune clearing tumor
 % Also, add that as immune cells clear tumor cells, they become deactivated and give source
-In addition, the immune system plays important regulatory roles in pre-cancerous tissue, where inflammation can increase the probability of tumorigenesis (and/or decrease the time to cancer), particularly in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}. Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo2017multiscale}. 
+In addition, the immune system plays important regulatory roles in pre-cancerous tissue, where inflammation can increase the probability of tumorigenesis (and/or decrease the time to cancer), particularly in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}. Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo17_multiscale}. 
 \par
 Epithelial-to-mesenchymal transition (EMT) describes a reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
 While epithelial cells are in part defined by their adhesion to neighbors, mesenchymal cells show much greater ranges of motility, and may display stem-like properties \cite{nieto2016emt}, although controversy regarding `stemness' and EMT remains \cite{nie18_stem, sha19_intermediate}.  
@@ -113,9 +110,9 @@ While many cell behaviors are associated with stemness, here we target the speci
 Cancer cells are of course characterized by some degree of unregulated proliferation, thus it is appealing to explore the effects of differential proliferation rates within the cancer cell population.
 In our model, we refer to the reduced proliferative capacity associated with a mesenchymal cell phenotype as mesenchymal growth arrest (MGA).
 \par
-Mathematical oncology, that is, mathematical models of cancer incidence, progression, and treatment, has become a well-developed field; many models have offered insight into the cellular interactions underlying cancer and its interplay with the immune system, including older \cite{sherrattjonathana.92_oncogenes, pillis05_validated} and more recent works \cite{an15_agentbased, serre16_mathematical, louzoun14_mathematical, benzekry17_mathematical, west19_immune, owen11_mathematical-1}. These studies have increased our understanding of how tumors grow in the presence of various immune components, and how treatment regimes can be designed to maximize the efficacy of cytotoxicity while minimizing risks to the patient. However, to our knowledge no models have addressed how the effects of EMT alter interactions between the immune system and cancer, and the subsequent implications for treatment. 
+Mathematical oncology, that is, mathematical models of cancer incidence, progression, and treatment, has become a well-developed field; many models have offered insight into the cellular interactions underlying cancer and its interplay with the immune system, including classic \cite{anderson98_continuous, sherrattjonathana.92_oncogenes, pillis05_validated} and more recent works \cite{kim18_cell, gallaher14_bridging, gallaher18_spatial, an15_agentbased, serre16_mathematical, louzoun14_mathematical, briones-orta13_arkadia, lavi13_role, greene15_modeling, greene16_mathematical, cho17_modeling-1,  benzekry17_mathematical, owen11_mathematical, west18_multidrug}. These studies have increased our understanding of how tumors grow in the presence of various immune components, and how treatment regimes can be designed to maximize the efficacy of cytotoxicity while minimizing risks to the patient. However, to our knowledge no models have addressed how the effects of EMT alter interactions between the immune system and cancer, and the subsequent implications for treatment. 
 \par
-Here we develop a model with the goal of studying interactions between the tumor, the immune system and EMT. We seek to describe a set of crucial molecular and cellular interactions in epithelial tissue cells, including effects due to DNA damage and mutation, to investigate the probability that cancer will occur and, if so, when. A recent model of cancer-immune interactions \cite{guo2017multiscale} described the effects of the TME on the risk of cancer, and we build on the core cell cycle component of this model, adding significant new interactions to the immune component of the model (which was previously modeled by a single interaction), as well as adding the effects of EMT. We seek to understand whether this more complex immune module will change our understanding of inflammatory effects on the tumor, and how the epithelial-mesenchymal axis influences these.
+Here we develop a model with the goal of studying interactions between the tumor, the immune system and EMT. We seek to describe a set of crucial molecular and cellular interactions in epithelial tissue cells, including effects due to DNA damage and mutation, to investigate the probability that cancer will occur and, if so, when. A recent model of cancer-immune interactions \cite{guo17_multiscale} described the effects of the TME on the risk of cancer, and we build on the core cell cycle component of this model, adding significant new interactions to the immune component of the model (which was previously modeled by a single interaction), as well as adding the effects of EMT. We seek to understand whether this more complex immune module will change our understanding of inflammatory effects on the tumor, and how the epithelial-mesenchymal axis influences these.
 \par 
 In the next section we develop the model and give explanation of the intuition behind each component. We then go on to analyze its behavior. Global sensitivity analysis identifies parameters that are crucial for tumorigenesis. We then study these in more depth, focusing on the competing effects of EMT and of the immune system on tumorigenesis: we find that EMT intricately regulates tumorigenesis and that under certain regimes a careful balance of EMT- and immune-driven processes can significantly prolong cancer-free survival. To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects predicted by the model for patients with pancreatic cancer. 
 
@@ -159,7 +156,7 @@ In the next section we develop the model and give explanation of the intuition b
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Methods}
-We develop an agent-based model to describe the relationships between cancer, the immune system, and EMT, building on cell-cycle and tissue-cell components of \cite{guo2017multiscale}. 
+We develop an agent-based model to describe the relationships between cancer, the immune system, and EMT, building on cell-cycle and tissue-cell components of \cite{guo17_multiscale}. 
 The agents in the model are the tissue cells with tumorigenic potential.
 These can either be mutation-free or, resulting from DNA damage during the cell cycle, can have any combination of three possible pathway mutations (shown in Fig. \ref{fig:ModelIntro}A).
 If the pathway is mutated, the component is colored red and is marked with `X'.
@@ -408,7 +405,7 @@ The variances were chosen as twice the mean to get a large spread of values.
 \par
 %The algorithm \tcr{outputs the average of the absolute change of area under the curve for each parameter normalized by the corresponding change in the cdf function for that parameter. [I don't get this: what is y-axis?]}
 The algorithm computes the average of the absolute change of the output, which in our model is the area under the survival curve.
-This output out the algorithm, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
+This output of the algorithm, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
 
 
 \subsection{Analysis of patient survival data from TCGA database}
@@ -426,13 +423,14 @@ Below we analyze data gathered for pancreatic cancer, denoted by ``PAAD'' in TCG
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %                          RESULTS                         %
-%%%%%%%%%%%%%%%%%%%%%%%\section{Results}
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
 
 \subsection{A multiscale agent-based model of EMT-immune-tissue cell interactions to study tumorigenesis}\label{ExplModel}
 
 \begin{figure}
 \center
-{\includegraphics[width=0.98\textwidth]{Figure1/Figure1.pdf}}
+{\includegraphics[width=0.9\textwidth]{Figure1/Figure1.pdf}}
 \caption{A. Schematic depiction of agent-based model components; blue/red denote tissue cells with/without mutations. Black arrows depict regulation of the cell fate in each cell cycle. Inset depicts major interactions between the immune system and tissue cells.
  %The parameters used in this model can be found in the Supplementary material. Unless otherwise stated, parameter values are assumed to be those found in the Supplement. \tcr{Thoughts on the wording here? Once I have the table, I will use the name of that table.}
 B. A representative simulation of one patient. The model parameter values used can be found in Supplementary Table 2. 
@@ -454,13 +452,15 @@ The adaptive immune populations also appear to exhibit oscillatory behavior, how
 The {\em in silico} patient described here is given for the purpose of illustrating features of the model. Given the multiple sources of noise in the model, in order to quantify patient dynamics and cancer-free survival rates, below we will simulate large cohorts of patients. In Fig. \ref{fig:ModelIntro}C we simulate the survival curve for a cohort of $500$ patients: we see that all the patients survive for approximately 100 cell cycles (75 days). Subsequently, in the approximate range of $T= [100,300]$, the cancer onset rate is roughly constant, and after $600$ cell cycles, no patients remain cancer free.
 
 
-\subsection{Identification of key regulatory parameters via Morris global sensitivity analysis}\label{SensAnalysis}
-To assess the sensitivity of the model parameters and thus identify those that are most important in determining cancer-free survival times, we applied Morris one-step-at-a-time (OAT) sensitivity analysis (see Methods) to the model.
-The results of Morris OAT on the 31 model parameters are shown in Figure \ref{fig:MOAT}: a subset of parameters demonstrate much higher levels of sensitivity than others.
+\subsection{Identifying regulatory parameters via Morris global sensitivity analysis}\label{SensAnalysis}
+Exploring the parameter spaces of models in systems biology is -- in general -- a hard problem. Performing Bayesian parameter inference to inform parameter values is advisable wherever possible \cite{kirk13_model}. Here, a lack of detailed molecular measurements  (i.e. data for tumor growth dynamics abound, but simultaneous data on the immune dynamics are lacking) preclude inference of the full model. In addition, while inference schemes for agent-based models are developing \cite{gallaher17_hybrid, warne19_simulation}, simulation times remain a hurdle \cite{lambert18_bayesian}. Parameters for aspects of this model that were studied previously can be constrained \cite{guo17_multiscale}, however even for these, the new additions to the model could push it into new behavioral regimes. Thus to adequately sample the parameter space of the model and identify those areas of parameter space that exert the most control, we use sensitivity analysis.   
+\par
+To assess the sensitivity of the model parameters and thus identify those that are most important in determining cancer-free survival times, we performed Morris one-step-at-a-time (OAT) sensitivity analysis (see Methods). 
+The results of Morris OAT on the 31 model parameters are shown in Figure \ref{fig:MOAT}. We see that a subset of parameters demonstrate much higher levels of sensitivity than others.
 The two most influential according to this analysis are the death rate and the recruitment rate of Treg cells, this is most likely due to the dual roles Treg cells play in both suppressing the cytotoxic effects of other immune cells and secreting TGF-$\beta$, which drives EMT.
 This ties Treg cells to all three components of the model.
 Since we seek to separate the effects of different model components, we do not choose the parameters influencing Treg cells for detailed analysis below.
-\par
+\par 
 Many parameters in the model change depending on the inflammation state.
 For the sake of a naming convention, any parameter which includes ``low'' in the name represents the parameter value when inflammation is low.
 For when the inflammation is high, these ``low'' parameters get scaled by parameters which include ``up'' in the name.
@@ -521,7 +521,7 @@ Mesenchymal cells are more likely to evade the immune system, so pushing the sys
 
 \begin{figure}
 \center
-{\includegraphics[width=0.99\textwidth]{Figure4/Figure4.pdf}}
+{\includegraphics[width=0.95\textwidth]{Figure4/Figure4.pdf}}
 \caption{Effects of inflammation on the time to cancer under different cycling schemes. A-B. As MIE varies, survival curves (each of 200 patients)  and corresponding bar plots to summarize the mean Time to Cancer for each cohort are shown. C-D. As MGA varies, survival curves  and corresponding bar plots to summarize the mean time to cancer for each cohort are shown.}
 \label{fig:VaryINFL_and_MesPars}
 \end{figure}
@@ -542,8 +542,7 @@ In contrast, when MIE is varied for different inflammation cycling schemes, rega
 
 \begin{figure}
 \center
-{\includegraphics[width=0.5
-  \textwidth]{Figure5/MIEvsMGA_bigcbar.jpg}}
+{\includegraphics[width=0.5\textwidth]{Figure5/MIEvsMGA_bigcbar.jpg}}
 \caption{Summary of the contrasting effects of MIE and MGA on the Time to Cancer.
   % Increasing MIE always decreases Time to Cancer, but MGA is non-monotonically linked to Time to Cancer.
 }
@@ -561,7 +560,7 @@ For a cohort of pancreatic cancer patients, we cluster the patients via k-means 
 
 \begin{figure}
 \center
-{\includegraphics[width=0.95\columnwidth]{FigTCGA.pdf}}
+{\includegraphics[width=0.9\textwidth]{FigTCGA.pdf}}
 \caption{A. K-means clustering of pancreatic cancers using gene ontology terms indicative of an EMT signature ($k=2$). B. Survival plots corresponding to the clustering on EMT. C. K-means clustering of pancreatic cancers using gene ontology terms indicative of EMT and Inflammation signatures ($k=2$). D. Survival plots corresponding to the clustering on EMT and inflammation.}
 \label{fig:tcga}
 \end{figure}
@@ -579,26 +578,19 @@ We found that this model recapitulated cancer-free survival dynamics, and via gl
 \par
 To test these predictions, we performed unsupervised analysis of pancreatic cancer data from The Cancer Genome Atlas, and looked at survival across two groups: we found that the presence of an EMT signature increased differences in survival between groups in combination with inflammation. We chose to summarize {\em in silico} patient simulations with a single parameter: the Time to Cancer, which we found captured the essential characteristics of the model. There are, of course, many tissue trajectories that all result in cancer, and it is our opinion that analysis of the transient cell dynamics in pre-cancerous tissues is a pressing need to shed insight into cellular biomarkers of cancer.
 \par
-
-%%%% AM: Yes please add a para on this. 
-%In addition, I could discuss the implications from the TGF-$\beta$ section.
-%Any discussion on this topic, however, would need to acknowledge that regulation of TGF-$\beta$ might also have other, serious side effects, especially if the treatment is not local.
-%However, that might also be true for the inflammatory results.
-%In light of this, it might be good to include a new section on how TGF-$\beta$ production's influence on Time to Cancer is influenced by the inflammatory cycling scheme.
-
 These results represent promising steps in understanding the competing roles of the immune system and EMT during (pre-) development of epithelial cancers, yet much remains to be done. Further development of the inflammation module of this model is important given the large and sometimes paradoxical roles that the inflammatory state exerts on the epithelia and cancer-free survival (Figs. \ref{fig:MOAT} and \ref{fig:VaryINFL_and_MesPars}B, D). Currently, inflammation is modeled as independently cycling between high and low schemes, however many of the agents considered in the model actively contribute to the inflammatory state, thus it would be interesting to consider connecting these components (for example by letting the level of inflammation be conditional on the number of mutant cells in the tissue). Another layer of complexity is revealed by the natural anti-inflammatory role of Tregs. One consequence of the current model is that decreasing the number of Tregs increases the cancer-free survival. Clearly, there exists a trade-off to be accounted for, and adding to the model the main effector function of Tregs could remedy this and add depth to our understanding of the various roles that Tregs play in and around the tumor.
 
 %Also, since the inflammatory state of the TME played such a large role in our simulations, making this a more robust facet of the model by allowing the tumor and immune system to influence the inflammatory state could give the model higher fidelity.
 %One intriguing aspect could be the anti-inflammatory function of Tregs as they seek to restore homeostasis.
 \par
-The role that TGF-$\beta$ plays throughout the tumor and its microenvironment also requires further research. We found that, below a threshold, reduction of TGF-$\beta$ increases the Time to Cancer  (Fig. \ref{fig:FirstSurvivalCurves}E), thus reducing expression levels of TGF-$\beta$ in the tumor microenvironment benefits survival. However, TGF-$\beta$ is a master regulator implicated in numerous cellular signaling processes, and changing the concentrations of TGF-$\beta$ even in a local tumor microenvironment could have large off-target effects. Thus it might be more fruitful to target signaling factors downstream of TGF-$\beta$ that still have the ability to modulate epithelial cell dynamics: this is an area of active and future investigation, we are currently developing a larger TGF-$\beta$ signaling pathway module with appropriate crosstalks to  epithelial/mesenchymal/immune cell functions to be incorporated into the model.
+The roles that TGF-$\beta$ plays throughout the tumor and its microenvironment also warrant further investigation. We found that, below a certain threshold, reduction of TGF-$\beta$ increases the Time to Cancer  (Fig. \ref{fig:FirstSurvivalCurves}E), thus reducing expression levels of TGF-$\beta$ in the tumor microenvironment benefits survival. Intriguingly, recent experimental work demonstrated that TGF-$\beta$ drives tumor suppression in pancreatic cancer by promoting EMT \cite{david16_tgfv}. However, TGF-$\beta$ is a master regulator implicated in numerous cellular signaling processes, and changing the concentrations of TGF-$\beta$ even in a local tumor microenvironment could have large off-target effects. Indeed, it has been showns that TGF-$\beta$ promotes invasion and heterogeneity (although suppresses cell proliferation) in squamous cell carcinoma \cite{oshimori15_tgfv}. Future work thus ought to consider the effects of targeting signaling factors downstream of TGF-$\beta$ that still have the ability to modulate epithelial cell dynamics. Towards this end, we are currently developing a larger TGF-$\beta$ signaling pathway module with appropriate crosstalks to  epithelial/mesenchymal/immune cell functions to be incorporated into the model.
 \par
 A further goal for future work is to explore (and exploit) the heterogeneity of tumor evolution in greater depth: this heterogeneity aids the evasion of the tumor from immune effects. Studying the consequences of decanalization \cite{gibson09_decanalization} during cancer progression is too-often sidelined, despite evidence supporting its prominence \cite{cyll17_tumour, punt17_tumour, dagogo-jack18_tumour}. Yet despite these challenges, for which the complexity of the disease may be often in large part responsible, great progress has been and continues to be made. As we approach a new generation of immunotherapies, it is these very complexities that we must better understand in order to control or eradicate the disease.
 
 
 
 \section*{Acknowledgements}
-The work is partially supported by National Institutes of Health grants R01GM123731 and U01AR073159; National Science Foundation grants DMS1562176 and DMS1763272; The Simons Foundation grant [594598 to Q.N.]; and a grant by Jayne Koskinas Ted Giovanis Foundation for Health and Policy joint with Breast Cancer Research Foundation.
+The work is partially supported by National Institutes of Health grants R01GM123731, U01AR073159, and U54-CA217378; National Science Foundation grants DMS1562176 and DMS1763272; The Simons Foundation grant (594598 to Q.N.) and a grant from the Jayne Koskinas Ted Giovanis Foundation for Health and Policy joint with the Breast Cancer Research Foundation.
 
 
 \bibliography{mybib,amrefs}
