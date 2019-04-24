@@ -11,6 +11,7 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in ryan2016hallmarks
 You've used 59 entries,
             3058 wiz_defined-function locations,
+<<<<<<< refs/remotes/drbergman/master
             1052 strings with 20704 characters,
 and the built_in function-call counts, 117050 in all, are:
 = -- 14896
@@ -23,6 +24,20 @@ and the built_in function-call counts, 117050 in all, are:
 add.period$ -- 271
 call.type$ -- 59
 change.case$ -- 4
+=======
+            1004 strings with 18679 characters,
+and the built_in function-call counts, 98656 in all, are:
+= -- 12615
+> -- 804
+< -- 2
++ -- 443
+- -- 201
+* -- 8385
+:= -- 10760
+add.period$ -- 239
+call.type$ -- 51
+change.case$ -- 2
+>>>>>>> edits to methods and update title
 chr.to.int$ -- 0
 cite$ -- 60
 duplicate$ -- 9385
