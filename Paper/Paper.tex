@@ -23,7 +23,7 @@ Modeling the competing effects of the immune system and EMT on tumor development
 }
 
 \author{Daniel R. Bergman$^{1}$,
-Matthew Karikomi\,$^{1}$,
+Matthew K. Karikomi\,$^{1}$,
 Qing Nie\,$^{1,2,*}$
 and Adam L. MacLean\,$^{3,*}$
 }
@@ -590,7 +590,7 @@ The NKs obey the following differential equation:
 \begin{equation}\tag{2.7}
 N_{\text{NK}}' = \sigma_{\text{NK}} - d_{\text{NK}}N_{\text{NK}}
 \end{equation}
-which is solved and then discretized to give
+which is solved and then discretized over the cell cycle ($k$) to give
  
  \begin{equation}\tag{2.8}
 N_{\text{NK}}(k+1) = \left (N_{\text{NK}}(k)-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}}.
@@ -606,7 +606,7 @@ N_\text{CTL}' & = \sigma_{\text{CTL}}N_{\text{MUT}}^* - d_{\text{CTL}}N_\text{CT
 \text{Treg}' & = \sigma_{\text{Treg}}N_{\text{MUT}}^* \frac{\tau}{1+\tau/K_4}- d_{\text{Treg}}N_\text{Treg}
 \end{split}
 \end{equation}
-Again, solving and discretizing, we have:
+Again, solving and discretizing over the cell cycle, we have:
 
 \begin{equation}\tag{2.10}
 \begin{split}
@@ -793,7 +793,7 @@ The {\em in silico} patient described here is given for the purpose of illustrat
 \begin{figure}
 \center
 {\includegraphics[width=0.85\textwidth]{Figure2/Figure2.jpg}}
-\caption{Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu^*$ denotes the average absolute change in Time to Cancer when the parameter is varied. RP; MGA; IHD: inflammation high duration; ILD: inflammation low duration; MIE: mesenchymal immune evasion; TRU; TEU; }
+\caption{Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu^*$ denotes the average absolute change in Time to Cancer when the parameter is varied. RP: relative population; MGA: mesenchymal growth arrest; IHD: inflammation high duration; ILD: inflammation low duration; MIE: mesenchymal immune evasion. Parameters that end ``-RU'' denote ``recruitment up''; parameters that end ``-EU'' denote ``efficacy up''.}
 \label{fig:MOAT}
 \end{figure}
 
