@@ -1,0 +1,11 @@
+This 2016 review on premalignant tumors does give some of the terminology and framework we would want for this model. I believe we could refer to our three pathway mutations as driver mutations ("a mutation that directly or indirectly confers a selective growth advantage to the cell in which it occurs").
+
+One concern I have is what the literature says about EMT in pre-malignant tissue. Am I allowed to say that these pre-malignant cells have plasticity along the EMT spectrum?
+	Found Cellular Plasticity in Cancer by Yuan. They use EMT as the classic example of plasticity in premalignant (and malignant) tissue that aids progression.
+
+Another concern: This would shift the entire focus of the paper onto the transformation from pre-malignant to malignant tumors. They seemed to allude to the fact that progression is a separate step in cancer:
+	"Our goal is to (re-) acknowledge that although there is a continuum between premalignant and malignant lesions, they are two different entities [1] and with differing propensities for progression"
+	They continually use the term "progression", as well as "progress", throughout. It is not necessarily always as above: it is often used to refer to any forward movement of the cancer from normal tissue to metastatic disease.
+
+They do mention the shared characteristic of pre-malignant and malignant tumors (using the Hallmarks of Cancer), but they did not comment directly on the immune component of that.
+	Found Redirecting the focus of cancer immunotherapy to premalignant conditions by Young. They state that premalignant tumors often have immune influx with more immune cells correlating with better prognosis.

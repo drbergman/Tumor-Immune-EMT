@@ -113,6 +113,17 @@ Rackauckas C, Schilling TF, Nie Q.
 \newblock iScience. 2018;0(0).
 \newblock doi:{10.1016/j.isci.2018.04.002}.
 
+\bibitem{puisieux2014oncogenic}
+Puisieux A, Brabletz T, Caramel J.
+\newblock Oncogenic roles of EMT-inducing transcription factors.
+\newblock Nature cell biology. 2014;16(6):488.
+
+\bibitem{peinado2007snail}
+Peinado H, Olmeda D, Cano A.
+\newblock Snail, Zeb and bHLH factors in tumour progression: an alliance
+  against the epithelial phenotype?
+\newblock Nature Reviews Cancer. 2007;7:415 EP --.
+
 \bibitem{lim2012epithelial}
 Lim J, Thiery JP.
 \newblock Epithelial-mesenchymal transitions: insights from development.
@@ -122,6 +133,12 @@ Lim J, Thiery JP.
 Terry S, Savagner P, Ortiz-Cuaran S, Mahjoubi L, Saintigny P, Thiery JP, et~al.
 \newblock New insights into the role of EMT in tumor immune escape.
 \newblock Molecular oncology. 2017;11(7):824--846.
+
+\bibitem{shi2019cd4+}
+Shi C, Chen Y, Chen Y, Yang Y, Bing W, Qi J.
+\newblock CD4+ CD25+ regulatory T cells promote hepatocellular carcinoma
+  invasion via TGF-$\beta$1-induced epithelial--mesenchymal transition.
+\newblock OncoTargets and therapy. 2019;12:279.
 
 \bibitem{woods2014effects}
 Woods K, Pasam A, Jayachandran A, Andrews MC, Cebon J.
@@ -197,7 +214,7 @@ Louzoun Y, Xue C, Lesinski GB, Friedman A.
 
 \bibitem{briones-orta13_arkadia}
 Briones-Orta MA, Levy L, Madsen CD, Das D, Erker Y, Sahai E, et~al.
-\newblock Arkadia regulates tumor metastasis by modulation of the {TGF}-beta
+\newblock Arkadia regulates tumor metastasis by modulation of the {TGF}-$\beta$
   pathway.
 \newblock Cancer Research. 2013;73(6):1800--1810.
 \newblock doi:{10.1158/0008-5472.CAN-12-1916}.
@@ -292,15 +309,40 @@ Lambert B, MacLean AL, Fletcher AG, Combes AN, Little MH, Byrne HM.
 \newblock Journal of Mathematical Biology. 2018;10(12):106.
 \newblock doi:{10.1007/s00285-018-1208-z}.
 
+\bibitem{greten2019inflammation}
+Greten FR, Grivennikov SI.
+\newblock Inflammation and Cancer: Triggers, Mechanisms, and Consequences.
+\newblock Immunity. 2019;51(1):27--41.
+
+\bibitem{hu2010inflammation}
+Hu B, Elinav E, Huber S, Booth CJ, Strowig T, Jin C, et~al.
+\newblock Inflammation-induced tumorigenesis in the colon is regulated by
+  caspase-1 and NLRC4.
+\newblock Proceedings of the National Academy of Sciences.
+  2010;107(50):21635--21640.
+
+\bibitem{sanchez2018slow}
+S{\'a}nchez-Dan{\'e}s A, Larsimont JC, Liagre M, Mu{\~n}oz-Couselo E, Lapouge
+  G, Brisebarre A, et~al.
+\newblock A slow-cycling LGR5 tumour population mediates basal cell carcinoma
+  relapse after therapy.
+\newblock Nature. 2018;562(7727):434.
+
+\bibitem{liu2018integrated}
+Liu J, Lichtenberg T, Hoadley KA, Poisson LM, Lazar AJ, Cherniack AD, et~al.
+\newblock An integrated TCGA pan-cancer clinical data resource to drive
+  high-quality survival outcome analytics.
+\newblock Cell. 2018;173(2):400--416.
+
 \bibitem{david16_tgfv}
 David C, Huang YH, Chen M, Su J, Zou Y, Bardeesy N, et~al.
-\newblock {TGF}-beta {Tumor} {Suppression} through a {Lethal} {EMT}.
+\newblock {TGF}-$\beta$ {Tumor} {Suppression} through a {Lethal} {EMT}.
 \newblock Cell. 2016;164(5):1015--1030.
 \newblock doi:{10.1016/j.cell.2016.01.009}.
 
 \bibitem{oshimori15_tgfv}
 Oshimori N, Oristian D, Fuchs E.
-\newblock {TGF}-beta {Promotes} {Heterogeneity} and {Drug} {Resistance} in
+\newblock {TGF}-$\beta$ {Promotes} {Heterogeneity} and {Drug} {Resistance} in
   {Squamous} {Cell} {Carcinoma}.
 \newblock Cell. 2015;160(5):963--976.
 \newblock doi:{10.1016/j.cell.2015.01.043}.

@@ -82,6 +82,8 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
   \hline
   $K_3$ & EC50 term for how much TGF-$\beta$ each cell has \\
   \hline
+  $K_4$ & EC50 term for TGF-$\beta$ activation of Tregs \\
+  \hline
  $E_\text{NK}$ & rate of NKs clearing mutants  \\
   \hline
   $E_\text{CTL}$ & rate of CTLs clearing mutants \\
@@ -91,6 +93,12 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
   $\sigma_\text{CTL}$ & CTL source rate per cleared mutant cell \\ 
   \hline
   $\sigma_\text{Treg}$ & Treg source rate per cleared mutant cell \\ 
+  \hline
+  $d_\text{NK}$ & NK death rate  \\ 
+  \hline
+  $d_\text{CTL}$ & CTL death rate \\ 
+  \hline
+  $d_\text{Treg}$ & Treg death rate \\ 
   \hline
   $k_\text{EMT}$ & EMT/MET rate  \\
   \hline
@@ -109,6 +117,81 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
 
 
 \section{Parameter values used for simulation}
+
+\begin{table}[H]
+\begin{center}
+ \begin{tabular}{|| c | p{7cm} | c | c ||} 
+ \hline
+ Name & Description & INFL Low Value & INFL High Value  \\ [0.5ex] 
+ \hline\hline
+  $p$ & weight of proliferation for tissue cells & 0.28 & \\ 
+ \hline
+ $d_C$  & weight of apoptosis for tissue cells & 0.14 & \\
+ \hline
+$\Delta_\text{MIE}$ & MIE & 0.6 & \\
+ \hline
+ $\Delta_\text{MGA}$ & MGA  & 0.2 &  \\
+ \hline
+  $\Delta_A$ & proportional decrease to weight of apoptosis for cells with mutated apoptosis pathway & 0.3 &  \\
+  \hline
+  $\Delta_\text{IE}$ & proportional increase to weight of immune evasion for cells with mutated immune evasion pathway & 0.48 &  \\
+  \hline
+  $\Delta_P$ & proportional increase to weight of proliferation for cells with mutated proliferation pathway & 0.36 &  \\
+  \hline
+ $K_0$ & EC50 term for negative feedback of tissue cells on own proliferation & 80 cells& \\
+ \hline
+ $K_1$ & EC50 term for probability of NK cell finding mutant cell & 8 cells& \\
+ \hline
+  $K_2$ & EC50 term for Treg inhibition of cytotoxic functions & 5 cells / volume & 0.025 cells / volume \\
+  \hline
+  $K_3$ & EC50 term for cumulative absorption of TGF-$\beta$ & 200 amount / volume & \\
+  \hline
+  $K_4$ & EC50 term for TGF-$\beta$ activation of Tregs & 50 amount / volume & \\
+  \hline
+ $E_\text{NK}$ & weight of NKs clearing mutants & 10 & 30  \\
+  \hline
+  $E_\text{CTL}$ & weight of CTLs clearing mutants & 200 & 600 \\
+  \hline
+  $\sigma_\text{NK}$ & NK source rate & 1.3 cells / cycle &  \\ 
+  \hline
+  $\sigma_\text{CTL}$ & CTL source rate per cleared mutant cell & 100 cells / (cleared mutants $\times$ cycles)& \\ 
+  \hline
+  $\sigma_\text{Treg}$ & Treg source rate per cleared mutant cell & 200 cells / (cleared mutants $\times$ concentration of TGF-$\beta$ $\times$ cycles)& \\ 
+  \hline
+  $d_\text{NK}$ & NK death rate & 0.13 / cycle &  \\ 
+  \hline
+  $d_\text{CTL}$ & CTL death rate & 0.0260 / cycle& \\ 
+  \hline
+  $d_\text{Treg}$ & Treg death rate & 0.0260 / cycle& \\ 
+  \hline
+  $k_\text{EMT}$ & EMT/MET rate & 0.01 / concentration of TGF-$\beta$ & \\
+  \hline
+  $\sigma$ & standard deviation of noise in TGF-$\beta$ each cell receives & 6 concentration of TGF-$\beta$ & \\
+  \hline
+ $\tau_\text{max}$ & max amount of TGF-$\beta$ any cell can receive & 500 concentration of TGF-$\beta$ &\\
+  \hline 
+ $\tau_\text{MUT}$ & rate of TGF-$\beta$ production by mutant cells & 0.05 concentration of TGF-$\beta$ / cell / cycle& \\
+  \hline
+ $\tau_\text{Treg}$ & rate of TGF-$\beta$ production by Treg & 0.5 concentration of TGF-$\beta$ / cell / cycle& \\
+  \hline
+  & RP Cancer Line  & 0.5 &  \\ 
+ \hline
+&  INFL High Duration & 30 cycles&   \\
+ \hline
+ & INFL Low Duration &30 cycles&   \\
+ \hline
+& Mes Threshold & 0.7 &    \\
+ \hline
+  & maximum initial mutation damage after warmup  & 0.01 &\\
+  \hline
+  & increase in probability to mutate for non-mutating proliferating cells & 0.0001 & \\
+  \hline
+\end{tabular}
+  \caption{The model parameter names, descriptions, and values during both low and high inflammation. Parameters with only one value do not change with the inflammatory state.}
+\end{center}
+\end{table}
+
+\newpage
 
 \begin{table}[H]
 \begin{center}
@@ -138,6 +221,8 @@ $\Delta_\text{MIE}$ &  MIE & 0.6 & \\
   \hline
   $K_3$ & EC50 term for how much TGF-$\beta$ each cell has & 200 & \\
   \hline
+  $K_4$ & EC50 term for TGF-$\beta$ activation of Tregs & 50 & \\
+  \hline
  $E_\text{NK}$ & rate of NKs clearing mutants & 10 & 30  \\
   \hline
   $E_\text{CTL}$ & rate of CTLs clearing mutants & 200 & 600 \\
@@ -147,6 +232,12 @@ $\Delta_\text{MIE}$ &  MIE & 0.6 & \\
   $\sigma_\text{CTL}$ & CTL source rate per cleared mutant cell & 100 & \\ 
   \hline
   $\sigma_\text{Treg}$ & Treg source rate per cleared mutant cell & 200 & \\ 
+  \hline
+  $d_\text{NK}$ & NK death rate & 0.13 &  \\ 
+  \hline
+  $d_\text{CTL}$ & CTL death rate & 0.0260 & \\ 
+  \hline
+  $d_\text{Treg}$ & Treg death rate & 0.0260 & \\ 
   \hline
   $k_\text{EMT}$ & EMT/MET rate & 0.01 & \\
   \hline
