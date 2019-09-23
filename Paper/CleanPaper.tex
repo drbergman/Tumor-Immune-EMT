@@ -623,7 +623,7 @@ In essence, a tumor where the DFI is short will undergo rapid (post-treatment) i
 In turn, we expect the distance between DFI and OS to be relatively small for a tumor undergoing rapid progression following initial (post-treatment) detection.
 Therefore, recurrent tumors may be roughly categorized as either rapidly progressing or slowly progressing by some arbitrary threshold of DFI/OS divergence.
 We selected three tumor types whose TCGA-CDR profile indicated slow progression (OV, SKCM, LIHC) and three tumor types whose profile indicated rapid progression (PAAD, LUAD, COAD).
-See Figures \ref{fig:LIHC} and \ref{fig:PAAD} for LIHC and PAAD. The others will be in the supplement.
+See Figures \ref{fig:OV} and \ref{fig:PAAD} for OV and PAAD. The others will be in the supplement.
 \par
 For each cohort of cancer patients, we cluster the patients via k-means (n = 2) either on gene ontologies relating only to EMT (linked figures) or on gene ontologies relating to EMT and inflammation.  We also plot the corresponding survival curves for each of the clusters obtained (utilizing the originally reported OS endpoint). We see that in both cases, survival is affected by the gene ontology signature, but the presence of both EMT and inflammatory signatures has a greater impact on survival than the effects of EMT alone. This suggests that when studying interactions between cancer and the immune system, is it important to consider EMT; the effects of which may impact the dynamics and should not be overlooked. 
 
@@ -642,14 +642,14 @@ For each cohort of cancer patients, we cluster the patients via k-means (n = 2) 
 
 \begin{figure}
 \center
-{\includegraphics[width=0.65\textwidth]{Figure6/LIHC.pdf}}
-\caption{A. K-means clustering of LIHC using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
+{\includegraphics[width=0.65\textwidth]{Figure6/OV.pdf}}
+\caption{A. K-means clustering of OV using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
 B. Survival plots corresponding to the clustering on EMT and inflammation.
-C. K-means clustering of LIHC using gene ontology terms indicative of an EMT signature ($k=2$).
+C. K-means clustering of OV using gene ontology terms indicative of an EMT signature ($k=2$).
 D. Survival plots corresponding to the clustering on EMT.
-E. K-means clustering of LIHC using gene ontology terms indicative of inflammation ($k=2$).
+E. K-means clustering of OV using gene ontology terms indicative of inflammation ($k=2$).
 F. Survival plots corresponding to the clustering on inflammation.}
-\label{fig:LIHC}
+\label{fig:OV}
 \end{figure}
 
 \begin{figure}
