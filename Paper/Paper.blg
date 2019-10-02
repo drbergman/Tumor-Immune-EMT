@@ -8,44 +8,46 @@ Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 58 entries,
+Warning--can't use both volume and number fields in ryan2016hallmarks
+You've used 59 entries,
             3058 wiz_defined-function locations,
-            1046 strings with 20537 characters,
-and the built_in function-call counts, 115860 in all, are:
-= -- 14750
-> -- 944
-< -- 2
-+ -- 513
-- -- 236
-* -- 9918
-:= -- 12625
-add.period$ -- 267
-call.type$ -- 58
-change.case$ -- 2
+            1052 strings with 20704 characters,
+and the built_in function-call counts, 117050 in all, are:
+= -- 14896
+> -- 952
+< -- 4
++ -- 517
+- -- 238
+* -- 10010
+:= -- 12757
+add.period$ -- 271
+call.type$ -- 59
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 58
-duplicate$ -- 9293
-empty$ -- 10972
-format.name$ -- 289
-if$ -- 26896
+cite$ -- 60
+duplicate$ -- 9385
+empty$ -- 11082
+format.name$ -- 292
+if$ -- 27176
 int.to.chr$ -- 0
-int.to.str$ -- 58
-missing$ -- 577
-newline$ -- 328
-num.names$ -- 58
-pop$ -- 852
+int.to.str$ -- 59
+missing$ -- 587
+newline$ -- 333
+num.names$ -- 59
+pop$ -- 871
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 938
+skip$ -- 961
 stack$ -- 0
-substring$ -- 23361
-swap$ -- 1472
-text.length$ -- 2
+substring$ -- 23555
+swap$ -- 1504
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 619
-width$ -- 60
-write$ -- 711
+warning$ -- 1
+while$ -- 627
+width$ -- 61
+write$ -- 724
+(There was 1 warning)
