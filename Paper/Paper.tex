@@ -12,6 +12,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{authblk}
+\usepackage{framed}
 
 \newcommand{\tcr} { \textcolor{red} }
 \newcommand{\tcb} { \textcolor{blue} }
@@ -60,20 +61,24 @@ These results offer novel means to delay disease \sout{onset} \tcb{progression} 
 %                    INTRODUCTION                    %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\noindent\fbox{%
-    \parbox{\textwidth}{%
+\begin{framed}
     Quick Guide to Equations and Assumptions
-    \newline
-
+\newline
     A premalignant tumor relies on driver mutations to alter key pathways that will allow the tumor to achieve greater growth potential and clinically progress to a malignant tumor.
     At the same time, the immune system is recognizing and adapting to the resulting neoantigens to suppress the tumor.
     All of this occurs within an environment that is often under the influence of inflammatory signals that can vary over time.
+\newline
+    To capture these dynamics, we built a non-spatial agent-based model where the tumor cells are the agents and immune cells are present as homogeneous populations.
+    The model updates at discrete time intervals approximating the duration of a cell cycle.
+    During each cycle, the tumor cells are allowed one of four options: proliferation, apoptosis, immune clearance, and rest.
+    The probability of proliferation decreases with increasing tumor cell population, corresponding to competition for resources, and is also modified by cell intrinsic factors.
+    For apoptosis, the probability depends only on the EMT state of the tumor cell.
+    The probability of immune clearance relies on the number of mutated cells, cytotoxic cells, and regulatory cells as well as cell-intrinsic factors.
     \newline
-        
-    In our model, we assume that as the premalignant (and later the malignant) tumor cells proliferate, they become increasingly likely to acquire a driver mutation altering a key pathway that unlocks greater growth potential.
-    However, innate immune cells (Natural Killer cells) are present to identify and clear these tumor cells, a process which results in neoantigens being used to prime and activate T cells in local lymph nodes.
-    In turn, these T cells move to the tumor site and begin to either lyse tumor cells (cytotoxic T lymphocytes or CTLs) or suppress cytotoxic activity (T regulatory cells or Tregs).
-    We use the following expression to determine the probability of a tumor cell being lysed by a CTL in the timeframe of a cell cycle (18 hours):
+    We assume that as the premalignant (and later the malignant) tumor cells proliferate, they become increasingly likely to acquire a driver mutation altering a key pathway that unlocks greater growth potential.
+    However, innate immune cells (Natural Killer cells) are present to identify and clear these tumor cells, a process which results in neoantigens being used to prime and activate T cells in local lymph nodes and subsequently infiltrate the tumor microenvironment.
+    Once there, these T cells move to the tumor site and begin to either lyse tumor cells (cytotoxic T lymphocytes or CTLs) or suppress cytotoxic activity (T regulatory cells or Tregs).
+    We use the following expression to determine the probability of a tumor cell being lysed by a CTL in one time step of the model:
     $$\rho_{\text{CTL}} =\delta_{\text{MUT}} \frac{N_{\text{CTL}}}{N_C/K_{1}+N_{\text{CTL}}}  \frac{E_{\text{CTL}}}{1+N_{\text{Treg}}/K_2} (1-\delta_{\text{IE}}\Delta_{\text{IE}})(1-\zeta \Delta_{\text{MIE}})$$
     Here, $\delta_\text{MUT}$ is 1 or 0 depending on whether the cell has a driver mutation or not, respectively.
     The second term is a hill function similar to the de Pillis-Radunskaya law.
@@ -81,7 +86,6 @@ These results offer novel means to delay disease \sout{onset} \tcb{progression} 
     The final two terms are increased immune evasiveness due to a driver mutation in the immune evasion pathway and the immune evasiveness of mesenchymal cells (discussed below), respectively.
     The inflammatory state of the tumor microenvironment affects the speed at which immune cells are recruited to the tumor.
     \newline
-
     Adding to the complexity of this situation, tumor cells can express heterogeneous cell types by their location along the epithelial-mesenchymal spectrum.
     Depending on which end of this spectrum a tumor cell is on, its proliferation and its evasion of the immune system will change.
     Specifically, if a cell is above a certain threshold, it will have its proliferation reduced by a fixed proportion and its immune evasiveness increased by a fixed proportion.
@@ -97,8 +101,10 @@ These results offer novel means to delay disease \sout{onset} \tcb{progression} 
     A Gaussian noise term is added with standard deviation $\sigma$.
     When this quantity is large enough relative to the current EMT score of the cell, the cell will transition towards the mesenchymal phenotype.
     Otherwise, it transitions towards the epithelial phenotype.
-        }%
-}
+    \newline
+    What we desire to know is when do the malignant tumor cells reach a particular threshold proportion of all tumor cells.
+    Once the tumor reaches this threshold, we declare that the tumor has progressed and we note how long the process took to reach this stage.
+\end{framed}
 
 \section{Introduction}
 \tcb{
@@ -257,6 +263,16 @@ Note, that because the immune system can only clear \sout{mutated} \tcb{malignan
 In modeling EMT this way, we are assuming that the same factor, TGF-$\beta$, drives EMT both at initiation and through progression of cancer.
 In addition, as per our model assumptions (see Table \ref{table:model_assumptions}), we choose to ignore other factors that are known to induce EMT such as hypoxia as well as the typical spatial organization of epithelial and mesenchymal cells as this pertains to the invasive front.
 }
+\par
+\tcb{
+For the cells that have undergone EMT and are currently labeled in the model as mesenchymal, they experience two modifications to their governing parameters.
+The first is a reduction in proliferation, which we call mesenchymal growth arrest (MGA).
+This causes to mesenchymal cells to be less likely to undergo proliferation and more likely to rest during a cell cycle.
+The second is a decrease to their likelihood of being cleared by the immune system, which we call mesenchymal immune evasion (MIE). 
+This decreases the likelihood of mesenchymal cells being cleared by both NKs and CTLs during a cell cycle.
+Though we have not found clinical data on which to base parameter values for either of these, by their very nature they are proportions on the interval $[0,1]$.
+Thus, it is possible to sample from the entire parameter and in fact we do present results from a large subset of this parameter space and our sensitivity analysis fully explores this space.
+}
 \subsection{Model Simulation}
 
 \subsubsection{Initial conditions} 
@@ -270,153 +286,186 @@ After the warmup cycles are complete, a mutagenic event is simulated in which al
 From then on, a cell which proliferates also either mutates or increases its probability of mutating later on.
 
 \subsubsection{Tissue cell fate}
-During each cell cycle, every cell randomly is assigned a cell fate from the following options:
-\begin{itemize}
-\item proliferation
-\item apoptosis
-\item immune clearance (by NKs or CTLs)
-\item rest in $G_0$
-\end{itemize}
+During each cell cycle, every cell is randomly assigned one of four fates: proliferation, apoptosis, immune clearance, and rest in $G_0$.
+Depending on both cell intrinsic, e.g. EMT and mutational state, and cell extrinsic, e.g. immune infiltrate and total number of tissue cells, each of the four options is given a probability of occurring for each cell.
+For proliferation, we assume the total number of tissue cells exerts a negative feedback on the proliferation probability for each cell.
+Also, cells that have a driver mutation in the proliferation pathway have an increased probability of proliferating.
+Meanwhile, mesenchymal cells have a decreased probability of proliferating and an increased probability of resting.
+For apoptosis, the probability is constant except for those cells with a driver mutation in the apoptosis pathway which have a decreased probability of apoptosis.
+For immune clearance, we assume that only cells with newly acquired driver mutations are targeted by the immune system, and their probability of being cleared depends on the immune infiltrate.
+This probability can be decreased by a cell having a driver mutation in the immune evasion pathway or by a cell being mesenchymal.
+Further details and equations are given in the supplement.
+%%%%%% MOVED TO SUPPLEMENT %%%%%%%%%%%%%
+%During each cell cycle, every cell randomly is assigned a cell fate from the following options:
+%\begin{itemize}
+%\item proliferation
+%\item apoptosis
+%\item immune clearance (by NKs or CTLs)
+%\item rest in $G_0$
+%\end{itemize}
+%
+%For each cell, a weight is chosen for each option and these are normalized to probabilities which then are used to randomly determine what each cell does during the cell cycle.
+%
+%\paragraph{Proliferation}
+%There are four factors that contribute to the weight of a cell to proliferate.
+%The first is a base proliferation rate that all cells have, $p$.
+%Second, if the cell has a mutation in the proliferation pathway ($\delta_P=1$), then the weight for proliferation is proportionally increased by $\Delta_P$.
+%Third, if the cell is mesenchymal ($\zeta=1$), then the weight for proliferation is proportionally decreased by $\Delta_{\text{MGA}}$, which stands for mesenchymal growth arrest.
+%% Add: 
+%\tcb{This lost proliferation for mesenchymal cells will later be used to increase their chance of resting.}
+%Fourth, there is a negative feedback of the cells on their own proliferation which is quantified by a Hill factor as a function of the tissue cell population, $N_C$, with EC50 term $K_0$.
+%In total, the weight for proliferation is given by
+%
+%\begin{equation}\tag{2.1}
+%\rho_P = p(1+\delta_{P}\Delta_P)(1-\zeta \Delta_{\text{MGA}})\frac{K_0}{K_0+N_C}
+%\end{equation}
+%
+%\paragraph{Apoptosis}
+%There are two factors that contribute to a cell's weight for undergoing apoptosis.
+%There is a basal apoptosis rate that all cells experience, $d_C$ for death.
+%Second, if the cell has a mutation in the apoptosis pathway ($\delta_A=1$), then the weight for undergoing apoptosis is proportionally decreased by $\Delta_A$.
+%In total, the weight for apoptosis is given by 
+%
+%\begin{equation}\tag{2.2}
+%\rho_A = d_C(1-\delta_{A}\Delta_A)
+%\end{equation}
+%
+%\paragraph{Immune Clearance}
+%For both NK clearance and CTL clearance, the weights are built with the same factors but have different parameter values for NK and CTLs.
+%First of all, the cell needs to be \sout{mutated} \tcb{malignant} ($\delta_{\text{MUT}}=1$).
+%Second, there is a Hill factor that captures the probability of an immune cell finding and interacting with the given tissue cell with EC50 term $K_1$.
+%Third, NKs and CTLs have their own efficacy parameters, $E_{\text{NK}}$ and $E_{\text{CTL}}$, which can be understood as the rate of immune clearance given an immune cell has found the mutated cell.
+%Fourth, there is a decreasing Hill factor based on the number of Treg cells present with EC50 term $K_2$.
+%Finally, there are two factors that proportionally decrease the weight of immune clearance depending on if the cell has an immune evasion mutation ($\delta_{\text{IE}}=1$) or if it is mesenchymal ($\zeta=1$) with respective decreases $\Delta_{\text{IE}}$ and $\Delta_{\text{MIE}}$.
+%In total, the weight of NK clearance is given by
+%
+%\begin{equation}\tag{2.3}
+%\rho_{\text{NK}} =\delta_{\text{MUT}} \frac{N_{\text{NK}}}{N_C/K_{1}+N_{\text{NK}}}  \frac{E_{\text{NK}}}{1+N_{\text{Treg}}/K_2} (1-\delta_{\text{IE}}\Delta_{\text{IE}})(1-\zeta \Delta_{\text{MIE}})
+%\end{equation}
+%
+%A similar formula holds for CTLs with only the number of CTLs and their efficacy being different from the above equation.
+%
+%
+%\paragraph{Rest in $G_0$} 
+%\sout{The weight associated with quiescence is taken as 1 except in the case of mesenchymal cells.
+%For mesenchymal cells, the weight lost to proliferation is added to the weight of quiescence.
+%Hence, the weight of quiescence is given by}
+%\tcb{The weight associated with rest is taken as 1 except in the case of mesenchymal cells.
+%Recall that mesenchymal cells had their proliferation rate decreased by $1-\zeta\Delta_{\text{MGA}}$ (see Eq. 2.1).
+%The biological assumption here is that mesenchymal cells instead of proliferating will instead rest, so this lost proliferation weight is added to the resting weight.
+%Hence, the weight of rest is given by}
+%% Replace quiescence with rest and explain more above
+%
+%\begin{equation}\tag{2.4}
+%\rho_R = 1 + \zeta p(1+\delta_P\Delta_P)\Delta_{\text{MGA}}\frac{K_0}{K_0+N_C}
+%\end{equation}
+%
+%\tcb{Again, t}\sout{T}he reason for adding that term is due to the understanding that overall mesenchymal cells proliferate less as individual cells rest longer in the $G_0$ phase.
 
-For each cell, a weight is chosen for each option and these are normalized to probabilities which then are used to randomly determine what each cell does during the cell cycle.
 
-\paragraph{Proliferation}
-There are four factors that contribute to the weight of a cell to proliferate.
-The first is a base proliferation rate that all cells have, $p$.
-Second, if the cell has a mutation in the proliferation pathway ($\delta_P=1$), then the weight for proliferation is proportionally increased by $\Delta_P$.
-Third, if the cell is mesenchymal ($\zeta=1$), then the weight for proliferation is proportionally decreased by $\Delta_{\text{MGA}}$, which stands for mesenchymal growth arrest.
-% Add: 
-\tcb{This lost proliferation for mesenchymal cells will later be used to increase their chance of resting.}
-Fourth, there is a negative feedback of the cells on their own proliferation which is quantified by a Hill factor as a function of the tissue cell population, $N_C$, with EC50 term $K_0$.
-In total, the weight for proliferation is given by
-
-\begin{equation}\tag{2.1}
-\rho_P = p(1+\delta_{P}\Delta_P)(1-\zeta \Delta_{\text{MGA}})\frac{K_0}{K_0+N_C}
-\end{equation}
-
-\paragraph{Apoptosis}
-There are two factors that contribute to a cell's weight for undergoing apoptosis.
-There is a basal apoptosis rate that all cells experience, $d_C$ for death.
-Second, if the cell has a mutation in the apoptosis pathway ($\delta_A=1$), then the weight for undergoing apoptosis is proportionally decreased by $\Delta_A$.
-In total, the weight for apoptosis is given by 
-
-\begin{equation}\tag{2.2}
-\rho_A = d_C(1-\delta_{A}\Delta_A)
-\end{equation}
-
-\paragraph{Immune Clearance}
-For both NK clearance and CTL clearance, the weights are built with the same factors but have different parameter values for NK and CTLs.
-First of all, the cell needs to be \sout{mutated} \tcb{malignant} ($\delta_{\text{MUT}}=1$).
-Second, there is a Hill factor that captures the probability of an immune cell finding and interacting with the given tissue cell with EC50 term $K_1$.
-Third, NKs and CTLs have their own efficacy parameters, $E_{\text{NK}}$ and $E_{\text{CTL}}$, which can be understood as the rate of immune clearance given an immune cell has found the mutated cell.
-Fourth, there is a decreasing Hill factor based on the number of Treg cells present with EC50 term $K_2$.
-Finally, there are two factors that proportionally decrease the weight of immune clearance depending on if the cell has an immune evasion mutation ($\delta_{\text{IE}}=1$) or if it is mesenchymal ($\zeta=1$) with respective decreases $\Delta_{\text{IE}}$ and $\Delta_{\text{MIE}}$.
-In total, the weight of NK clearance is given by
-
-\begin{equation}\tag{2.3}
-\rho_{\text{NK}} =\delta_{\text{MUT}} \frac{N_{\text{NK}}}{N_C/K_{1}+N_{\text{NK}}}  \frac{E_{\text{NK}}}{1+N_{\text{Treg}}/K_2} (1-\delta_{\text{IE}}\Delta_{\text{IE}})(1-\zeta \Delta_{\text{MIE}})
-\end{equation}
-
-A similar formula holds for CTLs with only the number of CTLs and their efficacy being different from the above equation.
+%%%%%% END MOVED TO SUPPLEMENT %%%%%%%%%%%%%
 
 
-\paragraph{Rest in $G_0$} 
-\sout{The weight associated with quiescence is taken as 1 except in the case of mesenchymal cells.
-For mesenchymal cells, the weight lost to proliferation is added to the weight of quiescence.
-Hence, the weight of quiescence is given by}
-\tcb{The weight associated with rest is taken as 1 except in the case of mesenchymal cells.
-Recall that mesenchymal cells had their proliferation rate decreased by $1-\zeta\Delta_{\text{MGA}}$ (see Eq. 2.1).
-The biological assumption here is that mesenchymal cells instead of proliferating will instead rest, so this lost proliferation weight is added to the resting weight.
-Hence, the weight of rest is given by}
-% Replace quiescence with rest and explain more above
-
-\begin{equation}\tag{2.4}
-\rho_R = 1 + \zeta p(1+\delta_P\Delta_P)\Delta_{\text{MGA}}\frac{K_0}{K_0+N_C}
-\end{equation}
-
-\tcb{Again, t}\sout{T}he reason for adding that term is due to the understanding that overall mesenchymal cells proliferate less as individual cells rest longer in the $G_0$ phase.
 
 \subsubsection{Completing the Cell Cycle}
-After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
-First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
-This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
-Second, all proliferating cells have a cell-specific probability of undergoing a \sout{pathway mutation} \tcb{driver mutation in one of the three pathways}.
-If they do, one is randomly chosen among the three pathways and the pathway in that cell \sout{mutates} \tcb{becomes altered}.
-If the cell does not undergo a mutation, then its probability of mutation during subsequent cell cycles increases.
+Once all the cell fates are carried out, the rest of the components of the model update to account for these changes.
+First, the immune populations are updated in two steps.
+In step one, Immune cells are exhausted based on the number of malignant cells that were cleared by their type.
+So, each clearance by an NK cell results in the NK population decreasing by one, and similarly for CTLs.
+In step two, all three immune populations are updated deterministically based on a simple ODE model of their dynamics.
+NKs have a constant source and death rate while CTLs and Tregs have a source rate that is dependent on the number of malignant cells cleared that cycle and a constant death rate.
+In addition, the concentration of TGF-$\beta$ mediates recruitment of Tregs with higher concentrations of TGF-$\beta$ resulting in a greater influx of Tregs.
 \par
-Finally, the EMT values for each cell is updated.
-This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
-% The following sentence could be altered to reflect that the threshold value for $\tau$ is 0, so not only are negative values possible, but very common. So, this is not really so much a TGFB received as it is a change in TGFB signaling. Try calling it a gradient/change of TGFB in the cell.
-\sout{Each cell receives an amount of TGF-$\beta$ given by}
-\tcb{The amount of TGF-$\beta$ absorbed by all cells is given by an increasing Hill function in terms of the TGF-$\beta$ in the TME.
-The saturation effect is to limit the amount of TGF-$\beta$ a cell can absorb in a given time interval.
-This quantity is then divided up randomly among the $N_C$ living cells via a normally distributed noise term to determine how much exogenous TGF-$\beta$ each cell receives during this cell cycle.
-Should this value, $\tau_i$ in Eq. 2.5, be negative, we interpret this as the cell losing TGF-$\beta$ to the TME and thus being more likely to undergo MET.}	
-
-\begin{equation}\tag{2.5}
-\tau_i = \frac{\tau_{\text{max}}}{N_C}\frac{\tau/K_3}{1+\tau/K_3} + X_i
-, \quad X_i \sim N(0,\sigma^2)
-\end{equation}
-
-
-\tcb{
-We then combine $\tau_i$ with the current EMT score of the cell, as a proxy for the endogenous TGF-$\beta$.
-Finally, if this quantity is large enough, \sout{the cell undergoes EMT; otherwise, it undergoes MET.} \tcb{the EMT score of the cell increases towards 1; otherwise, it decreases towards 0.}
-}
-% Need to add better explanation for Hill fn. Make sure thoroughly explained
-\sout{The summand on the left deterministically divides up the total TGF-$\beta$ among all $N$ cells evenly and a Hill function on this quantity determines how much TGF-$\beta$ each cell thus receives.}
-\sout{Then, some randomness is introduced by the independent and identically distributed variables $X_i$ where $\sigma$ is a parameter in the model.
-If this quantity is large enough, relative to the EMT score of the cell, then the cell will undergo EMT and its EMT score will increase.
-If not, then the cell undergoes the reverse process, MET, and its EMT score will decrease.
-}
-Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
-Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: concentration of TGF-$\beta$ in the system and the current EMT score of the cell.
-
-Next, the amount of TGF-$\beta$ for the next cell cycle is determined by the number of mutated cells, $N_{\text{MUT}}$, and the number of Treg cells, $N_{\text{Treg}}$, each one producing a fixed amount of TGF-$\beta$. It is given by
-
-\begin{equation}\tag{2.6}
-\tau = \tau_{\text{MUT}}N_{\text{MUT}} + \tau_{\text{Treg}}N_{\text{Treg}}
-\end{equation}
-
-
-Finally, the immune populations are updated.
-For the NKs, they obey the following differential equation:
- 
-\begin{equation}\tag{2.7}
-N_{\text{NK}}' = \sigma_{\text{NK}} - d_{\text{NK}}N_{\text{NK}}
-\end{equation}
-
-which is discretized to
- 
- \begin{equation}\tag{2.8}
-N_{\text{NK}}(k+1) = \left (N_{\text{NK}}(k)-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}}
-\end{equation}
-
-For CTLs and Tregs, they rely on \sout{mutant} \tcb{malignant} cells being cleared before they can be activated.
-Let $N_{\text{MUT}}^*(k)$ represent the number of \sout{mutant} \tcb{malignant} cells cleared by the immune system during cell cycle $k$.
-In addition, Treg recruitment is upregulated by TGF-$\beta$, which will be incorporated via a Hill function with EC50 term $K_4$.
-We choose the following differential equations to govern the CTL and Treg populations:
-
-\begin{equation}\tag{2.9}
-\begin{split}
-N_\text{CTL}' & = \sigma_{\text{CTL}}N_{\text{MUT}}^* - d_{\text{CTL}}N_\text{CTL} \\
-N_\text{Treg}' & = \sigma_{\text{Treg}}N_{\text{MUT}}^* \frac{\tau}{1+\tau/K_4}- d_{\text{Treg}}N_\text{Treg}
-\end{split}
-\end{equation}
-
-Discretized, these are:
-
-\begin{equation}\tag{2.10}
-\begin{split}
-N_\text{CTL}(k+1) & =  \left (N_\text{CTL}(k)-\sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\\
-N_\text{Treg}(k+1) & =  \left (N_\text{Treg}(k)-\frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau(k)}{1+\tau(k)/K_4}\right )\exp(-d_{\text{Treg}}\Delta t)\\
-&+ \frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau(k)}{1+\tau(k)/K_4}
-\end{split}
-\end{equation}
+Also at this time, new driver mutations have a chance to occur.
+The cells that proliferated are the only ones that have a probability of acquiring a new driver mutation.
+This probability is cell-specific and is increased if no mutation occurs and reset to 0 if a mutation does occur.
+\par
+Finally, the concentration of TGF-$\beta$ is updated as well as the EMT score for each cell is updated.
+Malignant cells and Tregs are the two sources of TGF-$\beta$ each producing a constant amount.
+Tregs are assumed to produce much more TGF-$\beta$ than malignant cells.
+The resulting quantity of TGF-$\beta$ is divided up randomly among the tissue cells.
+This quantity is combined with the EMT score of each cell and the resulting quantity determines which cells undergo EMT and which undergo MET.
+The equations governing these processes can be found in the supplement.
+%After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
+%First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
+%This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
+%Second, all proliferating cells have a cell-specific probability of undergoing a \sout{pathway mutation} \tcb{driver mutation in one of the three pathways}.
+%If they do, one is randomly chosen among the three pathways and the pathway in that cell \sout{mutates} \tcb{becomes altered}.
+%If the cell does not undergo a mutation, then its probability of mutation during subsequent cell cycles increases.
+%\par
+%Finally, the EMT values for each cell is updated.
+%This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
+%% The following sentence could be altered to reflect that the threshold value for $\tau$ is 0, so not only are negative values possible, but very common. So, this is not really so much a TGFB received as it is a change in TGFB signaling. Try calling it a gradient/change of TGFB in the cell.
+%\sout{Each cell receives an amount of TGF-$\beta$ given by}
+%\tcb{The amount of TGF-$\beta$ absorbed by all cells is given by an increasing Hill function in terms of the TGF-$\beta$ in the TME.
+%The saturation effect is to limit the amount of TGF-$\beta$ a cell can absorb in a given time interval.
+%This quantity is then divided up randomly among the $N_C$ living cells via a normally distributed noise term to determine how much exogenous TGF-$\beta$ each cell receives during this cell cycle.
+%Should this value, $\tau_i$ in Eq. 2.5, be negative, we interpret this as the cell losing TGF-$\beta$ to the TME and thus being more likely to undergo MET.}	
+%
+%\begin{equation}\tag{2.5}
+%\tau_i = \frac{\tau_{\text{max}}}{N_C}\frac{\tau/K_3}{1+\tau/K_3} + X_i
+%, \quad X_i \sim N(0,\sigma^2)
+%\end{equation}
+%
+%
+%\tcb{
+%We then combine $\tau_i$ with the current EMT score of the cell, as a proxy for the endogenous TGF-$\beta$.
+%Finally, if this quantity is large enough, \sout{the cell undergoes EMT; otherwise, it undergoes MET.} \tcb{the EMT score of the cell increases towards 1; otherwise, it decreases towards 0.}
+%}
+%% Need to add better explanation for Hill fn. Make sure thoroughly explained
+%\sout{The summand on the left deterministically divides up the total TGF-$\beta$ among all $N$ cells evenly and a Hill function on this quantity determines how much TGF-$\beta$ each cell thus receives.}
+%\sout{Then, some randomness is introduced by the independent and identically distributed variables $X_i$ where $\sigma$ is a parameter in the model.
+%If this quantity is large enough, relative to the EMT score of the cell, then the cell will undergo EMT and its EMT score will increase.
+%If not, then the cell undergoes the reverse process, MET, and its EMT score will decrease.
+%}
+%Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
+%Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: concentration of TGF-$\beta$ in the system and the current EMT score of the cell.
+%
+%Next, the amount of TGF-$\beta$ for the next cell cycle is determined by the number of mutated cells, $N_{\text{MUT}}$, and the number of Treg cells, $N_{\text{Treg}}$, each one producing a fixed amount of TGF-$\beta$. It is given by
+%
+%\begin{equation}\tag{2.6}
+%\tau = \tau_{\text{MUT}}N_{\text{MUT}} + \tau_{\text{Treg}}N_{\text{Treg}}
+%\end{equation}
+%
+%
+%Finally, the immune populations are updated.
+%For the NKs, they obey the following differential equation:
+% 
+%\begin{equation}\tag{2.7}
+%N_{\text{NK}}' = \sigma_{\text{NK}} - d_{\text{NK}}N_{\text{NK}}
+%\end{equation}
+%
+%which is discretized to
+% 
+% \begin{equation}\tag{2.8}
+%N_{\text{NK}}(k+1) = \left (N_{\text{NK}}(k)-\frac{\sigma_{\text{NK}}}{d_{\text{NK}}} \right )\exp(-d_{\text{NK}}\Delta t)+\frac{\sigma_{\text{NK}}}{d_{\text{NK}}}
+%\end{equation}
+%
+%For CTLs and Tregs, they rely on \sout{mutant} \tcb{malignant} cells being cleared before they can be activated.
+%Let $N_{\text{MUT}}^*(k)$ represent the number of \sout{mutant} \tcb{malignant} cells cleared by the immune system during cell cycle $k$.
+%In addition, Treg recruitment is upregulated by TGF-$\beta$, which will be incorporated via a Hill function with EC50 term $K_4$.
+%We choose the following differential equations to govern the CTL and Treg populations:
+%
+%\begin{equation}\tag{2.9}
+%\begin{split}
+%N_\text{CTL}' & = \sigma_{\text{CTL}}N_{\text{MUT}}^* - d_{\text{CTL}}N_\text{CTL} \\
+%N_\text{Treg}' & = \sigma_{\text{Treg}}N_{\text{MUT}}^* \frac{\tau}{1+\tau/K_4}- d_{\text{Treg}}N_\text{Treg}
+%\end{split}
+%\end{equation}
+%
+%Discretized, these are:
+%
+%\begin{equation}\tag{2.10}
+%\begin{split}
+%N_\text{CTL}(k+1) & =  \left (N_\text{CTL}(k)-\sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\right )\exp(- d_{\text{CTL}}\Delta t) + \sigma_{\text{CTL}}N_{\text{MUT}}^*(k)/d_{\text{CTL}}\\
+%N_\text{Treg}(k+1) & =  \left (N_\text{Treg}(k)-\frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau(k)}{1+\tau(k)/K_4}\right )\exp(-d_{\text{Treg}}\Delta t)\\
+%&+ \frac{\sigma_{\text{Treg}}N_{\text{MUT}}^*(k)}{d_{\text{Treg}}} \frac{\tau(k)}{1+\tau(k)/K_4}
+%\end{split}
+%\end{equation}
 
 \begin{table}[H]
 \begin{center}
- \begin{tabular}{|| c | c||} 
+ \begin{tabular}{|| c | c ||} 
  \hline
  {\bf Name} & {\bf Description}  \\ [0.5ex] 
  \hline
@@ -428,11 +477,11 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
  \hline
  $\Delta_\text{MGA}$ & mesenchymal growth arrest    \\
  \hline
-  $\Delta_A$ & \tcr{mutant cells decreased apoptosis}  \\ % should this and the others like it be more clear in stating this is not for all malignant cells, but only those with apoptosis pathway mutation? Better to be longer and unambiguous "decrease in apoptosis rate in cells with driver mutation in apoptosis pathway"
+  $\Delta_A$ & \tcb{decrease in apoptosis rate in cells with driver mutation in apoptosis pathway}  \\ % should this and the others like it be more clear in stating this is not for all malignant cells, but only those with apoptosis pathway mutation? Better to be longer and unambiguous "decrease in apoptosis rate in cells with driver mutation in apoptosis pathway"
   \hline
-  $\Delta_\text{IE}$ & mutant cells increased immune evasion  \\
+  $\Delta_\text{IE}$ & \tcb{increase in immune evasion in cells with driver mutation in immune evasion pathway} \\
   \hline
-  $\Delta_P$ & mutant cells increased proliferation  \\
+  $\Delta_P$ & \tcb{increase in proliferation in cells with driver mutation in proliferation pathway}\\
   \hline
  $K_0$ & EC50 term for negative feedback of tissue cells on own proliferation\\
  \hline
@@ -471,7 +520,7 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
  $\tau_\text{Treg}$ & rate of TGF-$\beta$ production by Treg\\
   \hline
 \end{tabular}
-  \caption{The model parameter names and descriptions. Note that many of these values are affected by the inflammation state of the system.}
+  \caption{The model parameter names and descriptions. Note that \sout{many} \tcb{some} of these values are affected by the inflammation state of the system.}
 \end{center}
 \end{table}
 
