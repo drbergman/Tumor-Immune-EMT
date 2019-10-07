@@ -1,20 +1,10 @@
 
 \documentclass[11pt, a4paper, preprint]{article}
-%\usepackage{outline}
-%\usepackage{float}
-%\usepackage{graphicx}
-%\usepackage{color}
-%\usepackage{amsmath}
-%\usepackage{cite}
-%\graphicspath{ {Figs/} }
-%\usepackage{longtable}
 
 \usepackage{amsmath, amssymb, graphicx, outline, float, cite, color}
 \usepackage{longtable,array}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
-
-%\input{../structure.tex} % Specifies the document structure and loads requires packages
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -62,7 +52,6 @@ There are four factors that contribute to the weight of a cell to proliferate.
 The first is a base proliferation rate that all cells have, $p$.
 Second, if the cell has a mutation in the proliferation pathway ($\delta_P=1$), then the weight for proliferation is proportionally increased by $\Delta_P$.
 Third, if the cell is mesenchymal ($\zeta=1$), then the weight for proliferation is proportionally decreased by $\Delta_{\text{MGA}}$, which stands for mesenchymal growth arrest.
-% Add: 
 This lost proliferation for mesenchymal cells will later be used to increase their chance of resting.
 Fourth, there is a negative feedback of the cells on their own proliferation which is quantified by a Hill factor as a function of the tissue cell population, $N_C$, with EC50 term $K_0$.
 In total, the weight for proliferation is given by
@@ -119,7 +108,6 @@ If the cell does not undergo a mutation, then its probability of mutation during
 \par
 Finally, the EMT values for each cell is updated.
 This depends on the cells current EMT score and how much TGF-$\beta$ is currently in the system.
-% The following sentence could be altered to reflect that the threshold value for $\tau$ is 0, so not only are negative values possible, but very common. So, this is not really so much a TGFB received as it is a change in TGFB signaling. Try calling it a gradient/change of TGFB in the cell.
 The amount of TGF-$\beta$ absorbed by all cells is given by an increasing Hill function in terms of the TGF-$\beta$ in the TME.
 The saturation effect is to limit the amount of TGF-$\beta$ a cell can absorb in a given time interval.
 This quantity is then divided up randomly among the $N_C$ living cells via a normally distributed noise term to determine how much exogenous TGF-$\beta$ each cell receives during this cell cycle.
@@ -133,7 +121,6 @@ Should this value, $\tau_i$ in Eq. 2.5, be negative, we interpret this as the ce
 
 We then combine $\tau_i$ with the current EMT score of the cell, as a proxy for the endogenous TGF-$\beta$.
 Finally, if this quantity is large enough, the EMT score of the cell increases towards 1; otherwise, it decreases towards 0.
-% Need to add better explanation for Hill fn. Make sure thoroughly explained
 Each cell then is relabeled as either epithelial or mesenchymal depending on its new EMT score and whether it is below or above the mesenchymal threshold.
 Thus, there are two main factors that determine if a cell will end a cell cycle as mesenchymal: concentration of TGF-$\beta$ in the system and the current EMT score of the cell.
 
