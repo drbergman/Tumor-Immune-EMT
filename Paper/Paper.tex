@@ -124,9 +124,7 @@ Tumor cells interact with the immune system by initiating a sequence of events t
 The effects of the immune system on a tumor can be broadly summarized into two modules. The cytotoxic branch of the immune system, such as natural killer cells (NKs) and cytotoxic T cells (CTLs), seek out and lyse tumor cells.
 Upon carrying out their effector functions, these cytotoxic cells lose efficacy or deactivate entirely \cite{finn12_immunooncology-1}.
 The regulatory branch of the immune system (Tregs and other factors), inhibits the effective functioning of the cytotoxic branch \cite{ruffell2010lymphocytes}.
-% Does the following sentence still fit with our new focus on progression? I'm looking specifically at the words "pre-cancerous" and "tumorigenesis".
 In addition, the immune system plays important regulatory roles in \sout{pre-cancerous} \tcb{premalignant} tissue, where inflammation can increase the probability of \sout{tumorigenesis} progression (and/or decrease the time to cancer), \sout{particularly} \tcb{including} in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}.
-% Similar concern to above as Guo's paper dealt with initiation, not progression.
 \tcr{Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo17_multiscale}.}
 \par
 Epithelial-to-mesenchymal transition (EMT) describes a reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
@@ -135,7 +133,6 @@ Recent work has shown that -- rather than being a binary process -- at least two
 Ongoing investigations into the plasticity and stability of EMT overlap with discussions elsewhere, e.g. of discrete vs. continuous processes during cell differentiation \cite{moris16_transition}.
 Intermediate states have emerged as a central mechanism by which cell fates (and the noise inherent within them) can be controlled \cite{maclean18_exploring, ta16_controlling, rackauckas18_meanindependent}. 
 \par 
-% Should we even mention initiation here? Make sure to combine below end-of-sentence refs into single \cite command.
 While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of tumor \sout{initiation} \tcb{\cite{puisieux2014oncogenic}} progression \cite{nieto2016emt}\tcb{\cite{peinado2007snail}}.
 TGF-$\beta$ is a master regulator of EMT \cite{lim2012epithelial}, linking it to the signaling networks involved in tumor-mediated immune responses, since Tregs release TGF-$\beta$ upon arriving at the tumor site\cite{terry2017new}. 
 \tcb{There is evidence directly linking Treg-secreted TGF-$\beta$ with EMT in hepatocellular carcinoma\cite{shi2019cd4+}.}
@@ -168,7 +165,6 @@ Global sensitivity analysis identifies parameters that are crucial for \sout{tum
 We then study these in more depth, focusing on the competing effects of EMT and of the immune system on \sout{tumorigenesis} \tcb{progression}: we find that EMT intricately regulates \sout{tumorigenesis} \tcb{progression} and that under certain regimes a careful balance of EMT- and immune-driven processes can significantly prolong cancer-free survival.
 \sout{To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects predicted by the model for patients with pancreatic cancer.}
 \tcb{To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects of inflammation and EMT predicted by the model for patients with pancreatic cancer.}
-% Consider rewriting above
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %                         METHODS                        %
@@ -198,7 +194,6 @@ We then study these in more depth, focusing on the competing effects of EMT and 
 
 \section{Methods}
 We develop an agent-based model to describe the relationships between cancer, the immune system, and EMT, building on cell-cycle and tissue-cell components of \cite{guo17_multiscale}. 
-% might want to define "driver mutation" in intro. See PreMalignant_Thoughts.txt for definition found in a source. Will do this.
 The agents in the model are the tissue cells \sout{with tumorigenic potential} \tcb{that have already formed a premalignant tumor yet lack key driver mutations}.
 \sout{These can either be mutation-free or, resulting from DNA damage during the cell cycle, can have any combination of three possible pathway mutations (shown in Fig. \ref{fig:ModelIntro}A).}
 \tcb{
@@ -207,7 +202,6 @@ In the process of the simulation, these cells can acquire driver mutations alter
 If the pathway is altered, the component is colored red and is marked with `X'.
 \sout{A single mutation is sufficient for the cell to be considered as a mutant cell.}
 \tcb{
-% I'm not a fan of "malignant", but I'll use it for now so that a quick replace all can change it later.
 We distinguish between cells that have zero driver mutations and those with at least one as premalignant and malignant, respectively.
 }
 \par
@@ -222,7 +216,6 @@ also assumed to be well-mixed in the TME so that all tissue cells have equal acc
 Tissue cells can take on either epithelial or mesenchymal phenotypes in a plastic manner: these phenotypes depend on both the TME and cell-intrinsic factors.
 \sout{While the score is continuous, a threshold determines if a given cell is labeled as epithelial or mesenchymal.}
 \tcb{While the EMT score is continuous, a threshold determines if a given cell is labeled as epithelial or mesenchymal.}
-% Above line replaced
 In Fig. \ref{fig:ModelIntro}A, the EMT labeling is given by the \sout{color} \tcb{shade of blue} of the cell.
 Even though each cell does have an EMT score on a spectrum of values, only the labeling influences its interactions in the model.
 
@@ -236,14 +229,13 @@ The EMT score will be exposited in Section \ref{EMT}.
 
 \subsection{The Immune System}\label{ImmuneSystem}
 The immune system is modeled as having three active immune cell types: NKs, CTLs, and Tregs.
-% We could justify the immune system not clearing "base" mutated cells by saying the immune surveillance provides a baseline control over these cells accounted for in their apoptosis. Or suggesting that we are interested in immune activity above and beyond the baseline requirement to keep this tumor in check.
 The NKs and CTLs act on the system by recognizing \sout{mutated} \tcb{malignant} cells and clearing them.
 Upon successful clearance, they themselves are then deactivated and removed from the immune population.
 Tregs act on the system by suppressing the effector functions of NKs and CTLs, making it less likely they can clear \sout{mutated} \tcb{malignant} cells.
 In addition to this, Tregs release TGF-$\beta$ which further shapes the TME by pushing tissues cells more towards a mesenchymal phenotype.
 
 \tcb{
-\subsection{Inflammation} % How did we not have a section on this before?
+\subsection{Inflammation} 
 We also include an inflammation score that follows a fixed cycling scheme between low and high inflammatory states.
 This is to simulate the various changes to the TME that can happen over long periods of time (days and weeks).
 For the purpose of the model, we consider low inflammation to be the default state.
@@ -295,7 +287,10 @@ For apoptosis, the probability is constant except for those cells with a driver 
 For immune clearance, we assume that only cells with newly acquired driver mutations are targeted by the immune system, and their probability of being cleared depends on the immune infiltrate.
 This probability can be decreased by a cell having a driver mutation in the immune evasion pathway or by a cell being mesenchymal.
 Further details and equations are given in the supplement.
+
 %%%%%% MOVED TO SUPPLEMENT %%%%%%%%%%%%%
+
+
 %During each cell cycle, every cell randomly is assigned a cell fate from the following options:
 %\begin{itemize}
 %\item proliferation
@@ -386,6 +381,12 @@ Tregs are assumed to produce much more TGF-$\beta$ than malignant cells.
 The resulting quantity of TGF-$\beta$ is divided up randomly among the tissue cells.
 This quantity is combined with the EMT score of each cell and the resulting quantity determines which cells undergo EMT and which undergo MET.
 The equations governing these processes can be found in the supplement.
+
+
+%%%%%% MOVED TO SUPPLEMENT %%%%%%%%%%%%%
+
+
+
 %After the cell fates are determined and the results reflected in the system, there are a few things that happen before the system moves on to a new cell cycle.
 %First, the NK and CTL populations are reduced by the number of mutated cells they cleared.
 %This represents the fact that individual immune cells lose efficacy as they carry out their effector functions. 
@@ -463,6 +464,10 @@ The equations governing these processes can be found in the supplement.
 %\end{split}
 %\end{equation}
 
+
+%%%%%% END MOVED TO SUPPLEMENT %%%%%%%%%%%%%
+
+
 \begin{table}[H]
 \begin{center}
  \begin{tabular}{|| c | c ||} 
@@ -477,8 +482,8 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
  \hline
  $\Delta_\text{MGA}$ & mesenchymal growth arrest    \\
  \hline
-  $\Delta_A$ & \tcb{decrease in apoptosis rate in cells with driver mutation in apoptosis pathway}  \\ % should this and the others like it be more clear in stating this is not for all malignant cells, but only those with apoptosis pathway mutation? Better to be longer and unambiguous "decrease in apoptosis rate in cells with driver mutation in apoptosis pathway"
-  \hline
+  $\Delta_A$ & \tcb{decrease in apoptosis rate in cells with driver mutation in apoptosis pathway}  \\ 
+    \hline
   $\Delta_\text{IE}$ & \tcb{increase in immune evasion in cells with driver mutation in immune evasion pathway} \\
   \hline
   $\Delta_P$ & \tcb{increase in proliferation in cells with driver mutation in proliferation pathway}\\
@@ -525,7 +530,6 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
 \end{table}
 
 \subsubsection{Mutation and \sout{tumorigenesis} \tcb{progression}}
-% 3rd Referee did not like this terminology for a tumorigenic event. Should we change it or better explain it?
 At the end of each cell cycle, the proportion of tissue cells that are \sout{mutated} \tcb{malignant} is calculated, and if it is above a certain threshold, \sout{a tumorigenic event is recorded and the patient is determined to have cancer.}
 \tcb{the simulation ends and we declare the tumor to have progressed.}
 The Time to Cancer is given as the time from the start of the simulation, not including warmup, until \sout{tumorigenesis.} \tcb{this timepoint.}
@@ -548,7 +552,6 @@ Once we had these parameter values, we created Gaussian distributions centered a
 Some of the parameters were also truncated to the right because they represented a proportion, such as MIE and MGA, or because we simply wanted to keep the values within a reasonable range, such as the inflammation low and high duration parameters.
 The \sout{variances} \tcb{standard deviations} were chosen as twice the mean to get a large spread of values.
 \par
-% Referee 2 either missed the following line or doesn't understand what average of absolute change means.
 \tcr{The algorithm computes the average of the absolute change of the output, which in our model is the area under the survival curve.}
 This output of the algorithm, $\mu^*$, is the sensitivity plotted in Fig. \ref{fig:MOAT}.
 
@@ -578,7 +581,6 @@ Below we analyze data gathered for pancreatic cancer, denoted by ``PAAD'' in TCG
 \caption{A. Schematic depiction of agent-based model components; \tcb{
 each of the 10 columns represents a single tissue cell divided into three compartments representing the state (altered or not) of the three pathways with mutagenic potential;
 }\sout{blue/red denote tissue cells with/without mutations} \tcb{red/blue denotes altered/unaltered pathways} . Black arrows depict regulation of the cell fate in each cell cycle. Inset depicts major interactions between the immune system and tissue cells.
- %The parameters used in this model can be found in the Supplementary material. Unless otherwise stated, parameter values are assumed to be those found in the Supplement. \tcr{Thoughts on the wording here? Once I have the table, I will use the name of that table.}
 B. A representative simulation of one patient. The model parameter values used can be found in \sout{Supplementary} Table \tcb{S}2. 
 The inflammation cycling scheme is represented above the patient dynamics. The vertical dashed line denotes the end of the warmup period. Mut: \sout{mutated} \tcb{malignant} cells; Mes: mesenchymal cells. 
 C. Survival curve for one cohort of patients with the parameter values given in \sout{Supplementary} Table {S}2. }
