@@ -44,15 +44,15 @@ and Adam L. MacLean\,$^{3,*}$
 
 
 \section*{Abstract}
-During cancer progression, the immune system is engaged in complex sets of interactions with epithelia that affect tumor prognosis.
-Inflammation also has significant effects on gastrointestinal and pancreatic tumors.
-Moreover, epithelial cell plasticity can significantly alter disease trajectories (for better or worse) via epithelial-to-mesenchymal transition (EMT).
+During cancer progression, the immune system is engaged in complex sets of interactions with various tumor cells that affect prognosis.
+Inflammation has particularly significant effects on gastrointestinal and pancreatic tumors.
+Moreover, epithelial cell plasticity can significantly alter disease trajectories via epithelial-to-mesenchymal transition (EMT).
 Several of the same pathways that regulate EMT are involved in tumor-immune interactions, yet little is known about the mechanisms and consequences of these regulatory processes.
 Here we introduce a multiscale evolutionary model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial tissues.
 Through {\em in silico} analysis of large patient cohorts, we found controllable regimes that maximize cancer-free survival.
 Delaying progression depended crucially on properties of the mesenchymal phenotype: its growth rate and its immune-evasiveness.
 We performed analysis of pancreatic cancer data from The Cancer Genome Atlas to compare clinical measurements with model predictions.
-We found, in broad agreement with the model, that association with EMT worsened the survival probabilities of inflammation-associated cancer.
+We found that association with EMT worsened the survival probabilities of inflammation-associated cancer.
 These results offer novel means to delay disease progression by regulating properties of EMT, and demonstrate the importance of studying cancer-immune interactions in light of EMT.
 
 \linenumbers
@@ -61,8 +61,66 @@ These results offer novel means to delay disease progression by regulating prope
 %                    INTRODUCTION                    %
 %%%%%%%%%%%%%%%%%%%%%%%
 
+
+\section{Introduction}
+A key question in understanding cancer is how tumors transition from a premalignant state into an aggressive, malignant state.
+This process is commonly referred to as progression \tcr{(citation)} and results in a much worse prognosis for the patient.
+There are many means by which a tumor can transition from a premalignant state into a malignant state \tcr{(citation)}, but one of the main ones is that of driver mutations.
+Driver mutations are those that "directly or indirectly [confer] a selective growth advantage to the cell in which it occurs." \cite{ryan2016hallmarks}.
+There are several identifiable cell processes that can be affected by such driver mutations, including proliferation, apoptosis, and immunogenicity.
+\par
+When it comes to cancer and the immune system, they interact in myriad ways.
+Beyond direct tumor-immune cell interactions, the immune system modulates the tumor microenvironment (TME): responding to local inflammatory signals, targeting mutated cells, and eradicating tumor cells to potentially restore homeostasis in a local context \cite{de2006paradoxical}.
+Recent breakthroughs in the field of immunotherapy are beginning to produce therapies that have had a significant impact on patient health and survival \cite{pardoll2012blockade,restifo2012adoptive}.
+\par 
+Tumor cells interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens recognized by innate immune cells that are transported to lymph nodes where T cells (and other components) can be activated \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing immunosuppression via activation of T regulatory cells (Tregs) \cite{schreiber11_cancer}.
+\par
+The effects of the immune system on a tumor can be broadly summarized into two modules. The cytotoxic branch of the immune system, such as natural killer cells (NKs) and cytotoxic T cells (CTLs), seek out and lyse tumor cells.
+Upon carrying out their effector functions, these cytotoxic cells lose efficacy or deactivate entirely \cite{finn12_immunooncology-1}.
+The regulatory branch of the immune system (Tregs and other factors), inhibits the effective functioning of the cytotoxic branch \cite{ruffell2010lymphocytes}.
+In addition, the immune system plays important regulatory roles in premalignant tissue, where inflammation can increase the probability of progression (and/or decrease the time to cancer), including in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}.
+Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo17_multiscale}.
+\par
+Epithelial-to-mesenchymal transition (EMT) describes a reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
+While epithelial cells are in part defined by their adhesion to neighbors, mesenchymal cells show much greater ranges of motility, and may display stem-like properties \cite{nieto2016emt}, although controversy regarding `stemness' and EMT remains \cite{nie18_stem, sha19_intermediate}.  
+Recent work has shown that -- rather than being a binary process -- at least two stable intermediate states exist on the EMT axis \cite{hong2015ovol2, jolly15_coupling}.
+Ongoing investigations into the plasticity and stability of EMT overlap with discussions elsewhere, e.g. of discrete vs. continuous processes during cell differentiation \cite{moris16_transition}.
+Intermediate states have emerged as a central mechanism by which cell fates (and the noise inherent within them) can be controlled \cite{maclean18_exploring, ta16_controlling, rackauckas18_meanindependent}. 
+\par 
+While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of tumor progression \cite{nieto2016emt,peinado2007snail}.
+TGF-$\beta$ is a master regulator of EMT \cite{lim2012epithelial}, linking it to the signaling networks involved in tumor-mediated immune responses, since Tregs release TGF-$\beta$ upon arriving at the tumor site\cite{terry2017new}. 
+There is evidence directly linking Treg-secreted TGF-$\beta$ with EMT in hepatocellular carcinoma\cite{shi2019cd4+}.
+Thus, even by considering only a single signaling factor, we find these three components (the tumor, the immune system, and EMT) to be linked. It therefore strikes us as a priority to develop models to understand how interactions between each of these three components affect cancer incidence and progression.
+\par
+Two features of the mesenchymal phenotype are of particular relevance in the context of cancer and the immune system: i) mesenchymal cells are less susceptible to immune clearance \cite{terry2017new}; and ii) mesenchymal cells proliferate on average at a slower rate than epithelial cells.
+The immune evasiveness of mesenchymal cells is well-established: as a cell is targeted by cytotoxic immune cells for clearance, a physical connection between the two cells must be established before the lysing event.
+This immunological synapse is dependent upon the surface proteins, such as the T-cell receptors of the major histocompatibility complex, of the target cell, and in the case of mesenchymal cells there is preliminary evidence that these surface markers are down-regulated in such a way that the immune synapse is more difficult to form \cite{terry2017new}.
+Below we refer to this phenotype as mesenchymal immune evasion (MIE).
+\par
+The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells have been speculate to exhibit a more ``stemness'' phenotype.
+While many cell behaviors are associated with stemness, here we target the specific reduction in proliferation rate \cite{woods2014effects}.
+Cancer cells are of course characterized by some degree of unregulated proliferation, thus it is appealing to explore the effects of differential proliferation rates within the cancer cell population.
+In our model, we refer to the reduced proliferative capacity associated with a mesenchymal cell phenotype as mesenchymal growth arrest (MGA).
+  
+Mathematical oncology, that is, mathematical models of cancer incidence, progression, and treatment, has become a well-developed field; many models have offered insight into the cellular interactions underlying cancer and its interplay with the immune system, including classic \cite{anderson98_continuous, sherrattjonathana.92_oncogenes, pillis05_validated} and more recent works \cite{kim18_cell, gallaher14_bridging, gallaher18_spatial, an15_agentbased, serre16_mathematical, louzoun14_mathematical, briones-orta13_arkadia, lavi13_role, greene15_modeling, greene16_mathematical, cho17_modeling-1,  benzekry17_mathematical, owen11_mathematical, west18_multidrug}. These studies have increased our understanding of how tumors grow in the presence of various immune components, and how treatment regimes can be designed to maximize the efficacy of cytotoxicity while minimizing risks to the patient. However, to our knowledge no models have addressed how the effects of EMT alter interactions between the immune system and cancer, and the subsequent implications for treatment. 
+\par
+Here we develop a model with the goal of studying interactions between the tumor, the immune system and EMT.
+We seek to describe a set of crucial molecular and cellular interactions in epithelial tissue cells, including effects due to DNA damage and mutation, to investigate the probability that premalignant tissue will progress and, if so, when.
+A recent model of cancer-immune interactions \cite{guo17_multiscale} described the effects of the TME on the risk of cancer, and we build on the core cell cycle component of this model, adding significant new interactions to the immune component of the model (which was previously modeled by a single interaction), as well as adding the effects of EMT.
+In doing so, we shift the focus of the previous model from cancer initiation to cancer progression.
+We do this to reflect the fact that cancer progression hinges on escape from the immune system and the fact that EMT has a more well-defined role during progression and metastasis.
+We seek to understand whether this more complex immune module will change our understanding of inflammatory effects on the tumor, and how the epithelial-mesenchymal axis influences these.
+\par 
+In the next section we develop the model and give explanation of the intuition behind each component.
+We then go on to analyze its behavior.
+Global sensitivity analysis identifies parameters that are crucial for progression.
+We then study these in more depth, focusing on the competing effects of EMT and of the immune system on progression: we find that EMT intricately regulates progression and that under certain regimes a careful balance of EMT- and immune-driven processes can significantly prolong cancer-free survival.
+To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects of inflammation and EMT predicted by the model for patients with pancreatic cancer.
+
+
+
 \begin{framed}
-    Quick Guide to Equations and Assumptions
+    {\bf Quick Guide to Equations and Assumptions}
 \newline
     A premalignant tumor relies on driver mutations to alter key pathways that will allow the tumor to achieve greater growth potential and clinically progress to a malignant tumor.
     At the same time, the immune system is recognizing and adapting to the resulting neoantigens to suppress the tumor.
@@ -104,62 +162,10 @@ These results offer novel means to delay disease progression by regulating prope
     \newline
     What we desire to know is when do the malignant tumor cells reach a particular threshold proportion of all tumor cells.
     Once the tumor reaches this threshold, we declare that the tumor has progressed and we note how long the process took to reach this stage.
-\end{framed}
+  \end{framed}
 
-\section{Introduction}
-A key question in understanding cancer is how tumors transition from a premalignant state into an aggressive, malignant state.
-This process is commonly referred to as progression \tcr{(citation needed!)} and results in a much worse prognosis for the patient.
-There are many means \tcr{(citation needed!)} by which a tumor can transition from a premalignant state into a malignant state, but one of the main ones is that of driver mutations.
-Driver mutations are those that "directly or indirectly [confer] a selective growth advantage to the cell in which it occurs." \cite{ryan2016hallmarks}.
-There are several identifiable cell processes that can be affected by such driver mutations, including proliferation, apoptosis, and immunogenicity.
-\par
-When it comes to cancer and the immune system, they interact in myriad ways.
-Beyond direct tumor-immune cell interactions, the immune system modulates the tumor microenvironment (TME): responding to local inflammatory signals, targeting mutated cells, and eradicating tumor cells to potentially restore homeostasis in a local context \cite{de2006paradoxical}.
-Recent breakthroughs in the field of immunotherapy are beginning to produce therapies that have had a significant impact on patient health and survival \cite{pardoll2012blockade,restifo2012adoptive}.
-\par 
-Tumor cells interact with the immune system by initiating a sequence of events that results in the activation of the adaptive immune response. This is accomplished by the presentation of antigens recognized by innate immune cells that are transported to lymph nodes where T cells (and other components) can be activated \cite{schreiber11_cancer}. The tumor also engages in cellular processes that indirectly shape the TME, for example by releasing transforming growth factor beta (TGF-$\beta$), thus shifting the TME towards a tumor-supportive environment by enhancing immunosuppression via activation of T regulatory cells (Tregs) \cite{schreiber11_cancer}.
-\par
-The effects of the immune system on a tumor can be broadly summarized into two modules. The cytotoxic branch of the immune system, such as natural killer cells (NKs) and cytotoxic T cells (CTLs), seek out and lyse tumor cells.
-Upon carrying out their effector functions, these cytotoxic cells lose efficacy or deactivate entirely \cite{finn12_immunooncology-1}.
-The regulatory branch of the immune system (Tregs and other factors), inhibits the effective functioning of the cytotoxic branch \cite{ruffell2010lymphocytes}.
-In addition, the immune system plays important regulatory roles in premalignant tissue, where inflammation can increase the probability of progression (and/or decrease the time to cancer), including in tumors originating in gastrointestinal and pancreatic tissues \cite{hu10_inflammationinduced, balkwill01_inflammation}.
-Recent work raises some questions about the relationship between inflammation and cancer, suggesting that under certain conditions inflammation may not be oncogenic but rather onco-protective \cite{guo17_multiscale}.
-\par
-Epithelial-to-mesenchymal transition (EMT) describes a reversible process by which cells with an epithelial phenotype transition into cells with a mesenchymal phenotype.
-While epithelial cells are in part defined by their adhesion to neighbors, mesenchymal cells show much greater ranges of motility, and may display stem-like properties \cite{nieto2016emt}, although controversy regarding `stemness' and EMT remains \cite{nie18_stem, sha19_intermediate}.  
-Recent work has shown that -- rather than being a binary process -- at least two stable intermediate states exist on the EMT axis \cite{hong2015ovol2, jolly15_coupling}.
-Ongoing investigations into the plasticity and stability of EMT overlap with discussions elsewhere, e.g. of discrete vs. continuous processes during cell differentiation \cite{moris16_transition}.
-Intermediate states have emerged as a central mechanism by which cell fates (and the noise inherent within them) can be controlled \cite{maclean18_exploring, ta16_controlling, rackauckas18_meanindependent}. 
-\par 
-While EMT has for some time been assumed to impact metastasis, more recently EMT-related phenotypes have been linked to other aspects of tumor progression \cite{nieto2016emt,peinado2007snail}.
-TGF-$\beta$ is a master regulator of EMT \cite{lim2012epithelial}, linking it to the signaling networks involved in tumor-mediated immune responses, since Tregs release TGF-$\beta$ upon arriving at the tumor site\cite{terry2017new}. 
-There is evidence directly linking Treg-secreted TGF-$\beta$ with EMT in hepatocellular carcinoma\cite{shi2019cd4+}.
-Thus, even by considering only a single signaling factor, we find these three components (the tumor, the immune system, and EMT) to be linked. It therefore strikes us as a priority to develop models to understand how interactions between each of these three components affect cancer incidence and progression.
-\par
-Two features of the mesenchymal phenotype are of particular relevance in the context of cancer and the immune system: i) mesenchymal cells are less susceptible to immune clearance \cite{terry2017new}; and ii) mesenchymal cells proliferate on average at a slower rate than epithelial cells.
-The immune evasiveness of mesenchymal cells is well-established: as a cell is targeted by cytotoxic immune cells for clearance, a physical connection between the two cells must be established before the lysing event.
-This immunological synapse is dependent upon the surface proteins, such as the T-cell receptors of the major histocompatibility complex, of the target cell, and in the case of mesenchymal cells there is preliminary evidence that these surface markers are down-regulated in such a way that the immune synapse is more difficult to form \cite{terry2017new}.
-Below we refer to this phenotype as mesenchymal immune evasion (MIE).
-\par
-The other facet of mesenchymal cells is their slower proliferation rate, and this is tied to the observation that mesenchymal cells have been speculate to exhibit a more ``stemness'' phenotype.
-While many cell behaviors are associated with stemness, here we target the specific reduction in proliferation rate \cite{woods2014effects}.
-Cancer cells are of course characterized by some degree of unregulated proliferation, thus it is appealing to explore the effects of differential proliferation rates within the cancer cell population.
-In our model, we refer to the reduced proliferative capacity associated with a mesenchymal cell phenotype as mesenchymal growth arrest (MGA).
-\par
-Mathematical oncology, that is, mathematical models of cancer incidence, progression, and treatment, has become a well-developed field; many models have offered insight into the cellular interactions underlying cancer and its interplay with the immune system, including classic \cite{anderson98_continuous, sherrattjonathana.92_oncogenes, pillis05_validated} and more recent works \cite{kim18_cell, gallaher14_bridging, gallaher18_spatial, an15_agentbased, serre16_mathematical, louzoun14_mathematical, briones-orta13_arkadia, lavi13_role, greene15_modeling, greene16_mathematical, cho17_modeling-1,  benzekry17_mathematical, owen11_mathematical, west18_multidrug}. These studies have increased our understanding of how tumors grow in the presence of various immune components, and how treatment regimes can be designed to maximize the efficacy of cytotoxicity while minimizing risks to the patient. However, to our knowledge no models have addressed how the effects of EMT alter interactions between the immune system and cancer, and the subsequent implications for treatment. 
-\par
-Here we develop a model with the goal of studying interactions between the tumor, the immune system and EMT.
-We seek to describe a set of crucial molecular and cellular interactions in epithelial tissue cells, including effects due to DNA damage and mutation, to investigate the probability that premalignant tissue will progress and, if so, when.
-A recent model of cancer-immune interactions \cite{guo17_multiscale} described the effects of the TME on the risk of cancer, and we build on the core cell cycle component of this model, adding significant new interactions to the immune component of the model (which was previously modeled by a single interaction), as well as adding the effects of EMT.
-In doing so, we shift the focus of the previous model from cancer initiation to cancer progression.
-We do this to reflect the fact that cancer progression hinges on escape from the immune system and the fact that EMT has a more well-defined role during progression and metastasis.
-We seek to understand whether this more complex immune module will change our understanding of inflammatory effects on the tumor, and how the epithelial-mesenchymal axis influences these.
-\par 
-In the next section we develop the model and give explanation of the intuition behind each component.
-We then go on to analyze its behavior.
-Global sensitivity analysis identifies parameters that are crucial for progression.
-We then study these in more depth, focusing on the competing effects of EMT and of the immune system on progression: we find that EMT intricately regulates progression and that under certain regimes a careful balance of EMT- and immune-driven processes can significantly prolong cancer-free survival.
-To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), and find evidence for the synergistic effects of inflammation and EMT predicted by the model for patients with pancreatic cancer.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %                         METHODS                        %
@@ -280,9 +286,9 @@ The resulting quantity of TGF-$\beta$ is divided up randomly among the tissue ce
 This quantity is combined with the EMT score of each cell and the resulting quantity determines which cells undergo EMT and which undergo MET.
 The equations governing these processes can be found in the supplement.
 
-\begin{table}[H]
+\begin{table}
 \begin{center}
- \begin{tabular}{|| c | c ||} 
+ \begin{tabular}{|| c | l ||} 
  \hline
  {\bf Name} & {\bf Description}  \\ [0.5ex] 
  \hline
@@ -503,20 +509,16 @@ In contrast, when MIE is varied for different inflammation cycling schemes, rega
 \label{fig:MIEvsMGA}
 \end{figure}
 
-\subsection{Analysis of TCGA data in comparison with model predictions suggests that mesenchymal phenotypes reduce cancer-free survival probability}\label{tcga}
+\subsection{TCGA data analysis corroborates model predictions and shows that mesenchymal phenotypic properties reduce cancer-free survival probability}\label{tcga}
 
-
-To further assess the effects on progression of the mesenchymal properties of immune evasion and growth arrest, we study the joint density plot for each of these parameters against the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of $\Delta_\text{MGA}$ considered, increasing $\Delta_\text{MIE}$ decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with increasing MIE. Together these results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of cancer-free survival, an optimal value of MGA will prolong survival. 
+The effects on disease progression of the mesenchymal properties of immune evasion and growth arrest can also be assessed via the joint density plot of these parameters against the Time to Cancer (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of $\Delta_\text{MGA}$ considered, increasing $\Delta_\text{MIE}$ decreases the Time to Cancer. However, for any given value of mesenchymal immune evasion, there is a value of mesenchymal growth arrest that maximizes the Time to Cancer. Moreover, this optimal value increases with increasing MIE. Together these results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of cancer-free survival, an optimal value of MGA will prolong survival. 
 \par
 To compare these model predictions with experimental studies, we analyzed data from The Cancer Genome Atlas (TCGA) database to study the effects of immune and EMT interactions on prognosis of cancers for which inflammation is known to play an important role, such as colonic or pancreatic cancers \cite{greten2019inflammation,hu2010inflammation}.
-We note that the comparison between simulation and data here is indirect since the model studies the progression of cancer from an arbitrary starting point, while the data address the progression of cancer following treatment, but analogous processes are at play during both the progression of  clonal dynamics addressed by the model, and the progression of disease after cancer treatment.
-In particular, the plasticity of tumor cells allows them to evade treatment by undergoing post-treatment processes resembling the de-novo appearance of cancer\cite{sanchez2018slow}.
-\par 
 The TCGA Pan-Cancer Clinical Data Resource (TCGA-CDR) provides multiple computed clinical endpoints for PAAD \cite{liu2018integrated}.
 Here, we focus on the disease-free interval (DFI) and the overall survival (OS) endpoints.
 In essence, a tumor where the DFI is short will undergo rapid (post-treatment) initiation.
 In turn, we expect the distance between DFI and OS to be relatively small for a tumor undergoing rapid progression following initial (post-treatment) detection.
-Therefore, recurrent tumors may be roughly categorized as either rapidly progressing or slowly progressing by some arbitrary threshold of DFI/OS divergence.
+Therefore, recurrent tumors may be roughly categorized as either rapidly progressing or slowly progressing by defining a threshold for the DFI/OS divergence.
 We selected three tumor types whose TCGA-CDR profile indicated slow progression (OV, SKCM, LIHC) and three tumor types whose profile indicated rapid progression (PAAD, LUAD, COAD).
 See Figures \ref{fig:OV} and \ref{fig:PAAD} for OV and PAAD. The others will be in the supplement.
 \par
@@ -524,6 +526,12 @@ For each cohort of cancer patients, we cluster the patients via k-means (n = 2) 
 We also plot the corresponding survival curves for each of the clusters obtained (utilizing the originally reported OS endpoint).
 We see that in both cases, survival is affected by the gene ontology signature, but the presence of both EMT and inflammatory signatures has a greater impact on survival than the effects of EMT alone.
 This suggests that when studying interactions between cancer and the immune system, is it important to consider EMT; the effects of which may impact the dynamics and should not be overlooked. 
+
+
+We note that the comparison between simulation and data here is indirect since the model studies the progression of cancer from an arbitrary starting point, while the data address the progression of cancer following treatment, but analogous processes are at play during both the progression of  clonal dynamics addressed by the model, and the progression of disease after cancer treatment.
+In particular, the plasticity of tumor cells allows them to evade treatment by undergoing post-treatment processes resembling the de-novo appearance of cancer\cite{sanchez2018slow}.
+
+
 
 \begin{figure}
 \center
