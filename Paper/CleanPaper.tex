@@ -120,10 +120,10 @@ To test these predictions, we analyze data from the Cancer Genome Atlas (TCGA), 
 \begin{framed}
     {\bf Quick Guide to Equations and Assumptions}
 \newline
-An in situ tumor relies on mutations to alter cellular signaling pathways that will ultimately allow the tumor to become invasive. The immune system
-
-    At the same time, the immune system is recognizing and adapting to the resulting neoantigens to suppress the tumor.
-    All of this occurs within an environment that is often under the influence of inflammatory signals that can vary over time.
+An in situ tumor relies on mutations to alter cellular signaling pathways that will ultimately allow the tumor to become invasive. The immune system responds to the tumor upon recognition of the neoantigens and infiltrates the tumor microenvironment (TME). This environment is under the influence of inflammatory signals that vary over time.
+%
+%    At the same time, the immune system is recognizing and adapting to the resulting neoantigens to suppress the tumor.
+%    All of this occurs within an environment that is often under the influence of inflammatory signals that can vary over time.
 \newline
     To capture these dynamics, we built a non-spatial agent-based model where the tumor cells are the agents and immune cells are present as homogeneous populations.
     The model updates at discrete time intervals approximating the duration of a cell cycle.
@@ -136,7 +136,7 @@ An in situ tumor relies on mutations to alter cellular signaling pathways that w
     We use the following expression to determine the probability that during one time step of the model a tumor cell will be lysed by a CTL:
     $$\rho_{\text{CTL}} =\delta_{\text{MUT}} \frac{N_{\text{CTL}}}{N_C/K_{1}+N_{\text{CTL}}}  \frac{E_{\text{CTL}}}{1+N_{\text{Treg}}/K_2} (1-\delta_{\text{IE}}\Delta_{\text{IE}})(1-\zeta \Delta_{\text{MIE}})$$
     Here, $\delta_\text{MUT}$ is 1 or 0 depending on whether the cell has a driver mutation or not, respectively.
-    The second term is a hill function similar to the de Pillis-Radunskaya law.
+    The second term is a hill function similar to the dePillis-Radunskaya law and it assumes that the immune cells are well-mixed within the TME.
     The third term is the regulatory effect of Tregs.
     The final two terms are increased immune evasiveness due to a driver mutation in the immune evasion pathway and the immune evasiveness of mesenchymal cells (discussed below), respectively.
     The inflammatory state of the tumor microenvironment affects the speed at which immune cells are recruited to the tumor.
@@ -145,7 +145,7 @@ An in situ tumor relies on mutations to alter cellular signaling pathways that w
     Depending on which end of this spectrum a tumor cell is on, its proliferation and its evasion of the immune system will change.
     Specifically, if a cell is above a certain threshold, it will have its proliferation reduced by a fixed proportion and its immune evasiveness increased by a fixed proportion.
     These cells also demonstrate cellular plasticity by being able to undergo epithelial-to-mesenchymal transition (EMT) and move along this spectrum as a result of intrinsic and extrinsic factors.
-    Here, we choose TGF-$\beta$ as a master regulator of EMT and connect the TGF-$\beta$ level in the tumor microenvironment (TME) with the propensity of tumor cells to undergo EMT.
+    Here, we choose TGF-$\beta$ as a master regulator of EMT and connect the well-mixed TGF-$\beta$ level in the TME with the propensity of tumor cells to undergo EMT.
     As TGF-$\beta$ is produced by Tregs as well as by tumor cells, this creates an intriguing set of interlocking interactions that we show here to be capable of shaping tumor and patient outcomes.
     To update the EMT state of a cell, we determine how much TGF-$\beta$ is present in the TME--based on the number of malignant cells and Tregs--and apply a Hill function to determine whether a cell undergoes EMT or MET (the reverse process).
     For each cell, this quantity takes the following form:
@@ -168,24 +168,24 @@ An in situ tumor relies on mutations to alter cellular signaling pathways that w
 %                         METHODS                        %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{table}[H]
-\begin{tabular}{|p{\textwidth}|}
-\hline
-%%%
-\begin{itemize}
-\item TGF-$\beta$ is well-mixed within the TME
-\item All cells are on the same ``clock'', i.e. they all decide at the same time what to do next
-\item During a given cell cycle, exactly one event can happen to any one cell: proliferation, apoptosis, immune clearance, or rest
-\item All tumor cells (mutated and non-mutated) are equally likely to encounter immune cells
-\item Other spatial effects are ignored by the model, e.g. angiogenesis, hypoxia, invasive front, and chemotaxis
-\item The initial cells are mutated, but are not able to form an aggressive cancer without further mutations
-\end{itemize}
-\\
-\hline
-\end{tabular}
-\caption{Basic assumptions of the model}
-\label{table:model_assumptions}
-\end{table}
+%\begin{table}[H]
+%\begin{tabular}{|p{\textwidth}|}
+%\hline
+%%%%
+%\begin{itemize}
+%\item TGF-$\beta$ is well-mixed within the TME
+%\item All cells are on the same ``clock'', i.e. they all decide at the same time what to do next
+%\item During a given cell cycle, exactly one event can happen to any one cell: proliferation, apoptosis, immune clearance, or rest
+%\item All tumor cells (mutated and non-mutated) are equally likely to encounter immune cells
+%\item Other spatial effects are ignored by the model, e.g. angiogenesis, hypoxia, invasive front, and chemotaxis
+%\item The initial cells are mutated, but are not able to form an aggressive cancer without further mutations
+%\end{itemize}
+%\\
+%\hline
+%\end{tabular}
+%\caption{Basic assumptions of the model}
+%\label{table:model_assumptions}
+%\end{table}
 
 
 \section{Methods}
@@ -444,7 +444,7 @@ In terms of Treg cells, their secretion of TGF-$\beta$ is highly significant and
 
 \begin{figure}
 \center
-{\includegraphics[width=0.85\textwidth]{Figure2/Figure2.jpg}}
+{\includegraphics[width=0.85\textwidth]{Figure2/MOAT.jpg}}
 \caption{Sensitivity analysis of model parameters, determined via the global Morris one-step-at-a-time method. $\mu^*$ denotes the average absolute change in Time to Cancer when the parameter is varied.}
 \label{fig:MOAT}
 \end{figure}
