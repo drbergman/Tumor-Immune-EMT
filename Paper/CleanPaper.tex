@@ -19,7 +19,7 @@
 
 
 \title{
-Modeling the competing effects of the immune system and EMT on epithelial cancers
+Modeling the effects of the immune system and EMT on epithelial cancer progression
 }
 
 \author{ Daniel R. Bergman\textsuperscript{1},
@@ -46,10 +46,11 @@ and Adam L. MacLean\textsuperscript{1,3,*}
 
 
 %\section*{Abstract}
-\lettrineabstract{During progression from carcinoma in situ to an invasive tumor, the immune system is engaged in complex sets of interactions with various tumor cells. Moreover, tumor cell plasticity can significantly alter disease trajectories via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions, yet little is known about the mechanisms and consequences of these regulatory processes. Here we introduce a multiscale evolutionary model to describe the interplay between tumor-immune-EMT interactions and their impact on epithelial cancers. Through in silico analysis of large patient cohorts, we find controllable regimes that maximize invasion-free survival. We identify that delaying tumor progression depends crucially on properties of the mesenchymal tumor cell phenotype: its growth rate and its immune-evasiveness. Through analysis of pancreatic and ovarian cancers from The Cancer Genome Atlas to assess model predictions against clinical measurements, we find that association with EMT significantly worsened the invasion-free survival probabilities of inflammation-associated cancer. These results offer novel means to delay disease progression by regulating properties of EMT, and demonstrate the importance of studying cancer-immune interactions in light of EMT. }
+\lettrineabstract{During progression from carcinoma in situ to an invasive tumor, the immune system is engaged in complex sets of interactions with various tumor cells. Moreover, tumor cell plasticity can significantly alter disease trajectories via epithelial-to-mesenchymal transition (EMT). Several of the same pathways that regulate EMT are involved in tumor-immune interactions, yet little is known about the mechanisms and consequences of crosstalk between these regulatory processes. Here we introduce a multiscale evolutionary model to describe  tumor-immune-EMT interactions and their impact on epithelial cancer progression from in situ to invasive disease. Through in silico analyses of large patient cohorts, we find controllable regimes that maximize invasion-free survival. We identify that delaying tumor progression depends crucially on properties of the mesenchymal tumor cell phenotype: its growth rate and its immune-evasiveness. Through analysis of inflammation-associated cancer data from The Cancer Genome Atlas, we find that -- in agreement with model predictions -- association with EMT significantly worsens invasion-free survival probabilities. These results offer novel means to delay disease progression by regulating properties of EMT, and demonstrate the importance of studying cancer-immune interactions in light of EMT.
+}
 
 
-%\linenumbers
+\linenumbers
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,24 +165,24 @@ Tumor cells can take on either epithelial or mesenchymal phenotypes in a plastic
 While the EMT score is continuous, a threshold determines if a given cell is labeled as epithelial or mesenchymal (Fig. \ref{fig:ModelIntro}).
 %Even though each cell does have an EMT score on a spectrum of values, only the labeling influences its interactions in the model.
 
-\subsection{Tumor Evolution}\label{TissueCells}
+\subsection{Tumor evolution}\label{TissueCells}
 Associated with each tumor cells are two essential features: their mutational signature and their EMT score. We consider three idealized pathways that can be mutated: proliferation, when altered this increases the probability of the cell proliferating within each cell cycle; apoptosis, when altered this decreases the probability of a cell undergoing apoptosis; and immune evasion, when altered this decreases the probability that a mutated cell will be cleared by immune components.
 %The EMT score will be exposited in Section \ref{EMT}. 
  
-\subsection{Immune Cell Population Dynamics}\label{ImmuneSystem}
+\subsection{Immune population dynamics}\label{ImmuneSystem}
 The immune system is modeled by three immune cell types: NKs, CTLs, and Tregs.
 The NKs and CTLs act on the system by recognizing invasive cells and clearing them.
 Upon clearance, they are deactivated and removed from the immune population.
 Tregs suppress the function of NKs and CTLs (reduce tumor cell clearance), and in addition, release TGF-$\beta$ which further shapes the TME by pushing tissues cells more towards a mesenchymal phenotype.
 
-\subsection{Periodic Inflammation} 
+\subsection{Periodic cycling inflammation states} 
 Inflammation is modeled as a cycling scheme between low and high inflammatory states, with varying on/off durations and intensities.
 %This is to simulate the various changes to the TME that can happen over long periods of time (days and weeks).
 For the purpose of simulation we consider the default state to be low inflammation, and update the immune activity parameters whenever a switch to the high state occurs.
 %When the inflammation switches to high, then a number of the parameters change values to reflect the additional immune activity.
 In the SI (Table S2) we give full details of parameter settings during low and high inflammation.
 
-\subsection{Epithelial-to-mesenchymal Transition}\label{EMT}
+\subsection{Epithelial-to-mesenchymal transition}\label{EMT}
 Each tissue cell has an EMT score between 0 and 1 with is set according to the concentration of TGF-$\beta$ in the TME. Above a threshold, the cell acquires the phenotype of a mesenchymal tumor cell (MTC); otherwise, it is an epithelial tumor cell (ETC).
 For the purpose of simulation, ETCs are considered to be in the base state, and MTCs will have a subset of their parameters updated.
 %MTCs notable have increased rates of immune evasion and decreased rates of proliferation.
@@ -194,7 +195,7 @@ In modeling EMT this way, we are assuming that the same factor, TGF-$\beta$, dri
 \par
 Cells that have undergone EMT (i.e. MTCs) experience a reduction in proliferation, referred to as mesenchymal growth arrest (MGA), and a decrease in the likelihood that they will be cleared by immune cells (NKs or CTLs), referred to as mesenchymal immune evasion (MIE). Both these parameters lie within the range $[0,1]$, thus we can sufficiently sample from their joint parameter space to explore it in depth with the need for informative priors to constrain their values.
 
-\subsection{Model Simulation}
+\subsection{Model simulation}
 %\subsubsection{Initial conditions} 
 \paragraph{Initial conditions.}
 Simulations are initialized with $N_0$ in situ tumor cells, determined by the choice of parameter values. A number of warmup cycles are run so that the model reaches steady state.
@@ -217,7 +218,7 @@ During each cell cycle, the fate of each cell is assigned: proliferation, apopto
 
 
 %\subsubsection{Completing the Cell Cycle}
-\paragraph{Completing the Cell Cycle.}
+\paragraph{Completing the cell cycle.}
 Once all tumor cells have been updated and fates chosen accordingly, non-tumor model components are updated. Immune cell populations are updated in two steps. First, immune cell exhaustion is calculated based on the number of tumor cells cleared, e.g. clearance of one tumor cell by an NK cells results in the NK cell population decreasing by one. Second, all immune cells (NKs, CTLs, Tregs) are updated according to a system of coupled ordinary differential equations that govern their population dynamics. CTL and Treg recruitment rates are dependent on the number of tumor cells; in addition  TGF-$\beta$ enhances the recruitment rate of Tregs.
 \par
 At the end of each cell cycle, new mutations can occur in cells that have undergone division, according to cell-specific probabilities that increase if no mutation occurs are reset to 0 in the event of a mutation. Finally, the concentration of TGF-$\beta$ and the EMT score for each cell are updated. Tregs and (to a lesser extent) invasive tumor cells are the sources of TGF-$\beta$; the total concentration per cell cycle is divided randomly among tumor cells. EMT is then assessed, depending on the EMT score of the cell and the local concentration of TGF-$\beta$.
@@ -291,11 +292,11 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
 
 
 
-\subsection{Parameter Choice and Sensitivity Analysis}
+\subsection{Parameter estimation and sensitivity analysis}
 To study parameter sensitivity, we implemented Morris a one-step-at-a-time global sensitivity analysis. Parameters are varied one at a time from a set of sampled ``base'' points and the resulting simulations recorded \cite{morris1991factorial, sohier2014improvement}. For each run we simulated 1000 patients, and initialized the Morris sampling with 30 points in parameter space (at least 10 are recommended in \cite{sohier2014improvement}. Parameter sampling a choice of prior parameter distributions. For many parameters, such as for the immune population dynamics,  measurements or estimates were available from literature \cite{de2014modeling}. For parameters such as MIE and MGA related to the mesenchymal phenotype, little prior information was available, thus these was sampled across all possible values in $[0,1]$. Tumor size in the model was scaled from cell numbers on the order of $10^9$ cells\cite{de2014modeling} to the order of $10^2$, and parameter values were scaled accordingly. Where parameter estimates existed, the prior for parameter $\theta_i$ is given as $\theta_i \sim \textrm{N}(m_e, 2m_e)$, where $m_e$ is the previous estimate and we take twice this value as the variance to obtain a range of samples that does not rely too heavily on previous work. The Morris algorithm computes the sensitivity, $\mu^*$, as the average of the absolute change of the output, which in our model is the area under the survival curve (Fig. \ref{fig:MOAT}).
 
 
-\subsection{Analysis of patient survival data from TCGA database}
+\subsection{Analysis of patient survival data from TCGA }
 We obtain primary tumor bulk mRNA sequencing and censored survival data for all individuals monitored in the relevant project from the Cancer Genome Atlas (TCGA) from the Genomic Data Commons portal in R, using the package TCGABiolinks.  Given $n >= 1$ gene set keywords (e.g. "inflammatory" and "emt"), the symbolic names of all msigdb gene sets are searched for matches to these keywords, and matched gene sets are grouped by keyword. For each element in the product S of all keyword groups, the following analysis is performed.
 \begin{enumerate}
      \item The first principle component of the expression across the gene set is obtained for each element of the n-tuple of gene sets.
@@ -433,8 +434,9 @@ When MIE is varied under different inflammation cycling schemes, for all the per
 
 \begin{figure}
 \center
-{\includegraphics[width=0.5\textwidth]{Figure5/heatmap2.jpg}}
-\caption{Summary of the effects of MIE and MGA on invasion-free survival.
+{\includegraphics[width=0.85\textwidth]{Figure5/FigHeatmapLIHC.pdf}}
+\caption{{\bf A.} Summary of the effects of MIE and MGA on invasion-free survival.
+  {\bf B.} Bayesian classification model applied to liver hepatocellular carcinoma (LIHC). Patients projected into 2D by principle components analysis to determine most probable regions of disease-free interval (DFI). Two local maxima are identified, separated by \tcr{XXXX}.
 }
 \label{fig:MIEvsMGA}
 \end{figure}
@@ -453,15 +455,18 @@ F. Survival plots corresponding to the clustering on inflammation.}
 \end{figure}
 
 %The effects that mesenchymal phenotypic properties have on progression can also be assessed by studying mesenchymal immune evasion ($\Delta_\text{MIE}$) and mesenchymal growth arrest ($\Delta_\text{MGA}$) on a heatmap (Fig. \ref{fig:MIEvsMGA}). We found that over the full range of values of $\Delta_\text{MGA}$ considered, increasing $\Delta_\text{MIE}$ decreases the invasion-free survival time.
-The effects on cancer progression of mesenchymal phenotypic properties are summarized in Fig. \ref{fig:MIEvsMGA}. For all values of MGA, increasing MIE leads to a decrease in invasion-free survival times. For a given value of MIE however, there is an optimal value of MGA that maximizes invasion-free survival. Moreover, this optimum increases with increasing MIE.
-%These results show that while reducing the ability of a mutated cell to evade the immune system by any amount will improve the probability of invasion-free survival, an optimal value of MGA will prolong the tumor remaining in situ. 
+
+
 \par
-To compare these model predictions with experimental studies, we analyzed data from The Cancer Genome Atlas (TCGA) \cite{Weinstein}. We studied the effects of immune interactions and EMT on cancer prognosis, especially on tumors for which inflammation is known to play an important role, such as colonic or pancreatic  \cite{greten2019inflammation,hu2010inflammation}.
+To compare these model predictions with experimental studies, we analyzed data from The Cancer Genome Atlas (TCGA) \cite{Weinstein}. We studied the effects of immune interactions and EMT on cancer prognosis, especially on tumors for which inflammation is known to play an important role, such as those of the colon, or pancreas, or liver  \cite{greten2019inflammation,hu2010inflammation}.
 The TCGA Pan-Cancer Clinical Data Resource provides multiple computed clinical endpoints for pancreatic cancer (PAAD) \cite{liu2018integrated}.
-Here, we focus on the disease-free interval (DFI) and the overall survival (OS). A tumor with a short DFI will likely undergo rapid progression post-treatment. We thus expect the distance between DFI and OS to be small for a rapidly progressing tumor, following initial detection. We can therefore characterize tumors as either rapidly progressing or slowly progressing by defining a threshold for the ratio DFI/OS. We selected three tumors for study whose Clinical Data Resource profiles indicated slow progression (ovarian, OV; skin cutaneous melanoma, SKCM; liver hepatocellular carcinoma, LIHC) and two tumors whose profiles indicated rapid progression (pancreatic cancer, PAAD; lung adenocarcinoma, LUAD).
-%See Figures \ref{fig:OV} and \ref{fig:PAAD} for OV and PAAD. The others are in the supplement.
+Here, we focus on the disease-free interval (DFI) and the overall survival (OS). A tumor with a short DFI will likely undergo rapid progression post-treatment. We thus expect the distance between DFI and OS to be small for a rapidly progressing tumor, following initial detection. We can therefore characterize tumors as either rapidly progressing or slowly progressing by defining a threshold for the ratio DFI/OS. We selected tumors for which Clinical Data Resource profiles indicated slow progression (ovarian, OV; skin cutaneous melanoma, SKCM; liver hepatocellular carcinoma, LIHC) and two tumors whose profiles indicated rapid progression (pancreatic cancer, PAAD; lung adenocarcinoma, LUAD).
 \par
-For each cohort of patients for which we have clinical and expression data, we cluster patients via k-means (n = 2) against the gene ontologies relating to either: EMT signature alone, inflammatory signature alone, or the combination of both signatures. We then plot the corresponding survival curves (using the OS from TCGA) for each of the two groups (Fig.  \ref{fig:OV} for ovarian cancer and Fig. \ref{fig:PAAD} for pancreatic cancer).
+The effects on cancer progression of mesenchymal phenotypic properties predicted by the model are summarized in Fig. \ref{fig:MIEvsMGA}A. Where, %For all values of MGA, increasing MIE leads to a decrease in invasion-free survival times.
+for a given value of MIE, there is an optimal value of MGA that maximizes invasion-free survival. %Moreover, this optimum increases with increasing MIE.
+We use two models to compare these predictions with TCGA data: a Bayesian supervised classification model, and survival analysis with k-means clustering (see Methods). The classification model applied to liver carcinoma identifies local maxima that promote survival, demonstrating intriguing similarities with model results (Fig.  \ref{fig:MIEvsMGA}B). \tcr{Classification plots for OV/PAAD in SI}
+\par
+For each cohort of patients for which we have clinical and expression data, we cluster the patients via k-means (n = 2) against gene ontologies relating to either: EMT signature alone, inflammatory signature alone, or the combination of both signatures. We then plot the corresponding survival curves (using the OS from TCGA) for each of the two groups (Fig.  \ref{fig:OV} for ovarian cancer and Fig. \ref{fig:PAAD} for pancreatic cancer).
 %(Figures \ref{fig:OV}C, \ref{fig:PAAD}C), only inflammation (Figures \ref{fig:OV}E, \ref{fig:PAAD}E), and both EMT and inflammation (Figures \ref{fig:OV}A, \ref{fig:PAAD}A).
 We see that for both these tumor types, survival is affected by the gene ontology signature, and the combination of both EMT and inflammatory signatures has a greater impact on survival than the effects of either EMT or inflammation alone.
 This suggests that in considering interactions between cancer and the immune system, is it of critical importance to consider the effects of EMT, as these can significant impact outcomes and should not be overlooked. 
