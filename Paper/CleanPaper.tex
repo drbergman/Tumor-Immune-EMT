@@ -116,11 +116,23 @@ EMT impacts tumor cells through their proliferation and potential to evade the i
 and increased immune evasiveness %(by $\Delta_{MIE}$).
 %Cellular plasticity permits tumors cells by being able to undergo epithelial-to-mesenchymal transition (EMT) and move along this spectrum as a result of intrinsic and extrinsic factors.
 %TGF-$\beta$, an activator of EMT, connects the tumor-immune model with EMT via its concentration in the TME.
-TGF-$\beta$, an activator of EMT, is produced both by Tregs and tumor cells, thus connecting tumor-immune interactions with EMT, and as a result plays an important role in shaping tumor outcomes. EMT depends on TGF-$\beta$ concentration through a Hill-type function that determines the likelihood of EMT (or the reverse MET) through its magnitude relative to $\tau_{i-1}$. This is described by the equation:
-    $$
-    \tau_i = \frac{\tau_{\text{max}}}{N_C}\frac{\tau/K_3}{1+\tau/K_3} + X_i, \quad X_i \sim N(0,\sigma^2)
-    $$
-    Here, $\tau$ is the concentration of TGF-$\beta$ in the TME and $\tau_\text{max}$ represents a limit on the amount of TGF-$\beta$ that can be absorbed by all cells, with Gaussian noise added.
+TGF-$\beta$, an activator of EMT, is produced both by Tregs and tumor cells, thus connecting tumor-immune interactions with EMT, and as a result plays an important role in shaping tumor outcomes.
+To determine whether a cell undergoes EMT or MET, the TGF-$\beta$ is randomly divided among the cells so that associated with each cell $i$ is a value $\tau_i$.
+This value is given by the following equation:
+$$
+\tau_i = \frac{\tau_{\text{max}}}{N_C}\frac{\tau/K_3}{1+\tau/K_3} + X_i, \quad X_i \sim N(0,\sigma^2)
+$$
+Here, $\tau$ is the concentration of TGF-$\beta$ in the TME and $\tau_\text{max}$ represents a limit on the amount of TGF-$\beta$ that can be absorbed by all cells, with Gaussian noise added.
+\newline
+For each cell, $\tau_i$ is summed with the current EMT score for that cell and if the result is above a threshold value, the cell undergoes EMT, otherwise MET.
+This summation expresses the assumption that the epithelial and mesenchymal phenotypes are stable and cells will move along the EMT spectrum towards the equilibrium they identify as under typical conditions.
+%This is then combined with the cell's EMT score and a threshold value determines if the cell subsequently undergoes EMT or MET.
+%In doing this, we are assuming that the epithelial and mesenchymal phenotypes are stable and cells in a given type tend to move towards that 
+%This represents cell-extrinsic sources shaping the trajectory of the cell along the EMT spectrum.
+%Intrinsically, we assume that a cell is likely to keep its same phenotype, so we mesenchymal cells are more li
+%If the difference is large enough, the cell undergoes EMT, otherwise it undergoes MET.
+%This value $\tau_i$ is given by the following equation:
+%EMT depends on TGF-$\beta$ concentration through a Hill-type function that determines the likelihood of EMT (or the reverse MET) through its magnitude relative to $\tau_{i}$. This is described by the equation:
     \newline
     Our goal is to determine when the cancer becomes invasive, determined through the proportion of tumor cells harboring mutations in pathways that permit escape from in situ, relative to the total tumor cell population.
   \end{framed}
@@ -380,7 +392,7 @@ In addition, inflammation parameters controlling the periodic high/low inflammat
 \begin{figure}
 \center
 {\includegraphics[width=0.85\textwidth]{Figure3/Figure3.pdf}}
-\caption{Effects of mesenchymal tumor cell properties on the time to invasion. Trajectories of one patient per cohort including warmup and 2000 cell cycles for {\bf A.} mesenchymal immune evasion (MIE); {\bf A.} mesenchymal growth arrest (MGA); {\bf C.} Production of TGF-$\beta$ by Tregs.
+\caption{Effects of mesenchymal tumor cell properties on the time to invasion. Trajectories of one patient per cohort including warmup and 2000 cell cycles for {\bf A.} mesenchymal immune evasion (MIE); {\bf B.} mesenchymal growth arrest (MGA); {\bf C.} Production of TGF-$\beta$ by Tregs.
 {\bf D.} Survival curve corresponding to changes in the parameter MIE (A) for a patient cohort of 1000. Shaded region represents the 95\% confidence interval over the cohort. 
 {\bf E.} Survival curve corresponding to changes in MGA.
 {\bf F.} Survival curve corresponding to changes in Treg production of TGF-$\beta$. }
@@ -400,7 +412,12 @@ The relationship between MGA and invasion-free survival times displays a very di
 %As MGA increases, invasion-free survival increases: lower proliferation rates for mesenchymal cells slow down cancer progression (Fig \ref{fig:FirstSurvivalCurves}B).
 %This is not intuitive, since decreased proliferation rates affects all mesenchymal cells, not just the invasive cells.
 \par
-TGF-$\beta$ varies according to its production by tumor cells and its production by Tregs. Here we assess the effects of varying the production of  TGF-$\beta$ by Tregs on invasion-free survival (Fig \ref{fig:FirstSurvivalCurves}B, E). We find, interestingly, that at lower production rates of TGF-$\beta$ lead to more rapid invasion or if it survives to a certain time point, a longer time to invasion.
+\tcr{
+TGF-$\beta$ varies according to its production by tumor cells and its production by Tregs. Here we assess the effects of varying the production of  TGF-$\beta$ by Tregs on invasion-free survival (Fig \ref{fig:FirstSurvivalCurves}C, F). We find that at lower production rates of TGF-$\beta$, the survival curve initially declines faster whereas higher production rates result in a steeper drop off in survival later. This is due to the possibility that the immune system rapidly clears the tumor upon influx of adaptive immune cells. A higher production of TGF-$\beta$ by the Tregs mitigates this possibility.
+}
+
+% lead to more rapid invasion or if it survives to a certain time point, a longer time to invasion.
+
 
 %The effect we do see is that lower Treg TGF-$\beta$ results in more rapid invasion or if it survives to a certain time point, a longer time to invasion.
 %Here, we choose to focus on the results of the effect of MIE and MGA as the more direct link to the mesenchymal phenotype.

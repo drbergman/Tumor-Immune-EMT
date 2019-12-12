@@ -1,4 +1,3 @@
-
 \documentclass[11pt, a4paper, preprint]{article}
 
 \usepackage{amsmath, amssymb, graphicx, outline, float, cite, color}
@@ -33,6 +32,8 @@ and \\Adam L. MacLean\,$^{3,*}$
 \begin{document}
 \maketitle
 \tableofcontents
+\listoftables
+\listoffigures
 
 \section{Model Description}
 
@@ -225,7 +226,7 @@ $\Delta_\text{MIE}$ &  mesenchymal immune evasion \\
  $\tau_\text{Treg}$ & rate of TGF-$\beta$ production by Treg\\
   \hline
 \end{tabular}
-  \caption{The model parameter names and descriptions. Note that many of these values are affected by the inflammation state of the system.}
+  \caption[Parameter names and descriptions]]{The model parameter names and descriptions. Note that many of these values are affected by the inflammation state of the system.}
 \end{center}
 \end{table}
 
@@ -298,13 +299,66 @@ $\Delta_\text{MIE}$ & MIE & 0.6 & \\
   \hline
   & increase in probability to mutate for non-mutating proliferating cells & 0.0001 & \\
   \hline
-  \caption{The model parameter names, descriptions, and values during both low and high inflammation. Parameters with only one value do not change with the inflammatory state.}
+  \caption[Parameter values]{The model parameter names, descriptions, and values during both low and high inflammation. Parameters with only one value do not change with the inflammatory state.}
 \end{longtable}
+
+%%%%%%%%%%%%%%%%
+% Figures
+%%%%%%%%%%%%%%%%
+
+
+
+\begin{figure}
+\center
+{\includegraphics[width=1\textwidth]{../Figs/Figure1/SI_fig1.pdf}}
+\caption[Fig. 1BC without targeting premalignant cells]{
+A. Single patient trajectory without immune cells targeting premalignant cells. Compare to Fig. 1B. B. Sample cohort survival curve without immune cells targeting premalignant cells. Compare to Fig. 1C.
+}
+\label{fig:1_first}
+\end{figure}
+
+\begin{figure}
+\center
+{\includegraphics[width=0.65\textwidth]{../Figs/Figure2/Figure2.jpg}}
+\caption[Fig. 2 without targeting premalignant cells]{
+Morris-OAT global sensitivity without immune cells targeting premalignant cells. Compare to Fig. 2.
+}
+\label{fig:2_first}
+\end{figure}
+
+\begin{figure}
+\center
+{\includegraphics[width=0.65\textwidth]{../Figs/Figure3/Outdated/Figure3_first.pdf}}
+\caption[Fig. 3 without targeting premalignant cells]{
+Effects of mesenchymal tumor cell properties on the Time to Cancer without immune cells targeting premalignant cells. Compare to Fig. 3.
+}
+\label{fig:3_first}
+\end{figure}
+
+\begin{figure}
+\center
+{\includegraphics[width=0.65\textwidth]{../Figs/Figure4/Figure4_first.pdf}}
+\caption[Fig. 4 without targeting premalignant cells]{
+Effects of inflammation on the Time to Cancer without immune cells targeting premalignant cells. Compare to Fig. 4.
+}
+\label{fig:4_first}
+\end{figure}
+
+\begin{figure}
+\center
+{\includegraphics[width=0.65\textwidth]{../Figs/Figure5/MIEvsMGA_bigcbar.jpg}}
+\caption[Fig. 5 without targeting premalignant cells]{
+Summary of the contrasting effects of MIE and MGA on Time to Cancer without immune cells targeting premalignant cells. Compare to Fig. 5.
+}
+\label{fig:5_first}
+\end{figure}
+
+
 
 \begin{figure}
 \center
 {\includegraphics[width=0.65\textwidth]{../Figs/Figure6/SKCM.pdf}}
-\caption{A. K-means clustering of SKCM using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
+\caption[SKCM TCGA Data Analysis]{A. K-means clustering of SKCM using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
 B. Survival plots corresponding to the clustering on EMT and inflammation.
 C. K-means clustering of SKCM using gene ontology terms indicative of an EMT signature ($k=2$).
 D. Survival plots corresponding to the clustering on EMT.
@@ -316,7 +370,7 @@ F. Survival plots corresponding to the clustering on inflammation.}
 \begin{figure}
 \center
 {\includegraphics[width=0.65\textwidth]{../Figs/Figure6/LIHC.pdf}}
-\caption{A. K-means clustering of LIHC using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
+\caption[LIHC TCGA Data Analysis]]{A. K-means clustering of LIHC using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
 B. Survival plots corresponding to the clustering on EMT and inflammation.
 C. K-means clustering of LIHC using gene ontology terms indicative of an EMT signature ($k=2$).
 D. Survival plots corresponding to the clustering on EMT.
@@ -328,7 +382,7 @@ F. Survival plots corresponding to the clustering on inflammation.}
 \begin{figure}
 \center
 {\includegraphics[width=0.65\textwidth]{../Figs/Figure6/LUAD.pdf}}
-\caption{A. K-means clustering of LUAD using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
+\caption[LUAD TCGA Data Analysis]{A. K-means clustering of LUAD using gene ontology terms indicative of EMT and inflammation signatures ($k=2$).
 B. Survival plots corresponding to the clustering on EMT and inflammation.
 C. K-means clustering of LUAD using gene ontology terms indicative of an EMT signature ($k=2$).
 D. Survival plots corresponding to the clustering on EMT.
@@ -336,60 +390,5 @@ E. K-means clustering of LUAD using gene ontology terms indicative of inflammati
 F. Survival plots corresponding to the clustering on inflammation.}
 \label{fig:LUAD}
 \end{figure}
-
-\begin{figure}
-\center
-{\includegraphics[width=0.65\textwidth]{../Figs/Figure1/SinglePatientBlue.jpg}}
-\caption{
-Single patient trajectory without immune cells targeting premalignant cells. Compare to Fig. 1B.
-}
-\label{fig:1b_first}
-\end{figure}
-
-\begin{figure}
-\center
-{\includegraphics[width=0.65\textwidth]{../Figs/Figure1/OneSurvivalCurve.jpg}}
-\caption{
-Sample cohort survival curve without immune cells targeting premalignant cells. Compare to Fig. 1C.
-}
-\label{fig:1c_first}
-\end{figure}
-
-\begin{figure}
-\center
-{\includegraphics[width=0.65\textwidth]{../Figs/Figure2/Figure2.jpg}}
-\caption{
-Morris-OAT global sensitivity without immune cells targeting premalignant cells. Compare to Fig. 2.
-}
-\label{fig:2_first}
-\end{figure}
-
-\begin{figure}
-\center
-{\includegraphics[width=0.65\textwidth]{../Figs/Figure3/Figure3_first.pdf}}
-\caption{
-Effects of mesenchymal tumor cell properties on the Time to Cancer without immune cells targeting premalignant cells. Compare to Fig. 3.
-}
-\label{fig:3_first}
-\end{figure}
-
-\begin{figure}
-\center
-{\includegraphics[width=0.65\textwidth]{../Figs/Figure4/Figure4_first.pdf}}
-\caption{
-Effects of inflammation on the Time to Cancer without immune cells targeting premalignant cells. Compare to Fig. 4.
-}
-\label{fig:4_first}
-\end{figure}
-
-\begin{figure}
-\center
-{\includegraphics[width=0.65\textwidth]{../Figs/Figure5/MIEvsMGA_bigcbar.jpg}}
-\caption{
-Summary of the contrasting effects of MIE and MGA on Time to Cancer without immune cells targeting premalignant cells. Compare to Fig. 5.
-}
-\label{fig:5_first}
-\end{figure}
-
 
 \end{document}
